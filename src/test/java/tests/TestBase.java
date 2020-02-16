@@ -1,0 +1,129 @@
+package tests;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import pom.homepage.HomePage;
+import readresources.parameters.WebUiParameters;
+
+public abstract class TestBase {
+    private static final Logger log = Logger.getLogger(TestBase.class);
+
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+
+    // WEB UI params
+    protected static String hnURL;
+
+    // protected members
+    protected HomePage homePage;
+
+    @BeforeSuite(alwaysRun = true)
+    public void setUpSuite() {
+
+        hnURL = WebUiParameters.getHnUrl();
+    }
+
+    public void setUpMethod() {
+        try {
+            goToLoginPage();
+//            loginTo();
+            homePage = new HomePage(driver);
+        } catch (Exception e) {
+            log.error("Before method failed, the reason: " + e.getMessage());
+        }
+    }
+
+    protected void goToLoginPage() {
+        log.info(String.format("Open a browser, go to %s", hnURL));
+        driver.get(hnURL);
+        driver.manage().window().maximize();
+    }
+
+    protected void createChromeDriver() {
+
+        log.info("Create Chrome driver");
+
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        capabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.merge(capabilities);
+        driver = new ChromeDriver(chromeOptions);
+//        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+//        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+
+    }
+
+    protected void createFirefoxDriver() {
+
+        log.info("Create Firefox driver");
+
+//        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+//        capabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+//        capabilities.setCapability("marionette", "true");
+        FirefoxOptions firefoxOptions = new FirefoxOptions(); //.setLegacy(true);
+        firefoxOptions.setCapability("strictFileInteractability", true);
+//        firefoxOptions.merge(capabilities);
+//        driver = new FirefoxDriver(firefoxOptions);
+//        driver = new FirefoxDriver();
+        driver = new FirefoxDriver(firefoxOptions);
+//        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+//        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+
+    }
+
+    protected void createInternetExplorerDriver() {
+
+        log.info("Create InternetExplorer driver");
+
+        DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+        capabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+        capabilities.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING, true);
+        capabilities.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
+//        capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+        capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
+        capabilities.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
+
+        InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
+        internetExplorerOptions.merge(capabilities);
+        driver = new InternetExplorerDriver(internetExplorerOptions);
+//        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+//        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+
+    }
+
+    protected String osName() {
+        String OS = System.getProperty("os.name").toLowerCase();
+
+        if (OS.contains("win")) {
+            return "windows";
+        } else if (OS.contains("nix") || OS.contains("nux") || OS.contains("aix") || OS.contains("sunos")) {
+            return "unix";
+        } else if (OS.contains("mac")) {
+            return "mac";
+        } else {
+            throw new RuntimeException("OS not supported");
+        }
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void tearDownMethod() {
+        if (driver != null) driver.quit();
+    }
+
+    @AfterSuite(alwaysRun = true)
+    public void tearDownSuite() {
+        if (driver != null) driver.quit();
+    }
+}

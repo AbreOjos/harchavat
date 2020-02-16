@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.chrome.ChromeTemporalTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-02-16T12:20:41" hostname="Igor-PC" time="7.085">
+  <properties/>
+  <testcase name="testClickHeaderLinks" classname="tests.chrome.ChromeTemporalTests" time="7.085"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[log4j:WARN No appenders could be found for logger (tests.TestBase).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Feb 16, 2020 2:20:27 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+Starting ChromeDriver 2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5) on port 31813
+Only local connections are allowed.
+[1581855631.164][WARNING]: Timed out connecting to Chrome, retrying...
+Feb 16, 2020 2:20:33 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+[1581855636.883][WARNING]: Timed out connecting to Chrome, retrying...
+]]></system-err>
+</testsuite>
