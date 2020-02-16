@@ -7,6 +7,7 @@ import pom.filledforms.FilledForms;
 import pom.fillform.FillForm;
 import pom.homepage.HomePage;
 
+import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.clickElementWithJavaScript;
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 
 public abstract class BasePage {
@@ -83,6 +84,17 @@ public abstract class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    // == protected methods ==
+    protected void clickDropDownList(WebElement list, WebElement option) {
+        clickElementWithJavaScript(driver, list);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        clickElementWithJavaScript(driver, option);
     }
 
 

@@ -86,4 +86,13 @@ public class Waits {
         wait.until(drvr -> drvr.findElement(by));
     }
 
+    public static void fluentWaitElementClickable(WebDriver driver, WebElement webElement, long maxTimeOutSeconds) {
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(maxTimeOutSeconds))
+                .pollingEvery(Duration.ofSeconds(5))
+                .ignoring(NoSuchElementException.class);
+
+        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
 }
