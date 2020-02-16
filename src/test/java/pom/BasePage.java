@@ -13,7 +13,7 @@ public abstract class BasePage {
 
     protected WebDriver driver;
 
-    // == PACKAGE-PRIVATE FIELDS (web-elements) ==
+    // == PRIVATE FIELDS (web-elements) ==
 
     // == header elements ==
     @FindBy(xpath = "//*[@id='layersContainer']//a[@href='#/']")

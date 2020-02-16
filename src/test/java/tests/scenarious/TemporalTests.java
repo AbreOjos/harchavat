@@ -3,6 +3,7 @@ package tests.scenarious;
 import org.apache.log4j.Logger;
 import pom.filledforms.FilledForms;
 import pom.fillform.FillForm;
+import pom.fillform.forms.*;
 import tests.TestBase;
 
 public class TemporalTests extends TestBase {
@@ -18,6 +19,25 @@ public class TemporalTests extends TestBase {
         FilledForms filledForms = fillForm.clickLinkFilledForms();
 
         homePage.clickButtonLogOut();
+    }
+
+    protected void clickSideMenu() {
+        log.info("open page, click Fill Form upper link, click all side menus");
+
+        FillForm fillForm = homePage.clickLinkFillForm();
+
+        PersonalDetails personalDetails = fillForm.clickMenuPersonalDetails();
+
+        Wage wage = personalDetails.clickMenuWage();
+
+        RealEstate realEstate = wage.clickMenuRealEstate();
+
+        Various various = realEstate.clickMenuVarious();
+
+        Vehicle vehicle = various.clickMenuVehicle();
+
+        SendForm sendForm = vehicle.clickMenuSendForm();
+
     }
 
 }
