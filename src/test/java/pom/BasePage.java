@@ -3,6 +3,7 @@ package pom;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import pom.filledforms.FilledForms;
 import pom.fillform.FillForm;
 import pom.homepage.HomePage;
@@ -94,7 +95,11 @@ public abstract class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        PageFactory.initElements(driver, this);
+
         clickElementWithJavaScript(driver, option);
+
+        PageFactory.initElements(driver, this);
     }
 
 

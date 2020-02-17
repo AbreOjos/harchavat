@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
 import pom.fillform.forms.*;
-import pom.homepage.HomePage;
 
 import java.util.List;
 
@@ -50,6 +49,10 @@ public class FillForm extends BasePage {
     // yes-no boxes
     @FindBy(xpath = "//*[@class='yes-no-box']")
     protected List<WebElement> yesNoBoxes;
+
+    // drop-down
+    @FindBy(xpath = "//*[contains(@class,'menuable__content__active')]//*[@role='listitem']")
+    protected List<WebElement> dropDownListItemsActive;
 
 
     // == getters ==

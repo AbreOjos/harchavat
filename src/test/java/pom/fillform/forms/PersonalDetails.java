@@ -197,6 +197,34 @@ public class PersonalDetails extends FillForm {
         PageFactory.initElements(driver, this);
     }
 
+    // martial statuses
+    public void chooseMartialStatusPolygamy() {
+        clickDropDownList(dropDownMaritalStatus, dropDownListItemsActive.get(0));
+    }
+
+    public void chooseMartialStatusSpousalAlliance() {
+        clickDropDownList(dropDownMaritalStatus, dropDownListItemsActive.get(1));
+    }
+
+    public void chooseMartialStatusWidow() {
+        clickDropDownList(dropDownMaritalStatus, dropDownListItemsActive.get(2));
+    }
+
+    public void chooseMartialStatusFree() {
+        clickDropDownList(dropDownMaritalStatus, dropDownListItemsActive.get(3));
+    }
+
+    public void chooseMartialStatusDivorced() {
+        clickDropDownList(dropDownMaritalStatus, dropDownListItemsActive.get(4));
+    }
+
+    public void chooseMartialStatusMarried() {
+        clickDropDownList(dropDownMaritalStatus, dropDownListItemsActive.get(5));
+    }
+
+    public void chooseMartialStatusBachelor() {
+        clickDropDownList(dropDownMaritalStatus, dropDownListItemsActive.get(6));
+    }
 
 }
 
