@@ -4,6 +4,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.*;
+
 public class JavaScriptHelpersHarchavat {
 
     /**
@@ -12,18 +14,18 @@ public class JavaScriptHelpersHarchavat {
      * @param webElement web-element that need to be clicked
      * @deprecated This method will be removed in near future. Use same method from JavascriptExecutors instead.
      */
-    @Deprecated
-    public static void clickElementWithJavaScript(WebDriver driver, WebElement webElement) {
-        JavascriptExecutor executor =
-                (JavascriptExecutor)driver;
-        executor.executeScript("arguments[0].click();", webElement);
-
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+//    @Deprecated
+//    public static void clickElementWithJavaScript(WebDriver driver, WebElement webElement) {
+//        JavascriptExecutor executor =
+//                (JavascriptExecutor)driver;
+//        executor.executeScript("arguments[0].click();", webElement);
+//
+//        try {
+//            Thread.sleep(500);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     /**
      *
@@ -32,11 +34,11 @@ public class JavaScriptHelpersHarchavat {
      * @throws InterruptedException standard exception
      * @deprecated This method will be removed in near future. Use same method from JavascriptExecutors instead.
      */
-    @Deprecated
-    public static void focusElement(WebDriver driver, WebElement webElement) throws InterruptedException {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].focus();", webElement);
-        Thread.sleep(500);
-    }
+//    @Deprecated
+//    public static void focusElement(WebDriver driver, WebElement webElement) throws InterruptedException {
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].focus();", webElement);
+//        Thread.sleep(500);
+//    }
 
 
     /**
@@ -54,6 +56,14 @@ public class JavaScriptHelpersHarchavat {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void scrollIntoViewMoveFocusAndClickWithJavaScript(WebDriver driver, WebElement webElement)
+            throws InterruptedException {
+        scrollElementIntoView(driver, webElement);
+        focusElement(driver, webElement);
+        clickElementWithJavaScript(driver, webElement);
+        Thread.sleep(500);
     }
 
 }

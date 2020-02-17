@@ -47,4 +47,8 @@ public class ChromeTemporalTests extends TemporalTests {
     public void testClickSideMenu() {
         clickSideMenu();
     }
+
+    public void testFillPersonalDetails() throws InterruptedException {
+        fillPersonalDetails();
+    }
 }

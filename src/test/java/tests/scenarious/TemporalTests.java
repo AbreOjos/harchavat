@@ -40,4 +40,48 @@ public class TemporalTests extends TestBase {
 
     }
 
+    protected void fillPersonalDetails() throws InterruptedException {
+        log.info("open page, click Fill Form upper link, click Personal Details side menus, fill fields");
+
+        FillForm fillForm = homePage.clickLinkFillForm();
+
+        PersonalDetails personalDetails = fillForm.clickMenuPersonalDetails();
+
+        // check all checkboxes
+        personalDetails = personalDetails.checkAgreement();
+        personalDetails = personalDetails.checkCanSendEmail();
+        personalDetails = personalDetails.checkHaveSpouse();
+        personalDetails = personalDetails.checkSpouseIsraeli();
+
+        // uncheck agreement
+        personalDetails = personalDetails.uncheckAgreement();
+
+        personalDetails = personalDetails.enterIdentity("123456789");
+        personalDetails = personalDetails.enterLastName("Gindin");
+        personalDetails.chooseMaritalStatusWidow();
+        String maritalStatus = personalDetails.getChoosenMaritalStatus();
+        System.out.println("Marital status Widow: " + maritalStatus);
+        personalDetails.chooseMaritalStatusDivorced();
+
+        personalDetails = personalDetails.enterCellular("0523798168");
+        maritalStatus = personalDetails.getChoosenMaritalStatus();
+        System.out.println("Marital status Divorced: " + maritalStatus);
+
+        personalDetails.chooseNumOfChildren(0);
+        String numOfChildren = personalDetails.getChoosenNumberOfChildren();
+        System.out.println("Number of children 0: " + numOfChildren);
+        personalDetails.chooseNumOfChildren(3);
+        numOfChildren = personalDetails.getChoosenNumberOfChildren();
+        System.out.println("Number of children 3: " + numOfChildren);
+        personalDetails.chooseNumOfChildren(19);
+        numOfChildren = personalDetails.getChoosenNumberOfChildren();
+        System.out.println("Number of children 19: " + numOfChildren);
+        personalDetails.chooseRegisteredSelectionSpouse();
+        String registeredSelection = personalDetails.getChoosenRegisterySelection();
+        System.out.println("Choosen registered selection Spouse: " + registeredSelection);
+
+        personalDetails = personalDetails.enterSpouseBirthYear("1923");
+
+    }
+
 }

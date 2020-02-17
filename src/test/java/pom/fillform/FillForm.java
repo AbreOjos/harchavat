@@ -50,10 +50,6 @@ public class FillForm extends BasePage {
     @FindBy(xpath = "//*[@class='yes-no-box']")
     protected List<WebElement> yesNoBoxes;
 
-    // drop-down
-    @FindBy(xpath = "//*[contains(@class,'menuable__content__active')]//*[@role='listitem']")
-    protected List<WebElement> dropDownListItemsActive;
-
 
     // == getters ==
     public WebElement getMenuPersonalDetails() {

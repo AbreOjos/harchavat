@@ -8,6 +8,8 @@ import pom.filledforms.FilledForms;
 import pom.fillform.FillForm;
 import pom.homepage.HomePage;
 
+import java.util.List;
+
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.clickElementWithJavaScript;
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 
@@ -26,6 +28,10 @@ public abstract class BasePage {
     private WebElement linkFilledForms;
     @FindBy(xpath = "//*[@id='layersContainer']//a[@id='signOut']")
     private WebElement btnLogout;
+
+    // drop-down
+    @FindBy(xpath = "//*[contains(@class,'menuable__content__active')]//*[@role='listitem']")
+    protected List<WebElement> dropDownListItemsActive;
 
     // == getters ==
     public WebElement getLinkHomePage() {
@@ -88,7 +94,7 @@ public abstract class BasePage {
     }
 
     // == protected methods ==
-    protected void clickDropDownList(WebElement list, WebElement option) {
+    protected void clickDropDownList(WebElement list, int option) {
         clickElementWithJavaScript(driver, list);
         try {
             Thread.sleep(500);
@@ -97,7 +103,8 @@ public abstract class BasePage {
         }
         PageFactory.initElements(driver, this);
 
-        clickElementWithJavaScript(driver, option);
+//        clickElementWithJavaScript(driver, dropDownListItemsActive.get(option));
+        dropDownListItemsActive.get(option).click();
 
         PageFactory.initElements(driver, this);
     }
