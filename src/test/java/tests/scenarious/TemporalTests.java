@@ -40,6 +40,42 @@ public class TemporalTests extends TestBase {
 
     }
 
+    protected void clickNextPreviousButtons() {
+        log.info("open page, click Fill Form upper link, cycle with Next / Previous buttons");
+
+        homePage.clickLinkFillForm();
+
+        PersonalDetails personalDetails = new PersonalDetails(driver);
+        personalDetails.clickBtnContinue();
+
+        Wage wage = new Wage(driver);
+        wage.clickBtnContinue();
+
+        RealEstate realEstate = new RealEstate(driver);
+        realEstate.clickBtnContinue();
+
+        Various various = new Various(driver);
+        various.clickBtnContinue();
+
+        Vehicle vehicle = new Vehicle(driver);
+        vehicle.clickBtnContinue();
+
+        SendForm sendForm = new SendForm(driver);
+        sendForm.clickBtnReturn();
+
+        vehicle = new Vehicle(driver);
+        vehicle.clickBtnReturn();
+
+        various = new Various(driver);
+        various.clickBtnReturn();
+
+        realEstate = new RealEstate(driver);
+        realEstate.clickBtnReturn();
+
+        wage = new Wage(driver);
+        wage.clickBtnReturn();
+    }
+
     protected void fillPersonalDetails() throws InterruptedException {
         log.info("open page, click Fill Form upper link, click Personal Details side menus, fill fields");
 

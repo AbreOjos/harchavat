@@ -48,6 +48,10 @@ public class ChromeTemporalTests extends TemporalTests {
         clickSideMenu();
     }
 
+    public void testClickNextPreviousButtons() {
+        clickNextPreviousButtons();
+    }
+
     public void testFillPersonalDetails() throws InterruptedException {
         fillPersonalDetails();
     }
