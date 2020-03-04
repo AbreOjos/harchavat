@@ -7,26 +7,8 @@ import tests.TestBase;
 public class TemporalTests extends TestBase {
     private static final Logger log = Logger.getLogger(TemporalTests.class);
 
-    /*protected void clickHeaderLinks() {
-        log.info("open page, click all upper links, logout");
-
-        homePage = homePage.clickLinkHomePage();
-
-        FillForm fillForm = homePage.clickLinkFillForm();
-
-        FilledForms filledForms = fillForm.clickLinkFilledForms();
-
-        homePage.clickButtonLogOut();
-    }*/
-
     protected void clickSideMenu() {
         log.info("open page, click Fill Form upper link, click all side menus");
-
-//        FillForm fillForm = homePage.clickLinkFillForm();
-
-//        FillForm fillForm = new FillForm(driver);
-
-
 
         PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
 
@@ -84,8 +66,6 @@ public class TemporalTests extends TestBase {
         // check all checkboxes
         personalDetails = personalDetails.checkAgreement();
         personalDetails = personalDetails.checkCanSendEmail();
-        personalDetails = personalDetails.checkHaveSpouse();
-        personalDetails = personalDetails.checkSpouseIsraeli();
 
         // uncheck agreement
         personalDetails = personalDetails.uncheckAgreement();
@@ -93,28 +73,17 @@ public class TemporalTests extends TestBase {
         personalDetails = personalDetails.enterIdentity("123456789");
         personalDetails = personalDetails.enterLastName("Gindin");
         personalDetails.chooseMaritalStatusWidow();
-        String maritalStatus = personalDetails.getChoosenMaritalStatus();
+        String maritalStatus = personalDetails.getChosenMaritalStatus();
         System.out.println("Marital status Widow: " + maritalStatus);
         personalDetails.chooseMaritalStatusDivorced();
 
         personalDetails = personalDetails.enterCellular("0523798168");
-        maritalStatus = personalDetails.getChoosenMaritalStatus();
+        maritalStatus = personalDetails.getChosenMaritalStatus();
         System.out.println("Marital status Divorced: " + maritalStatus);
 
-        personalDetails.chooseNumOfChildren(0);
-        String numOfChildren = personalDetails.getChoosenNumberOfChildren();
-        System.out.println("Number of children 0: " + numOfChildren);
-        personalDetails.chooseNumOfChildren(3);
-        numOfChildren = personalDetails.getChoosenNumberOfChildren();
-        System.out.println("Number of children 3: " + numOfChildren);
-        personalDetails.chooseNumOfChildren(19);
-        numOfChildren = personalDetails.getChoosenNumberOfChildren();
-        System.out.println("Number of children 19: " + numOfChildren);
-        personalDetails.chooseRegisteredSelectionSpouse();
-        String registeredSelection = personalDetails.getChoosenRegisterySelection();
-        System.out.println("Choosen registered selection Spouse: " + registeredSelection);
+        personalDetails.clickBtnSave();
 
-        personalDetails = personalDetails.enterSpouseBirthYear("1923");
+        personalDetails.clickBtnPrint();
 
     }
 

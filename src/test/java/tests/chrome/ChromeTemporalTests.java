@@ -40,9 +40,6 @@ public class ChromeTemporalTests extends TemporalTests {
         }
     }
 
-//    public void testClickHeaderLinks() {
-//        clickHeaderLinks();
-//    }
 
     public void testClickSideMenu() {
         clickSideMenu();

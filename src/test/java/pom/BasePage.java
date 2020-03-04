@@ -10,6 +10,7 @@ import java.util.List;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.clickElementWithJavaScript;
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
+import static utils.helpers.Waits.fluentWaitElementClickable;
 
 public class BasePage {
 
@@ -24,12 +25,6 @@ public class BasePage {
     // == PRIVATE FIELDS (web-elements) ==
 
     // == header elements ==
-//    @FindBy(xpath = "//*[@id='layersContainer']//a[@href='#/']")
-//    private WebElement linkHomePage;
-//    @FindBy(xpath = "//*[@id='layersContainer']//a[@href='#/fillform']")
-//    private WebElement linkFillForm;
-//    @FindBy(xpath = "//*[@id='layersContainer']//a[@href='#/filledforms']")
-//    private WebElement linkFilledForms;
     @FindBy(xpath = "//*[@id='layersContainer']//a[@id='signOut']")
     private WebElement btnLogout;
 
@@ -37,17 +32,21 @@ public class BasePage {
     @FindBy(xpath = "(//*[@class='side-menu']/div)[1]")
     private WebElement menuPersonalDetails;
     @FindBy(xpath = "(//*[@class='side-menu']/div)[2]")
-    private WebElement menuWage;
-    @FindBy(xpath = "(//*[@class='side-menu']/div)[3]")
-    private WebElement menuRealEstate;
-    @FindBy(xpath = "(//*[@class='side-menu']/div)[4]")
-    private WebElement menuVarious;
-    @FindBy(xpath = "(//*[@class='side-menu']/div)[5]")
     private WebElement menuVehicle;
+    @FindBy(xpath = "(//*[@class='side-menu']/div)[3]")
+    private WebElement menuWage;
+    @FindBy(xpath = "(//*[@class='side-menu']/div)[4]")
+    private WebElement menuRealEstate;
+    @FindBy(xpath = "(//*[@class='side-menu']/div)[5]")
+    private WebElement menuVarious;
     @FindBy(xpath = "(//*[@class='side-menu']/div)[6]")
     private WebElement menuSendForm;
 
     // buttons
+    @FindBy(xpath = "//i[contains(text(),'print')]/ancestor::button")
+    private WebElement btnPrint;
+    @FindBy(xpath = "//i[contains(text(),'save')]/ancestor::button")
+    private WebElement btnSave;
     @FindBy(xpath = "//i[contains(., 'chevron_left')]")
     private WebElement btnContinue;
     @FindBy(xpath = "//i[contains(., 'chevron_right')]")
@@ -62,18 +61,6 @@ public class BasePage {
     protected List<WebElement> dropDownListItemsActive;
 
     // == getters ==
-//    public WebElement getLinkHomePage() {
-//        return linkHomePage;
-//    }
-//
-//    public WebElement getLinkFillForm() {
-//        return linkFillForm;
-//    }
-//
-//    public WebElement getLinkFilledForms() {
-//        return linkFilledForms;
-//    }
-
     public WebElement getBtnLogout() {
         return btnLogout;
     }
@@ -114,43 +101,36 @@ public class BasePage {
         return btnReturn;
     }
 
-
-// == public methods ==
-/*    public HomePage clickLinkHomePage() {
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, linkHomePage);
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        return new HomePage(driver);
+    public WebElement getBtnSave() {
+        return btnSave;
     }
 
-    public FillForm clickLinkFillForm() {
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, linkFillForm);
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        return new FillForm(driver);
+    public WebElement getBtnPrint() {
+        return btnPrint;
     }
 
-    public FilledForms clickLinkFilledForms() {
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, linkFilledForms);
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
-        return new FilledForms(driver);
-    }*/
-
+    // == public methods ==
     public void clickButtonLogOut() {
         btnLogout.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void clickBtnPrint() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnPrint);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void clickBtnSave() {
+        fluentWaitElementClickable(driver, btnSave, 10);
+        btnSave.click();
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
@@ -161,7 +141,6 @@ public class BasePage {
     public void clickBtnContinue() {
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnContinue);
-            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -170,7 +149,6 @@ public class BasePage {
     public void clickBtnReturn() {
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnReturn);
-            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
