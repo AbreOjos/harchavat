@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import pom.homepage.HomePage;
+import pom.BasePage;
 import readresources.parameters.WebUiParameters;
 
 public abstract class TestBase {
@@ -27,7 +27,7 @@ public abstract class TestBase {
     protected static String hnURL;
 
     // protected members
-    protected HomePage homePage;
+    protected BasePage basePage;
 
     @BeforeSuite(alwaysRun = true)
     public void setUpSuite() {
@@ -39,7 +39,7 @@ public abstract class TestBase {
         try {
             goToLoginPage();
 //            loginTo();
-            homePage = new HomePage(driver);
+            basePage = new BasePage(driver);
         } catch (Exception e) {
             log.error("Before method failed, the reason: " + e.getMessage());
         }

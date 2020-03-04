@@ -36,7 +36,7 @@ public class IExplorerTemporalTests extends TemporalTests {
         }
     }
 
-    public void testClickHeaderLinks() {
-        clickHeaderLinks();
-    }
+//    public void testClickHeaderLinks() {
+//        clickHeaderLinks();
+//    }
 }

@@ -39,7 +39,7 @@ public class FirefoxTemporalTests extends TemporalTests {
         }
     }
 
-    public void testClickHeaderLinks() {
-        clickHeaderLinks();
-    }
+//    public void testClickHeaderLinks() {
+//        clickHeaderLinks();
+//    }
 }

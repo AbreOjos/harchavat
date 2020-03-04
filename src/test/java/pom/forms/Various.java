@@ -1,17 +1,18 @@
-package pom.fillform.forms;
+package pom.forms;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import pom.fillform.FillForm;
+import pom.BasePage;
 
 import static constants.FillFormConstants.falseSubElementYesNoBox;
 import static constants.FillFormConstants.trueSubElementYesNoBox;
 
-public class Various extends FillForm {
+public class Various extends BasePage {
 
     // == constructors==
     public Various(WebDriver driver) {
+        super(driver);
         this.driver = driver;
 
         PageFactory.initElements(this.driver, this);

@@ -1,12 +1,11 @@
-package pom.fillform.forms;
+package pom.forms;
 
-import automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors;
 import com.mysql.cj.exceptions.WrongArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pom.fillform.FillForm;
+import pom.BasePage;
 
 import java.util.List;
 
@@ -14,10 +13,11 @@ import static constants.FillFormConstants.selectedSubElementDropDownLists;
 import static utils.helpers.Waits.fluentWaitElementClickable;
 import static utils.utilitiesForInfra.JavaScriptHelpersHarchavat.scrollIntoViewMoveFocusAndClickWithJavaScript;
 
-public class PersonalDetails extends FillForm {
+public class PersonalDetails extends BasePage {
 
     // == constructors==
     public PersonalDetails(WebDriver driver) {
+        super(driver);
         this.driver = driver;
 
         PageFactory.initElements(this.driver, this);

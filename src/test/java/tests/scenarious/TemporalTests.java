@@ -1,15 +1,13 @@
 package tests.scenarious;
 
 import org.apache.log4j.Logger;
-import pom.filledforms.FilledForms;
-import pom.fillform.FillForm;
-import pom.fillform.forms.*;
+import pom.forms.*;
 import tests.TestBase;
 
 public class TemporalTests extends TestBase {
     private static final Logger log = Logger.getLogger(TemporalTests.class);
 
-    protected void clickHeaderLinks() {
+    /*protected void clickHeaderLinks() {
         log.info("open page, click all upper links, logout");
 
         homePage = homePage.clickLinkHomePage();
@@ -19,31 +17,33 @@ public class TemporalTests extends TestBase {
         FilledForms filledForms = fillForm.clickLinkFilledForms();
 
         homePage.clickButtonLogOut();
-    }
+    }*/
 
     protected void clickSideMenu() {
         log.info("open page, click Fill Form upper link, click all side menus");
 
-        FillForm fillForm = homePage.clickLinkFillForm();
+//        FillForm fillForm = homePage.clickLinkFillForm();
 
-        PersonalDetails personalDetails = fillForm.clickMenuPersonalDetails();
+//        FillForm fillForm = new FillForm(driver);
 
-        Wage wage = personalDetails.clickMenuWage();
 
-        RealEstate realEstate = wage.clickMenuRealEstate();
 
-        Various various = realEstate.clickMenuVarious();
+        PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
 
-        Vehicle vehicle = various.clickMenuVehicle();
+        Wage wage = basePage.clickMenuWage();
 
-        SendForm sendForm = vehicle.clickMenuSendForm();
+        RealEstate realEstate = basePage.clickMenuRealEstate();
+
+        Various various = basePage.clickMenuVarious();
+
+        Vehicle vehicle = basePage.clickMenuVehicle();
+
+        SendForm sendForm = basePage.clickMenuSendForm();
 
     }
 
     protected void clickNextPreviousButtons() {
         log.info("open page, click Fill Form upper link, cycle with Next / Previous buttons");
-
-        homePage.clickLinkFillForm();
 
         PersonalDetails personalDetails = new PersonalDetails(driver);
         personalDetails.clickBtnContinue();
@@ -79,9 +79,7 @@ public class TemporalTests extends TestBase {
     protected void fillPersonalDetails() throws InterruptedException {
         log.info("open page, click Fill Form upper link, click Personal Details side menus, fill fields");
 
-        FillForm fillForm = homePage.clickLinkFillForm();
-
-        PersonalDetails personalDetails = fillForm.clickMenuPersonalDetails();
+        PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
 
         // check all checkboxes
         personalDetails = personalDetails.checkAgreement();
