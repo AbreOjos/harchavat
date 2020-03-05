@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.forms.*;
+import pom.forms.vehicles.Vehicle;
 
 import java.util.List;
 
@@ -241,5 +242,9 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
+    protected void fillFormField(WebElement field, String text) {
+        fluentWaitElementClickable(driver, field, 10);
+        field.sendKeys(text);
+    }
 
 }

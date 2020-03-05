@@ -9,7 +9,6 @@ import pom.BasePage;
 import java.util.List;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
-import static utils.helpers.Waits.fluentWaitElementClickable;
 import static utils.utilitiesForInfra.JavaScriptHelpersHarchavat.scrollIntoViewMoveFocusAndClickWithJavaScript;
 
 public class PersonalDetails extends BasePage {
@@ -17,9 +16,8 @@ public class PersonalDetails extends BasePage {
     // == constructors==
     public PersonalDetails(WebDriver driver) {
         super(driver);
-        this.driver = driver;
 
-        PageFactory.initElements(this.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     // == web elements ==
@@ -330,13 +328,6 @@ public class PersonalDetails extends BasePage {
         attachFileInput.sendKeys(filename);
 
         PageFactory.initElements(this.driver, this);
-    }
-
-
-    // == private methods ==
-    private void fillFormField(WebElement field, String text) {
-        fluentWaitElementClickable(driver, field, 10);
-        field.sendKeys(text);
     }
 
 }

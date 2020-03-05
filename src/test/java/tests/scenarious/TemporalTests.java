@@ -2,6 +2,7 @@ package tests.scenarious;
 
 import org.apache.log4j.Logger;
 import pom.forms.*;
+import pom.forms.vehicles.Vehicle;
 import readresources.documents.FileAttachments;
 import tests.TestBase;
 
@@ -108,6 +109,30 @@ public class TemporalTests extends TestBase {
         basePage.clickBtnSave();
         basePage.clickBtnPrint();
         basePage.clickButtonLogOut();
+    }
+
+    protected void fillVehiclesDetails() {
+
+        Vehicle vehicle = basePage.clickMenuVehicle();
+
+        vehicle.chooseDontHaveVehicle();
+        vehicle.chooseHaveVehicle();
+
+        vehicle.addVehicle();
+        vehicle.addVehicle();
+
+        vehicle.enterCarLicense(3, "123456");
+//        vehicle.enterCarLicense(1,"bbb");
+
+
+        vehicle.deleteVehicle(2);
+
+        vehicle.chooseCommercialVehicle(1);
+        vehicle.enterCarLicense(1,"aaaaa");
+        vehicle.chooseAnotherUsage(1);
+
+        vehicle.chooseHeavyVehicle(2);
+        vehicle.chooseCommercialUsage(2);
     }
 
 }

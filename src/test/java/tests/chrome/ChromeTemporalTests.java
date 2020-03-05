@@ -52,4 +52,8 @@ public class ChromeTemporalTests extends TemporalTests {
     public void testFillPersonalDetails() throws InterruptedException, URISyntaxException {
         fillPersonalDetails();
     }
+
+    public void testFillVehiclesDetails() {
+        fillVehiclesDetails();
+    }
 }
