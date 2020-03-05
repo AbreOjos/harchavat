@@ -49,7 +49,7 @@ public class ChromeTemporalTests extends TemporalTests {
         clickNextPreviousButtons();
     }
 
-    public void testFillPersonalDetails() throws InterruptedException {
+    public void testFillPersonalDetails() throws InterruptedException, URISyntaxException {
         fillPersonalDetails();
     }
 }

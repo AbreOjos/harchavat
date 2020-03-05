@@ -8,7 +8,7 @@ import pom.BasePage;
 
 import java.util.List;
 
-import static constants.FillFormConstants.selectedSubElementDropDownLists;
+import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static utils.helpers.Waits.fluentWaitElementClickable;
 import static utils.utilitiesForInfra.JavaScriptHelpersHarchavat.scrollIntoViewMoveFocusAndClickWithJavaScript;
 
@@ -32,21 +32,37 @@ public class PersonalDetails extends BasePage {
     private WebElement txtFirstName;
     @FindBy(name = "lastName")
     private WebElement txtLastName;
-    @FindBy(name = "fatherName")
-    private WebElement txtFatherName;
-    @FindBy(name = "birthYear")
-    private WebElement txtBirthYear;
-    @FindBy(name = "aliyaYear")
-    private WebElement txtAliyaYear;
-    @FindBy(name = "email")
-    private WebElement txtEmail;
-
-    @FindBy(name = "phone")
-    private WebElement txtPhone;
     @FindBy(name = "cellular")
     private WebElement txtCellular;
-    @FindBy(name = "residency")
-    private WebElement dropDownResidency;
+    @FindBy(name = "phone")
+    private WebElement txtPhone;
+    @FindBy(name = "email")
+    private WebElement txtEmail;
+    @FindBy(xpath = "//*[contains(@class, 'v-item-group') and @dir='rtl']/button")
+    private List<WebElement> btnsResident;
+
+    @FindBy(xpath = "//div[@name='Marital Status']/button")
+    private List<WebElement> btnsMartialStatus;
+
+    // for married only
+    @FindBy(xpath = "//div[@class='layout mt-4']//button")
+    private List<WebElement> btnsSpouseResident;
+
+    // spouse expatriate details
+    @FindBy(name = "spousePassport")
+    private WebElement txtSpousePassport;
+    @FindBy(xpath = "//div[@class='v-select__slot']")
+    private WebElement dropDownSpouseCountry;
+    @FindBy(name = "spouseState")
+    private WebElement txtSpouseState;
+
+    // spouse Israeli only
+    @FindBy(name = "spouseIdentity")
+    private WebElement txtSpouseIdentity;
+
+    // for separated only
+    @FindBy(xpath = "//div[@class='v-btn__content']//input[@type='file']")
+    private WebElement attachFileInput;
 
     // == getters ==
     public List<WebElement> getCheckBoxes() {
@@ -65,18 +81,6 @@ public class PersonalDetails extends BasePage {
         return txtLastName;
     }
 
-    public WebElement getTxtFatherName() {
-        return txtFatherName;
-    }
-
-    public WebElement getTxtBirthYear() {
-        return txtBirthYear;
-    }
-
-    public WebElement getTxtAliyaYear() {
-        return txtAliyaYear;
-    }
-
     public WebElement getTxtEmail() {
         return txtEmail;
     }
@@ -89,9 +93,38 @@ public class PersonalDetails extends BasePage {
         return txtCellular;
     }
 
-    public WebElement getDropDownResidency() {
-        return dropDownResidency;
+    public List<WebElement> getBtnsResident() {
+        return btnsResident;
     }
+
+    public List<WebElement> getBtnsMartialStatus() {
+        return btnsMartialStatus;
+    }
+
+    public List<WebElement> getBtnsSpouseResident() {
+        return btnsSpouseResident;
+    }
+
+    public WebElement getTxtSpousePassport() {
+        return txtSpousePassport;
+    }
+
+    public WebElement getTxtSpouseState() {
+        return txtSpouseState;
+    }
+
+    public WebElement getTxtSpouseIdentity() {
+        return txtSpouseIdentity;
+    }
+
+    public WebElement getAttachFileInput() {
+        return attachFileInput;
+    }
+
+    public WebElement getDropDownSpouseCountry() {
+        return dropDownSpouseCountry;
+    }
+
 
     // == public methods ==
 
@@ -104,125 +137,206 @@ public class PersonalDetails extends BasePage {
         return checkBoxes.get(1).getAttribute("aria-checked").equals("true");
     }
 
-    public PersonalDetails checkAgreement() throws InterruptedException {
+    public void checkAgreement() throws InterruptedException {
         if (!isAgreementChecked())
             scrollIntoViewMoveFocusAndClickWithJavaScript(driver, checkBoxes.get(0));
-
-        return new PersonalDetails(driver);
     }
 
-    public PersonalDetails uncheckAgreement() throws InterruptedException {
+    public void uncheckAgreement() throws InterruptedException {
         if (isAgreementChecked())
             scrollIntoViewMoveFocusAndClickWithJavaScript(driver, checkBoxes.get(0));
-
-        return new PersonalDetails(driver);
     }
 
-    public PersonalDetails checkCanSendEmail() throws InterruptedException {
+    public void checkCanSendEmail() throws InterruptedException {
         if (!isCanSendEmailChecked())
             scrollIntoViewMoveFocusAndClickWithJavaScript(driver, checkBoxes.get(1));
-
-        return new PersonalDetails(driver);
     }
 
-    public PersonalDetails uncheckCanSendEmail() throws InterruptedException {
+    public void uncheckCanSendEmail() throws InterruptedException {
         if (isCanSendEmailChecked())
             scrollIntoViewMoveFocusAndClickWithJavaScript(driver, checkBoxes.get(1));
-
-        return new PersonalDetails(driver);
     }
 
     // personal details
-    public PersonalDetails enterIdentity(String identity) {
-        return fillFormField(txtIdentity, identity);
+    public void enterIdentity(String identity) {
+        fillFormField(txtIdentity, identity);
     }
 
-    public PersonalDetails enterFirstName(String firstName) {
-        return fillFormField(txtFirstName, firstName);
-
-    }
-
-    public PersonalDetails enterLastName(String lastName) {
-        return fillFormField(txtLastName, lastName);
+    public void enterFirstName(String firstName) {
+        fillFormField(txtFirstName, firstName);
 
     }
 
-    public PersonalDetails enterFatherName(String fatherName) {
-        return fillFormField(txtFatherName, fatherName);
+    public void enterLastName(String lastName) {
+        fillFormField(txtLastName, lastName);
 
     }
 
-    public PersonalDetails enterBirthYear(String birthYear) {
-        return fillFormField(txtBirthYear, birthYear);
+    public void enterEmail(String email) {
+        fillFormField(txtEmail, email);
     }
 
-    public PersonalDetails enterAliyaYear(String aliyaYear) {
-        return fillFormField(txtAliyaYear, aliyaYear);
-
+    public void enterCellular(String cellular) {
+        fillFormField(txtCellular, cellular);
     }
 
-    public PersonalDetails enterEmail(String email) {
-        return fillFormField(txtEmail, email);
+    public void enterPhone(String phone) {
+        fillFormField(txtPhone, phone);
+    }
 
+    // resident
+    public void chooseExpatriate() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(0));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        PageFactory.initElements(driver, this);
+    }
+
+    public void chooseIsraeli() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(1));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        PageFactory.initElements(driver, this);
     }
 
     // martial statuses
-    public void chooseMaritalStatusPolygamy() {
+    public void chooseMaritalStatusBachelor() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(0));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-    }
-
-    public void chooseMaritalStatusSpousalAlliance() {
-
-    }
-
-    public void chooseMaritalStatusWidow() {
-    }
-
-    public void chooseMaritalStatusFree() {
-
-    }
-
-    public void chooseMaritalStatusDivorced() {
+        PageFactory.initElements(driver, this);
     }
 
     public void chooseMaritalStatusMarried() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(1));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        PageFactory.initElements(driver, this);
     }
 
-    public void chooseMaritalStatusBachelor() {
+    public void chooseMaritalStatusDivorced() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(2));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        PageFactory.initElements(driver, this);
     }
 
-    public String getChosenMaritalStatus() {
-        return null;
+    public void chooseMaritalStatusWidow() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(3));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        PageFactory.initElements(driver, this);
     }
 
-    // additional personal details
-    public PersonalDetails enterPhone(String phone) {
-        return fillFormField(txtPhone, phone);
+    public void chooseMaritalStatusSpousalAlliance() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(4));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        PageFactory.initElements(driver, this);
     }
 
-    public PersonalDetails enterCellular(String cellular) {
-        return fillFormField(txtCellular, cellular);
+    public void chooseMaritalStatusSeparated() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(5));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        PageFactory.initElements(driver, this);
     }
 
-    // residency
-    public void chooseResidencyExpatriate() {
-        clickDropDownList(dropDownResidency, 0);
+    public void chooseMaritalStatusPolygamy() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(6));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        PageFactory.initElements(driver, this);
     }
 
-    public void chooseResidencyIsraeli() {
-        clickDropDownList(dropDownResidency, 1);
+    // spouse resident
+    public void chooseSpouseExpatriate() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(0));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        PageFactory.initElements(driver, this);
     }
 
-    public String getChoosenResidency() {
-        return dropDownResidency.findElement(selectedSubElementDropDownLists).getText();
+    public void chooseSpouseIsraeli() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(1));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        PageFactory.initElements(driver, this);
+    }
+
+    // for spouse expatriate only
+    public void enterSpousePassport(String spousePassport) {
+        fillFormField(txtSpousePassport, spousePassport);
+
+    }
+
+    public void chooseStateSpouseIsrael() {
+        clickDropDownList(dropDownSpouseCountry, 0);
+    }
+
+    public void chooseStateSpouseZambia() {
+        clickDropDownList(dropDownSpouseCountry, 1);
+    }
+
+    public void chooseStateSpouseUsa() {
+        clickDropDownList(dropDownSpouseCountry, 2);
+    }
+
+    public void enterSpouseState(String spouseState) {
+        fillFormField(txtSpouseState, spouseState);
+
+    }
+
+    // for spouse Israeli only
+    public void enterSpouseIdentity(String spouseIdentity) {
+        fillFormField(txtSpouseIdentity, spouseIdentity);
+    }
+
+    // attach file for separated
+    public void attachFileSeparated(String filename) {
+        attachFileInput.sendKeys(filename);
+
+        PageFactory.initElements(this.driver, this);
     }
 
 
     // == private methods ==
-    private PersonalDetails fillFormField(WebElement field, String text) {
+    private void fillFormField(WebElement field, String text) {
         fluentWaitElementClickable(driver, field, 10);
         field.sendKeys(text);
-        return new PersonalDetails(driver);
     }
 
 }

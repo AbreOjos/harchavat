@@ -2,7 +2,10 @@ package tests.scenarious;
 
 import org.apache.log4j.Logger;
 import pom.forms.*;
+import readresources.documents.FileAttachments;
 import tests.TestBase;
+
+import java.net.URISyntaxException;
 
 public class TemporalTests extends TestBase {
     private static final Logger log = Logger.getLogger(TemporalTests.class);
@@ -58,33 +61,53 @@ public class TemporalTests extends TestBase {
         wage.clickBtnReturn();
     }
 
-    protected void fillPersonalDetails() throws InterruptedException {
+    protected void fillPersonalDetails() throws InterruptedException, URISyntaxException {
         log.info("open page, click Fill Form upper link, click Personal Details side menus, fill fields");
 
         PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
 
-        // check all checkboxes
-        personalDetails = personalDetails.checkAgreement();
-        personalDetails = personalDetails.checkCanSendEmail();
+        personalDetails.checkAgreement();
 
-        // uncheck agreement
-        personalDetails = personalDetails.uncheckAgreement();
+        personalDetails.enterIdentity("123456789");
+        personalDetails.enterFirstName("Igor");
+        personalDetails.enterLastName("Gindin");
+        personalDetails.enterCellular("0523798168");
+        personalDetails.enterPhone("0506585162");
+        personalDetails.enterEmail("jgjhg@jhgjhg.gov");
 
-        personalDetails = personalDetails.enterIdentity("123456789");
-        personalDetails = personalDetails.enterLastName("Gindin");
-        personalDetails.chooseMaritalStatusWidow();
-        String maritalStatus = personalDetails.getChosenMaritalStatus();
-        System.out.println("Marital status Widow: " + maritalStatus);
+        personalDetails.checkCanSendEmail();
+        personalDetails.uncheckCanSendEmail();
+
+        personalDetails.chooseExpatriate();
+        personalDetails.chooseIsraeli();
+
+        personalDetails.chooseMaritalStatusBachelor();
+        personalDetails.chooseMaritalStatusMarried();
+
+        personalDetails.chooseSpouseExpatriate();
+
+        personalDetails.enterSpousePassport("123321123");
+        personalDetails.chooseStateSpouseIsrael();
+        personalDetails.chooseStateSpouseZambia();
+        personalDetails.chooseStateSpouseUsa();
+        personalDetails.enterSpouseState("AAAAAAAAAAAA");
+
+        personalDetails.chooseSpouseIsraeli();
+
+        personalDetails.enterSpouseIdentity("321258549");
+
         personalDetails.chooseMaritalStatusDivorced();
+        personalDetails.chooseMaritalStatusWidow();
+        personalDetails.chooseMaritalStatusSpousalAlliance();
+        personalDetails.chooseMaritalStatusSeparated();
 
-        personalDetails = personalDetails.enterCellular("0523798168");
-        maritalStatus = personalDetails.getChosenMaritalStatus();
-        System.out.println("Marital status Divorced: " + maritalStatus);
+        personalDetails.attachFileSeparated(FileAttachments.getDocumentPdf().toString());
 
-        personalDetails.clickBtnSave();
+        personalDetails.chooseMaritalStatusPolygamy();
 
-        personalDetails.clickBtnPrint();
-
+        basePage.clickBtnSave();
+        basePage.clickBtnPrint();
+        basePage.clickButtonLogOut();
     }
 
 }
