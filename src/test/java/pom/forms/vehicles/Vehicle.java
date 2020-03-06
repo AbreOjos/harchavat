@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
+import static constants.VehicleConstants.vehicleDetailsPanel;
 
 public class Vehicle extends BasePage {
 
@@ -23,9 +24,9 @@ public class Vehicle extends BasePage {
         super(driver);
         this.driver = driver;
 
-        recreateMapPannelsOnPage();
-
         PageFactory.initElements(this.driver, this);
+
+        recreateMapPannelsOnPage();
     }
 
     // == web elements ==
@@ -37,7 +38,7 @@ public class Vehicle extends BasePage {
     private List<WebElement> btnsDeleteVehicle;
     @FindBy(xpath = "//div[@class='add-item w-inline-block']//img")
     private WebElement btnAddVehicle;
-    @FindBy(className = "shaamPage")
+    @FindBy(xpath = "//*[@class='shaamPage']")
     private List<WebElement> listVehicleDetailsPanels;
 
     // == getters ==
@@ -74,7 +75,7 @@ public class Vehicle extends BasePage {
             e.printStackTrace();
         }
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
 
         recreateMapPannelsOnPage();
     }
@@ -86,32 +87,32 @@ public class Vehicle extends BasePage {
             e.printStackTrace();
         }
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
 
         recreateMapPannelsOnPage();
     }
 
-    public void deleteVehicle(int vehicleNumber) {
+    public void deleteVehicle(int indexVehicle) {
         if (btnsDeleteVehicle.isEmpty()) {
             throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d," +
-                    "the list of vehicles is empty", vehicleNumber));
-        } else if (vehicleNumber == 1) {
-            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d", vehicleNumber));
-        } else if (vehicleNumber<1 || vehicleNumber>btnsDeleteVehicle.size()) {
+                    "the list of vehicles is empty", indexVehicle));
+        } else if (indexVehicle == 0) {
+            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d", indexVehicle));
+        } else if (indexVehicle<0 || indexVehicle>btnsDeleteVehicle.size()) {
             throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d. " +
-                    "The number need to be between 2 and %d", vehicleNumber, btnsDeleteVehicle.size()));
+                    "The number need to be between 1 and %d inclusive", indexVehicle, btnsDeleteVehicle.size()));
         }
 
 //        try {
-//            scrollIntoViewMoveFocusAndClick(driver, btnsDeleteVehicle.get(vehicleNumber-1));
+//            scrollIntoViewMoveFocusAndClick(driver, btnsDeleteVehicle.get(indexVehicle-1));
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
 
-        btnsDeleteVehicle.get(vehicleNumber-2).click();
+        btnsDeleteVehicle.get(indexVehicle-1).click();
 
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
 
         recreateMapPannelsOnPage();
     }
@@ -125,102 +126,133 @@ public class Vehicle extends BasePage {
 
         btnAddVehicle.click();
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
 
         recreateMapPannelsOnPage();
     }
 
     // choose vehicle type
     public void choosePrivateVehicle(int vehicleNumber) {
-        if (vehicleNumber<1 || vehicleNumber>integerVehicleDetailsMap.size()) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
-                    "The number need to be between 1 and %d", vehicleNumber, integerVehicleDetailsMap.size()));
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
-        integerVehicleDetailsMap.get(vehicleNumber-1).choosePrivateVehicle();
+        integerVehicleDetailsMap.get(vehicleNumber).choosePrivateVehicle();
+
+        recreateMapPannelsOnPage();
     }
 
     public void chooseCommercialVehicle(int vehicleNumber) {
-        if (vehicleNumber<1 || vehicleNumber>integerVehicleDetailsMap.size()) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
-                    "The number need to be between 1 and %d", vehicleNumber, integerVehicleDetailsMap.size()));
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
-        integerVehicleDetailsMap.get(vehicleNumber-1).chooseCommercialVehicle();
+        integerVehicleDetailsMap.get(vehicleNumber).chooseCommercialVehicle();
+
+        recreateMapPannelsOnPage();
     }
 
     public void chooseHeavyVehicle(int vehicleNumber) {
-        if (vehicleNumber<1 || vehicleNumber>integerVehicleDetailsMap.size()) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
-                    "The number need to be between 1 and %d", vehicleNumber, integerVehicleDetailsMap.size()));
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
-        integerVehicleDetailsMap.get(vehicleNumber-1).chooseHeavyVehicle();
+        integerVehicleDetailsMap.get(vehicleNumber).chooseHeavyVehicle();
+
+        recreateMapPannelsOnPage();
     }
 
     public void chooseAircraftVehicle(int vehicleNumber) {
-        if (vehicleNumber<1 || vehicleNumber>integerVehicleDetailsMap.size()) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
-                    "The number need to be between 1 and %d", vehicleNumber, integerVehicleDetailsMap.size()));
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
-        integerVehicleDetailsMap.get(vehicleNumber-1).chooseAircraftVehicle();
+        integerVehicleDetailsMap.get(vehicleNumber).chooseAircraftVehicle();
+
+        recreateMapPannelsOnPage();
     }
 
     public void chooseVesselVehicle(int vehicleNumber) {
-        if (vehicleNumber<1 || vehicleNumber>integerVehicleDetailsMap.size()) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
-                    "The number need to be between 1 and %d", vehicleNumber, integerVehicleDetailsMap.size()));
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
-        integerVehicleDetailsMap.get(vehicleNumber-1).chooseVesselVehicle();
+        integerVehicleDetailsMap.get(vehicleNumber).chooseVesselVehicle();
+
+        recreateMapPannelsOnPage();
     }
 
     public void chooseAnotherVehicle(int vehicleNumber) {
-        if (vehicleNumber<1 || vehicleNumber>integerVehicleDetailsMap.size()) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
-                    "The number need to be between 1 and %d", vehicleNumber, integerVehicleDetailsMap.size()));
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
-        integerVehicleDetailsMap.get(vehicleNumber-1).chooseAnotherVehicle();
+        integerVehicleDetailsMap.get(vehicleNumber).chooseAnotherVehicle();
+
+        recreateMapPannelsOnPage();
     }
 
     // add car license
     public void enterCarLicense(int vehicleNumber, String carLicense) {
-        if (vehicleNumber<1 || vehicleNumber>integerVehicleDetailsMap.size()) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
-                    "The number need to be between 1 and %d", vehicleNumber, integerVehicleDetailsMap.size()));
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
-        integerVehicleDetailsMap.get(--vehicleNumber).enterCarLicense(carLicense);
+        integerVehicleDetailsMap.get(vehicleNumber).enterCarLicense(carLicense);
+
+//        recreateMapPannelsOnPage();
+    }
+
+    public void enterAnotherUsageDetails(int vehicleNumber, String anotherUsageDetails) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
+        }
+
+        integerVehicleDetailsMap.get(vehicleNumber).enterAnotherUsageDetails(anotherUsageDetails);
+
+//        recreateMapPannelsOnPage();
     }
 
     // choose vehicle usage
     public void choosePrivateUsage(int vehicleNumber) {
-        if (vehicleNumber<1 || vehicleNumber>integerVehicleDetailsMap.size()) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
-                    "The number need to be between 1 and %d", vehicleNumber, integerVehicleDetailsMap.size()));
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
-        integerVehicleDetailsMap.get(vehicleNumber-1).choosePrivateUsage();
+        integerVehicleDetailsMap.get(vehicleNumber).choosePrivateUsage();
+
+        recreateMapPannelsOnPage();
     }
 
     public void chooseCommercialUsage(int vehicleNumber) {
-        if (vehicleNumber<1 || vehicleNumber>integerVehicleDetailsMap.size()) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
-                    "The number need to be between 1 and %d", vehicleNumber, integerVehicleDetailsMap.size()));
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
-        integerVehicleDetailsMap.get(vehicleNumber-1).chooseCommercialUsage();
+        integerVehicleDetailsMap.get(vehicleNumber).chooseCommercialUsage();
+
+        recreateMapPannelsOnPage();
     }
 
     public void chooseAnotherUsage(int vehicleNumber) {
-        if (vehicleNumber<1 || vehicleNumber>integerVehicleDetailsMap.size()) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
-                    "The number need to be between 1 and %d", vehicleNumber, integerVehicleDetailsMap.size()));
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
-        integerVehicleDetailsMap.get(vehicleNumber-1).chooseAnotherUsage();
+        integerVehicleDetailsMap.get(vehicleNumber).chooseAnotherUsage();
+
+        recreateMapPannelsOnPage();
     }
 
 
@@ -231,10 +263,10 @@ public class Vehicle extends BasePage {
 
         PageFactory.initElements(driver, this);
 
-//        List<WebElement> vehicleDetailsRows = driver.findElements(vehicleDetailsPanel);
+        List<WebElement> vehicleDetailsRows = driver.findElements(vehicleDetailsPanel);
 
-        for (int i = 1; i < listVehicleDetailsPanels.size(); ++i) {
-            WebElement webElement = listVehicleDetailsPanels.get(i);
+        for (int i = 0; i < vehicleDetailsRows.size(); ++i) {
+            WebElement webElement = vehicleDetailsRows.get(i);
             integerVehicleDetailsMap.put(i, new VehicleDetails(driver, webElement));
         }
 

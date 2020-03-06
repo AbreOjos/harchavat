@@ -2,7 +2,6 @@ package pom.forms.vehicles;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
@@ -46,6 +45,10 @@ public class VehicleDetails extends BasePage {
         return details.findElement(txtCarLicenseSubElementDetails);
     }
 
+    protected WebElement getTxtAnotherUsageDetails() {
+        return details.findElement(txtAnotherUsageDetailsSubElementDetails);
+    }
+
     protected WebElement getBtnUsagePrivate() {
         return details.findElements(btnsVehicleUsageSubElementDetails).get(0);
     }
@@ -67,7 +70,7 @@ public class VehicleDetails extends BasePage {
             e.printStackTrace();
         }
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseCommercialVehicle() {
@@ -77,7 +80,7 @@ public class VehicleDetails extends BasePage {
             e.printStackTrace();
         }
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseHeavyVehicle() {
@@ -87,7 +90,7 @@ public class VehicleDetails extends BasePage {
             e.printStackTrace();
         }
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseAircraftVehicle() {
@@ -97,7 +100,7 @@ public class VehicleDetails extends BasePage {
             e.printStackTrace();
         }
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseVesselVehicle() {
@@ -107,7 +110,7 @@ public class VehicleDetails extends BasePage {
             e.printStackTrace();
         }
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseAnotherVehicle() {
@@ -117,13 +120,18 @@ public class VehicleDetails extends BasePage {
             e.printStackTrace();
         }
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
 
     // license details
     protected void enterCarLicense(String carLicense) {
         fillFormField(getTxtCarLicense(), carLicense);
+
+    }
+
+    protected void enterAnotherUsageDetails(String anotherUsageDetails) {
+        fillFormField(getTxtAnotherUsageDetails(), anotherUsageDetails);
 
     }
 
@@ -136,7 +144,7 @@ public class VehicleDetails extends BasePage {
             e.printStackTrace();
         }
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseCommercialUsage() {
@@ -146,7 +154,7 @@ public class VehicleDetails extends BasePage {
             e.printStackTrace();
         }
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseAnotherUsage() {
@@ -156,6 +164,6 @@ public class VehicleDetails extends BasePage {
             e.printStackTrace();
         }
 
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 }
