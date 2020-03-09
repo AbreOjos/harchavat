@@ -138,6 +138,10 @@ public class TemporalTests extends TestBase {
 
         vehicle.chooseHeavyVehicle(1);
         vehicle.chooseCommercialUsage(1);
+
+        vehicle.addVehicle();
+        vehicle.chooseAnotherVehicle(2);
+        vehicle.enterAnotherCarTypeDetails(2, "Just my another car");
     }
 
 }

@@ -277,7 +277,8 @@ public class PersonalDetails extends BasePage {
     // spouse resident
     public void chooseSpouseExpatriate() {
         try {
-            scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(0));
+            scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(2));
+//            scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(0));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -287,7 +288,8 @@ public class PersonalDetails extends BasePage {
 
     public void chooseSpouseIsraeli() {
         try {
-            scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(1));
+            scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(3));
+//            scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(1));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -210,6 +210,15 @@ public class Vehicle extends BasePage {
 //        recreateMapPannelsOnPage();
     }
 
+    public void enterAnotherCarTypeDetails(int vehicleNumber, String anotherCarTypeDetails) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
+        }
+
+        integerVehicleDetailsMap.get(vehicleNumber).enterAnotherCarTypeDetails(anotherCarTypeDetails);
+    }
+
     public void enterAnotherUsageDetails(int vehicleNumber, String anotherUsageDetails) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +

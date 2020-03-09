@@ -45,6 +45,10 @@ public class VehicleDetails extends BasePage {
         return details.findElement(txtCarLicenseSubElementDetails);
     }
 
+    protected WebElement getTxtAnotherCarTypeDetails() {
+        return details.findElement(txtAnotherCarTypeDetailsSubElementDetails);
+    }
+
     protected WebElement getTxtAnotherUsageDetails() {
         return details.findElement(txtAnotherUsageDetailsSubElementDetails);
     }
@@ -128,6 +132,10 @@ public class VehicleDetails extends BasePage {
     protected void enterCarLicense(String carLicense) {
         fillFormField(getTxtCarLicense(), carLicense);
 
+    }
+
+    protected void enterAnotherCarTypeDetails(String anotherCarTypeDetails) {
+        fillFormField(getTxtAnotherCarTypeDetails(), anotherCarTypeDetails);
     }
 
     protected void enterAnotherUsageDetails(String anotherUsageDetails) {
