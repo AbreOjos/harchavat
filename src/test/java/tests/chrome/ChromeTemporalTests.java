@@ -56,4 +56,8 @@ public class ChromeTemporalTests extends TemporalTests {
     public void testFillVehiclesDetails() {
         fillVehiclesDetails();
     }
+
+    public void testFillWagesDetails() {
+        fillWagesDetails();
+    }
 }

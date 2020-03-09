@@ -3,7 +3,6 @@ package pom.forms.vehicles;
 import com.mysql.cj.exceptions.WrongArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
 
@@ -28,42 +27,9 @@ public class Vehicle extends BasePage {
         recreateMapPannelsOnPage();
     }
 
-    // == web elements ==
-//    @FindBy(xpath = "//button[@value='true']")
-//    private WebElement btnHaveVehicle;
-//    @FindBy(xpath = "//button[@value='false']")
-//    private WebElement btnDontHaveVehicle;
-//    @FindBy(xpath = "//span[contains(., 'delete')]")
-//    private List<WebElement> btnsDeleteVehicle;
-//    @FindBy(xpath = "//div[@class//*[@cl='add-item w-inline-block']//img")
-//    private WebElement btnAddVehicle;
-    @FindBy(xpath = "ass='shaamPage']")
-    private List<WebElement> listVehicleDetailsPanels;
-
     // == getters ==
-//    public WebElement getBtnHaveVehicle() {
-//        return btnHaveVehicle;
-//    }
-//
-//    public WebElement getBtnDontHaveVehicle() {
-//        return btnDontHaveVehicle;
-//    }
-//
-//    public List<WebElement> getBtnsDeleteVehicle() {
-//        return btnsDeleteVehicle;
-//    }
-//
-//    public WebElement getBtnAddVehicle() {
-//        return btnAddVehicle;
-//    }
-
-
     public Map<Integer, VehicleDetails> getIntegerVehicleDetailsMap() {
         return integerVehicleDetailsMap;
-    }
-
-    public List<WebElement> getListVehicleDetailsPanels() {
-        return listVehicleDetailsPanels;
     }
 
 
@@ -165,7 +131,7 @@ public class Vehicle extends BasePage {
     // add car license
     public void enterCarLicense(int vehicleNumber, String carLicense) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add car license for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 

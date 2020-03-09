@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.forms.*;
 import pom.forms.vehicles.Vehicle;
+import pom.forms.wages.Wage;
 
 import java.util.List;
 
@@ -182,7 +183,6 @@ public class BasePage {
         }
     }
 
-    // == protected methods ==
     public PersonalDetails clickMenuPersonalDetails() {
         try {
             scrollIntoViewMoveFocusAndClick(driver, menuPersonalDetails);
@@ -249,6 +249,8 @@ public class BasePage {
         return new SendForm(driver);
     }
 
+
+    // == protected methods ==
     protected void clickDropDownList(WebElement list, int option) {
         clickElementWithJavaScript(driver, list);
         try {

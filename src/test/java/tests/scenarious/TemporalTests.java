@@ -3,6 +3,7 @@ package tests.scenarious;
 import org.apache.log4j.Logger;
 import pom.forms.*;
 import pom.forms.vehicles.Vehicle;
+import pom.forms.wages.Wage;
 import readresources.documents.FileAttachments;
 import tests.TestBase;
 
@@ -142,6 +143,31 @@ public class TemporalTests extends TestBase {
         vehicle.addVehicle();
         vehicle.chooseAnotherVehicle(2);
         vehicle.enterAnotherCarTypeDetails(2, "Just my another car");
+    }
+
+    protected void fillWagesDetails() {
+        Wage wage = basePage.clickMenuWage();
+
+        wage.chooseDontHaveWage();
+        wage.chooseHaveWage();
+
+        wage.addWage();
+        wage.addWage();
+
+        wage.enterAnnualIncome(0, "1000");
+        wage.enterEmployerAddress(2, "Ramat Gan");
+
+        wage.deleteWage(1);
+
+        wage.enterEmployerName(0,"Moshe");
+        wage.enterTikNikuim(1, "123456");
+
+        wage.addWage();
+        wage.enterTikNikuim(2,"aaaa");
+        wage.enterEmployerName(2, "BBB");
+        wage.enterEmployerAddress(2, "cccc");
+        wage.enterAnnualIncome(2, "0");
+
     }
 
 }

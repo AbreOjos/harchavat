@@ -73,8 +73,6 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseCommercialVehicle() {
@@ -83,8 +81,6 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseHeavyVehicle() {
@@ -93,8 +89,6 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseAircraftVehicle() {
@@ -103,8 +97,6 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseVesselVehicle() {
@@ -113,8 +105,6 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseAnotherVehicle() {
@@ -123,8 +113,6 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-//        PageFactory.initElements(driver, this);
     }
 
 
@@ -151,8 +139,6 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseCommercialUsage() {
@@ -161,8 +147,6 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-//        PageFactory.initElements(driver, this);
     }
 
     protected void chooseAnotherUsage() {
@@ -171,7 +155,5 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-//        PageFactory.initElements(driver, this);
     }
 }
