@@ -66,9 +66,9 @@ public class BasePage {
     protected List<WebElement> dropDownListItemsActive;
 
     // sub-pages common web-elements
-    @FindBy(xpath = "//button[@value='true']")
+    @FindBy(xpath = "//*[contains(@class, 'yes-no-box')]//button[@value='true']")
     private WebElement btnHave;
-    @FindBy(xpath = "//button[@value='false']")
+    @FindBy(xpath = "//*[contains(@class, 'yes-no-box')]//button[@value='false']")
     private WebElement btnDontHave;
     @FindBy(xpath = "//span[contains(., 'delete')]")
     private List<WebElement> btnsDelete;

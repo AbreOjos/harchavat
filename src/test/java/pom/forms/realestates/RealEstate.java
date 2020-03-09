@@ -1,5 +1,6 @@
 package pom.forms.realestates;
 
+import com.mysql.cj.exceptions.WrongArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -48,6 +49,187 @@ public class RealEstate extends BasePage {
     public void addRealEstate() {
 
         add();
+
+        recreateMapPannelsOnPage();
+    }
+
+    // choose real estate type
+    public void chooseRealEstateTypeApartment(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeApartment();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateTypeHousingUnit(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeHousingUnit();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateTypeStorage(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeStorage();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateTypeParking(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeParking();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateTypePrivateLand(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypePrivateLand();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateTypeAgriculturalLand(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeAgriculturalLand();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateTypeFarm(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeFarm();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateTypeUnionAction(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeUnionAction();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateTypeOption(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeOption();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateTypeAnother(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeAnother();
+
+        recreateMapPannelsOnPage();
+    }
+
+
+
+
+    // choose real estate place
+    public void chooseRealEstateInIsrael(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateInIsrael();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateOversea(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateOversea();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateDivided(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateDivided();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateNotDivided(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateNotDivided();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateTenantIsraeli(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTenantIsraeli();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateTenantNotIsraeli(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTenantNotIsraeli();
 
         recreateMapPannelsOnPage();
     }
