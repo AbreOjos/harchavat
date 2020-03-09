@@ -1,5 +1,6 @@
 package pom;
 
+import com.mysql.cj.exceptions.WrongArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -61,6 +62,16 @@ public class BasePage {
     @FindBy(xpath = "//*[contains(@class,'menuable__content__active')]//*[@role='listitem']")
     protected List<WebElement> dropDownListItemsActive;
 
+    // sub-pages common web-elements
+    @FindBy(xpath = "//button[@value='true']")
+    private WebElement btnHave;
+    @FindBy(xpath = "//button[@value='false']")
+    private WebElement btnDontHave;
+    @FindBy(xpath = "//span[contains(., 'delete')]")
+    private List<WebElement> btnsDelete;
+    @FindBy(xpath = "//div[@class='add-item w-inline-block']//img")
+    private WebElement btnAdd;
+
     // == getters ==
     public WebElement getBtnLogout() {
         return btnLogout;
@@ -108,6 +119,22 @@ public class BasePage {
 
     public WebElement getBtnPrint() {
         return btnPrint;
+    }
+
+    public WebElement getBtnHave() {
+        return btnHave;
+    }
+
+    public WebElement getBtnDontHave() {
+        return btnDontHave;
+    }
+
+    public List<WebElement> getBtnsDelete() {
+        return btnsDelete;
+    }
+
+    public WebElement getBtnAdd() {
+        return btnAdd;
     }
 
 
@@ -245,6 +272,40 @@ public class BasePage {
     protected void fillFormField(WebElement field, String text) {
         fluentWaitElementClickable(driver, field, 10);
         field.sendKeys(text);
+    }
+
+    protected void chooseHave() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnHave);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void chooseDontHave() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, btnDontHave);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void delete(int index) {
+        if (btnsDelete.isEmpty()) {
+            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d," +
+                    "the list of vehicles is empty", index));
+        } else if (index == 0) {
+            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d", index));
+        } else if (index<0 || index> btnsDelete.size()) {
+            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d. " +
+                    "The number need to be between 1 and %d inclusive", index, btnsDelete.size()));
+        }
+
+        btnsDelete.get(index-1).click();
+    }
+
+    protected void add() {
+        btnAdd.click();
     }
 
 }

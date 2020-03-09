@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static constants.VehicleConstants.vehicleDetailsPanel;
 
 public class Vehicle extends BasePage {
@@ -30,36 +29,37 @@ public class Vehicle extends BasePage {
     }
 
     // == web elements ==
-    @FindBy(xpath = "//button[@value='true']")
-    private WebElement btnHaveVehicle;
-    @FindBy(xpath = "//button[@value='false']")
-    private WebElement btnDontHaveVehicle;
-    @FindBy(xpath = "//span[contains(., 'delete')]")
-    private List<WebElement> btnsDeleteVehicle;
-    @FindBy(xpath = "//div[@class='add-item w-inline-block']//img")
-    private WebElement btnAddVehicle;
-    @FindBy(xpath = "//*[@class='shaamPage']")
+//    @FindBy(xpath = "//button[@value='true']")
+//    private WebElement btnHaveVehicle;
+//    @FindBy(xpath = "//button[@value='false']")
+//    private WebElement btnDontHaveVehicle;
+//    @FindBy(xpath = "//span[contains(., 'delete')]")
+//    private List<WebElement> btnsDeleteVehicle;
+//    @FindBy(xpath = "//div[@class//*[@cl='add-item w-inline-block']//img")
+//    private WebElement btnAddVehicle;
+    @FindBy(xpath = "ass='shaamPage']")
     private List<WebElement> listVehicleDetailsPanels;
 
     // == getters ==
-    public WebElement getBtnHaveVehicle() {
-        return btnHaveVehicle;
-    }
+//    public WebElement getBtnHaveVehicle() {
+//        return btnHaveVehicle;
+//    }
+//
+//    public WebElement getBtnDontHaveVehicle() {
+//        return btnDontHaveVehicle;
+//    }
+//
+//    public List<WebElement> getBtnsDeleteVehicle() {
+//        return btnsDeleteVehicle;
+//    }
+//
+//    public WebElement getBtnAddVehicle() {
+//        return btnAddVehicle;
+//    }
 
-    public WebElement getBtnDontHaveVehicle() {
-        return btnDontHaveVehicle;
-    }
 
     public Map<Integer, VehicleDetails> getIntegerVehicleDetailsMap() {
         return integerVehicleDetailsMap;
-    }
-
-    public List<WebElement> getBtnsDeleteVehicle() {
-        return btnsDeleteVehicle;
-    }
-
-    public WebElement getBtnAddVehicle() {
-        return btnAddVehicle;
     }
 
     public List<WebElement> getListVehicleDetailsPanels() {
@@ -69,64 +69,28 @@ public class Vehicle extends BasePage {
 
     // == public methods ==
     public void chooseHaveVehicle() {
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, btnHaveVehicle);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
-//        PageFactory.initElements(driver, this);
+        chooseHave();
 
         recreateMapPannelsOnPage();
     }
 
     public void chooseDontHaveVehicle() {
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, btnDontHaveVehicle);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-//        PageFactory.initElements(driver, this);
+        chooseDontHave();
 
         recreateMapPannelsOnPage();
     }
 
     public void deleteVehicle(int indexVehicle) {
-        if (btnsDeleteVehicle.isEmpty()) {
-            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d," +
-                    "the list of vehicles is empty", indexVehicle));
-        } else if (indexVehicle == 0) {
-            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d", indexVehicle));
-        } else if (indexVehicle<0 || indexVehicle>btnsDeleteVehicle.size()) {
-            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d. " +
-                    "The number need to be between 1 and %d inclusive", indexVehicle, btnsDeleteVehicle.size()));
-        }
 
-//        try {
-//            scrollIntoViewMoveFocusAndClick(driver, btnsDeleteVehicle.get(indexVehicle-1));
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
-        btnsDeleteVehicle.get(indexVehicle-1).click();
-
-
-//        PageFactory.initElements(driver, this);
+        delete(indexVehicle);
 
         recreateMapPannelsOnPage();
     }
 
     public void addVehicle() {
-//        try {
-//            scrollIntoViewMoveFocusAndClick(driver, btnAddVehicle);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
 
-        btnAddVehicle.click();
-
-//        PageFactory.initElements(driver, this);
+        add();
 
         recreateMapPannelsOnPage();
     }
