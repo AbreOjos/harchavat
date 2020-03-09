@@ -2,6 +2,8 @@ package tests.scenarious;
 
 import org.apache.log4j.Logger;
 import pom.forms.*;
+import pom.forms.realestates.RealEstate;
+import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
 import readresources.documents.FileAttachments;
@@ -168,6 +170,20 @@ public class TemporalTests extends TestBase {
         wage.enterEmployerAddress(2, "cccc");
         wage.enterAnnualIncome(2, "0");
 
+    }
+
+    protected void fillRealEstateDetails() {
+        RealEstate realEstate = basePage.clickMenuRealEstate();
+
+        realEstate.chooseDontHaveRealEstate();
+        realEstate.chooseHaveRealEstate();
+
+        realEstate.addRealEstate();
+        realEstate.addRealEstate();
+
+        realEstate.deleteRealEstate(1);
+
+        realEstate.addRealEstate();
     }
 
 }
