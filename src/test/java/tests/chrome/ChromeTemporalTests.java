@@ -61,7 +61,7 @@ public class ChromeTemporalTests extends TemporalTests {
         fillWagesDetails();
     }
 
-    public void testFillRealEstateDetails() {
+    public void testFillRealEstateDetails() throws URISyntaxException {
         fillRealEstateDetails();
     }
 }

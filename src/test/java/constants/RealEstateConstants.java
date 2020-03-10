@@ -20,11 +20,11 @@ public class RealEstateConstants {
     public static final By txtRealEstateOwnershipPercentageSubElementDetails = By.xpath(".//input[@name='ownershipPercentage']");
     public static final By txtRealEstateAddressSubElementDetails = By.xpath(".//input[@name='assetAddress']");
     public static final By txtRealEstateBlockSubElementDetails = By.xpath(".//input[@name='gush']");
-    public static final By txtRealEstatePlotSubElementDetails = By.xpath(".//input[@name='gush']");
+    public static final By txtRealEstatePlotSubElementDetails = By.xpath(".//input[@name='helka']");
     public static final By btnsRealEstateUsageSubElementDetails = By.xpath(".//div[@class='bgl-toggle mb-3']//button");
     public static final By btnsRealEstateRentingPurpose =
-            By.xpath(".(//*[contains(@class, 'v-item-group')]/button[not(contains(@value, 'true')) and not(contains(@value, 'false'))]/..)[2]/button");
-    public static final By volumeRealEstateDividedSubElementDetails = By.xpath(".//div[@class='volume']");
+            By.xpath("(.//*[contains(@class, 'v-item-group')]/button[not(contains(@value, 'true')) and not(contains(@value, 'false'))]/..)[2]/button");
+    public static final By volumeRealEstateDividedSubElementDetails = By.xpath(".//input[@name='splitAmount']");
     public static final By volumeRealEstateAddSubElementDetails = By.xpath(".//button[contains(@class, 'add')]");
     public static final By volumeRealEstateRemoveSubElementDetails = By.xpath(".//button[contains(@class, 'remove')]");
     public static final By txtRenterIdSubElementDetails = By.xpath(".//input[@name='renterId']");

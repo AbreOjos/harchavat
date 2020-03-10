@@ -172,7 +172,7 @@ public class TemporalTests extends TestBase {
 
     }
 
-    protected void fillRealEstateDetails() {
+    protected void fillRealEstateDetails() throws URISyntaxException {
         RealEstate realEstate = basePage.clickMenuRealEstate();
 
         realEstate.chooseDontHaveRealEstate();
@@ -184,6 +184,38 @@ public class TemporalTests extends TestBase {
         realEstate.deleteRealEstate(1);
 
         realEstate.addRealEstate();
+
+        realEstate.chooseRealEstateTypeHousingUnit(1);
+        realEstate.chooseRealEstateTypeAnother(0);
+
+        realEstate.enterRealEstateSize(0, "10");
+        realEstate.enterRealEstateOwnershipPercentage(0, "15");
+
+        realEstate.enterRealEstateSize(1, "20");
+        realEstate.enterRealEstateOwnershipPercentage(1, "25");
+
+        realEstate.chooseRealEstateInIsrael(0);
+        realEstate.chooseRealEstateOversea(1);
+
+        realEstate.enterRealEstateAddress(0, "AAA");
+        realEstate.enterRealEstateBlock(0, "BBB");
+        realEstate.enterRealEstatePlot(0, "CCC");
+
+        realEstate.chooseRealEstateFamilyUsage(0);
+        realEstate.chooseRealEstateRenting(1);
+
+        realEstate.chooseRealEstateBusinessPurpose(1);
+
+        realEstate.chooseRealEstateDivided(1);
+        realEstate.setAmountPartitionsOfDividedRealEstate(1, 5);
+        System.out.println("Amount of partitions " + realEstate.amountPartitionsOfDividedRealEstate(1));
+
+        realEstate.chooseRealEstateTenantNotIsraeli(1);
+        realEstate.enterRenterCountry(1, "USA");
+        realEstate.enterRenterPassword(1, "123456789");
+        realEstate.enterMonthlyRent(1, "3000");
+
+        realEstate.attachContractFile(1, FileAttachments.getDocumentPdf().toString());
     }
 
 }

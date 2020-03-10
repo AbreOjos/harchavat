@@ -39,9 +39,9 @@ public class RealEstate extends BasePage {
         recreateMapPannelsOnPage();
     }
 
-    public void deleteRealEstate(int indexWage) {
+    public void deleteRealEstate(int realEstateNumber) {
 
-        delete(indexWage);
+        delete(realEstateNumber);
 
         recreateMapPannelsOnPage();
     }
