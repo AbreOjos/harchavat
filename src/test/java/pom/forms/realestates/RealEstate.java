@@ -166,6 +166,63 @@ public class RealEstate extends BasePage {
 
 
 
+    // choose real estate ownership and size
+    public void enterRealEstateSize(int realEstateNumber, String size) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).enterRealEstateSize(size);
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterRealEstateOwnershipPercentage(int realEstateNumber, String ownershipPercentage) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).enterRealEstateOwnershipPercentage(ownershipPercentage);
+
+        recreateMapPannelsOnPage();
+    }
+
+    // enter real estate address
+    public void enterRealEstateAddress(int realEstateNumber, String address) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).enterRealEstateAddress(address);
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterRealEstateBlock(int realEstateNumber, String block) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).enterRealEstateBlock(block);
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterRealEstatePlot(int realEstateNumber, String plot) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).enterRealEstatePlot(plot);
+
+        recreateMapPannelsOnPage();
+    }
+
 
     // choose real estate place
     public void chooseRealEstateInIsrael(int realEstateNumber) {
@@ -230,6 +287,62 @@ public class RealEstate extends BasePage {
         }
 
         integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTenantNotIsraeli();
+
+        recreateMapPannelsOnPage();
+    }
+
+    // choose real estate usage
+    public void chooseRealEstatePersonalUsage(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstatePersonalUsage();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateFamilyUsage(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateFamilyUsage();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateRenting(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateRenting();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateNotUsing(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateNotUsing();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseRealEstateAnotherUsage(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateAnotherUsage();
 
         recreateMapPannelsOnPage();
     }

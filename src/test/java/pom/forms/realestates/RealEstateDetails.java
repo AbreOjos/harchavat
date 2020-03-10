@@ -25,6 +25,26 @@ public class RealEstateDetails extends BasePage {
         return details.findElement(calendarRealEstateSubElementDetails);
     }
 
+    protected WebElement getTxtRealEstateSize() {
+        return details.findElement(txtRealEstateSizeSubElementDetails);
+    }
+
+    protected WebElement getTxtRealEstateOwnershipPercentage() {
+        return details.findElement(txtRealEstateOwnershipPercentageSubElementDetails);
+    }
+
+    protected WebElement getTxtRealEstateAddress() {
+        return details.findElement(txtRealEstateAddressSubElementDetails);
+    }
+
+    protected WebElement getTxtRealEstateBlock() {
+        return details.findElement(txtRealEstateBlockSubElementDetails);
+    }
+
+    protected WebElement getTxtRealEstatePlot() {
+        return details.findElement(txtRealEstatePlotSubElementDetails);
+    }
+
     protected WebElement getBtnRealEstateInIsrael() {
         return details.findElements(btnsRealEstateTrueSubElementDetails).get(0);
     }
@@ -49,6 +69,26 @@ public class RealEstateDetails extends BasePage {
 
     protected WebElement getBtnRealEstateTenantNotIsraeli() {
         return details.findElements(btnsRealEstateFalseSubElementDetails).get(2);
+    }
+
+    protected WebElement getBtnRealEstatePersonalUsage() {
+        return details.findElements(btnsRealEstateUsageSubElementDetails).get(0);
+    }
+
+    protected WebElement getBtnRealEstateFamilyUsage() {
+        return details.findElements(btnsRealEstateUsageSubElementDetails).get(1);
+    }
+
+    protected WebElement getBtnRealEstateRenting() {
+        return details.findElements(btnsRealEstateUsageSubElementDetails).get(2);
+    }
+
+    protected WebElement getBtnRealEstateNotUsing() {
+        return details.findElements(btnsRealEstateUsageSubElementDetails).get(3);
+    }
+
+    protected WebElement getBtnRealEstateAnotherUsage() {
+        return details.findElements(btnsRealEstateUsageSubElementDetails).get(4);
     }
 
 
@@ -95,6 +135,28 @@ public class RealEstateDetails extends BasePage {
 
 
 
+    // choose real estate ownership and size
+    protected void enterRealEstateSize(String size) {
+        fillFormField(getTxtRealEstateSize(), size);
+    }
+
+    protected void enterRealEstateOwnershipPercentage(String ownershipPercentage) {
+        fillFormField(getTxtRealEstateOwnershipPercentage(), ownershipPercentage);
+    }
+
+    // enter real estate address
+    protected void enterRealEstateAddress(String address) {
+        fillFormField(getTxtRealEstateAddress(), address);
+    }
+
+    protected void enterRealEstateBlock(String block) {
+        fillFormField(getTxtRealEstateBlock(), block);
+    }
+
+    protected void enterRealEstatePlot(String plot) {
+        fillFormField(getTxtRealEstatePlot(), plot);
+    }
+
     // choose real estate place
     protected void chooseRealEstateInIsrael() {
         try {
@@ -111,6 +173,8 @@ public class RealEstateDetails extends BasePage {
             e.printStackTrace();
         }
     }
+
+
 
     protected void chooseRealEstateDivided() {
         try {
@@ -144,6 +208,46 @@ public class RealEstateDetails extends BasePage {
         }
     }
 
+    // choose real estate usage
+    protected void chooseRealEstatePersonalUsage() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstatePersonalUsage());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void chooseRealEstateFamilyUsage() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateFamilyUsage());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void chooseRealEstateRenting() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateRenting());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void chooseRealEstateNotUsing() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateNotUsing());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void chooseRealEstateAnotherUsage() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateAnotherUsage());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
