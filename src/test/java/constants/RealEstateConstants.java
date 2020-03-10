@@ -22,5 +22,15 @@ public class RealEstateConstants {
     public static final By txtRealEstateBlockSubElementDetails = By.xpath(".//input[@name='gush']");
     public static final By txtRealEstatePlotSubElementDetails = By.xpath(".//input[@name='gush']");
     public static final By btnsRealEstateUsageSubElementDetails = By.xpath(".//div[@class='bgl-toggle mb-3']//button");
+    public static final By btnsRealEstateRentingPurpose =
+            By.xpath(".(//*[contains(@class, 'v-item-group')]/button[not(contains(@value, 'true')) and not(contains(@value, 'false'))]/..)[2]/button");
+    public static final By volumeRealEstateDividedSubElementDetails = By.xpath(".//div[@class='volume']");
+    public static final By volumeRealEstateAddSubElementDetails = By.xpath(".//button[contains(@class, 'add')]");
+    public static final By volumeRealEstateRemoveSubElementDetails = By.xpath(".//button[contains(@class, 'remove')]");
+    public static final By txtRenterIdSubElementDetails = By.xpath(".//input[@name='renterId']");
+    public static final By txtMonthlyRentSubElementDetails = By.xpath(".//input[@name='monthlyRent']");
+    public static final By txtRenterCountrySubElementDetails = By.xpath(".//input[@name='renterCountry']");
+    public static final By txtRenterPasswordSubElementDetails = By.xpath(".//input[@name='renterPassport']");
+    public static final By attachContractFileSubElementDetails = By.xpath(".//div[@class='v-btn__content']//input");
 
 }
