@@ -165,6 +165,74 @@ public class RealEstate extends BasePage {
     }
 
 
+    // date picker
+    public void openDatePicker(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).openDatePicker();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void pickCancel(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).pickCancel();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void pickOk(int realEstateNumber) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        integerRealEstateDetailsMap.get(realEstateNumber).pickOk();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public String pickMonthYear(int realEstateNumber, String month, String year) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        return integerRealEstateDetailsMap.get(realEstateNumber).pickMonthYear(month, year);
+    }
+
+    public String pickDay(int realEstateNumber, String day) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        return integerRealEstateDetailsMap.get(realEstateNumber).pickDay(day);
+    }
+
+    public void pickDayMonthYear(int realEstateNumber, String day, String month, String year) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        openDatePicker(realEstateNumber);
+
+        pickMonthYear(realEstateNumber, month, year);
+
+        pickDay(realEstateNumber, day);
+
+        pickOk(realEstateNumber);
+    }
+
+
 
     // choose real estate ownership and size
     public void enterRealEstateSize(int realEstateNumber, String size) {

@@ -1,11 +1,15 @@
 package pom.forms.realestates;
 
 import com.mysql.cj.exceptions.WrongArgumentException;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
+import java.util.List;
+
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
+import static constants.EnglishHebrewConstants.JANUARY;
 import static constants.RealEstateConstants.*;
 
 public class RealEstateDetails extends BasePage {
@@ -132,6 +136,34 @@ public class RealEstateDetails extends BasePage {
         return details.findElement(attachContractFileSubElementDetails);
     }
 
+    // picker
+    protected WebElement getBtnPicker() {
+        return details.findElement(btnPickerSubElementDetail);
+    }
+
+    protected WebElement getBtnHeaderPicker() {
+        return details.findElement(btnHeaderPickerSubElementDetails);
+    }
+
+    protected WebElement getBtnRight() {
+        return details.findElement(btnRightSubElementDetails);
+    }
+
+    protected WebElement getBtnLeft() {
+        return details.findElement(btnLeftSubElementDetails);
+    }
+
+    protected List<WebElement> getLblsDay() {
+        return details.findElements(lblDaySubElementDetails);
+    }
+
+    protected WebElement getBtnCancelPick() {
+        return details.findElements(btnsActionsPickerSubElementDetails).get(0);
+    }
+
+    protected WebElement getBtnOkPick() {
+        return details.findElements(btnsActionsPickerSubElementDetails).get(1);
+    }
 
 
     // choose real estate type
@@ -173,6 +205,65 @@ public class RealEstateDetails extends BasePage {
 
     protected void chooseRealEstateTypeAnother() {
         clickDropDownList(getDropDownRealEstateType(), 9);
+    }
+
+    // date picker
+    protected void openDatePicker() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnPicker());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected String fetchCurrentMonthYear() {
+        return getBtnHeaderPicker().getText().trim();
+    }
+
+    protected String clickRightOnce() {
+        getBtnRight().click();
+        return fetchCurrentMonthYear();
+    }
+
+    protected String clickLeftOnce() {
+        getBtnLeft().click();
+        return fetchCurrentMonthYear();
+    }
+
+    protected String pickMonthYear(String month, String year) {
+        String currentMonthYear = fetchCurrentMonthYear();
+        String currentYear = StringUtils.getDigits(currentMonthYear);
+
+        if (Integer.parseInt(year) > Integer.parseInt(currentYear)) {
+            clickLeft(JANUARY, year);
+        } else {
+            clickRight(JANUARY, year);
+        }
+
+        while (!currentMonthYear.contains(month) || !currentMonthYear.contains(year)) {
+            currentMonthYear = clickLeft(month, year);
+        }
+
+        return currentMonthYear;
+    }
+
+    protected String pickDay(String day) {
+        for (WebElement singleDay : getLblsDay()) {
+            if (singleDay.getText().trim().equals(day)) {
+                singleDay.click();
+                return singleDay.getText().trim();
+            }
+        }
+
+        throw new WrongArgumentException(String.format("Day %s not found in the picker", day));
+    }
+
+    protected void pickCancel() {
+        getBtnCancelPick().click();
+    }
+
+    protected void pickOk() {
+        getBtnOkPick().click();
     }
 
 
@@ -379,6 +470,24 @@ public class RealEstateDetails extends BasePage {
         } else {
             return amountPartitionsOfDividedRealEstate();
         }
+    }
+
+    private String clickRight(String month, String year) {
+        String currentMonthYear = fetchCurrentMonthYear();
+        while (!currentMonthYear.contains(month) || !currentMonthYear.contains(year)) {
+            currentMonthYear = clickRightOnce();
+        }
+
+        return fetchCurrentMonthYear();
+    }
+
+    private String clickLeft(String month, String year) {
+        String currentMonthYear = fetchCurrentMonthYear();
+        while (!currentMonthYear.contains(month) || !currentMonthYear.contains(year)) {
+            currentMonthYear = clickLeftOnce();
+        }
+
+        return fetchCurrentMonthYear();
     }
 
 }

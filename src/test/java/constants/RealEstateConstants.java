@@ -33,4 +33,12 @@ public class RealEstateConstants {
     public static final By txtRenterPasswordSubElementDetails = By.xpath(".//input[@name='renterPassport']");
     public static final By attachContractFileSubElementDetails = By.xpath(".//div[@class='v-btn__content']//input");
 
+    // picker (sub-element of Details)
+    public static final By btnPickerSubElementDetail = By.xpath(".//input[@name='date']");
+    public static final By btnHeaderPickerSubElementDetails = By.xpath(".//div[@class='accent--text']/button");
+    public static final By btnRightSubElementDetails = By.xpath(".//button//i[contains(text(),'chevron_right')]");
+    public static final By btnLeftSubElementDetails = By.xpath(".//button//i[contains(text(),'chevron_left')]");
+    public static final By lblDaySubElementDetails = By.xpath(".//tbody/tr/td/button/div");
+    public static final By btnsActionsPickerSubElementDetails = By.xpath(".//div[contains(@class, 'v-picker__actions')]/button");
+
 }
