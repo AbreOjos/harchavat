@@ -18,4 +18,8 @@ public class VariousConstants {
     public static final By partnershipDetailsPanel = By.xpath("//div[@id='partnerships']//div[contains(@class, 'shaamPage')]");
     public static final By ownJewelryDetailsPanel = By.xpath("//div[@id='ownJewelry']//div[contains(@class, 'shaamPage')]");
     public static final By ownArtDetailsPanel = By.xpath("//div[@id='ownArt']//div[contains(@class, 'shaamPage')]");
+
+    // sub-elements
+    public static final By btnsTypeOfIncomeSubElementnonWorkIncomesDetails =
+            By.xpath(".//div[@name='typeOfIncome']//button");
 }
