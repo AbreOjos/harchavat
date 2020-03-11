@@ -20,6 +20,12 @@ public class VariousConstants {
     public static final By ownArtDetailsPanel = By.xpath("//div[@id='ownArt']//div[contains(@class, 'shaamPage')]");
 
     // sub-elements
-    public static final By btnsTypeOfIncomeSubElementnonWorkIncomesDetails =
-            By.xpath(".//div[@name='typeOfIncome']//button");
+
+    // non work income details sub-element
+    public static final By btnsTypeOfIncomeSubElementNonWorkIncomesDetails = By.xpath(".//div[@name='typeOfIncome']//button");
+    public static final By txtIncomeSourceSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='incomeSource']");
+    public static final By txtYearlyIncomeSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='yearlyIncome']");
+    public static final By txtPayerNameSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='payerName']");
+    public static final By txtTikNikuimSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='tikNikuim']");
+
 }
