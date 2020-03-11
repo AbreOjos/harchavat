@@ -9,6 +9,8 @@ import pom.BasePage;
 import java.util.List;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
+import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
+import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static constants.EnglishHebrewConstants.JANUARY;
 import static constants.RealEstateConstants.*;
 
@@ -297,6 +299,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseRealEstateOversea() {
@@ -305,6 +309,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
 
@@ -315,6 +321,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseRealEstateNotDivided() {
@@ -323,6 +331,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseRealEstateTenantIsraeli() {
@@ -331,6 +341,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseRealEstateTenantNotIsraeli() {
@@ -339,6 +351,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     // choose real estate usage
@@ -348,6 +362,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseRealEstateFamilyUsage() {
@@ -356,6 +372,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseRealEstateRenting() {
@@ -364,6 +382,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseRealEstateNotUsing() {
@@ -372,6 +392,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseRealEstateAnotherUsage() {
@@ -380,6 +402,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     // real estate renting purpose
@@ -389,6 +413,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseRealEstateBusinessPurpose() {
@@ -397,6 +423,8 @@ public class RealEstateDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     // real estate divided

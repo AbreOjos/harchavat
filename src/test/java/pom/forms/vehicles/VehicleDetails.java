@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
+import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
+import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static constants.VehicleConstants.*;
 
 public class VehicleDetails extends BasePage {
@@ -73,6 +75,8 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseCommercialVehicle() {
@@ -81,6 +85,8 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseHeavyVehicle() {
@@ -89,6 +95,8 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseAircraftVehicle() {
@@ -97,6 +105,8 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseVesselVehicle() {
@@ -105,6 +115,8 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseAnotherVehicle() {
@@ -113,6 +125,8 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
 
@@ -139,6 +153,8 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseCommercialUsage() {
@@ -147,6 +163,8 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseAnotherUsage() {
@@ -155,5 +173,7 @@ public class VehicleDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 }

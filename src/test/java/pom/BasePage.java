@@ -15,6 +15,8 @@ import java.util.List;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.clickElementWithJavaScript;
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
+import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
+import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static utils.helpers.Waits.fluentWaitElementClickable;
 
 public class BasePage {
@@ -175,6 +177,8 @@ public class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     public void clickBtnReturn() {
@@ -183,6 +187,8 @@ public class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     public PersonalDetails clickMenuPersonalDetails() {
@@ -192,6 +198,8 @@ public class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         return new PersonalDetails(driver);
     }
@@ -204,6 +212,8 @@ public class BasePage {
             e.printStackTrace();
         }
 
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
         return new Wage(driver);
     }
 
@@ -214,6 +224,8 @@ public class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         return new RealEstate(driver);
     }
@@ -226,6 +238,8 @@ public class BasePage {
             e.printStackTrace();
         }
 
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
         return new Various(driver);
     }
 
@@ -237,6 +251,8 @@ public class BasePage {
             e.printStackTrace();
         }
 
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
         return new Vehicle(driver);
     }
 
@@ -247,6 +263,8 @@ public class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         return new SendForm(driver);
     }
@@ -284,6 +302,8 @@ public class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void chooseDontHave() {
@@ -292,6 +312,8 @@ public class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void delete(int index) {
@@ -306,10 +328,14 @@ public class BasePage {
         }
 
         btnsDelete.get(index-1).click();
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void add() {
         btnAdd.click();
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
 }

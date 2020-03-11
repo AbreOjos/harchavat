@@ -9,6 +9,8 @@ import pom.BasePage;
 import java.util.List;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
+import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
+import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static utils.utilitiesForInfra.JavaScriptHelpersHarchavat.scrollIntoViewMoveFocusAndClickWithJavaScript;
 
 public class PersonalDetails extends BasePage {
@@ -129,6 +131,8 @@ public class PersonalDetails extends BasePage {
             e.printStackTrace();
         }
 
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
         PageFactory.initElements(driver, this);
     }
 
@@ -138,6 +142,8 @@ public class PersonalDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         PageFactory.initElements(driver, this);
     }
@@ -150,6 +156,8 @@ public class PersonalDetails extends BasePage {
             e.printStackTrace();
         }
 
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
         PageFactory.initElements(driver, this);
     }
 
@@ -159,6 +167,8 @@ public class PersonalDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         PageFactory.initElements(driver, this);
     }
@@ -170,6 +180,8 @@ public class PersonalDetails extends BasePage {
             e.printStackTrace();
         }
 
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
         PageFactory.initElements(driver, this);
     }
 
@@ -179,6 +191,8 @@ public class PersonalDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         PageFactory.initElements(driver, this);
     }
@@ -190,6 +204,8 @@ public class PersonalDetails extends BasePage {
             e.printStackTrace();
         }
 
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
         PageFactory.initElements(driver, this);
     }
 
@@ -199,6 +215,8 @@ public class PersonalDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         PageFactory.initElements(driver, this);
     }
@@ -222,6 +240,8 @@ public class PersonalDetails extends BasePage {
             e.printStackTrace();
         }
 
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
         PageFactory.initElements(driver, this);
     }
 
@@ -232,6 +252,8 @@ public class PersonalDetails extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         PageFactory.initElements(driver, this);
     }
@@ -267,6 +289,8 @@ public class PersonalDetails extends BasePage {
     // attach file for separated
     public void attachFileSeparated(String filename) {
         attachFileInput.sendKeys(filename);
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         PageFactory.initElements(this.driver, this);
     }
