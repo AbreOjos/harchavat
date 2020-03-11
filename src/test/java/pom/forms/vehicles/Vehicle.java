@@ -27,12 +27,6 @@ public class Vehicle extends BasePage {
         recreateMapPannelsOnPage();
     }
 
-    // == getters ==
-    public Map<Integer, VehicleDetails> getIntegerVehicleDetailsMap() {
-        return integerVehicleDetailsMap;
-    }
-
-
     // == public methods ==
     public void chooseHaveVehicle() {
 

@@ -296,10 +296,10 @@ public class BasePage {
 
     protected void delete(int index) {
         if (btnsDelete.isEmpty()) {
-            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d," +
-                    "the list of vehicles is empty", index));
+            throw new WrongArgumentException(String.format("Impossible to delete a panel #%d," +
+                    "the list of panels is empty", index));
         } else if (index == 0) {
-            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d", index));
+            throw new WrongArgumentException(String.format("Impossible to delete a panel #%d", index));
         } else if (index<0 || index> btnsDelete.size()) {
             throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d. " +
                     "The number need to be between 1 and %d inclusive", index, btnsDelete.size()));

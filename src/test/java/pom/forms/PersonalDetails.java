@@ -62,67 +62,6 @@ public class PersonalDetails extends BasePage {
     @FindBy(xpath = "//div[@class='v-btn__content']//input[@type='file']")
     private WebElement attachFileInput;
 
-    // == getters ==
-    public List<WebElement> getCheckBoxes() {
-        return checkBoxes;
-    }
-
-    public WebElement getTxtIdentity() {
-        return txtIdentity;
-    }
-
-    public WebElement getTxtFirstName() {
-        return txtFirstName;
-    }
-
-    public WebElement getTxtLastName() {
-        return txtLastName;
-    }
-
-    public WebElement getTxtEmail() {
-        return txtEmail;
-    }
-
-    public WebElement getTxtPhone() {
-        return txtPhone;
-    }
-
-    public WebElement getTxtCellular() {
-        return txtCellular;
-    }
-
-    public List<WebElement> getBtnsResident() {
-        return btnsResident;
-    }
-
-    public List<WebElement> getBtnsMartialStatus() {
-        return btnsMartialStatus;
-    }
-
-    public List<WebElement> getBtnsSpouseResident() {
-        return btnsSpouseResident;
-    }
-
-    public WebElement getTxtSpousePassport() {
-        return txtSpousePassport;
-    }
-
-    public WebElement getTxtSpouseState() {
-        return txtSpouseState;
-    }
-
-    public WebElement getTxtSpouseIdentity() {
-        return txtSpouseIdentity;
-    }
-
-    public WebElement getAttachFileInput() {
-        return attachFileInput;
-    }
-
-    public WebElement getDropDownSpouseCountry() {
-        return dropDownSpouseCountry;
-    }
-
 
     // == public methods ==
 

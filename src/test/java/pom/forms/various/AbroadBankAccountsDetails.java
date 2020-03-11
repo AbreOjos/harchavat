@@ -4,11 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
-public class VariousDetails extends BasePage {
+public class AbroadBankAccountsDetails extends BasePage {
 
     private final WebElement details;
 
-    public VariousDetails(WebDriver driver, WebElement details) {
+    public AbroadBankAccountsDetails(WebDriver driver, WebElement details) {
         super(driver);
         this.details = details;
     }
