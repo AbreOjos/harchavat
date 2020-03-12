@@ -552,6 +552,75 @@ public class Various extends BasePage {
     }
 
 
+    // Stocks methods
+    public void enterStocksCompanyName(int stocksNumber, String companyName) {
+        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
+        }
+
+        integerStocksDetailsMap.get(stocksNumber).enterCompanyName(companyName);
+    }
+
+    public void chooseStocksCompanySourceOversea(int stocksNumber) {
+        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
+        }
+
+        integerStocksDetailsMap.get(stocksNumber).chooseCompanySourceOversea();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseStocksCompanySourceIsrael(int stocksNumber) {
+        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
+        }
+
+        integerStocksDetailsMap.get(stocksNumber).chooseCompanySourceIsrael();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void selectCountryStocksFromDropDownListByName(int stocksNumber, String country) {
+        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
+        }
+
+        integerStocksDetailsMap.get(stocksNumber).selectCountryFromDropDownListByName(country);
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterStocksState(int stocksNumber, String state) {
+        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
+        }
+
+        integerStocksDetailsMap.get(stocksNumber).enterState(state);
+    }
+
+    public void enterStocksCompanyNum(int stocksNumber, String companyNum) {
+        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
+        }
+
+        integerStocksDetailsMap.get(stocksNumber).enterCompanyNum(companyNum);
+    }
+
+    public void enterStocksCompanyPercentage(int stocksNumber, String companyPercentage) {
+        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
+        }
+
+        integerStocksDetailsMap.get(stocksNumber).enterCompanyPercentage(companyPercentage);
+    }
 
 
     // == private methods ==

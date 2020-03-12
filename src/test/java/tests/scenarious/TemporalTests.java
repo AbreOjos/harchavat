@@ -295,6 +295,30 @@ public class TemporalTests extends TestBase {
         various.enterDigitalCoinsAmountSold(1, "5");
         various.enterDigitalCoinsSoldValue(1, "333");
 
+        // StocksDetails
+        various.chooseHaveStocks();
+        various.chooseDontHaveStocks();
+        various.chooseHaveStocks();
+
+        various.addStocks();
+        various.addStocks();
+        various.deleteStocks(1);
+        various.addStocks();
+
+        various.enterStocksCompanyName(0,"Igor");
+        various.enterStocksCompanyName(1,"Gindin");
+
+        various.chooseStocksCompanySourceOversea(0);
+        various.chooseStocksCompanySourceIsrael(1);
+
+        various.selectCountryStocksFromDropDownListByName(0, ISRAEL);
+        various.enterStocksState(0, "DC");
+        various.enterStocksCompanyNum(0, "123");
+        various.enterStocksCompanyPercentage(0, "12");
+
+        various.enterStocksCompanyNum(1, "987");
+        various.enterStocksCompanyPercentage(1, "95");
+
 
     }
 

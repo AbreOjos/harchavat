@@ -48,9 +48,9 @@ public class VariousConstants {
 
     // digital coins details
     public static final By btnsTypeOfIncomeSubElementDigitalCoinsDetails = By.xpath(".//div[contains(@class, 'bgl-toggle')]//button");
-    public static final By txtAnotherCoinDigitalCoinsDetails = By.xpath(".//input[@name='keyInCoin']");
-    public static final By txtCoinAmountDigitalCoinsDetails = By.xpath(".//input[@name='coinAmount']");
-    public static final By txtPublicKeyDigitalCoinsDetails = By.xpath(".//input[@name='publicKey']");
+    public static final By txtAnotherCoinSubElementDigitalCoinsDetails = By.xpath(".//input[@name='keyInCoin']");
+    public static final By txtCoinAmountSubElementDigitalCoinsDetails = By.xpath(".//input[@name='coinAmount']");
+    public static final By txtPublicKeySubElementDigitalCoinsDetails = By.xpath(".//input[@name='publicKey']");
     public static final By btnCoinsMaterializedSubElementDigitalCoinsDetails = By.xpath(".//div[@id='isCoinMaterializedId']//button[@value='true']");
     public static final By btnCoinsDontMaterializedSubElementDigitalCoinsDetails = By.xpath(".//div[@id='isCoinMaterializedId']//button[@value='false']");
     public static final By txtAmountMaterializedSubElementDigitalCoinsDetails = By.xpath(".//input[@name='amountMaterialized']");
@@ -59,6 +59,15 @@ public class VariousConstants {
     public static final By btnDontPurchasedWithCoinsSubElementDigitalCoinsDetails = By.xpath(".//div[@id='isCoinSellId']//button[@value='false']");
     public static final By txtAmountSoldSubElementDigitalCoinsDetails = By.xpath(".//input[@name='amountSold']");
     public static final By txtSoldValueSubElementDigitalCoinsDetails = By.xpath(".//input[@name='soldValue']");
+
+    // stocks details
+    public static final By txtCompanyNameSubElementStocksDetails = By.xpath(".//input[@name='companyName']");
+    public static final By btnsCompanySourceSubElementStocksDetails = By.xpath(".//div[@name='companySource']/button");
+    public static final By dropDownCountrySubElementStocksDetails = By.xpath(".//input[@name='countryOfIncome']");
+    public static final By txtStateSubElementStocksDetails = By.xpath(".//input[@name='state']");
+    public static final By txtCompanyNumSubElementStocksDetails = By.xpath(".//input[@name='companyNum']");
+    public static final By txtCompanyPercentageSubElementStocksDetails = By.xpath(".//input[@name='companyPercentage']");
+
 
 
 }

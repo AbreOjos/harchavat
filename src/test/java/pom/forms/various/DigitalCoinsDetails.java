@@ -162,15 +162,15 @@ public class DigitalCoinsDetails extends BasePage {
     }
 
     private WebElement getTxtAnotherCoin() {
-        return details.findElement(txtAnotherCoinDigitalCoinsDetails);
+        return details.findElement(txtAnotherCoinSubElementDigitalCoinsDetails);
     }
 
     private WebElement getTxtCoinAmount() {
-        return details.findElement(txtCoinAmountDigitalCoinsDetails);
+        return details.findElement(txtCoinAmountSubElementDigitalCoinsDetails);
     }
 
     private WebElement getTxtPublicKey() {
-        return details.findElement(txtPublicKeyDigitalCoinsDetails);
+        return details.findElement(txtPublicKeySubElementDigitalCoinsDetails);
     }
 
     private WebElement getBtnCoinsMaterialized() {
