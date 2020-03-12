@@ -249,7 +249,7 @@ public class TemporalTests extends TestBase {
         various.enterNonWorkIncomesIncomeSource(2, "BBBBBBBBBB");
         various.enterNonWorkIncomesYearlyIncome(2, "123456");
         various.selectCountryNonWorkIncomesFromDropDownListByName(2, ISRAEL);
-//        various.enterNonWorkIncomesState(2, "Alabama");
+        various.enterNonWorkIncomesState(2, "Alabama");
 
         // AbroadBankAccountsDetails
         various.chooseHaveAbroadBankAccounts();
@@ -262,7 +262,7 @@ public class TemporalTests extends TestBase {
         various.addAbroadBankAccounts();
 
         various.selectCountryAbroadBankAccountsFromDropDownListByName(2, ISRAEL);
-//        various.enterAbroadBankAccountsState(2, "Alaska");
+        various.enterAbroadBankAccountsState(2, "Alaska");
         various.enterAbroadBankAccountsCity(2, "Moscow");
         various.enterAbroadBankAccountsBankName(2, "Hapoalim");
         various.enterAbroadBankAccountsBankNum(2, "40");

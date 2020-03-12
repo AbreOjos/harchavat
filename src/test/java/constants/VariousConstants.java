@@ -33,7 +33,7 @@ public class VariousConstants {
     public static final By dropDownStreetSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='street']");
     public static final By dropDownCountrySubElementNonWorkIncomesDetails = By.xpath(".//input[@name='countryOfIncome']");
     public static final By txtHouseNumSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='houseNum']");
-    public static final By txtStateSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='spouseState']");
+    public static final By txtStateSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='state']");
 
     // abroad bank accounts details sub-element
     public static final By dropDownCountrySubElementAbroadBankAccountsDetails = By.xpath(".//div[@class='v-select__selections']//input");
