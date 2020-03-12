@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
+import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
+import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static constants.VariousConstants.*;
 
 public class Various extends BasePage {
@@ -56,15 +58,15 @@ public class Various extends BasePage {
     @FindBy(xpath = "//div[@id='ownArt']//*[contains(@class, 'yes-no-box')]//button[@value='false']")
     private WebElement btnDontHaveArt;
 
-    @FindBy(xpath = "//div[@id='nonWorkIncomes']//div[@class='add-item w-inline-block']//img")
+    @FindBy(xpath = "//div[@id='nonWorkIncomes']//img")
     private WebElement btnAddNonWorkIncomes;
-    @FindBy(xpath = "//div[@id='abroadBankAccounts']//div[@class='add-item w-inline-block']//img")
+    @FindBy(xpath = "//div[@id='abroadBankAccounts']//img")
     private WebElement btnAddAbroadBankAccounts;
-    @FindBy(xpath = "//div[@id='digitalCoins']//div[@class='add-item w-inline-block']//img")
+    @FindBy(xpath = "//div[@id='digitalCoins']//img")
     private WebElement btnAddDigitalCoins;
-    @FindBy(xpath = "//div[@id='stocks']//div[@class='add-item w-inline-block']//img")
+    @FindBy(xpath = "//div[@id='stocks']//img")
     private WebElement btnAddStocks;
-    @FindBy(xpath = "//div[@id='partnerships']//div[@class='add-item w-inline-block']//img")
+    @FindBy(xpath = "//div[@id='partnerships']//img")
     private WebElement btnAddPartnerships;
 
     @FindBy(xpath = "//div[@id='nonWorkIncomes']//span[contains(., 'delete')]")
@@ -97,7 +99,7 @@ public class Various extends BasePage {
     }
 
     public void chooseDontHaveNonWorkIncomes() {
-        chooseDontHave(btnHaveNonWorkIncomes);
+        chooseDontHave(btnDontHaveNonWorkIncomes);
     }
 
     public void chooseHaveAbroadBankAccounts() {
@@ -110,7 +112,7 @@ public class Various extends BasePage {
     }
 
     public void chooseHaveDigitalCoins() {
-        chooseHave(btnDontHaveDigitalCoins);
+        chooseHave(btnHaveDigitalCoins);
     }
 
     public void chooseDontHaveDigitalCoins() {
@@ -118,7 +120,7 @@ public class Various extends BasePage {
     }
 
     public void chooseHaveStocks() {
-        chooseHave(btnDontHaveStocks);
+        chooseHave(btnHaveStocks);
     }
 
     public void chooseDontHaveStocks() {
@@ -126,7 +128,7 @@ public class Various extends BasePage {
     }
 
     public void chooseHavePartnerships() {
-        chooseHave(btnDontHavePartnerships);
+        chooseHave(btnHavePartnerships);
     }
 
     public void chooseDontHavePartnerships() {
@@ -134,7 +136,7 @@ public class Various extends BasePage {
     }
 
     public void chooseHaveJewelry() {
-        chooseHave(btnDontHaveJewelry);
+        chooseHave(btnHaveJewelry);
     }
 
     public void chooseDontHaveJewelry() {
@@ -142,7 +144,7 @@ public class Various extends BasePage {
     }
 
     public void chooseHaveArt() {
-        chooseHave(btnDontHaveArt);
+        chooseHave(btnHaveArt);
     }
 
     public void chooseDontHaveArt() {
@@ -386,6 +388,172 @@ public class Various extends BasePage {
     }
 
 
+    // Digital Coins methods
+    public void chooseDigitalCoinsBitcoin(int digitalCoinsNumber) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseBitcoin();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseDigitalCoinsNano(int digitalCoinsNumber) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseNano();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseDigitalCoinsSteem(int digitalCoinsNumber) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseSteem();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseDigitalCoinsCardano(int digitalCoinsNumber) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCardano();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseDigitalCoinsAnotherCoin(int digitalCoinsNumber) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseAnotherCoin();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterDigitalCoinsAnotherCoin(int digitalCoinsNumber, String anotherCoinName) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAnotherCoin(anotherCoinName);
+    }
+
+    public void enterDigitalCoinsCoinAmount(int digitalCoinsNumber, String coinAmount) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterCoinAmount(coinAmount);
+    }
+
+    public void enterDigitalCoinsPublicKey(int digitalCoinsNumber, String publicKey) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterPublicKey(publicKey);
+    }
+
+    public void chooseDigitalCoinsCoinsMaterialized(int digitalCoinsNumber) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCoinsMaterialized();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseDigitalCoinsCoinsDontMaterialized(int digitalCoinsNumber) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCoinsDontMaterialized();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterDigitalCoinsAmountMaterialized(int digitalCoinsNumber, String amountMaterialized) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAmountMaterialized(amountMaterialized);
+    }
+
+    public void enterDigitalCoinsMaterializationValue(int digitalCoinsNumber, String materializationValue) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterMaterializationValue(materializationValue);
+    }
+
+    public void chooseDigitalCoinsPurchasedWithCoins(int digitalCoinsNumber) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).choosePurchasedWithCoins();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseDigitalCoinsDontPurchasedWithCoins(int digitalCoinsNumber) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseDontPurchasedWithCoins();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterDigitalCoinsAmountSold(int digitalCoinsNumber, String amountSold) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAmountSold(amountSold);
+    }
+
+    public void enterDigitalCoinsSoldValue(int digitalCoinsNumber, String soldValue) {
+        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
+        }
+
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterSoldValue(soldValue);
+    }
+
+
+
+
     // == private methods ==
     private void chooseHave(WebElement button) {
         try {
@@ -393,6 +561,10 @@ public class Various extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+//        button.click();
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         recreateMapPannelsOnPage();
     }
@@ -404,11 +576,19 @@ public class Various extends BasePage {
             e.printStackTrace();
         }
 
+//        button.click();
+
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
         recreateMapPannelsOnPage();
     }
 
     private void add(WebElement btnAdd) {
         btnAdd.click();
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
         recreateMapPannelsOnPage();
     }
 
@@ -424,6 +604,8 @@ public class Various extends BasePage {
         }
 
         btnsDelete.get(index-1).click();
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         recreateMapPannelsOnPage();
     }

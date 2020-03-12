@@ -1,7 +1,8 @@
 package tests.scenarious;
 
 import org.apache.log4j.Logger;
-import pom.forms.*;
+import pom.forms.PersonalDetails;
+import pom.forms.SendForm;
 import pom.forms.realestates.RealEstate;
 import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
@@ -224,6 +225,7 @@ public class TemporalTests extends TestBase {
     protected void fillVariousDetails() {
         Various various = basePage.clickMenuVarious();
 
+
         // NonWorkIncomesDetails
         various.chooseHaveNonWorkIncomes();
         various.chooseDontHaveNonWorkIncomes();
@@ -247,7 +249,7 @@ public class TemporalTests extends TestBase {
         various.enterNonWorkIncomesIncomeSource(2, "BBBBBBBBBB");
         various.enterNonWorkIncomesYearlyIncome(2, "123456");
         various.selectCountryNonWorkIncomesFromDropDownListByName(2, ISRAEL);
-        various.enterNonWorkIncomesState(2, "Alabama");
+//        various.enterNonWorkIncomesState(2, "Alabama");
 
         // AbroadBankAccountsDetails
         various.chooseHaveAbroadBankAccounts();
@@ -260,7 +262,7 @@ public class TemporalTests extends TestBase {
         various.addAbroadBankAccounts();
 
         various.selectCountryAbroadBankAccountsFromDropDownListByName(2, ISRAEL);
-        various.enterAbroadBankAccountsState(2, "Alaska");
+//        various.enterAbroadBankAccountsState(2, "Alaska");
         various.enterAbroadBankAccountsCity(2, "Moscow");
         various.enterAbroadBankAccountsBankName(2, "Hapoalim");
         various.enterAbroadBankAccountsBankNum(2, "40");
@@ -268,6 +270,31 @@ public class TemporalTests extends TestBase {
         various.enterAbroadBankAccountsBranchNum(2, "12");
         various.enterAbroadBankAccountsAccountNum(2, "021548");
         various.enterAbroadBankAccountsPartners(2, "3");
+
+        // DigitalCoinsDetails
+        various.chooseHaveDigitalCoins();
+        various.chooseDontHaveDigitalCoins();
+        various.chooseHaveDigitalCoins();
+
+        various.addDigitalCoins();
+        various.addDigitalCoins();
+        various.deleteDigitalCoins(1);
+        various.addDigitalCoins();
+
+        various.chooseDigitalCoinsCardano(0);
+        various.chooseDigitalCoinsNano(1);
+        various.chooseDigitalCoinsAnotherCoin(2);
+        various.enterDigitalCoinsCoinAmount(1, "1000");
+        various.enterDigitalCoinsPublicKey(1, "asdfgh");
+        various.chooseDigitalCoinsCoinsDontMaterialized(1);
+        various.chooseDigitalCoinsCoinsMaterialized(2);
+        various.enterDigitalCoinsAmountMaterialized(2, "8765");
+        various.enterDigitalCoinsMaterializationValue(2, "1234554321");
+        various.chooseDigitalCoinsDontPurchasedWithCoins(2);
+        various.chooseDigitalCoinsPurchasedWithCoins(1);
+        various.enterDigitalCoinsAmountSold(1, "5");
+        various.enterDigitalCoinsSoldValue(1, "333");
+
 
     }
 

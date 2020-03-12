@@ -46,5 +46,19 @@ public class VariousConstants {
     public static final By txtAccountNumSubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='accountNum']");
     public static final By txtPartnersNumSubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='partnersNum']");
 
+    // digital coins details
+    public static final By btnsTypeOfIncomeSubElementDigitalCoinsDetails = By.xpath(".//div[contains(@class, 'bgl-toggle')]//button");
+    public static final By txtAnotherCoinDigitalCoinsDetails = By.xpath(".//input[@name='keyInCoin']");
+    public static final By txtCoinAmountDigitalCoinsDetails = By.xpath(".//input[@name='coinAmount']");
+    public static final By txtPublicKeyDigitalCoinsDetails = By.xpath(".//input[@name='publicKey']");
+    public static final By btnCoinsMaterializedSubElementDigitalCoinsDetails = By.xpath(".//div[@id='isCoinMaterializedId']//button[@value='true']");
+    public static final By btnCoinsDontMaterializedSubElementDigitalCoinsDetails = By.xpath(".//div[@id='isCoinMaterializedId']//button[@value='false']");
+    public static final By txtAmountMaterializedSubElementDigitalCoinsDetails = By.xpath(".//input[@name='amountMaterialized']");
+    public static final By txtMaterializationValueSubElementDigitalCoinsDetails = By.xpath(".//input[@name='materializationValue']");
+    public static final By btnPurchasedWithCoinsSubElementDigitalCoinsDetails = By.xpath(".//div[@id='isCoinSellId']//button[@value='true']");
+    public static final By btnDontPurchasedWithCoinsSubElementDigitalCoinsDetails = By.xpath(".//div[@id='isCoinSellId']//button[@value='false']");
+    public static final By txtAmountSoldSubElementDigitalCoinsDetails = By.xpath(".//input[@name='amountSold']");
+    public static final By txtSoldValueSubElementDigitalCoinsDetails = By.xpath(".//input[@name='soldValue']");
+
 
 }
