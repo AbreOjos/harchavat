@@ -225,7 +225,6 @@ public class TemporalTests extends TestBase {
     protected void fillVariousDetails() {
         Various various = basePage.clickMenuVarious();
 
-
         // NonWorkIncomesDetails
         various.chooseHaveNonWorkIncomes();
         various.chooseDontHaveNonWorkIncomes();
@@ -341,6 +340,16 @@ public class TemporalTests extends TestBase {
         various.selectCountryPartnershipsFromDropDownListByName(2, ISRAEL);
         various.enterPartnershipsState(2, "DC");
         various.enterPartnershipPercentage(2, "69");
+
+        // OwnJewelryDetails
+        various.chooseHaveJewelry();
+        various.chooseDontHaveJewelry();
+        various.chooseHaveJewelry();
+
+        // OwnArtDetails
+        various.chooseHaveArt();
+        various.chooseDontHaveArt();
+        various.chooseHaveArt();
 
     }
 
