@@ -88,46 +88,7 @@ public class Various extends BasePage {
         recreateMapPannelsOnPage();
     }
 
-    // == override methods ==
-//    @Override
-//    protected void chooseHave() {
-//        try {
-//            throw new Exception("Do not call chooseHave method from an instance of a Various class");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.exit(0);
-//        }
-//    }
-//
-//    @Override
-//    protected void chooseDontHave() {
-//        try {
-//            throw new Exception("Do not call chooseDontHave method from an instance of a Various class");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.exit(0);
-//        }
-//    }
-//
-//    @Override
-//    protected void delete(int index) {
-//        try {
-//            throw new Exception("Do not call delete method from an instance of a Various class");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.exit(0);
-//        }
-//    }
-//
-//    @Override
-//    protected void add() {
-//        try {
-//            throw new Exception("Do not call add method from an instance of a Various class");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.exit(0);
-//        }
-//    }
+
 
     // == public methods ==
     // Have / Don't Have methods
@@ -230,7 +191,7 @@ public class Various extends BasePage {
     }
 
     // NonWorkIncomesDetails
-    public void chooseIncomeIsraeli(int nonWorkIncomeNumber) {
+    public void chooseNonWorkIncomesIncomeIsraeli(int nonWorkIncomeNumber) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
@@ -241,7 +202,7 @@ public class Various extends BasePage {
         recreateMapPannelsOnPage();
     }
 
-    public void chooseIncomeOversea(int nonWorkIncomeNumber) {
+    public void chooseNonWorkIncomesIncomeOversea(int nonWorkIncomeNumber) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
@@ -252,7 +213,7 @@ public class Various extends BasePage {
         recreateMapPannelsOnPage();
     }
 
-    public void enterIncomeSource(int nonWorkIncomeNumber, String incomeSource) {
+    public void enterNonWorkIncomesIncomeSource(int nonWorkIncomeNumber, String incomeSource) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
@@ -261,7 +222,7 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterIncomeSource(incomeSource);
     }
 
-    public void enterYearlyIncome(int nonWorkIncomeNumber, String yearlyIncome) {
+    public void enterNonWorkIncomesYearlyIncome(int nonWorkIncomeNumber, String yearlyIncome) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
@@ -270,7 +231,7 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterYearlyIncome(yearlyIncome);
     }
 
-    public void enterPayerName(int nonWorkIncomeNumber, String payerName) {
+    public void enterNonWorkIncomesPayerName(int nonWorkIncomeNumber, String payerName) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
@@ -279,7 +240,7 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterPayerName(payerName);
     }
 
-    public void enterTikNikuim(int nonWorkIncomeNumber, String tikNikuim) {
+    public void enterNonWorkIncomesTikNikuim(int nonWorkIncomeNumber, String tikNikuim) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
@@ -288,7 +249,7 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterTikNikuim(tikNikuim);
     }
 
-    public void selectCityFromDropDownListByName(int nonWorkIncomeNumber, String city) {
+    public void selectCityNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String city) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
@@ -299,7 +260,7 @@ public class Various extends BasePage {
         recreateMapPannelsOnPage();
     }
 
-    public void selectStreetFromDropDownListByName(int nonWorkIncomeNumber, String street) {
+    public void selectStreetNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String street) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
@@ -310,7 +271,7 @@ public class Various extends BasePage {
         recreateMapPannelsOnPage();
     }
 
-    public void selectCountryFromDropDownListByName(int nonWorkIncomeNumber, String country) {
+    public void selectCountryNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String country) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
@@ -321,7 +282,7 @@ public class Various extends BasePage {
         recreateMapPannelsOnPage();
     }
 
-    public void enterHouseNum(int nonWorkIncomeNumber, String houseNum) {
+    public void enterNonWorkIncomesHouseNum(int nonWorkIncomeNumber, String houseNum) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
@@ -330,7 +291,7 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterHouseNum(houseNum);
     }
 
-    public void enterState(int nonWorkIncomeNumber, String state) {
+    public void enterNonWorkIncomesState(int nonWorkIncomeNumber, String state) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
@@ -339,6 +300,90 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterState(state);
     }
 
+
+    // Abroad Bank Accounts methods
+    public void selectCountryAbroadBankAccountsFromDropDownListByName(int abroadBankAccountsNumber, String country) {
+        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
+        }
+
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).selectCountryFromDropDownListByName(country);
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterAbroadBankAccountsState(int abroadBankAccountsNumber, String state) {
+        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
+        }
+
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterState(state);
+    }
+
+    public void enterAbroadBankAccountsCity(int abroadBankAccountsNumber, String city) {
+        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
+        }
+
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterCity(city);
+    }
+
+    public void enterAbroadBankAccountsBankName(int abroadBankAccountsNumber, String bankName) {
+        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
+        }
+
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBankName(bankName);
+    }
+
+    public void enterAbroadBankAccountsBankNum(int abroadBankAccountsNumber, String bankNum) {
+        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
+        }
+
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBankNum(bankNum);
+    }
+
+    public void enterAbroadBankAccountsBranchName(int abroadBankAccountsNumber, String branchName) {
+        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
+        }
+
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBranchName(branchName);
+    }
+
+    public void enterAbroadBankAccountsBranchNum(int abroadBankAccountsNumber, String branchNum) {
+        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
+        }
+
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBranchNum(branchNum);
+    }
+
+    public void enterAbroadBankAccountsAccountNum(int abroadBankAccountsNumber, String accountNum) {
+        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
+        }
+
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterAccountNum(accountNum);
+    }
+
+    public void enterAbroadBankAccountsPartners(int abroadBankAccountsNumber, String partnersNum) {
+        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
+        }
+
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterPartnersNum(partnersNum);
+    }
 
 
     // == private methods ==

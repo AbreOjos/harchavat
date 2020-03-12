@@ -234,20 +234,41 @@ public class TemporalTests extends TestBase {
         various.deleteNonWorkIncomes(1);
         various.addNonWorkIncomes();
 
-        various.chooseIncomeIsraeli(0);
-        various.chooseIncomeOversea(2);
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+        various.chooseNonWorkIncomesIncomeOversea(2);
 
-        various.enterIncomeSource(0, "AAAAAAAAAAAA");
-        various.enterYearlyIncome(0, "1000");
-        various.enterPayerName(0, "Igor");
-        various.enterTikNikuim(0, "tik AAA");
-        various.selectCityFromDropDownListByName(0, JERUSALEM);
-        various.enterHouseNum(0, "10");
+        various.enterNonWorkIncomesIncomeSource(0, "AAAAAAAAAAAA");
+        various.enterNonWorkIncomesYearlyIncome(0, "1000");
+        various.enterNonWorkIncomesPayerName(0, "Igor");
+        various.enterNonWorkIncomesTikNikuim(0, "tik AAA");
+        various.selectCityNonWorkIncomesFromDropDownListByName(0, JERUSALEM);
+        various.enterNonWorkIncomesHouseNum(0, "10");
 
-        various.enterIncomeSource(2, "BBBBBBBBBB");
-        various.enterYearlyIncome(2, "123456");
-        various.selectCountryFromDropDownListByName(2, ISRAEL);
-        various.enterState(2, "Alabama");
+        various.enterNonWorkIncomesIncomeSource(2, "BBBBBBBBBB");
+        various.enterNonWorkIncomesYearlyIncome(2, "123456");
+        various.selectCountryNonWorkIncomesFromDropDownListByName(2, ISRAEL);
+        various.enterNonWorkIncomesState(2, "Alabama");
+
+        // AbroadBankAccountsDetails
+        various.chooseHaveAbroadBankAccounts();
+        various.chooseDontHaveAbroadBankAccounts();
+        various.chooseHaveAbroadBankAccounts();
+
+        various.addAbroadBankAccounts();
+        various.addAbroadBankAccounts();
+        various.deleteAbroadBankAccounts(1);
+        various.addAbroadBankAccounts();
+
+        various.selectCountryAbroadBankAccountsFromDropDownListByName(2, ISRAEL);
+        various.enterAbroadBankAccountsState(2, "Alaska");
+        various.enterAbroadBankAccountsCity(2, "Moscow");
+        various.enterAbroadBankAccountsBankName(2, "Hapoalim");
+        various.enterAbroadBankAccountsBankNum(2, "40");
+        various.enterAbroadBankAccountsBranchName(2, "Noname");
+        various.enterAbroadBankAccountsBranchNum(2, "12");
+        various.enterAbroadBankAccountsAccountNum(2, "021548");
+        various.enterAbroadBankAccountsPartners(2, "3");
+
     }
 
 }

@@ -5,18 +5,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pom.forms.*;
+import pom.forms.PersonalDetails;
+import pom.forms.SendForm;
 import pom.forms.realestates.RealEstate;
 import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.clickElementWithJavaScript;
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
+import static constants.VariousConstants.dropDownListItems;
 import static utils.helpers.Waits.fluentWaitElementClickable;
 
 public class BasePage {
@@ -336,6 +339,33 @@ public class BasePage {
         btnAdd.click();
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+    }
+
+    protected void selectItemFromDropDownListByName(WebElement dropDown, String item) {
+
+        clickElementWithJavaScript(driver, dropDown);
+
+        List<WebElement> dropDownListsItems = getDropDownListsItems();
+
+        // create list items from drop-down menu
+        List<String> listItems = dropDownListsItems.stream().
+                map(WebElement::getText).map(String::trim).collect(Collectors.toList());
+
+        int index = listItems.indexOf(item);
+
+        if (index < 0)
+            throw new IllegalArgumentException(String.format("Item '%s' not found in drop-down list", item));
+
+        // find and click Status by index
+        dropDownListsItems.get(index).click();
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        PageFactory.initElements(this.driver, this);
+    }
+
+    protected List<WebElement> getDropDownListsItems() {
+        return driver.findElements(dropDownListItems);
     }
 
 }
