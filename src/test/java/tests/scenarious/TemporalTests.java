@@ -319,6 +319,28 @@ public class TemporalTests extends TestBase {
         various.enterStocksCompanyNum(1, "987");
         various.enterStocksCompanyPercentage(1, "95");
 
+        // PartnershipsDetails
+        various.chooseHavePartnerships();
+        various.chooseDontHavePartnerships();
+        various.chooseHavePartnerships();
+
+        various.addPartnerships();
+        various.addPartnerships();
+        various.deletePartnerships(1);
+        various.addPartnerships();
+
+        various.enterPartnershipName(0, "Igor");
+        various.enterPartnershipName(2, "Gindin");
+
+        various.choosePartnershipLocationIsrael(0);
+        various.choosePartnershipLocationOversea(2);
+
+        various.enterPartnershipOsekNum(0, "123");
+        various.enterPartnershipPercentage(0, "14");
+
+        various.selectCountryPartnershipsFromDropDownListByName(2, ISRAEL);
+        various.enterPartnershipsState(2, "DC");
+        various.enterPartnershipPercentage(2, "69");
 
     }
 

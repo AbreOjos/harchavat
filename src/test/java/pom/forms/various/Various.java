@@ -622,6 +622,78 @@ public class Various extends BasePage {
         integerStocksDetailsMap.get(stocksNumber).enterCompanyPercentage(companyPercentage);
     }
 
+    // partnerships methods
+    public void enterPartnershipName(int partnershipsNumber, String name) {
+        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
+        }
+
+        integerPartnershipsDetailsMap.get(partnershipsNumber).enterName(name);
+    }
+
+    public void choosePartnershipLocationIsrael(int partnershipsNumber) {
+        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
+        }
+
+        integerPartnershipsDetailsMap.get(partnershipsNumber).choosePartnershipLocationIsrael();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void choosePartnershipLocationOversea(int partnershipsNumber) {
+        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
+        }
+
+        integerPartnershipsDetailsMap.get(partnershipsNumber).choosePartnershipLocationOversea();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterPartnershipOsekNum(int partnershipsNumber, String osekNum) {
+        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
+        }
+
+        integerPartnershipsDetailsMap.get(partnershipsNumber).enterOsekNum(osekNum);
+    }
+
+    public void enterPartnershipPercentage(int partnershipsNumber, String percentage) {
+        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
+        }
+
+        integerPartnershipsDetailsMap.get(partnershipsNumber).enterPercentage(percentage);
+    }
+
+    public void selectCountryPartnershipsFromDropDownListByName(int partnershipsNumber, String country) {
+        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
+        }
+
+        integerPartnershipsDetailsMap.get(partnershipsNumber).selectCountryFromDropDownListByName(country);
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterPartnershipsState(int partnershipsNumber, String state) {
+        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
+        }
+
+        integerPartnershipsDetailsMap.get(partnershipsNumber).enterState(state);
+    }
+
+
+
 
     // == private methods ==
     private void chooseHave(WebElement button) {

@@ -68,6 +68,15 @@ public class VariousConstants {
     public static final By txtCompanyNumSubElementStocksDetails = By.xpath(".//input[@name='companyNum']");
     public static final By txtCompanyPercentageSubElementStocksDetails = By.xpath(".//input[@name='companyPercentage']");
 
+    // partnerships details
+    public static final By txtNameSubElementPartnershipsDetails = By.xpath(".//input[@name='name']");
+    public static final By btnsPartnershipLocationSubElementPartnershipsDetails = By.xpath(".//div[@name='partnershipLocation']/button");
+    public static final By txtOsekNumSubElementPartnershipsDetails = By.xpath(".//input[@name='osekNum']");
+    public static final By txtPercentageSubElementPartnershipsDetails = By.xpath(".//input[@name='percentage']");
+    public static final By dropDownCountrySubElementPartnershipsDetails = By.xpath(".//div[@class='v-select__selections']//input");
+    public static final By txtStateSubElementPartnershipsDetails = By.xpath(".//input[@name='state']");
+
+
 
 
 }
