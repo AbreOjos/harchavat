@@ -89,145 +89,257 @@ public class Various extends BasePage {
     }
 
     // == override methods ==
-    @Override
-    protected void chooseHave() {
-        try {
-            throw new Exception("Do not call chooseHave method from an instance of a Various class");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(0);
-        }
-    }
-
-    @Override
-    protected void chooseDontHave() {
-        try {
-            throw new Exception("Do not call chooseDontHave method from an instance of a Various class");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(0);
-        }
-    }
-
-    @Override
-    protected void delete(int index) {
-        try {
-            throw new Exception("Do not call delete method from an instance of a Various class");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(0);
-        }
-    }
-
-    @Override
-    protected void add() {
-        try {
-            throw new Exception("Do not call add method from an instance of a Various class");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(0);
-        }
-    }
+//    @Override
+//    protected void chooseHave() {
+//        try {
+//            throw new Exception("Do not call chooseHave method from an instance of a Various class");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.exit(0);
+//        }
+//    }
+//
+//    @Override
+//    protected void chooseDontHave() {
+//        try {
+//            throw new Exception("Do not call chooseDontHave method from an instance of a Various class");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.exit(0);
+//        }
+//    }
+//
+//    @Override
+//    protected void delete(int index) {
+//        try {
+//            throw new Exception("Do not call delete method from an instance of a Various class");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.exit(0);
+//        }
+//    }
+//
+//    @Override
+//    protected void add() {
+//        try {
+//            throw new Exception("Do not call add method from an instance of a Various class");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.exit(0);
+//        }
+//    }
 
     // == public methods ==
     // Have / Don't Have methods
-    protected void chooseHaveNonWorkIncomes() {
+    public void chooseHaveNonWorkIncomes() {
         chooseHave(btnHaveNonWorkIncomes);
     }
 
-    protected void chooseDontHaveNonWorkIncomes() {
+    public void chooseDontHaveNonWorkIncomes() {
         chooseDontHave(btnHaveNonWorkIncomes);
     }
 
-    protected void chooseHaveAbroadBankAccounts() {
+    public void chooseHaveAbroadBankAccounts() {
         chooseHave(btnHaveAbroadBankAccounts);
     }
 
-    protected void chooseDontHaveAbroadBankAccounts() {
+    public void chooseDontHaveAbroadBankAccounts() {
         chooseDontHave(btnDontHaveAbroadBankAccounts);
 
     }
 
-    protected void chooseHaveDigitalCoins() {
+    public void chooseHaveDigitalCoins() {
         chooseHave(btnDontHaveDigitalCoins);
     }
 
-    protected void chooseDontHaveDigitalCoins() {
+    public void chooseDontHaveDigitalCoins() {
         chooseDontHave(btnDontHaveDigitalCoins);
     }
 
-    protected void chooseHaveStocks() {
+    public void chooseHaveStocks() {
         chooseHave(btnDontHaveStocks);
     }
 
-    protected void chooseDontHaveStocks() {
+    public void chooseDontHaveStocks() {
         chooseDontHave(btnDontHaveStocks);
     }
 
-    protected void chooseHavePartnerships() {
+    public void chooseHavePartnerships() {
         chooseHave(btnDontHavePartnerships);
     }
 
-    protected void chooseDontHavePartnerships() {
+    public void chooseDontHavePartnerships() {
         chooseDontHave(btnDontHavePartnerships);
     }
 
-    protected void chooseHaveJewelry() {
+    public void chooseHaveJewelry() {
         chooseHave(btnDontHaveJewelry);
     }
 
-    protected void chooseDontHaveJewelry() {
+    public void chooseDontHaveJewelry() {
         chooseDontHave(btnDontHaveJewelry);
     }
 
-    protected void chooseHaveArt() {
+    public void chooseHaveArt() {
         chooseHave(btnDontHaveArt);
     }
 
-    protected void chooseDontHaveArt() {
+    public void chooseDontHaveArt() {
         chooseDontHave(btnDontHaveArt);
     }
 
     // add and delete panels
-    protected void addNonWorkIncomes() {
+    public void addNonWorkIncomes() {
         add(btnAddNonWorkIncomes);
     }
 
-    protected void addAbroadBankAccounts() {
+    public void addAbroadBankAccounts() {
         add(btnAddAbroadBankAccounts);
     }
 
-    protected void addDigitalCoins() {
+    public void addDigitalCoins() {
         add(btnAddDigitalCoins);
     }
 
-    protected void addStocks() {
+    public void addStocks() {
         add(btnAddStocks);
     }
 
-    protected void addPartnerships() {
+    public void addPartnerships() {
         add(btnAddPartnerships);
     }
 
-    protected void deleteNonWorkIncomes(int index) {
+    public void deleteNonWorkIncomes(int index) {
         delete(index, btnsDeleteNonWorkIncomes);
     }
 
-    protected void deleteAbroadBankAccounts(int index) {
+    public void deleteAbroadBankAccounts(int index) {
         delete(index, btnsDeleteAbroadBankAccounts);
     }
 
-    protected void deleteDigitalCoins(int index) {
+    public void deleteDigitalCoins(int index) {
         delete(index, btnsDeleteDigitalCoins);
     }
 
-    protected void deleteStocks(int index) {
+    public void deleteStocks(int index) {
         delete(index, btnsDeleteStocks);
     }
 
-    protected void deletePartnerships(int index) {
+    public void deletePartnerships(int index) {
         delete(index, btnsDeletePartnerships);
     }
+
+    // NonWorkIncomesDetails
+    public void chooseIncomeIsraeli(int nonWorkIncomeNumber) {
+        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
+        }
+
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).chooseIncomeIsraeli();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void chooseIncomeOversea(int nonWorkIncomeNumber) {
+        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
+        }
+
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).chooseIncomeOversea();
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterIncomeSource(int nonWorkIncomeNumber, String incomeSource) {
+        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
+        }
+
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterIncomeSource(incomeSource);
+    }
+
+    public void enterYearlyIncome(int nonWorkIncomeNumber, String yearlyIncome) {
+        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
+        }
+
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterYearlyIncome(yearlyIncome);
+    }
+
+    public void enterPayerName(int nonWorkIncomeNumber, String payerName) {
+        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
+        }
+
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterPayerName(payerName);
+    }
+
+    public void enterTikNikuim(int nonWorkIncomeNumber, String tikNikuim) {
+        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
+        }
+
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterTikNikuim(tikNikuim);
+    }
+
+    public void selectCityFromDropDownListByName(int nonWorkIncomeNumber, String city) {
+        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
+        }
+
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectCityFromDropDownListByName(city);
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void selectStreetFromDropDownListByName(int nonWorkIncomeNumber, String street) {
+        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
+        }
+
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectStreetFromDropDownListByName(street);
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void selectCountryFromDropDownListByName(int nonWorkIncomeNumber, String country) {
+        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
+        }
+
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectCountryFromDropDownListByName(country);
+
+        recreateMapPannelsOnPage();
+    }
+
+    public void enterHouseNum(int nonWorkIncomeNumber, String houseNum) {
+        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
+        }
+
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterHouseNum(houseNum);
+    }
+
+    public void enterState(int nonWorkIncomeNumber, String state) {
+        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
+        }
+
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterState(state);
+    }
+
+
 
     // == private methods ==
     private void chooseHave(WebElement button) {

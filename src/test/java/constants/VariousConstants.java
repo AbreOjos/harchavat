@@ -19,6 +19,9 @@ public class VariousConstants {
     public static final By ownJewelryDetailsPanel = By.xpath("//div[@id='ownJewelry']//div[contains(@class, 'shaamPage')]");
     public static final By ownArtDetailsPanel = By.xpath("//div[@id='ownArt']//div[contains(@class, 'shaamPage')]");
 
+    public static final By dropDownListItemstNonWorkIncomesDetails =
+            By.xpath("//div[contains(@class, 'menuable__content__active')]//div[@class='v-list__tile__title']");
+
     // sub-elements
 
     // non work income details sub-element
@@ -27,5 +30,12 @@ public class VariousConstants {
     public static final By txtYearlyIncomeSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='yearlyIncome']");
     public static final By txtPayerNameSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='payerName']");
     public static final By txtTikNikuimSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='tikNikuim']");
+    public static final By dropDownCitySubElementNonWorkIncomesDetails = By.xpath(".//input[@name='city']");
+    public static final By dropDownStreetSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='street']");
+    public static final By dropDownCountrySubElementNonWorkIncomesDetails = By.xpath(".//input[@name='countryOfIncome']");
+    public static final By dropDownListItemstSubElementNonWorkIncomesDetails =
+            By.xpath(".//div[contains(@class, 'menuable__content__active')]//div[@class='v-list__tile__title']");
+    public static final By txtHouseNumSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='houseNum']");
+    public static final By txtStateSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='spouseState']");
 
 }

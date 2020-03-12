@@ -18,4 +18,10 @@ public class EnglishHebrewConstants {
     public static final String OCTOBER = "אוקטובר";
     public static final String NOVEMBER = "נובמבר";
     public static final String DECEMBER = "דצמבר";
+
+    // cities
+    public static final String JERUSALEM = "ירושלים";
+
+    // countries
+    public static final String ISRAEL = "ישראל";
 }

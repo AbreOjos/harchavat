@@ -11,6 +11,9 @@ import tests.TestBase;
 
 import java.net.URISyntaxException;
 
+import static constants.EnglishHebrewConstants.ISRAEL;
+import static constants.EnglishHebrewConstants.JERUSALEM;
+
 public class TemporalTests extends TestBase {
     private static final Logger log = Logger.getLogger(TemporalTests.class);
 
@@ -216,6 +219,35 @@ public class TemporalTests extends TestBase {
         realEstate.enterMonthlyRent(1, "3000");
 
         realEstate.attachContractFile(1, FileAttachments.getDocumentPdf().toString());
+    }
+
+    protected void fillVariousDetails() {
+        Various various = basePage.clickMenuVarious();
+
+        // NonWorkIncomesDetails
+        various.chooseHaveNonWorkIncomes();
+        various.chooseDontHaveNonWorkIncomes();
+        various.chooseHaveNonWorkIncomes();
+
+        various.addNonWorkIncomes();
+        various.addNonWorkIncomes();
+        various.deleteNonWorkIncomes(1);
+        various.addNonWorkIncomes();
+
+        various.chooseIncomeIsraeli(0);
+        various.chooseIncomeOversea(2);
+
+        various.enterIncomeSource(0, "AAAAAAAAAAAA");
+        various.enterYearlyIncome(0, "1000");
+        various.enterPayerName(0, "Igor");
+        various.enterTikNikuim(0, "tik AAA");
+        various.selectCityFromDropDownListByName(0, JERUSALEM);
+        various.enterHouseNum(0, "10");
+
+        various.enterIncomeSource(2, "BBBBBBBBBB");
+        various.enterYearlyIncome(2, "123456");
+        various.selectCountryFromDropDownListByName(2, ISRAEL);
+        various.enterState(2, "Alabama");
     }
 
 }
