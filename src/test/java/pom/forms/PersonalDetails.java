@@ -38,14 +38,14 @@ public class PersonalDetails extends BasePage {
     private WebElement txtPhone;
     @FindBy(name = "email")
     private WebElement txtEmail;
-    @FindBy(xpath = "//*[contains(@class, 'v-item-group') and @dir='rtl']/button")
+    @FindBy(xpath = "//div[@name='residency']/button")
     private List<WebElement> btnsResident;
 
     @FindBy(xpath = "//div[@name='Marital Status']/button")
     private List<WebElement> btnsMartialStatus;
 
     // for married only
-    @FindBy(xpath = "//div[@class='layout mt-4']//button")
+    @FindBy(xpath = "//div[@name='spouseIsraeli']/button")
     private List<WebElement> btnsSpouseResident;
 
     // spouse expatriate details
@@ -53,7 +53,7 @@ public class PersonalDetails extends BasePage {
     private WebElement txtSpousePassport;
     @FindBy(xpath = "//div[@class='v-select__slot']")
     private WebElement dropDownSpouseCountry;
-    @FindBy(name = "spouseState")
+    @FindBy(name = "state")
     private WebElement txtSpouseState;
 
     // spouse Israeli only
@@ -124,7 +124,7 @@ public class PersonalDetails extends BasePage {
     }
 
     // resident
-    public void chooseExpatriate() {
+    public void chooseIsraeli() {
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(0));
         } catch (InterruptedException e) {
@@ -136,7 +136,7 @@ public class PersonalDetails extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void chooseIsraeli() {
+    public void chooseExpatriate() {
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(1));
         } catch (InterruptedException e) {
@@ -232,10 +232,10 @@ public class PersonalDetails extends BasePage {
     }
 
     // spouse resident
-    public void chooseSpouseExpatriate() {
+    public void chooseSpouseIsraeli() {
         try {
-            scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(2));
-//            scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(0));
+//            scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(3));
+            scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(0));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -245,10 +245,10 @@ public class PersonalDetails extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void chooseSpouseIsraeli() {
+    public void chooseSpouseExpatriate() {
         try {
-            scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(3));
-//            scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(1));
+//            scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(2));
+            scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(1));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
