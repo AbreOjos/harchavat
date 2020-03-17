@@ -41,6 +41,9 @@ public class TemporalTests extends TestBase {
         PersonalDetails personalDetails = new PersonalDetails(driver);
         personalDetails.clickBtnContinue();
 
+        Vehicle vehicle = new Vehicle(driver);
+        vehicle.clickBtnContinue();
+
         Wage wage = new Wage(driver);
         wage.clickBtnContinue();
 
@@ -50,14 +53,8 @@ public class TemporalTests extends TestBase {
         Various various = new Various(driver);
         various.clickBtnContinue();
 
-        Vehicle vehicle = new Vehicle(driver);
-        vehicle.clickBtnContinue();
-
         SendForm sendForm = new SendForm(driver);
         sendForm.clickBtnReturn();
-
-        vehicle = new Vehicle(driver);
-        vehicle.clickBtnReturn();
 
         various = new Various(driver);
         various.clickBtnReturn();
@@ -67,6 +64,9 @@ public class TemporalTests extends TestBase {
 
         wage = new Wage(driver);
         wage.clickBtnReturn();
+
+        vehicle = new Vehicle(driver);
+        vehicle.clickBtnReturn();
     }
 
     protected void fillPersonalDetails() throws InterruptedException, URISyntaxException {

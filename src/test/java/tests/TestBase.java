@@ -17,6 +17,8 @@ import org.testng.annotations.BeforeSuite;
 import pom.BasePage;
 import readresources.parameters.WebUiParameters;
 
+import java.net.URL;
+
 public abstract class TestBase {
     private static final Logger log = Logger.getLogger(TestBase.class);
 
@@ -25,6 +27,10 @@ public abstract class TestBase {
 
     // WEB UI params
     protected static String hnURL;
+
+    ////////// AXE ///////////////
+    protected static final URL scriptUrl = TestBase.class.getResource("/axe.min.js");
+    /////////////////////////////
 
     // protected members
     protected BasePage basePage;
@@ -56,7 +62,10 @@ public abstract class TestBase {
         log.info("Create Chrome driver");
 
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        capabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+//        capabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+
+        capabilities.setCapability (CapabilityType.ACCEPT_SSL_CERTS, true);
+
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.merge(capabilities);
         driver = new ChromeDriver(chromeOptions);

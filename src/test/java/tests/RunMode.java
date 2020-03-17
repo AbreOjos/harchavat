@@ -10,4 +10,6 @@ public class RunMode {
     public static final String IEXPLORER = "iexplorer";
     public static final String EDGE = "edge";
 
+    public static final String CHROME_AXE = "chrome_axe";
+
 }

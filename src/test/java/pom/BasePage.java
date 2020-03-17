@@ -15,8 +15,7 @@ import pom.forms.wages.Wage;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.clickElementWithJavaScript;
-import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
+import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.*;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static constants.VariousConstants.dropDownListItems;
@@ -175,21 +174,29 @@ public class BasePage {
     }
 
     public void clickBtnContinue() {
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, btnContinue);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, btnContinue);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        scrollElementIntoView(driver, btnContinue);
+
+        btnContinue.click();
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     public void clickBtnReturn() {
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, btnReturn);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, btnReturn);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        scrollElementIntoView(driver, btnReturn);
+
+        btnReturn.click();
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
