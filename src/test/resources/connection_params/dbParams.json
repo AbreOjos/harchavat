@@ -1,0 +1,7 @@
+{
+  "dbIP": "hatmama-src-instance-1.chj0mjcxfpsc.us-east-2.rds.amazonaws.com",
+  "dbPort": "3306",
+  "dbUser": "admin",
+  "dbPass": "dragon174!",
+  "schemaNetExpansion": "netexpansion"
+}

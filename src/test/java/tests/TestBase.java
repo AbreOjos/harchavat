@@ -28,6 +28,12 @@ public abstract class TestBase {
     // WEB UI params
     protected static String hnURL;
 
+    // DATABASE params
+    protected static String dbIP;
+    protected static String dbPort;
+    protected static String dbUser;
+    protected static String dbPass;
+
     ////////// AXE ///////////////
     protected static final URL scriptUrl = TestBase.class.getResource("/axe.min.js");
     /////////////////////////////
