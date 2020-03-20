@@ -64,7 +64,20 @@ public class PersonalDetails extends BasePage {
     @FindBy(xpath = "//div[@class='v-btn__content']//input[@type='file']")
     private WebElement attachFileInput;
 
+    // error messages
+    @FindBy(xpath = "//p[contains(text(),'- ( ) +')]")
+    private List<WebElement> phoneErrorMessage;
+    @FindBy(xpath = "//p[@class='error-msg'][contains(text(),'.')]")
+    private List<WebElement> standardErrorMessage;
 
+    // == getters ==
+    public List<WebElement> getPhoneErrorMessage() {
+        return phoneErrorMessage;
+    }
+
+    public List<WebElement> getStandardErrorMessage() {
+        return standardErrorMessage;
+    }
     // == public methods ==
 
     // checkboxes check / uncheck
@@ -106,6 +119,11 @@ public class PersonalDetails extends BasePage {
 
     }
 
+    public void deleteFirstName() {
+//        clear(driver, txtFirstName);
+        cleanFormField(txtFirstName);
+    }
+
     public void enterLastName(String lastName) {
         fillFormField(txtLastName, lastName);
 
@@ -115,12 +133,21 @@ public class PersonalDetails extends BasePage {
         fillFormField(txtEmail, email);
     }
 
+    public void deleteEmail() {
+        cleanFormField(txtEmail);
+    }
+
     public void enterCellular(String cellular) {
         fillFormField(txtCellular, cellular);
     }
 
     public void enterPhone(String phone) {
         fillFormField(txtPhone, phone);
+    }
+
+    public void deletePhone() {
+//        clear(driver, txtPhone);
+        cleanFormField(txtPhone);
     }
 
     // resident

@@ -78,6 +78,9 @@ public class TemporalTests extends TestBase {
 
         personalDetails.enterIdentity("123456789");
         personalDetails.enterFirstName("Igor");
+
+        personalDetails.deleteFirstName();
+
         personalDetails.enterLastName("Gindin");
         personalDetails.enterCellular("0523798168");
         personalDetails.enterPhone("0506585162");

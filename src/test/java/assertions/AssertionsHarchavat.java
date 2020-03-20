@@ -9,11 +9,8 @@ import org.testng.Assert;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static constants.StringConstants.NO_INFO;
-
-
-public class AssertionsCorrespondenceArea {
-    private static final Logger log = Logger.getLogger(AssertionsCorrespondenceArea.class);
+public class AssertionsHarchavat {
+    private static final Logger log = Logger.getLogger(AssertionsHarchavat.class);
 
     public static void assertListNotEmpty(List list, String... additionalInfo) {
         log.debug("Checking that List is not empty");
@@ -133,7 +130,7 @@ public class AssertionsCorrespondenceArea {
         // for simplifying comparing with webPageList all null's in the apiList will be changed
         // to "no information"
 
-        apiList = changeNullToNoInfo(apiList);
+//        apiList = changeNullToNoInfo(apiList);
 
         webPageList = listToLowerCase(webPageList);
 
@@ -159,7 +156,7 @@ public class AssertionsCorrespondenceArea {
         // for simplifying comparing with webPageList all null's in the apiList will be changed
         // to "no information"
 
-        apiList = changeNullToNoInfo(apiList);
+//        apiList = changeNullToNoInfo(apiList);
 
         webPageList = listToLowerCase(webPageList);
 
@@ -287,23 +284,23 @@ public class AssertionsCorrespondenceArea {
         return text.toLowerCase(locale).contains(substring.toLowerCase(locale));
     }
 
-    /**
-     * list was created by API
-     * if it contains null a webpage list must display "no information"
-     * for simplifying comparing all null's in the list will be changed
-     * to "no information" value
-     *
-     * @param list
-     * @return
-     */
-    private static List<String> changeNullToNoInfo(List<String> list) {
-        if (list == null)
-            return Collections.emptyList();
-        else
-            return list.stream()
-                    .map(x -> (x == null) ? NO_INFO : x)
-                    .collect(Collectors.toList());
-    }
+//    /**
+//     * list was created by API
+//     * if it contains null a webpage list must display "no information"
+//     * for simplifying comparing all null's in the list will be changed
+//     * to "no information" value
+//     *
+//     * @param list
+//     * @return
+//     */
+//    private static List<String> changeNullToNoInfo(List<String> list) {
+//        if (list == null)
+//            return Collections.emptyList();
+//        else
+//            return list.stream()
+//                    .map(x -> (x == null) ? NO_INFO : x)
+//                    .collect(Collectors.toList());
+//    }
 
     private static List<String> listToLowerCase(List<String> list) {
         if (list == null)

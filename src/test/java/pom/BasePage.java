@@ -19,6 +19,7 @@ import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecuto
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static constants.VariousConstants.dropDownListItems;
+import static utils.helpers.ActionsHelper.clear;
 import static utils.helpers.Waits.fluentWaitElementClickable;
 
 public class BasePage {
@@ -304,6 +305,14 @@ public class BasePage {
     protected void fillFormField(WebElement field, String text) {
         fluentWaitElementClickable(driver, field, 10);
         field.sendKeys(text);
+
+        PageFactory.initElements(driver, this);
+    }
+
+    protected void cleanFormField(WebElement field) {
+        clear(driver, field);
+
+        PageFactory.initElements(driver, this);
     }
 
     protected void chooseHave() {
