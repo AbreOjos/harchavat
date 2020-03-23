@@ -4,9 +4,9 @@ import automation.tests.infra.dataproviderclients.CSVUtils;
 import org.apache.log4j.Logger;
 import org.testng.annotations.DataProvider;
 
-public class CADataProvider {
+public class NEDataProvider {
 
-    private static final Logger log = Logger.getLogger(CADataProvider.class);
+    private static final Logger log = Logger.getLogger(NEDataProvider.class);
 
     @DataProvider
     public static Object[][] forbiddenCharsPhoneNumber() {

@@ -24,4 +24,7 @@ public class EnglishHebrewConstants {
 
     // countries
     public static final String ISRAEL = "ישראל";
+
+    // error messages
+    public static final String ENTER_LANDLINES_OR_MOBILE_PHONE = "יש להזין טלפון נייח או טלפון נייד";
 }

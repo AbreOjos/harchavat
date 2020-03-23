@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import readresources.drivers.WebDrivers;
 import tests.RunMode;
 import tests.scenarious.PersonalAreaTests;
-import utils.dataprovider.CADataProvider;
+import utils.dataprovider.NEDataProvider;
 
 import java.net.URISyntaxException;
 
@@ -34,19 +34,21 @@ public class ChromePersonalAreaTests extends PersonalAreaTests {
 
         super.setUpMethod();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        prepareEmptyPhoneAndEmailFields();
     }
 
-    @Test(dataProviderClass = CADataProvider.class, dataProvider = "forbiddenCharsPhoneNumber")
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenCharsPhoneNumber")
     public void testForbiddenCharactersPhoneNumber(String forbiddenChars) {
         forbiddenCharactersPhoneNumber(forbiddenChars);
     }
 
-    @Test(dataProviderClass = CADataProvider.class, dataProvider = "forbiddenCharsPhoneNumber")
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenCharsPhoneNumber")
     public void testForbiddenCharactersCellularPhoneNumber(String forbiddenChars) {
         forbiddenCharactersCellularPhoneNumber(forbiddenChars);
     }
@@ -57,5 +59,9 @@ public class ChromePersonalAreaTests extends PersonalAreaTests {
 
     public void testCorrectMailFormat() {
         correctMailFormat();
+    }
+
+    public void testPhonesMissingErrorMessage() {
+        phonesMissingErrorMessage();
     }
 }

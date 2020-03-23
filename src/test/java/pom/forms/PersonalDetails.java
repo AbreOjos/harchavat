@@ -66,18 +66,49 @@ public class PersonalDetails extends BasePage {
 
     // error messages
     @FindBy(xpath = "//p[contains(text(),'- ( ) +')]")
-    private List<WebElement> phoneErrorMessage;
+    private List<WebElement> phoneFormatErrorMessage;
+    @FindBy(xpath = "//p[@class='error-msg' and contains(., 'יש להזין טלפון נייח או טלפון נייד')]")
+    private List<WebElement> phoneMissingErrorMessage;
     @FindBy(xpath = "//p[@class='error-msg'][contains(text(),'.')]")
     private List<WebElement> standardErrorMessage;
+    @FindBy(xpath = "//p[@class='error-msg' and contains(., 'חובה למלא את השדה דואר אלקטרוני')]")
+    private List<WebElement> emailNeedToFillErrorMessage;
+    private List<WebElement> spouseIdOnlyDigitalErrorMessage;
+    @FindBy(xpath = "//p[@class='error-msg' and contains(., 'חובה למלא את השדה תעודת זהות בן/בת הזוג')]")
+    private List<WebElement> spouseIdNeedToFillErrorMessage;
+    @FindBy(xpath = "//p[@class='error-msg' and contains(., 'השדה תעודת זהות בן/בת הזוג לא יכול להכיל יותר מ- 9 תווים')]")
+    private List<WebElement> spouseIdTooLongErrorMessage;
 
     // == getters ==
-    public List<WebElement> getPhoneErrorMessage() {
-        return phoneErrorMessage;
+    public List<WebElement> getPhoneFormatErrorMessage() {
+        return phoneFormatErrorMessage;
     }
 
     public List<WebElement> getStandardErrorMessage() {
         return standardErrorMessage;
     }
+
+    public List<WebElement> getEmailNeedToFillErrorMessage() {
+        return emailNeedToFillErrorMessage;
+    }
+
+    public List<WebElement> getPhoneMissingErrorMessage() {
+        return phoneMissingErrorMessage;
+    }
+
+    public List<WebElement> getSpouseIdOnlyDigitalErrorMessage() {
+        return spouseIdOnlyDigitalErrorMessage;
+    }
+
+    public List<WebElement> getSpouseIdNeedToFillErrorMessage() {
+        return spouseIdNeedToFillErrorMessage;
+    }
+
+    public List<WebElement> getSpouseIdTooLongErrorMessage() {
+        return spouseIdTooLongErrorMessage;
+    }
+
+
     // == public methods ==
 
     // checkboxes check / uncheck
@@ -139,6 +170,10 @@ public class PersonalDetails extends BasePage {
 
     public void enterCellular(String cellular) {
         fillFormField(txtCellular, cellular);
+    }
+
+    public void deleteCellular() {
+        cleanFormField(txtCellular);
     }
 
     public void enterPhone(String phone) {

@@ -15,7 +15,7 @@ public class PersonalAreaTests extends TestBase {
 
         personalDetails.enterPhone(forbiddenChars);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneErrorMessage(), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneFormatErrorMessage(), 1,
                 String.format("An error message not appeared when forbidden char '%s' entered to a Phone field.", forbiddenChars));
 
     }
@@ -27,7 +27,7 @@ public class PersonalAreaTests extends TestBase {
 
         personalDetails.enterCellular(forbiddenChars);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneErrorMessage(), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneFormatErrorMessage(), 1,
                 String.format("An error message not appeared when forbidden char '%s' entered to a Cellular Phone field.", forbiddenChars));
 
     }
@@ -48,7 +48,7 @@ public class PersonalAreaTests extends TestBase {
 
         personalDetails.deleteEmail();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getStandardErrorMessage(), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getEmailNeedToFillErrorMessage(), 1,
                 String.format("An error message not appeared when the incorrect email '%s' completely deleted from an Email field.", incorrectMail));
     }
 
@@ -68,8 +68,66 @@ public class PersonalAreaTests extends TestBase {
 
         personalDetails.deleteEmail();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getStandardErrorMessage(), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getEmailNeedToFillErrorMessage(), 1,
                 String.format("An error message not appeared when the correct email '%s' deleted from an Email field.", correctMail));
+    }
+
+    protected void phonesMissingErrorMessage() {
+        log.info("Two 'enter phone' error messages appears, both disappears when any phone entered");
+
+        basePage.clickMenuPersonalDetails();
+        basePage.clickMenuWage();
+        PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
+
+        // after returning to PersonalDetails two 'enter phone' messages appears
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneMissingErrorMessage(), 2,
+                "An error messages '' enter phone number did not appeared after returning to Personal Details page.");
+
+        // enter cellular phone, check that both error messages disappeared
+        personalDetails.enterCellular("123456789");
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneMissingErrorMessage(), 0,
+                "An error messages 'enter phone number' did not disappeared when cellular phone entered.");
+
+        // clean cellular, check that both error messages reappears
+        personalDetails.deleteCellular();
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneMissingErrorMessage(), 2,
+                "An error messages 'enter phone number' did not appeared after cleaning cellular phone.");
+
+        // enter landlines phone, check that both error messages disappeared
+        personalDetails.enterPhone("123456789");
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneMissingErrorMessage(), 0,
+                "An error messages 'enter phone number' did not disappeared when landlines phone entered.");
+
+        // clean landlines, check that both error messages reappears
+        personalDetails.deletePhone();
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneMissingErrorMessage(), 2,
+                "An error messages 'enter phone number' did not appeared after cleaning landlines phone.");
+
+        // enter both numbers, check that messages disappeared
+        personalDetails.enterCellular("123456789");
+        personalDetails.enterPhone("123456789");
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneMissingErrorMessage(), 0,
+                "An error messages 'enter phone number' did not disappeared when both phones entered.");
+
+        // remove only one number check that the messages did not appeared
+        personalDetails.deleteCellular();
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneMissingErrorMessage(), 0,
+                "An error messages 'enter phone number' appeared when cellular phone deleted and landlines not deleted.");
+
+        personalDetails.enterCellular("123456789");
+        personalDetails.deletePhone();
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getPhoneMissingErrorMessage(), 0,
+                "An error messages 'enter phone number' appeared when landlines phone deleted and cellular not deleted.");
+
+    }
+
+    // == help methods ==
+    protected void prepareEmptyPhoneAndEmailFields() {
+        PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
+        personalDetails.deleteCellular();
+        personalDetails.deletePhone();
+        personalDetails.deleteEmail();
+        personalDetails.clickBtnSave();
     }
 
 }

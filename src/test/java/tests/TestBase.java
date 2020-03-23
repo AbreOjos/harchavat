@@ -19,6 +19,9 @@ import readresources.parameters.WebUiParameters;
 
 import java.net.URL;
 
+import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
+import static constants.BaseConstants.waitFewSecondsWarningDisabled;
+
 public abstract class TestBase {
     private static final Logger log = Logger.getLogger(TestBase.class);
 
@@ -60,7 +63,9 @@ public abstract class TestBase {
     protected void goToLoginPage() {
         log.info(String.format("Open a browser, go to %s", hnURL));
         driver.get(hnURL);
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
         driver.manage().window().maximize();
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     protected void createChromeDriver() {
@@ -71,6 +76,7 @@ public abstract class TestBase {
 //        capabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
 
         capabilities.setCapability (CapabilityType.ACCEPT_SSL_CERTS, true);
+        capabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.merge(capabilities);
