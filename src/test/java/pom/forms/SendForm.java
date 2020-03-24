@@ -6,7 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
 
+import java.util.List;
+
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
+import static constants.BaseConstants.checkCircleIconSubElementMenu;
+import static constants.BaseConstants.errorIconSubElementMenu;
 import static constants.SendFormConstants.*;
 
 public class SendForm extends BasePage {
@@ -40,6 +44,15 @@ public class SendForm extends BasePage {
     }
 
     // == pubic methods ==
+
+    // menu icons
+    public List<WebElement> getErrorIconMenu() {
+        return getMenuSendForm().findElements(errorIconSubElementMenu);
+    }
+
+    public List<WebElement> getCheckCircleIconMenu() {
+        return getMenuSendForm().findElements(checkCircleIconSubElementMenu);
+    }
 
     // methods info-box Personal Details
     public boolean emailContains(String email) {

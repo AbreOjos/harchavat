@@ -13,7 +13,7 @@ import java.util.Map;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
-import static constants.BaseConstants.waitFewSecondsWarningDisabled;
+import static constants.BaseConstants.*;
 import static constants.VariousConstants.*;
 
 public class Various extends BasePage {
@@ -93,6 +93,16 @@ public class Various extends BasePage {
 
 
     // == public methods ==
+
+    // menu icons
+    public List<WebElement> getErrorIconMenu() {
+        return getMenuVarious().findElements(errorIconSubElementMenu);
+    }
+
+    public List<WebElement> getCheckCircleIconMenu() {
+        return getMenuVarious().findElements(checkCircleIconSubElementMenu);
+    }
+
     // Have / Don't Have methods
     public void chooseHaveNonWorkIncomes() {
         chooseHave(btnHaveNonWorkIncomes);

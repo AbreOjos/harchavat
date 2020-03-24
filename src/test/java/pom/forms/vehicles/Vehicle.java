@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static constants.BaseConstants.checkCircleIconSubElementMenu;
+import static constants.BaseConstants.errorIconSubElementMenu;
 import static constants.VehicleConstants.vehicleDetailsPanel;
 
 public class Vehicle extends BasePage {
@@ -28,6 +30,16 @@ public class Vehicle extends BasePage {
     }
 
     // == public methods ==
+
+    // menu icons
+    public List<WebElement> getErrorIconMenu() {
+        return getMenuVehicle().findElements(errorIconSubElementMenu);
+    }
+
+    public List<WebElement> getCheckCircleIconMenu() {
+        return getMenuVehicle().findElements(checkCircleIconSubElementMenu);
+    }
+
     public void chooseHaveVehicle() {
 
         chooseHave();

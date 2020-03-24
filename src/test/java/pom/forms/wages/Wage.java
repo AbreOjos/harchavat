@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static constants.BaseConstants.checkCircleIconSubElementMenu;
+import static constants.BaseConstants.errorIconSubElementMenu;
 import static constants.WagesConstants.wagesDetailsPanel;
 
 public class Wage extends BasePage {
@@ -26,6 +28,16 @@ public class Wage extends BasePage {
     }
 
     // == public methods ==
+
+    // menu icons
+    public List<WebElement> getErrorIconMenu() {
+        return getMenuWage().findElements(errorIconSubElementMenu);
+    }
+
+    public List<WebElement> getCheckCircleIconMenu() {
+        return getMenuWage().findElements(checkCircleIconSubElementMenu);
+    }
+
     public void chooseHaveWage() {
 
         chooseHave();

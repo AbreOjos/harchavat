@@ -65,6 +65,10 @@ public class ChromePersonalAreaTests extends PersonalAreaTests {
         phonesMissingErrorMessage();
     }
 
+    public void testPhoneNumbersTooLongErrorMessages() {
+        phoneNumbersTooLongErrorMessages();
+    }
+
     public void testMarriedSpouseIdMissingErrorMessage() {
         marriedSpouseIdMissingErrorMessage();
     }
@@ -111,5 +115,9 @@ public class ChromePersonalAreaTests extends PersonalAreaTests {
 
     public void testPolygamyAllianceSpousePassportFormat() {
         polygamyAllianceSpousePassportFormat();
+    }
+
+    public void testCheckMenuIcons() {
+        checkMenuIcons();
     }
 }

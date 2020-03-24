@@ -10,7 +10,7 @@ import java.util.List;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
-import static constants.BaseConstants.waitFewSecondsWarningDisabled;
+import static constants.BaseConstants.*;
 import static utils.utilitiesForInfra.JavaScriptHelpersHarchavat.scrollIntoViewMoveFocusAndClickWithJavaScript;
 
 public class PersonalDetails extends BasePage {
@@ -69,6 +69,10 @@ public class PersonalDetails extends BasePage {
     private List<WebElement> phoneFormatErrorMessage;
     @FindBy(xpath = "//p[@class='error-msg' and contains(., 'יש להזין טלפון נייח או טלפון נייד')]")
     private List<WebElement> phoneMissingErrorMessage;
+    @FindBy(xpath = "//p[@class='error-msg' and contains(., 'השדה טלפון נייד לא יכול להכיל יותר מ- 30 תווים')]")
+    private List<WebElement> cellularPhoneTooLongErrorMessage;
+    @FindBy(xpath = "//p[@class='error-msg' and contains(., 'השדה טלפון נייח לא יכול להכיל יותר מ- 30 תווים')]")
+    private List<WebElement> landlinesPhoneTooLongErrorMessage;
     @FindBy(xpath = "//p[@class='error-msg'][contains(text(),'.')]")
     private List<WebElement> standardErrorMessage;
     @FindBy(xpath = "//p[@class='error-msg' and contains(., 'חובה למלא את השדה דואר אלקטרוני')]")
@@ -83,6 +87,8 @@ public class PersonalDetails extends BasePage {
     private List<WebElement> spousePassportNeedToFillErrorMessage;
     @FindBy(xpath = "//p[@class='error-msg' and contains(., 'מספר דרכון לא תקין')]")
     private List<WebElement> spousePassportIncorrectFormatErrorMessage;
+    @FindBy(xpath = "//p[@class='error-msg' and contains(., 'השדה מספר דרכון בן/בת הזוג לא יכול להכיל יותר מ- 15 תווים')]")
+    private List<WebElement> spousePassportTooLongErrorMessage;
 
     // == getters ==
     public List<WebElement> getPhoneFormatErrorMessage() {
@@ -99,6 +105,14 @@ public class PersonalDetails extends BasePage {
 
     public List<WebElement> getPhoneMissingErrorMessage() {
         return phoneMissingErrorMessage;
+    }
+
+    public List<WebElement> getCellularPhoneTooLongErrorMessage() {
+        return cellularPhoneTooLongErrorMessage;
+    }
+
+    public List<WebElement> getLandlinesPhoneTooLongErrorMessage() {
+        return landlinesPhoneTooLongErrorMessage;
     }
 
     public List<WebElement> getSpouseIdOnlyDigitalErrorMessage() {
@@ -121,8 +135,23 @@ public class PersonalDetails extends BasePage {
         return spousePassportIncorrectFormatErrorMessage;
     }
 
+    public List<WebElement> getSpousePassportTooLongErrorMessage() {
+        return spousePassportTooLongErrorMessage;
+    }
+
+
+
 
     // == public methods ==
+
+    // menu icons
+    public List<WebElement> getErrorIconMenu() {
+        return getMenuPersonalDetails().findElements(errorIconSubElementMenu);
+    }
+
+    public List<WebElement> getCheckCircleIconMenu() {
+        return getMenuPersonalDetails().findElements(checkCircleIconSubElementMenu);
+    }
 
     // checkboxes check / uncheck
     public boolean isAgreementChecked() {

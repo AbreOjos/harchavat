@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static constants.BaseConstants.checkCircleIconSubElementMenu;
+import static constants.BaseConstants.errorIconSubElementMenu;
 import static constants.RealEstateConstants.realEstateDetailsPanel;
 
 public class RealEstate extends BasePage {
@@ -26,6 +28,16 @@ public class RealEstate extends BasePage {
     }
 
     // == public methods ==
+
+    // menu icons
+    public List<WebElement> getErrorIconMenu() {
+        return getMenuRealEstate().findElements(errorIconSubElementMenu);
+    }
+
+    public List<WebElement> getCheckCircleIconMenu() {
+        return getMenuRealEstate().findElements(checkCircleIconSubElementMenu);
+    }
+
     public void chooseHaveRealEstate() {
 
         chooseHave();

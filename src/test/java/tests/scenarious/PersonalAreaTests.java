@@ -121,6 +121,44 @@ public class PersonalAreaTests extends TestBase {
 
     }
 
+    protected void phoneNumbersTooLongErrorMessages() {
+        log.info("Two long phone numbers - more than 30 chars - error messages appears, both disappears when correct phones entered");
+
+        String tooLongNumber = "1234567890123456789012345678901";
+        String correctNumber = "123456789012345678901234567890";
+
+        basePage.clickMenuPersonalDetails();
+        basePage.clickMenuWage();
+        PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
+
+        // too long cellular
+        personalDetails.enterCellular(tooLongNumber);
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getCellularPhoneTooLongErrorMessage(), 1,
+                String.format("An error messages 'too long cellular phone number' did not appeared when too long cellular phone '%s' entered",
+                        tooLongNumber));
+
+        // correct cellular
+        personalDetails.deleteCellular();
+        personalDetails.enterCellular(correctNumber);
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getCellularPhoneTooLongErrorMessage(), 0,
+                String.format("An error messages 'too long cellular phone number' did not disappears when correct cellular phone '%s' entered",
+                        correctNumber));
+
+        // too long landlines
+        personalDetails.enterPhone(tooLongNumber);
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getLandlinesPhoneTooLongErrorMessage(), 1,
+                String.format("An error messages 'too long landlines phone number' did not appeared when too long landlines phone '%s' entered",
+                        tooLongNumber));
+
+        // correct landlines
+        personalDetails.deletePhone();
+        personalDetails.enterPhone(correctNumber);
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getLandlinesPhoneTooLongErrorMessage(), 0,
+                String.format("An error messages 'too long landlines phone number' did not disappears when correct landlines phone '%s' entered",
+                        correctNumber));
+
+    }
+
     protected void marriedSpouseIdMissingErrorMessage() {
         log.info("Married Spouse ID missing error message");
 
@@ -229,6 +267,37 @@ public class PersonalAreaTests extends TestBase {
         spousePassportFormat(personalDetails);
     }
 
+    protected void checkMenuIcons() {
+        log.info("Check that Personal Area menu has icons: error, checked, without icon");
+
+        String correctPhoneNumber = "123456789";
+        String correctEmail = "abc@def.com";
+
+        basePage.clickMenuPersonalDetails();
+        basePage.clickMenuWage();
+        PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
+
+        // check error icon
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getErrorIconMenu(), 1,
+                "An error icon menu did not appears when there are empty mandatory fields");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getCheckCircleIconMenu(), 0,
+                "A check-circle icon menu did not disappears when there are empty mandatory fields");
+
+        personalDetails.enterPhone(correctPhoneNumber);
+        personalDetails.enterEmail(correctEmail);
+
+        basePage.clickMenuWage();
+        personalDetails = basePage.clickMenuPersonalDetails();
+
+        // check check-circle icon
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getCheckCircleIconMenu(), 1,
+                "A check-circle icon menu did not appears when mandatory fields contain correct values");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getErrorIconMenu(), 0,
+                "An error icon menu did not disappears when mandatory fields contain correct values");
+    }
+
     // == help methods ==
     protected void prepareEmptyPhoneAndEmailFields() {
         PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
@@ -295,6 +364,7 @@ public class PersonalAreaTests extends TestBase {
     private void spousePassportFormat(PersonalDetails personalDetails) {
         String incorrectSpousePassport = "abcdef";
         String correctSpousePassport = "123456789";
+        String tooLongSpousePassport = "1234567890123456";
 
         log.info(String.format("Enter the incorrect spouse passport '%s', find the error message", incorrectSpousePassport));
 
@@ -304,13 +374,24 @@ public class PersonalAreaTests extends TestBase {
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getSpousePassportIncorrectFormatErrorMessage(), 1,
                 String.format("An error message not appeared when the incorrect spouse ID '%s' entered.", incorrectSpousePassport));
 
+        log.info(String.format("Enter too long spouse Passport '%s', check that another error message appeared", tooLongSpousePassport));
+
+        personalDetails.deleteSpousePassport();
+        personalDetails.enterSpousePassport(tooLongSpousePassport);
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getSpousePassportTooLongErrorMessage(), 1,
+                String.format("An error message not appeared when too long spouse passport '%s' entered", tooLongSpousePassport));
+
         log.info(String.format("Enter correct spouse Passport '%s', check that an error messages did not appears", correctSpousePassport));
 
         personalDetails.deleteSpousePassport();
         personalDetails.enterSpousePassport(correctSpousePassport);
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getSpousePassportIncorrectFormatErrorMessage(), 0,
-                String.format("An error message 'Wrong Passport Format' appeared when the correct spouse assport '%s' entered", correctSpousePassport));
+                String.format("An error message 'Wrong Passport Format' appeared when the correct spouse passport '%s' entered", correctSpousePassport));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getSpousePassportTooLongErrorMessage(), 0,
+                String.format("An error message 'Too Long' appeared when the correct spouse Passport '%s' entered", correctSpousePassport));
+
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getSpousePassportNeedToFillErrorMessage(), 0,
                 String.format("An error messages 'need to fill spouse passport' appeared when the correct spouse passport '%s' entered", correctSpousePassport));
