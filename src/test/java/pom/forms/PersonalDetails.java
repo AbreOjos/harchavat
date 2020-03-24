@@ -73,11 +73,16 @@ public class PersonalDetails extends BasePage {
     private List<WebElement> standardErrorMessage;
     @FindBy(xpath = "//p[@class='error-msg' and contains(., 'חובה למלא את השדה דואר אלקטרוני')]")
     private List<WebElement> emailNeedToFillErrorMessage;
+    @FindBy(xpath = "//p[@class='error-msg' and contains(., 'השדה תעודת זהות בן/בת הזוג יכול להכיל ספרות שלמות בלבד')]")
     private List<WebElement> spouseIdOnlyDigitalErrorMessage;
     @FindBy(xpath = "//p[@class='error-msg' and contains(., 'חובה למלא את השדה תעודת זהות בן/בת הזוג')]")
     private List<WebElement> spouseIdNeedToFillErrorMessage;
     @FindBy(xpath = "//p[@class='error-msg' and contains(., 'השדה תעודת זהות בן/בת הזוג לא יכול להכיל יותר מ- 9 תווים')]")
     private List<WebElement> spouseIdTooLongErrorMessage;
+    @FindBy(xpath = "//p[@class='error-msg' and contains(., 'חובה למלא את השדה מספר דרכון בן/בת הזוג')]")
+    private List<WebElement> spousePassportNeedToFillErrorMessage;
+    @FindBy(xpath = "//p[@class='error-msg' and contains(., 'מספר דרכון לא תקין')]")
+    private List<WebElement> spousePassportIncorrectFormatErrorMessage;
 
     // == getters ==
     public List<WebElement> getPhoneFormatErrorMessage() {
@@ -106,6 +111,14 @@ public class PersonalDetails extends BasePage {
 
     public List<WebElement> getSpouseIdTooLongErrorMessage() {
         return spouseIdTooLongErrorMessage;
+    }
+
+    public List<WebElement> getSpousePassportNeedToFillErrorMessage() {
+        return spousePassportNeedToFillErrorMessage;
+    }
+
+    public List<WebElement> getSpousePassportIncorrectFormatErrorMessage() {
+        return spousePassportIncorrectFormatErrorMessage;
     }
 
 
@@ -151,7 +164,6 @@ public class PersonalDetails extends BasePage {
     }
 
     public void deleteFirstName() {
-//        clear(driver, txtFirstName);
         cleanFormField(txtFirstName);
     }
 
@@ -181,7 +193,6 @@ public class PersonalDetails extends BasePage {
     }
 
     public void deletePhone() {
-//        clear(driver, txtPhone);
         cleanFormField(txtPhone);
     }
 
@@ -307,6 +318,7 @@ public class PersonalDetails extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
+
     public void chooseSpouseExpatriate() {
         try {
 //            scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(2));
@@ -326,6 +338,10 @@ public class PersonalDetails extends BasePage {
 
     }
 
+    public void deleteSpousePassport() {
+        cleanFormField(txtSpousePassport);
+    }
+
     public void chooseStateSpouseIsrael() {
         clickDropDownList(dropDownSpouseCountry, 0);
     }
@@ -340,12 +356,19 @@ public class PersonalDetails extends BasePage {
 
     public void enterSpouseState(String spouseState) {
         fillFormField(txtSpouseState, spouseState);
+    }
 
+    public void deleteSpouseState() {
+        cleanFormField(txtSpouseState);
     }
 
     // for spouse Israeli only
     public void enterSpouseIdentity(String spouseIdentity) {
         fillFormField(txtSpouseIdentity, spouseIdentity);
+    }
+
+    public void deleteSpouseIdentity() {
+        cleanFormField(txtSpouseIdentity);
     }
 
     // attach file for separated

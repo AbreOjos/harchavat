@@ -64,4 +64,52 @@ public class ChromePersonalAreaTests extends PersonalAreaTests {
     public void testPhonesMissingErrorMessage() {
         phonesMissingErrorMessage();
     }
+
+    public void testMarriedSpouseIdMissingErrorMessage() {
+        marriedSpouseIdMissingErrorMessage();
+    }
+
+    public void testMarriedSpouseIdFormat() {
+        marriedSpouseIdFormat();
+    }
+
+    public void testSpousalAllianceSpouseIdMissingErrorMessage() {
+        spousalAllianceSpouseIdMissingErrorMessage();
+    }
+
+    public void testSpousalAllianceSpouseIdFormat() {
+        spousalAllianceSpouseIdFormat();
+    }
+
+    public void testPolygamySpouseIdMissingErrorMessage() {
+        polygamySpouseIdMissingErrorMessage();
+    }
+
+    public void testPolygamyAllianceSpouseIdFormat() {
+        polygamyAllianceSpouseIdFormat();
+    }
+
+    public void testMarriedSpousePassportMissingErrorMessage() {
+        marriedSpousePassportMissingErrorMessage();
+    }
+
+    public void testMarriedSpousePassportFormat() {
+        marriedSpousePassportFormat();
+    }
+
+    public void testSpousalAllianceSpousePassportMissingErrorMessage() {
+        spousalAllianceSpousePassportMissingErrorMessage();
+    }
+
+    public void testSpousalAllianceSpousePassportFormat() {
+        spousalAllianceSpousePassportFormat();
+    }
+
+    public void testPolygamySpousePassportMissingErrorMessage() {
+        polygamySpousePassportMissingErrorMessage();
+    }
+
+    public void testPolygamyAllianceSpousePassportFormat() {
+        polygamyAllianceSpousePassportFormat();
+    }
 }
