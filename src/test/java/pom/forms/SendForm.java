@@ -34,31 +34,31 @@ public class SendForm extends BasePage {
     @FindBy(xpath = "(//*[@class='info-box'])[5]")
     private WebElement infoBoxVarious;
 
-    @FindBy(xpath = "//span[contains(text(),'תעודת זהות')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'תעודת זהות')]/..")
     private List<WebElement> id;
-    @FindBy(xpath = "//span[contains(text(),'שם פרטי')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'שם פרטי')]/..")
     private List<WebElement> firstName;
-    @FindBy(xpath = "//span[contains(text(),'שם משפחה')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'שם משפחה')]/..")
     private List<WebElement> familyName;
-    @FindBy(xpath = "//span[contains(text(),'טלפון נייד')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'טלפון נייד')]/..")
     private List<WebElement> cellularPhone;
-    @FindBy(xpath = "//span[contains(text(),'טלפון נייח')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'טלפון נייח')]/..")
     private List<WebElement> landlinesPhone;
-    @FindBy(xpath = "//span[contains(text(),'דואר אלקטרוני')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'דואר אלקטרוני')]/..")
     private List<WebElement> email;
-    @FindBy(xpath = "//span[contains(text(),'תושב ישראל')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'תושב ישראל')]/..")
     private List<WebElement> israeliCitizen;
-    @FindBy(xpath = "//span[contains(text(),'סטטוס')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'סטטוס')]/..")
     private List<WebElement> martialStatus;
-    @FindBy(xpath = "//span[contains(text(),'בן/בת הזוג תושב/ת ישראל')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'בן/בת הזוג תושב/ת ישראל')]/..")
     private List<WebElement> spouseIsraeliCitizen;
-    @FindBy(xpath = "//span[contains(text(),'תעודת זהות בן/בת הזוג')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'תעודת זהות בן/בת הזוג')]/..")
     private List<WebElement> spouseId;
-    @FindBy(xpath = "//span[contains(text(),'מספר דרכון בן/בת הזוג')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'מספר דרכון בן/בת הזוג')]/..")
     private List<WebElement> spousePassport;
-    @FindBy(xpath = "//span[contains(text(),'מדינת בן/בת זוג')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'מדינת בן/בת זוג')]/..")
     private List<WebElement> spouseCountry;
-    @FindBy(xpath = "//span[contains(text(),'מחוז בן/בת זוג')]")
+    @FindBy(xpath = "//span/strong[contains(text(),'מחוז בן/בת זוג')]/..")
     private List<WebElement> spouseState;
 
     @FindBy(xpath = "//button[@type='submit']")

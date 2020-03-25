@@ -15,6 +15,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import pom.BasePage;
+import pom.forms.PersonalDetails;
 import readresources.parameters.WebUiParameters;
 
 import java.net.URL;
@@ -153,5 +154,14 @@ public abstract class TestBase {
     @AfterSuite(alwaysRun = true)
     public void tearDownSuite() {
         if (driver != null) driver.quit();
+    }
+
+    // == help methods ==
+    protected void prepareEmptyPhoneAndEmailFieldsPersonalDetails() {
+        PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
+        personalDetails.deleteCellular();
+        personalDetails.deletePhone();
+        personalDetails.deleteEmail();
+        personalDetails.clickBtnSave();
     }
 }

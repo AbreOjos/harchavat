@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 import pom.forms.PersonalDetails;
 import tests.TestBase;
 
-public class PersonalAreaTests extends TestBase {
-    private static final Logger log = Logger.getLogger(PersonalAreaTests.class);
+public class PersonalDetailsTests extends TestBase {
+    private static final Logger log = Logger.getLogger(PersonalDetailsTests.class);
 
     protected void forbiddenCharactersPhoneNumber(String forbiddenChars) {
         log.info(String.format("Enter the characters '%s' to a Phone Number field, find the error message", forbiddenChars));
@@ -307,14 +307,6 @@ public class PersonalAreaTests extends TestBase {
         personalDetails.clickDownloadLinkCheckSuffixAndReturn("pdf");
     }
 
-    // == help methods ==
-    protected void prepareEmptyPhoneAndEmailFields() {
-        PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
-        personalDetails.deleteCellular();
-        personalDetails.deletePhone();
-        personalDetails.deleteEmail();
-        personalDetails.clickBtnSave();
-    }
 
     // == private methods ==
     private void spouseIdMissingErrorMessage(PersonalDetails personalDetails) {

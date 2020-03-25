@@ -19,6 +19,15 @@ public class EnglishHebrewConstants {
     public static final String NOVEMBER = "נובמבר";
     public static final String DECEMBER = "דצמבר";
 
+    // martial statuses
+    public static final String BACHELOR = "רווק";
+    public static final String MARRIED = "נשוי";
+    public static final String DIVORCEE = "גרוש";
+    public static final String WIDOW = "אלמנ";
+    public static final String ALLIANCE = "בברית הזוגיות";
+    public static final String SEPARATED = "פרוד";
+    public static final String POLYGAMY = "פוליגם";
+
     // cities
     public static final String JERUSALEM = "ירושלים";
 

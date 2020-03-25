@@ -6,14 +6,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import readresources.drivers.WebDrivers;
 import tests.RunMode;
-import tests.scenarious.PersonalAreaTests;
+import tests.scenarious.PersonalDetailsTests;
 import utils.dataprovider.NEDataProvider;
 
 import java.net.URISyntaxException;
 
 @Test(groups = {RunMode.CHROME})
-public class ChromePersonalAreaTests extends PersonalAreaTests {
-    private static final Logger log = Logger.getLogger(ChromePersonalAreaTests.class);
+public class ChromePersonalDetailsTests extends PersonalDetailsTests {
+    private static final Logger log = Logger.getLogger(ChromePersonalDetailsTests.class);
 
     @BeforeClass(groups = {RunMode.CHROME}, alwaysRun = true)
     public void setUpClass() throws URISyntaxException {
@@ -34,7 +34,7 @@ public class ChromePersonalAreaTests extends PersonalAreaTests {
 
         super.setUpMethod();
 
-        prepareEmptyPhoneAndEmailFields();
+        prepareEmptyPhoneAndEmailFieldsPersonalDetails();
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenCharsPhoneNumber")
