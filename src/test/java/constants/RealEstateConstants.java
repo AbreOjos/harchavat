@@ -22,7 +22,7 @@ public class RealEstateConstants {
     public static final By txtRealEstateBlockSubElementDetails = By.xpath(".//input[@name='gush']");
     public static final By txtRealEstatePlotSubElementDetails = By.xpath(".//input[@name='helka']");
     public static final By btnsRealEstateUsageSubElementDetails = By.xpath(".//div[@class='bgl-toggle mb-3']//button");
-    public static final By btnsRealEstateRentingPurpose =
+    public static final By btnsRealEstateRentingPurposeSubElementDetails =
             By.xpath("(.//*[contains(@class, 'v-item-group')]/button[not(contains(@value, 'true')) and not(contains(@value, 'false'))]/..)[2]/button");
     public static final By volumeRealEstateDividedSubElementDetails = By.xpath(".//input[@name='splitAmount']");
     public static final By volumeRealEstateAddSubElementDetails = By.xpath(".//button[contains(@class, 'add')]");

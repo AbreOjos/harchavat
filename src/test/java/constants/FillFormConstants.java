@@ -9,7 +9,7 @@ public class FillFormConstants {
     // sub-elements
     public static final By trueSubElementYesNoBox = By.xpath(".//input[@value='true']");
     public static final By falseSubElementYesNoBox = By.xpath(".//input[@value='valse']");
-    public static final By selectedSubElementDropDownLists = By.xpath(("./preceding-sibling::div"));
+    public static final By selectedSubElementDropDownLists = By.xpath("./preceding-sibling::div");
 
 
 }

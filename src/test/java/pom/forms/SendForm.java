@@ -11,7 +11,6 @@ import java.util.List;
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static constants.BaseConstants.checkCircleIconSubElementMenu;
 import static constants.BaseConstants.errorIconSubElementMenu;
-import static constants.SendFormConstants.*;
 
 public class SendForm extends BasePage {
 
@@ -35,6 +34,33 @@ public class SendForm extends BasePage {
     @FindBy(xpath = "(//*[@class='info-box'])[5]")
     private WebElement infoBoxVarious;
 
+    @FindBy(xpath = "//span[contains(text(),'תעודת זהות')]")
+    private List<WebElement> id;
+    @FindBy(xpath = "//span[contains(text(),'שם פרטי')]")
+    private List<WebElement> firstName;
+    @FindBy(xpath = "//span[contains(text(),'שם משפחה')]")
+    private List<WebElement> familyName;
+    @FindBy(xpath = "//span[contains(text(),'טלפון נייד')]")
+    private List<WebElement> cellularPhone;
+    @FindBy(xpath = "//span[contains(text(),'טלפון נייח')]")
+    private List<WebElement> landlinesPhone;
+    @FindBy(xpath = "//span[contains(text(),'דואר אלקטרוני')]")
+    private List<WebElement> email;
+    @FindBy(xpath = "//span[contains(text(),'תושב ישראל')]")
+    private List<WebElement> israeliCitizen;
+    @FindBy(xpath = "//span[contains(text(),'סטטוס')]")
+    private List<WebElement> martialStatus;
+    @FindBy(xpath = "//span[contains(text(),'בן/בת הזוג תושב/ת ישראל')]")
+    private List<WebElement> spouseIsraeliCitizen;
+    @FindBy(xpath = "//span[contains(text(),'תעודת זהות בן/בת הזוג')]")
+    private List<WebElement> spouseId;
+    @FindBy(xpath = "//span[contains(text(),'מספר דרכון בן/בת הזוג')]")
+    private List<WebElement> spousePassport;
+    @FindBy(xpath = "//span[contains(text(),'מדינת בן/בת זוג')]")
+    private List<WebElement> spouseCountry;
+    @FindBy(xpath = "//span[contains(text(),'מחוז בן/בת זוג')]")
+    private List<WebElement> spouseState;
+
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement btnSubmit;
 
@@ -42,6 +68,59 @@ public class SendForm extends BasePage {
     public WebElement getBtnSubmit() {
         return btnSubmit;
     }
+
+    public List<WebElement> getId() {
+        return id;
+    }
+
+    public List<WebElement> getFirstName() {
+        return firstName;
+    }
+
+    public List<WebElement> getFamilyName() {
+        return familyName;
+    }
+
+    public List<WebElement> getCellularPhone() {
+        return cellularPhone;
+    }
+
+    public List<WebElement> getLandlinesPhone() {
+        return landlinesPhone;
+    }
+
+    public List<WebElement> getEmail() {
+        return email;
+    }
+
+    public List<WebElement> getIsraeliCitizen() {
+        return israeliCitizen;
+    }
+
+    public List<WebElement> getMartialStatus() {
+        return martialStatus;
+    }
+
+    public List<WebElement> getSpouseIsraeliCitizen() {
+        return spouseIsraeliCitizen;
+    }
+
+    public List<WebElement> getSpouseId() {
+        return spouseId;
+    }
+
+    public List<WebElement> getSpousePassport() {
+        return spousePassport;
+    }
+
+    public List<WebElement> getSpouseCountry() {
+        return spouseCountry;
+    }
+
+    public List<WebElement> getSpouseState() {
+        return spouseState;
+    }
+
 
     // == pubic methods ==
 
@@ -55,98 +134,59 @@ public class SendForm extends BasePage {
     }
 
     // methods info-box Personal Details
-    public boolean emailContains(String email) {
-        return infoBoxPersonalDetails
-                .findElement(emailSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(email);
+    public boolean idContains(String text) {
+        return id.get(0).getText().contains(text);
     }
 
-    public boolean landlinesPhoneContains(String landlinesPhone) {
-        return infoBoxPersonalDetails
-                .findElement(landlinesPhoneSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(landlinesPhone);
+    public boolean firstNameContains(String text) {
+        return firstName.get(0).getText().contains(text);
     }
 
-    public boolean cellularPhoneContains(String cellularPhone) {
-        return infoBoxPersonalDetails
-                .findElement(cellularPhoneSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(cellularPhone);
+    public boolean familyNameContains(String text) {
+        return familyName.get(0).getText().contains(text);
     }
 
-    public boolean idContains(String id) {
-        return infoBoxPersonalDetails
-                .findElement(idSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(id);
+    public boolean cellularPhoneContains(String text) {
+        return cellularPhone.get(0).getText().contains(text);
     }
 
-    public boolean familyNameContains(String familyName) {
-        return infoBoxPersonalDetails
-                .findElement(familyNameSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(familyName);
+    public boolean landlinesPhoneContains(String text) {
+        return landlinesPhone.get(0).getText().contains(text);
     }
 
-    public boolean firstNameContains(String firstName) {
-        return infoBoxPersonalDetails
-                .findElement(firstNameSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(firstName);
+    public boolean emailContains(String text) {
+        return email.get(0).getText().contains(text);
     }
 
-    public boolean israelCitizenContains(String israelCitizen) {
-        return infoBoxPersonalDetails
-                .findElement(israelCitizenSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(israelCitizen);
+    public boolean israelCitizenContains(String text) {
+        return israeliCitizen.get(0).getText().contains(text);
     }
 
-    public boolean disclaimerContains(String disclaimer) {
-        return infoBoxPersonalDetails
-                .findElement(disclaimerSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(disclaimer);
+    public boolean martialStatusContains(String text) {
+        return martialStatus.get(0).getText().contains(text);
     }
 
-    public boolean martialStatusContains(String martialStatus) {
-        return infoBoxPersonalDetails
-                .findElement(martialStatusSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(martialStatus);
+    public boolean spouseIsraeliCitizenContains(String text) {
+        return spouseIsraeliCitizen.get(0).getText().contains(text);
     }
 
-    public boolean spouseCountryContains(String spouseCountry) {
-        return infoBoxPersonalDetails
-                .findElement(spouseCountryAndStateSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(spouseCountry);
+    public boolean spouseIdContains(String text) {
+        return spouseId.get(0).getText().contains(text);
     }
 
-    public boolean spouseIsraelCitizenContains(String spouseIsraelCitizen) {
-        return infoBoxPersonalDetails
-                .findElement(spouseIsraelCitizenSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(spouseIsraelCitizen);
+    public boolean spousePassportContains(String text) {
+        return spousePassport.get(0).getText().contains(text);
     }
 
-    public boolean spouseIdContains(String spouseId) {
-        return infoBoxPersonalDetails
-                .findElement(spouseIdSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(spouseId);
+    public boolean spouseCountryContains(String text) {
+        return spouseCountry.get(0).getText().contains(text);
     }
 
-    public boolean spousePassportContains(String spousePassport) {
-        return infoBoxPersonalDetails
-                .findElement(spousePassportSubElementInfoBoxPersonalDetails)
-                .getText().trim()
-                .contains(spousePassport);
+    public boolean spouseStateContains(String text) {
+        return spouseState.get(0).getText().contains(text);
     }
 
-
+    // send form method
     public void clickBtnSubmit() {
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnSubmit);

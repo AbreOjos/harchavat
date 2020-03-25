@@ -99,11 +99,11 @@ public class RealEstateDetails extends BasePage {
     }
 
     protected WebElement getBtnRealEstateResidentialPurpose() {
-        return details.findElements(btnsRealEstateRentingPurpose).get(0);
+        return details.findElements(btnsRealEstateRentingPurposeSubElementDetails).get(0);
     }
 
     protected WebElement getBtnRealEstateBusinessPurpose() {
-        return details.findElements(btnsRealEstateRentingPurpose).get(1);
+        return details.findElements(btnsRealEstateRentingPurposeSubElementDetails).get(1);
     }
 
     protected WebElement getVolumeRealEstateDivided() {

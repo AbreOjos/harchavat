@@ -27,4 +27,8 @@ public class EnglishHebrewConstants {
 
     // error messages
     public static final String ENTER_LANDLINES_OR_MOBILE_PHONE = "יש להזין טלפון נייח או טלפון נייד";
+
+    // user
+    public static final String IGOR = "איגור";
+    public static final String GINDIN = "גינדין";
 }

@@ -21,6 +21,8 @@ import java.net.URL;
 
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
+import static constants.EnglishHebrewConstants.GINDIN;
+import static constants.EnglishHebrewConstants.IGOR;
 
 public abstract class TestBase {
     private static final Logger log = Logger.getLogger(TestBase.class);
@@ -36,6 +38,11 @@ public abstract class TestBase {
     protected static String dbPort;
     protected static String dbUser;
     protected static String dbPass;
+
+    // user details
+    public static final String userFirstName = IGOR;
+    public static final String userFamilyName = GINDIN;
+    public static final String userId = "320959604";
 
     ////////// AXE ///////////////
     protected static final URL scriptUrl = TestBase.class.getResource("/axe.min.js");
