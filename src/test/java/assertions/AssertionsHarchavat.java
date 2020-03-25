@@ -89,6 +89,24 @@ public class AssertionsHarchavat {
         );
     }
 
+    public static void assertTextEndWithSubstring(String text, String suffix,
+                                                   String... additionalInfo) {
+        log.debug("Checking that text contains suffix");
+
+        Assert.assertTrue(endWithSubstring(text, suffix),
+                String.join(" ", additionalInfo)
+        );
+    }
+
+    public static void assertTextDontEndWithSubstring(String text, String suffix,
+                                                  String... additionalInfo) {
+        log.debug("Checking that text contains suffix");
+
+        Assert.assertFalse(endWithSubstring(text, suffix),
+                String.join(" ", additionalInfo)
+        );
+    }
+
     public static void assertElementContainsText(WebElement webElement, String expectedText) {
         log.debug(String.format("Checking that WebElement contains text '%s'", expectedText));
 
@@ -284,23 +302,15 @@ public class AssertionsHarchavat {
         return text.toLowerCase(locale).contains(substring.toLowerCase(locale));
     }
 
-//    /**
-//     * list was created by API
-//     * if it contains null a webpage list must display "no information"
-//     * for simplifying comparing all null's in the list will be changed
-//     * to "no information" value
-//     *
-//     * @param list
-//     * @return
-//     */
-//    private static List<String> changeNullToNoInfo(List<String> list) {
-//        if (list == null)
-//            return Collections.emptyList();
-//        else
-//            return list.stream()
-//                    .map(x -> (x == null) ? NO_INFO : x)
-//                    .collect(Collectors.toList());
-//    }
+    private static boolean endWithSubstring(String text, String suffix) {
+        text = StringUtils.normalizeSpace(text);
+        suffix = StringUtils.normalizeSpace(suffix);
+
+        Locale locale = new Locale("he");
+
+        return text.toLowerCase().endsWith(suffix.toLowerCase(locale));
+    }
+
 
     private static List<String> listToLowerCase(List<String> list) {
         if (list == null)

@@ -34,12 +34,6 @@ public class ChromePersonalAreaTests extends PersonalAreaTests {
 
         super.setUpMethod();
 
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
         prepareEmptyPhoneAndEmailFields();
     }
 
@@ -119,5 +113,9 @@ public class ChromePersonalAreaTests extends PersonalAreaTests {
 
     public void testCheckMenuIcons() {
         checkMenuIcons();
+    }
+
+    public void testCheckDownloadedFormForSeparates() {
+        checkDownloadedFormForSeparates();
     }
 }

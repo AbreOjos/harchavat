@@ -1,11 +1,13 @@
 package pom.forms;
 
+import assertions.AssertionsHarchavat;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
@@ -41,7 +43,7 @@ public class PersonalDetails extends BasePage {
     @FindBy(xpath = "//div[@name='residency']/button")
     private List<WebElement> btnsResident;
 
-    @FindBy(xpath = "//div[@name='Marital Status']/button")
+    @FindBy(xpath = "//div[@name='maritalStatus']/button")
     private List<WebElement> btnsMartialStatus;
 
     // for married only
@@ -63,6 +65,8 @@ public class PersonalDetails extends BasePage {
     // for separated only
     @FindBy(xpath = "//div[@class='v-btn__content']//input[@type='file']")
     private WebElement attachFileInput;
+    @FindBy(xpath = "//span[@class='link-inner']")
+    private WebElement downloadFileLink;
 
     // error messages
     @FindBy(xpath = "//p[contains(text(),'- ( ) +')]")
@@ -336,7 +340,6 @@ public class PersonalDetails extends BasePage {
     // spouse resident
     public void chooseSpouseIsraeli() {
         try {
-//            scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(3));
             scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(0));
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -350,7 +353,6 @@ public class PersonalDetails extends BasePage {
 
     public void chooseSpouseExpatriate() {
         try {
-//            scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(2));
             scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(1));
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -400,13 +402,48 @@ public class PersonalDetails extends BasePage {
         cleanFormField(txtSpouseIdentity);
     }
 
-    // attach file for separated
+    // for separates only
     public void attachFileSeparated(String filename) {
         attachFileInput.sendKeys(filename);
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         PageFactory.initElements(this.driver, this);
+    }
+
+    public void clickDownloadLink() {
+        downloadFileLink.click();
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+    }
+
+    public void clickDownloadLinkAndReturn() {
+        downloadFileLink.click();
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        List<String> handles = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(handles.get(0));
+
+        PageFactory.initElements(driver, this);
+    }
+
+    public void clickDownloadLinkCheckSuffixAndReturn(String suffix) {
+        downloadFileLink.click();
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        List<String> handles = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(handles.get(1));
+
+        String url = driver.getCurrentUrl();
+        AssertionsHarchavat.assertTextEndWithSubstring(url, suffix,
+                String.format("URL '%s' does not end with a suffix '%s'", url, suffix));
+
+
+        driver.switchTo().window(handles.get(0));
+
+        PageFactory.initElements(driver, this);
     }
 
 }

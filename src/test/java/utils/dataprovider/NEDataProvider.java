@@ -11,7 +11,7 @@ public class NEDataProvider {
     @DataProvider
     public static Object[][] forbiddenCharsPhoneNumber() {
         log.debug("Creating DataProvider for Free Style Search (simple cases)");
-        return CSVUtils.getCsvTwoDArray("csv/ForbiddenCharsPhoneNumber.csv", 1, 1);
+        return CSVUtils.getCsvTwoDArray("csv/ForbiddenCharsPhoneNumber.csv", 1, null);
     }
 
 }

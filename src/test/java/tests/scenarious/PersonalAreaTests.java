@@ -298,6 +298,15 @@ public class PersonalAreaTests extends TestBase {
                 "An error icon menu did not disappears when mandatory fields contain correct values");
     }
 
+    protected void checkDownloadedFormForSeparates() {
+        log.info("Choose 'separated', click 'download' link, check that pdf opened in a separate tab");
+
+        PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
+        personalDetails.chooseMaritalStatusSeparated();
+
+        personalDetails.clickDownloadLinkCheckSuffixAndReturn("pdf");
+    }
+
     // == help methods ==
     protected void prepareEmptyPhoneAndEmailFields() {
         PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
