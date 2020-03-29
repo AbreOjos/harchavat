@@ -49,7 +49,7 @@ public class SendForm extends BasePage {
     @FindBy(xpath = "//span/strong[contains(text(),'תושב ישראל')]/..")
     private List<WebElement> israeliCitizen;
     @FindBy(xpath = "//span/strong[contains(text(),'סטטוס')]/..")
-    private List<WebElement> martialStatus;
+    private List<WebElement> maritalStatus;
     @FindBy(xpath = "//span/strong[contains(text(),'בן/בת הזוג תושב/ת ישראל')]/..")
     private List<WebElement> spouseIsraeliCitizen;
     @FindBy(xpath = "//span/strong[contains(text(),'תעודת זהות בן/בת הזוג')]/..")
@@ -97,8 +97,8 @@ public class SendForm extends BasePage {
         return israeliCitizen;
     }
 
-    public List<WebElement> getMartialStatus() {
-        return martialStatus;
+    public List<WebElement> getMaritalStatus() {
+        return maritalStatus;
     }
 
     public List<WebElement> getSpouseIsraeliCitizen() {
@@ -162,8 +162,8 @@ public class SendForm extends BasePage {
         return israeliCitizen.get(0).getText().contains(text);
     }
 
-    public boolean martialStatusContains(String text) {
-        return martialStatus.get(0).getText().contains(text);
+    public boolean maritalStatusContains(String text) {
+        return maritalStatus.get(0).getText().contains(text);
     }
 
     public boolean spouseIsraeliCitizenContains(String text) {

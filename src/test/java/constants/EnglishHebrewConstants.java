@@ -33,9 +33,15 @@ public class EnglishHebrewConstants {
 
     // countries
     public static final String ISRAEL = "ישראל";
+    public static final String USA = "ארצות הברית";
 
     // error messages
     public static final String ENTER_LANDLINES_OR_MOBILE_PHONE = "יש להזין טלפון נייח או טלפון נייד";
+
+    // boolean
+    public static final String YES = "כן";
+    public static final String NO = "לא";
+    public static final String NOT_YET_REPORTED = "טרם דווח";
 
     // user
     public static final String IGOR = "איגור";

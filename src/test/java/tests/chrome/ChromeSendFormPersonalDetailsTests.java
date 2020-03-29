@@ -40,4 +40,20 @@ public class ChromeSendFormPersonalDetailsTests extends SendFormPersonalDetailsT
         personalDetailsNotFilledFields();
     }
 
+    public void testIsraeliBachelor() throws InterruptedException {
+        israeliBachelor();
+    }
+
+    public void testExpatriateMarriedIsraeli() throws InterruptedException {
+        expatriateMarriedIsraeli();
+    }
+
+    public void testIsraeliSpouseAllianceExpatriate() throws InterruptedException {
+        israeliSpouseAllianceExpatriate();
+    }
+
+    public void testExpatriatePolygamyExpatriate() throws InterruptedException {
+        expatriatePolygamyExpatriate();
+    }
+
 }

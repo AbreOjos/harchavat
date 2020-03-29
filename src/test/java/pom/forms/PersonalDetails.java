@@ -231,6 +231,9 @@ public class PersonalDetails extends BasePage {
 
     // resident
     public void chooseIsraeli() {
+        if (elementHasClass(btnsResident.get(0), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(0));
         } catch (InterruptedException e) {
@@ -243,6 +246,9 @@ public class PersonalDetails extends BasePage {
     }
 
     public void chooseExpatriate() {
+        if (elementHasClass(btnsResident.get(1), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsResident.get(1));
         } catch (InterruptedException e) {
@@ -256,6 +262,9 @@ public class PersonalDetails extends BasePage {
 
     // martial statuses
     public void chooseMaritalStatusBachelor() {
+        if (elementHasClass(btnsMartialStatus.get(0), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(0));
         } catch (InterruptedException e) {
@@ -268,6 +277,9 @@ public class PersonalDetails extends BasePage {
     }
 
     public void chooseMaritalStatusMarried() {
+        if (elementHasClass(btnsMartialStatus.get(1), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(1));
         } catch (InterruptedException e) {
@@ -280,6 +292,9 @@ public class PersonalDetails extends BasePage {
     }
 
     public void chooseMaritalStatusDivorced() {
+        if (elementHasClass(btnsMartialStatus.get(2), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(2));
         } catch (InterruptedException e) {
@@ -292,6 +307,9 @@ public class PersonalDetails extends BasePage {
     }
 
     public void chooseMaritalStatusWidow() {
+        if (elementHasClass(btnsMartialStatus.get(3), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(3));
         } catch (InterruptedException e) {
@@ -304,6 +322,9 @@ public class PersonalDetails extends BasePage {
     }
 
     public void chooseMaritalStatusSpousalAlliance() {
+        if (elementHasClass(btnsMartialStatus.get(4), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(4));
         } catch (InterruptedException e) {
@@ -316,6 +337,9 @@ public class PersonalDetails extends BasePage {
     }
 
     public void chooseMaritalStatusSeparated() {
+        if (elementHasClass(btnsMartialStatus.get(5), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(5));
         } catch (InterruptedException e) {
@@ -328,6 +352,9 @@ public class PersonalDetails extends BasePage {
     }
 
     public void chooseMaritalStatusPolygamy() {
+        if (elementHasClass(btnsMartialStatus.get(6), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsMartialStatus.get(6));
         } catch (InterruptedException e) {
@@ -339,6 +366,9 @@ public class PersonalDetails extends BasePage {
 
     // spouse resident
     public void chooseSpouseIsraeli() {
+        if (elementHasClass(btnsSpouseResident.get(0), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(0));
         } catch (InterruptedException e) {
@@ -352,6 +382,9 @@ public class PersonalDetails extends BasePage {
 
 
     public void chooseSpouseExpatriate() {
+        if (elementHasClass(btnsSpouseResident.get(1), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnsSpouseResident.get(1));
         } catch (InterruptedException e) {
