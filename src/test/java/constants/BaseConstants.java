@@ -6,9 +6,10 @@ public class BaseConstants {
     private BaseConstants() {
     }
 
-
+//    public static final By waitFewSecondsWarningDisabled =
+//            By.xpath("//*[@class='v-dialog v-dialog--persistent' and contains(@style, 'display: none')]");
     public static final By waitFewSecondsWarningDisabled =
-            By.xpath("//*[@class='v-dialog v-dialog--persistent' and contains(@style, 'display: none')]");
+            By.xpath("//*[@class='v-dialog v-dialog--persistent' and contains(@style, 'display: none')]//div[@role='progressbar']");
 
 
     // sub-elements

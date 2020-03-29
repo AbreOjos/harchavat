@@ -16,6 +16,8 @@ public class VehicleDetails extends BasePage {
     public VehicleDetails(WebDriver driver, WebElement details) {
         super(driver);
         this.details = details;
+
+//        PageFactory.initElements(driver, this);
     }
 
     // == protected methods ==
@@ -70,6 +72,9 @@ public class VehicleDetails extends BasePage {
 
     // choose vehicle type
     protected void choosePrivateVehicle() {
+        if (elementHasClass(getBtnPrivateVehicle(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnPrivateVehicle());
         } catch (InterruptedException e) {
@@ -80,6 +85,9 @@ public class VehicleDetails extends BasePage {
     }
 
     protected void chooseCommercialVehicle() {
+        if (elementHasClass(getBtnCommercialVehicle(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnCommercialVehicle());
         } catch (InterruptedException e) {
@@ -90,6 +98,9 @@ public class VehicleDetails extends BasePage {
     }
 
     protected void chooseHeavyVehicle() {
+        if (elementHasClass(getBtnHeavyVehicle(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnHeavyVehicle());
         } catch (InterruptedException e) {
@@ -100,6 +111,9 @@ public class VehicleDetails extends BasePage {
     }
 
     protected void chooseAircraftVehicle() {
+        if (elementHasClass(getBtnAircraftVehicle(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnAircraftVehicle());
         } catch (InterruptedException e) {
@@ -110,6 +124,9 @@ public class VehicleDetails extends BasePage {
     }
 
     protected void chooseVesselVehicle() {
+        if (elementHasClass(getBtnVesselVehicle(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnVesselVehicle());
         } catch (InterruptedException e) {
@@ -120,6 +137,9 @@ public class VehicleDetails extends BasePage {
     }
 
     protected void chooseAnotherVehicle() {
+        if (elementHasClass(getBtnAnotherVehicle(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnAnotherVehicle());
         } catch (InterruptedException e) {
@@ -136,8 +156,16 @@ public class VehicleDetails extends BasePage {
 
     }
 
+    protected void deleteCarLicense() {
+        cleanFormField(getTxtCarLicense());
+    }
+
     protected void enterAnotherCarTypeDetails(String anotherCarTypeDetails) {
         fillFormField(getTxtAnotherCarTypeDetails(), anotherCarTypeDetails);
+    }
+
+    protected void deleteAnotherCarTypeDetails() {
+        cleanFormField(getTxtAnotherCarTypeDetails());
     }
 
     protected void enterAnotherUsageDetails(String anotherUsageDetails) {
@@ -145,9 +173,16 @@ public class VehicleDetails extends BasePage {
 
     }
 
+    protected void deleteAnotherUsageDetails() {
+        cleanFormField(getTxtAnotherUsageDetails());
+    }
+
 
     // vehicle usage details
     protected void choosePrivateUsage() {
+        if (elementHasClass(getBtnUsagePrivate(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnUsagePrivate());
         } catch (InterruptedException e) {
@@ -158,6 +193,9 @@ public class VehicleDetails extends BasePage {
     }
 
     protected void chooseCommercialUsage() {
+        if (elementHasClass(getBtnUsageCommercial(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnUsageCommercial());
         } catch (InterruptedException e) {
@@ -168,6 +206,9 @@ public class VehicleDetails extends BasePage {
     }
 
     protected void chooseAnotherUsage() {
+        if (elementHasClass(getBtnUsageAnother(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnUsageAnother());
         } catch (InterruptedException e) {

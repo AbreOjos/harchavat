@@ -69,15 +69,15 @@ public class Various extends BasePage {
     @FindBy(xpath = "//div[@id='partnerships']//img")
     private WebElement btnAddPartnerships;
 
-    @FindBy(xpath = "//div[@id='nonWorkIncomes']//span[contains(., 'delete')]")
+    @FindBy(xpath = "//div[@id='nonWorkIncomes']//span[contains(., 'deletePanel')]")
     private List<WebElement> btnsDeleteNonWorkIncomes;
-    @FindBy(xpath = "//div[@id='abroadBankAccounts']//span[contains(., 'delete')]")
+    @FindBy(xpath = "//div[@id='abroadBankAccounts']//span[contains(., 'deletePanel')]")
     private List<WebElement> btnsDeleteAbroadBankAccounts;
-    @FindBy(xpath = "//div[@id='digitalCoins']//span[contains(., 'delete')]")
+    @FindBy(xpath = "//div[@id='digitalCoins']//span[contains(., 'deletePanel')]")
     private List<WebElement> btnsDeleteDigitalCoins;
-    @FindBy(xpath = "//div[@id='stocks']//span[contains(., 'delete')]")
+    @FindBy(xpath = "//div[@id='stocks']//span[contains(., 'deletePanel')]")
     private List<WebElement> btnsDeleteStocks;
-    @FindBy(xpath = "//div[@id='partnerships']//span[contains(., 'delete')]")
+    @FindBy(xpath = "//div[@id='partnerships']//span[contains(., 'deletePanel')]")
     private List<WebElement> btnsDeletePartnerships;
 
     // == constructors==
@@ -161,7 +161,7 @@ public class Various extends BasePage {
         chooseDontHave(btnDontHaveArt);
     }
 
-    // add and delete panels
+    // addPanel and deletePanel panels
     public void addNonWorkIncomes() {
         add(btnAddNonWorkIncomes);
     }
@@ -205,7 +205,7 @@ public class Various extends BasePage {
     // NonWorkIncomesDetails
     public void chooseNonWorkIncomesIncomeIsraeli(int nonWorkIncomeNumber) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
@@ -216,7 +216,7 @@ public class Various extends BasePage {
 
     public void chooseNonWorkIncomesIncomeOversea(int nonWorkIncomeNumber) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
@@ -227,7 +227,7 @@ public class Various extends BasePage {
 
     public void enterNonWorkIncomesIncomeSource(int nonWorkIncomeNumber, String incomeSource) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
@@ -236,7 +236,7 @@ public class Various extends BasePage {
 
     public void enterNonWorkIncomesYearlyIncome(int nonWorkIncomeNumber, String yearlyIncome) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
@@ -245,7 +245,7 @@ public class Various extends BasePage {
 
     public void enterNonWorkIncomesPayerName(int nonWorkIncomeNumber, String payerName) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
@@ -254,7 +254,7 @@ public class Various extends BasePage {
 
     public void enterNonWorkIncomesTikNikuim(int nonWorkIncomeNumber, String tikNikuim) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
@@ -263,7 +263,7 @@ public class Various extends BasePage {
 
     public void selectCityNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String city) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
@@ -274,7 +274,7 @@ public class Various extends BasePage {
 
     public void selectStreetNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String street) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
@@ -285,7 +285,7 @@ public class Various extends BasePage {
 
     public void selectCountryNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String country) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
@@ -296,7 +296,7 @@ public class Various extends BasePage {
 
     public void enterNonWorkIncomesHouseNum(int nonWorkIncomeNumber, String houseNum) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
@@ -305,7 +305,7 @@ public class Various extends BasePage {
 
     public void enterNonWorkIncomesState(int nonWorkIncomeNumber, String state) {
         if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Non Work Incomes #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
@@ -316,7 +316,7 @@ public class Various extends BasePage {
     // Abroad Bank Accounts methods
     public void selectCountryAbroadBankAccountsFromDropDownListByName(int abroadBankAccountsNumber, String country) {
         if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
@@ -327,7 +327,7 @@ public class Various extends BasePage {
 
     public void enterAbroadBankAccountsState(int abroadBankAccountsNumber, String state) {
         if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
@@ -336,7 +336,7 @@ public class Various extends BasePage {
 
     public void enterAbroadBankAccountsCity(int abroadBankAccountsNumber, String city) {
         if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
@@ -345,7 +345,7 @@ public class Various extends BasePage {
 
     public void enterAbroadBankAccountsBankName(int abroadBankAccountsNumber, String bankName) {
         if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
@@ -354,7 +354,7 @@ public class Various extends BasePage {
 
     public void enterAbroadBankAccountsBankNum(int abroadBankAccountsNumber, String bankNum) {
         if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
@@ -363,7 +363,7 @@ public class Various extends BasePage {
 
     public void enterAbroadBankAccountsBranchName(int abroadBankAccountsNumber, String branchName) {
         if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
@@ -372,7 +372,7 @@ public class Various extends BasePage {
 
     public void enterAbroadBankAccountsBranchNum(int abroadBankAccountsNumber, String branchNum) {
         if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
@@ -381,7 +381,7 @@ public class Various extends BasePage {
 
     public void enterAbroadBankAccountsAccountNum(int abroadBankAccountsNumber, String accountNum) {
         if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
@@ -390,7 +390,7 @@ public class Various extends BasePage {
 
     public void enterAbroadBankAccountsPartners(int abroadBankAccountsNumber, String partnersNum) {
         if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for an Abroad Bank Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
@@ -401,7 +401,7 @@ public class Various extends BasePage {
     // Digital Coins methods
     public void chooseDigitalCoinsBitcoin(int digitalCoinsNumber) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -412,7 +412,7 @@ public class Various extends BasePage {
 
     public void chooseDigitalCoinsNano(int digitalCoinsNumber) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -423,7 +423,7 @@ public class Various extends BasePage {
 
     public void chooseDigitalCoinsSteem(int digitalCoinsNumber) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -434,7 +434,7 @@ public class Various extends BasePage {
 
     public void chooseDigitalCoinsCardano(int digitalCoinsNumber) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -445,7 +445,7 @@ public class Various extends BasePage {
 
     public void chooseDigitalCoinsAnotherCoin(int digitalCoinsNumber) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -456,7 +456,7 @@ public class Various extends BasePage {
 
     public void enterDigitalCoinsAnotherCoin(int digitalCoinsNumber, String anotherCoinName) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -465,7 +465,7 @@ public class Various extends BasePage {
 
     public void enterDigitalCoinsCoinAmount(int digitalCoinsNumber, String coinAmount) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -474,7 +474,7 @@ public class Various extends BasePage {
 
     public void enterDigitalCoinsPublicKey(int digitalCoinsNumber, String publicKey) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -483,7 +483,7 @@ public class Various extends BasePage {
 
     public void chooseDigitalCoinsCoinsMaterialized(int digitalCoinsNumber) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -494,7 +494,7 @@ public class Various extends BasePage {
 
     public void chooseDigitalCoinsCoinsDontMaterialized(int digitalCoinsNumber) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -505,7 +505,7 @@ public class Various extends BasePage {
 
     public void enterDigitalCoinsAmountMaterialized(int digitalCoinsNumber, String amountMaterialized) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -514,7 +514,7 @@ public class Various extends BasePage {
 
     public void enterDigitalCoinsMaterializationValue(int digitalCoinsNumber, String materializationValue) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -523,7 +523,7 @@ public class Various extends BasePage {
 
     public void chooseDigitalCoinsPurchasedWithCoins(int digitalCoinsNumber) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -534,7 +534,7 @@ public class Various extends BasePage {
 
     public void chooseDigitalCoinsDontPurchasedWithCoins(int digitalCoinsNumber) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -545,7 +545,7 @@ public class Various extends BasePage {
 
     public void enterDigitalCoinsAmountSold(int digitalCoinsNumber, String amountSold) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -554,7 +554,7 @@ public class Various extends BasePage {
 
     public void enterDigitalCoinsSoldValue(int digitalCoinsNumber, String soldValue) {
         if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Digital Coins Accounts #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
@@ -565,7 +565,7 @@ public class Various extends BasePage {
     // Stocks methods
     public void enterStocksCompanyName(int stocksNumber, String companyName) {
         if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
@@ -574,7 +574,7 @@ public class Various extends BasePage {
 
     public void chooseStocksCompanySourceOversea(int stocksNumber) {
         if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
@@ -585,7 +585,7 @@ public class Various extends BasePage {
 
     public void chooseStocksCompanySourceIsrael(int stocksNumber) {
         if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
@@ -596,7 +596,7 @@ public class Various extends BasePage {
 
     public void selectCountryStocksFromDropDownListByName(int stocksNumber, String country) {
         if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
@@ -607,7 +607,7 @@ public class Various extends BasePage {
 
     public void enterStocksState(int stocksNumber, String state) {
         if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
@@ -616,7 +616,7 @@ public class Various extends BasePage {
 
     public void enterStocksCompanyNum(int stocksNumber, String companyNum) {
         if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
@@ -625,7 +625,7 @@ public class Various extends BasePage {
 
     public void enterStocksCompanyPercentage(int stocksNumber, String companyPercentage) {
         if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Stocks #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
@@ -635,7 +635,7 @@ public class Various extends BasePage {
     // partnerships methods
     public void enterPartnershipName(int partnershipsNumber, String name) {
         if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
@@ -644,7 +644,7 @@ public class Various extends BasePage {
 
     public void choosePartnershipLocationIsrael(int partnershipsNumber) {
         if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
@@ -655,7 +655,7 @@ public class Various extends BasePage {
 
     public void choosePartnershipLocationOversea(int partnershipsNumber) {
         if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
@@ -666,7 +666,7 @@ public class Various extends BasePage {
 
     public void enterPartnershipOsekNum(int partnershipsNumber, String osekNum) {
         if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
@@ -675,7 +675,7 @@ public class Various extends BasePage {
 
     public void enterPartnershipPercentage(int partnershipsNumber, String percentage) {
         if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
@@ -684,7 +684,7 @@ public class Various extends BasePage {
 
     public void selectCountryPartnershipsFromDropDownListByName(int partnershipsNumber, String country) {
         if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
@@ -695,7 +695,7 @@ public class Various extends BasePage {
 
     public void enterPartnershipsState(int partnershipsNumber, String state) {
         if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add details for a Partnerships #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
@@ -745,12 +745,12 @@ public class Various extends BasePage {
 
     private void delete(int index, List<WebElement> btnsDelete) {
         if (btnsDelete.isEmpty()) {
-            throw new WrongArgumentException(String.format("Impossible to delete a panel #%d," +
+            throw new WrongArgumentException(String.format("Impossible to deletePanel a panel #%d," +
                     "the list of panels is empty", index));
         } else if (index == 0) {
-            throw new WrongArgumentException(String.format("Impossible to delete a panel #%d", index));
+            throw new WrongArgumentException(String.format("Impossible to deletePanel a panel #%d", index));
         } else if (index<0 || index> btnsDelete.size()) {
-            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to deletePanel a vehicle #%d. " +
                     "The number need to be between 1 and %d inclusive", index, btnsDelete.size()));
         }
 

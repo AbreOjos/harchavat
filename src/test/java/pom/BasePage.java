@@ -12,6 +12,7 @@ import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -75,8 +76,10 @@ public class BasePage {
     private WebElement btnHave;
     @FindBy(xpath = "//*[contains(@class, 'yes-no-box')]//button[@value='false']")
     private WebElement btnDontHave;
+//    @FindBy(xpath = "//span[contains(., 'deletePanel')]")
     @FindBy(xpath = "//span[contains(., 'delete')]")
     private List<WebElement> btnsDelete;
+//    @FindBy(xpath = "//div[@class='addPanel-item w-inline-block']//img")
     @FindBy(xpath = "//div[@class='add-item w-inline-block']//img")
     private WebElement btnAdd;
 
@@ -335,14 +338,14 @@ public class BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
-    protected void delete(int index) {
+    protected void deletePanel(int index) {
         if (btnsDelete.isEmpty()) {
-            throw new WrongArgumentException(String.format("Impossible to delete a panel #%d," +
+            throw new WrongArgumentException(String.format("Impossible to deletePanel a panel #%d," +
                     "the list of panels is empty", index));
         } else if (index == 0) {
-            throw new WrongArgumentException(String.format("Impossible to delete a panel #%d", index));
+            throw new WrongArgumentException(String.format("Impossible to deletePanel a panel #%d", index));
         } else if (index<0 || index> btnsDelete.size()) {
-            throw new WrongArgumentException(String.format("Impossible to delete a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to deletePanel a vehicle #%d. " +
                     "The number need to be between 1 and %d inclusive", index, btnsDelete.size()));
         }
 
@@ -351,7 +354,14 @@ public class BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
-    protected void add() {
+    protected void deleteAllPanels() {
+        for (WebElement btn : btnsDelete) {
+            btn.click();
+            fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+        }
+    }
+
+    protected void addPanel() {
         btnAdd.click();
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
@@ -382,6 +392,11 @@ public class BasePage {
 
     protected List<WebElement> getDropDownListsItems() {
         return driver.findElements(dropDownListItems);
+    }
+
+    // check if an element contains a specific class
+    public boolean elementHasClass(WebElement element, String active) {
+        return Arrays.asList(element.getAttribute("class").split(" ")).contains(active);
     }
 
 }

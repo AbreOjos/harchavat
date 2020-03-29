@@ -53,21 +53,21 @@ public class Wage extends BasePage {
 
     public void deleteWage(int indexWage) {
 
-        delete(indexWage);
+        deletePanel(indexWage);
 
         recreateMapPannelsOnPage();
     }
 
     public void addWage() {
 
-        add();
+        addPanel();
 
         recreateMapPannelsOnPage();
     }
 
     public void enterEmployerName(int wageNumber, String employerName) {
         if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add employer name for a wage #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel employer name for a wage #%d. " +
                     "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
         }
 
@@ -76,7 +76,7 @@ public class Wage extends BasePage {
 
     public void enterEmployerAddress(int wageNumber, String employerAddress) {
         if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add employer address for a wage #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel employer address for a wage #%d. " +
                     "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
         }
 
@@ -85,7 +85,7 @@ public class Wage extends BasePage {
 
     public void enterTikNikuim(int wageNumber, String tikNikuim) {
         if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add tik nikuim for a wage #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel tik nikuim for a wage #%d. " +
                     "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
         }
 
@@ -94,7 +94,7 @@ public class Wage extends BasePage {
 
     public void enterAnnualIncome(int wageNumber, String annualIncome) {
         if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to add annual income for a wage #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to addPanel annual income for a wage #%d. " +
                     "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
         }
 

@@ -131,20 +131,24 @@ public class TemporalTests extends TestBase {
         vehicle.addVehicle();
         vehicle.addVehicle();
 
+        vehicle.choosePrivateVehicle(0);
+        vehicle.choosePrivateVehicle(2);
         vehicle.enterCarLicense(0, "rytrytrytr");
         vehicle.enterCarLicense(2, "123456");
 //        vehicle.enterCarLicense(2,"bbb");
 
 
+        vehicle.choosePrivateUsage(0);
         vehicle.chooseAnotherUsage(0);
         vehicle.deleteVehicle(1);
 
         vehicle.enterCarLicense(0,"aaaaa");
         vehicle.chooseCommercialVehicle(0);
+        vehicle.chooseAircraftVehicle(0);
         vehicle.chooseAircraftVehicle(1);
         vehicle.chooseCommercialUsage(1);
         vehicle.chooseAnotherUsage(0);
-        vehicle.enterAnotherUsageDetails(0, "spam");
+//        vehicle.enterAnotherUsageDetails(0, "spam");
 
         vehicle.chooseHeavyVehicle(1);
         vehicle.chooseCommercialUsage(1);

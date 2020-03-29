@@ -268,7 +268,7 @@ public class PersonalDetailsTests extends TestBase {
     }
 
     protected void checkMenuIcons() {
-        log.info("Check that Personal Area menu has icons: error, checked, without icon");
+        log.info("Check that Personal Area menu has icons: error, checked");
 
         String correctPhoneNumber = "123456789";
         String correctEmail = "abc@def.com";

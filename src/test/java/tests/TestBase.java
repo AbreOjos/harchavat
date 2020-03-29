@@ -16,6 +16,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import pom.BasePage;
 import pom.forms.PersonalDetails;
+import pom.forms.vehicles.Vehicle;
 import readresources.parameters.WebUiParameters;
 
 import java.net.URL;
@@ -163,5 +164,20 @@ public abstract class TestBase {
         personalDetails.deletePhone();
         personalDetails.deleteEmail();
         personalDetails.clickBtnSave();
+    }
+
+    protected void prepareEmptyVehicleDetails() {
+        Vehicle vehicle = basePage.clickMenuVehicle();
+        vehicle.chooseHaveVehicle();
+        vehicle.deleteAllVehicles();
+        vehicle.chooseAnotherVehicle(0);
+        vehicle.chooseAnotherUsage(0);
+        vehicle.deleteCarLicense(0);
+        vehicle.deleteAnotherCarTypeDetails(0);
+        vehicle.enterAnotherUsageDetails(0, "aaa");
+        vehicle.deleteAnotherUsageDetails(0);
+        vehicle.clickBtnSave();
+        vehicle.chooseDontHaveVehicle();
+        vehicle.clickBtnSave();
     }
 }
