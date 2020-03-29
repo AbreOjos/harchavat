@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
+import java.util.List;
+
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
@@ -216,5 +218,22 @@ public class VehicleDetails extends BasePage {
         }
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+    }
+
+    // error messages
+    protected List<WebElement> getNeedFillLicenseErrorMessage() {
+        return  details.findElements(errorMessageNeedFillLicenseSubElementDetails);
+    }
+
+    protected List<WebElement> getLicenseIncorrectErrorMessage() {
+        return  details.findElements(errorMessageLicenseIncorrectSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillVehicleDetailsErrorMessage() {
+        return  details.findElements(errorMessageNeedFillVehicleDetailsSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillUsageDetailsErrorMessage() {
+        return  details.findElements(errorMessageNeedFillUsageDetailsSubElementDetails);
     }
 }

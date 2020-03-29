@@ -76,7 +76,7 @@ public class Vehicle extends BasePage {
     // choose vehicle type
     public void choosePrivateVehicle(int vehicleNumber) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -89,7 +89,7 @@ public class Vehicle extends BasePage {
 
     public void chooseCommercialVehicle(int vehicleNumber) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -102,7 +102,7 @@ public class Vehicle extends BasePage {
 
     public void chooseHeavyVehicle(int vehicleNumber) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -115,7 +115,7 @@ public class Vehicle extends BasePage {
 
     public void chooseAircraftVehicle(int vehicleNumber) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -128,7 +128,7 @@ public class Vehicle extends BasePage {
 
     public void chooseVesselVehicle(int vehicleNumber) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -140,7 +140,7 @@ public class Vehicle extends BasePage {
 
     public void chooseAnotherVehicle(int vehicleNumber) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -154,7 +154,7 @@ public class Vehicle extends BasePage {
     // addPanel and delete car license
     public void enterCarLicense(int vehicleNumber, String carLicense) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel car license for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add car license for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -175,7 +175,7 @@ public class Vehicle extends BasePage {
 
     public void enterAnotherCarTypeDetails(int vehicleNumber, String anotherCarTypeDetails) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -195,7 +195,7 @@ public class Vehicle extends BasePage {
 
     public void enterAnotherUsageDetails(int vehicleNumber, String anotherUsageDetails) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -216,7 +216,7 @@ public class Vehicle extends BasePage {
     // choose vehicle usage
     public void choosePrivateUsage(int vehicleNumber) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -229,7 +229,7 @@ public class Vehicle extends BasePage {
 
     public void chooseCommercialUsage(int vehicleNumber) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -242,7 +242,7 @@ public class Vehicle extends BasePage {
 
     public void chooseAnotherUsage(int vehicleNumber) {
         if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a vehicle #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to add details for a vehicle #%d. " +
                     "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
         }
 
@@ -251,6 +251,46 @@ public class Vehicle extends BasePage {
 
 //        recreateMapPanelsOnPage();
 //        PageFactory.initElements(driver, this);
+    }
+
+    public List<WebElement> getNeedFillLicenseErrorMessage(int vehicleNumber) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
+        }
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).getNeedFillLicenseErrorMessage();
+    }
+
+    public List<WebElement> getLicenseIncorrectErrorMessage(int vehicleNumber) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
+        }
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).getLicenseIncorrectErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillVehicleDetailsErrorMessage(int vehicleNumber) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
+        }
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).getNeedFillVehicleDetailsErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillUsageDetailsErrorMessage(int vehicleNumber) {
+        if (vehicleNumber<0 || vehicleNumber>=integerVehicleDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
+                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerVehicleDetailsMap.size()));
+        }
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).getNeedFillUsageDetailsErrorMessage();
     }
 
 

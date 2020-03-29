@@ -40,4 +40,24 @@ public class ChromeVehicleTests extends VehicleTests {
         checkMenuIcons();
     }
 
+    public void testNeedFillLicenseErrorMessage() {
+        needFillLicenseErrorMessage();
+    }
+
+    public void testIncorrectLicenseErrorMessage() {
+        incorrectLicenseErrorMessage();
+    }
+
+    public void testNeedFillVehicleDetailsErrorMessage() {
+        needFillVehicleDetailsErrorMessage();
+    }
+
+    public void testNeedFillUsageDetailsErrorMessage() {
+        needFillUsageDetailsErrorMessage();
+    }
+
+    public void testCorrectLicenseFormats() {
+        correctLicenseFormats();
+    }
+
 }
