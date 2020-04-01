@@ -19,7 +19,7 @@ public class EnglishHebrewConstants {
     public static final String NOVEMBER = "נובמבר";
     public static final String DECEMBER = "דצמבר";
 
-    // martial statuses
+    // marital statuses
     public static final String BACHELOR = "רווק";
     public static final String MARRIED = "נשוי";
     public static final String DIVORCEE = "גרוש";
@@ -42,6 +42,14 @@ public class EnglishHebrewConstants {
     public static final String YES = "כן";
     public static final String NO = "לא";
     public static final String NOT_YET_REPORTED = "טרם דווח";
+
+    // types and usages
+    public static final String PRIVATE = "פרטי";
+    public static final String COMMERCIAL = "מסחרי";
+    public static final String HEAVY_ENGINEERING_EQUIPMENT = "ציוד הנדסי כבד";
+    public static final String AIRCRAFT = "כלי טייס";
+    public static final String VESSEL = "כלי שייט";
+    public static final String BUSINESS = "עסקי";
 
     // user
     public static final String IGOR = "איגור";

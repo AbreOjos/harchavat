@@ -44,12 +44,12 @@ public class PersonalDetailsTests extends TestBase {
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getStandardErrorMessage(), 1,
                 String.format("An error message not appeared when the incorrect email '%s' entered to an Email field.", incorrectMail));
 
-        log.info("Delete the incorrect mail from an Email field completely, check that another error message appeared.");
-
-        personalDetails.deleteEmail();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getEmailNeedToFillErrorMessage(), 1,
-                String.format("An error message not appeared when the incorrect email '%s' completely deleted from an Email field.", incorrectMail));
+//        log.info("Delete the incorrect mail from an Email field completely, check that another error message appeared.");
+//
+//        personalDetails.deleteEmail();
+//
+//        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getEmailNeedToFillErrorMessage(), 1,
+//                String.format("An error message not appeared when the incorrect email '%s' completely deleted from an Email field.", incorrectMail));
     }
 
     protected void correctMailFormat() {
@@ -64,12 +64,12 @@ public class PersonalDetailsTests extends TestBase {
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getStandardErrorMessage(), 0,
                 String.format("An error message appeared when the correct email '%s' entered to an Email field.", correctMail));
 
-        log.info("Delete the correct mail from an Email field completely, check that an error message appeared.");
-
-        personalDetails.deleteEmail();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getEmailNeedToFillErrorMessage(), 1,
-                String.format("An error message not appeared when the correct email '%s' deleted from an Email field.", correctMail));
+//        log.info("Delete the correct mail from an Email field completely, check that an error message appeared.");
+//
+//        personalDetails.deleteEmail();
+//
+//        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getEmailNeedToFillErrorMessage(), 1,
+//                String.format("An error message not appeared when the correct email '%s' deleted from an Email field.", correctMail));
     }
 
     protected void phonesMissingErrorMessage() {
@@ -311,6 +311,7 @@ public class PersonalDetailsTests extends TestBase {
     // == private methods ==
     private void spouseIdMissingErrorMessage(PersonalDetails personalDetails) {
         personalDetails.chooseSpouseIsraeli();
+        personalDetails.deleteSpouseIdentity();
         personalDetails.enterSpouseIdentity("123");
         personalDetails.deleteSpouseIdentity();
 
@@ -326,6 +327,8 @@ public class PersonalDetailsTests extends TestBase {
         log.info(String.format("Enter the incorrect spouse ID '%s', find the error message", incorrectSpouseId));
 
         personalDetails.chooseSpouseIsraeli();
+
+        personalDetails.deleteSpouseIdentity();
         personalDetails.enterSpouseIdentity(incorrectSpouseId);
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getSpouseIdOnlyDigitalErrorMessage(), 1,
@@ -355,6 +358,7 @@ public class PersonalDetailsTests extends TestBase {
 
     private void spousePassportMissingErrorMessage(PersonalDetails personalDetails) {
         personalDetails.chooseSpouseExpatriate();
+        personalDetails.deleteSpousePassport();
         personalDetails.enterSpousePassport("123");
         personalDetails.deleteSpousePassport();
 
@@ -370,6 +374,7 @@ public class PersonalDetailsTests extends TestBase {
         log.info(String.format("Enter the incorrect spouse passport '%s', find the error message", incorrectSpousePassport));
 
         personalDetails.chooseSpouseExpatriate();
+        personalDetails.deleteSpousePassport();
         personalDetails.enterSpousePassport(incorrectSpousePassport);
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getSpousePassportIncorrectFormatErrorMessage(), 1,

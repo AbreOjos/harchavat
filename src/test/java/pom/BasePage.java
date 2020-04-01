@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.forms.PersonalDetails;
-import pom.forms.SendForm;
+import pom.sendform.SendForm;
 import pom.forms.realestates.RealEstate;
 import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
@@ -319,6 +319,9 @@ public class BasePage {
     }
 
     protected void chooseHave() {
+        if (elementHasClass(btnHave, "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnHave);
         } catch (InterruptedException e) {
@@ -329,6 +332,9 @@ public class BasePage {
     }
 
     protected void chooseDontHave() {
+        if (elementHasClass(btnDontHave, "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, btnDontHave);
         } catch (InterruptedException e) {

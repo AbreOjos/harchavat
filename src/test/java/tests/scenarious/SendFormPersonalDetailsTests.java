@@ -4,7 +4,7 @@ import assertions.AssertionsHarchavat;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import pom.forms.PersonalDetails;
-import pom.forms.SendForm;
+import pom.sendform.SendForm;
 import tests.TestBase;
 
 import static constants.EnglishHebrewConstants.*;

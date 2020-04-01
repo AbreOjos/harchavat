@@ -168,15 +168,16 @@ public abstract class TestBase {
 
     protected void prepareEmptyVehicleDetails() {
         Vehicle vehicle = basePage.clickMenuVehicle();
-        vehicle.chooseHaveVehicle();
-        vehicle.deleteAllVehicles();
-        vehicle.chooseAnotherVehicle(0);
-        vehicle.chooseAnotherUsage(0);
-        vehicle.deleteCarLicense(0);
-        vehicle.deleteAnotherCarTypeDetails(0);
-        vehicle.enterAnotherUsageDetails(0, "aaa");
-        vehicle.deleteAnotherUsageDetails(0);
-        vehicle.clickBtnSave();
+//        vehicle.chooseHaveVehicle();
+//        vehicle.deleteAllVehicles();
+//        vehicle.chooseAnotherVehicle(0);
+//        vehicle.chooseAnotherUsage(0);
+//        vehicle.deleteCarLicense(0);
+//        vehicle.deleteAnotherCarTypeDetails(0);
+//        vehicle.enterAnotherUsageDetails(0, "aaa");
+//        vehicle.deleteAnotherUsageDetails(0);
+//        vehicle.clickBtnSave();
+//        vehicle.chooseDontHaveVehicle();
         vehicle.chooseDontHaveVehicle();
         vehicle.clickBtnSave();
     }

@@ -6,13 +6,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import readresources.drivers.WebDrivers;
 import tests.RunMode;
-import tests.scenarious.TemporalTests;
+import tests.scenarious.SendFormVehicleTests;
 
 import java.net.URISyntaxException;
 
 @Test(groups = {RunMode.CHROME})
-public class ChromeTemporalTests extends TemporalTests {
-    private static final Logger log = Logger.getLogger(ChromeTemporalTests.class);
+public class ChromeSendFormVehicleTests extends SendFormVehicleTests {
+    private static final Logger log = Logger.getLogger(ChromeSendFormVehicleTests.class);
 
     @BeforeClass(groups = {RunMode.CHROME}, alwaysRun = true)
     public void setUpClass() throws URISyntaxException {
@@ -33,39 +33,16 @@ public class ChromeTemporalTests extends TemporalTests {
 
         super.setUpMethod();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        prepareEmptyVehicleDetails();
+    }
+
+    public void testCheckEmptyVehicleFields() {
+        checkEmptyVehicleFields();
+    }
+
+    public void testMultiVehicles() {
+        multiVehicles();
     }
 
 
-    public void testClickSideMenu() {
-        clickSideMenu();
-    }
-
-    public void testClickNextPreviousButtons() {
-        clickNextPreviousButtons();
-    }
-
-    public void testFillPersonalDetails() throws InterruptedException, URISyntaxException {
-        fillPersonalDetails();
-    }
-
-    public void testFillVehiclesDetails() {
-        fillVehiclesDetails();
-    }
-
-    public void testFillWagesDetails() {
-        fillWagesDetails();
-    }
-
-    public void testFillRealEstateDetails() throws URISyntaxException {
-        fillRealEstateDetails();
-    }
-
-    public void testFillVariousDetails() {
-        fillVariousDetails();
-    }
 }

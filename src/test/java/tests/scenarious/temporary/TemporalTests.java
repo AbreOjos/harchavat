@@ -1,8 +1,9 @@
-package tests.scenarious;
+package tests.scenarious.temporary;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import pom.forms.PersonalDetails;
-import pom.forms.SendForm;
+import pom.sendform.SendForm;
 import pom.forms.realestates.RealEstate;
 import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
@@ -358,6 +359,14 @@ public class TemporalTests extends TestBase {
         various.chooseDontHaveArt();
         various.chooseHaveArt();
 
+    }
+
+    protected void getSendFormVehicleText() {
+        SendForm sendForm = basePage.clickMenuSendForm();
+
+        String firstVehicleDetails = driver.findElement(By.xpath("(//*[@class='info-box'])[2]//ul/li")).getText();
+
+        System.out.println(firstVehicleDetails);
     }
 
 }

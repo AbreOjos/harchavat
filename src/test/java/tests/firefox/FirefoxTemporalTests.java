@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import readresources.drivers.WebDrivers;
 import tests.RunMode;
-import tests.scenarious.TemporalTests;
+import tests.scenarious.temporary.TemporalTests;
 
 import java.net.URISyntaxException;
 
