@@ -42,68 +42,125 @@ public class Wage extends BasePage {
 
         chooseHave();
 
-        recreateMapPannelsOnPage();
+        recreateMapPanelsOnPage();
     }
 
     public void chooseDontHaveWage() {
         chooseDontHave();
 
-        recreateMapPannelsOnPage();
+        recreateMapPanelsOnPage();
     }
 
     public void deleteWage(int indexWage) {
 
         deletePanel(indexWage);
 
-        recreateMapPannelsOnPage();
+        recreateMapPanelsOnPage();
     }
 
     public void addWage() {
 
         addPanel();
 
-        recreateMapPannelsOnPage();
+        recreateMapPanelsOnPage();
+    }
+
+
+    public void chooseIsraelIncome(int wageNumber) {
+        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to choose Israel Income on a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
+        }
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).chooseIsraelIncome();
+    }
+
+    public void chooseAbroadIncome(int wageNumber) {
+        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to choose Abroad Income for a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
+        }
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).chooseAbroadIncome();
+    }
+
+    // for Abroad Income only
+    public void chooseCountryIsrael(int wageNumber) {
+        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to choose state on a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
+        }
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).chooseCountryIsrael();
+    }
+
+    public void chooseCountryZambia(int wageNumber) {
+        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to choose state on a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
+        }
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).chooseCountryZambia();
+    }
+
+    public void chooseCountryUsa(int wageNumber) {
+        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to choose state on a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
+        }
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).chooseCountryUsa();
+    }
+
+    public void enterState(int wageNumber, String state) {
+        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to enter state to a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
+        }
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).enterState(state);
     }
 
     public void enterEmployerName(int wageNumber, String employerName) {
         if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel employer name for a wage #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to enter employer name to a wage #%d. " +
                     "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterEmployerName(employerName);
     }
 
-    public void enterEmployerAddress(int wageNumber, String employerAddress) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel employer address for a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
-
-        integerWageDetailsMap.get(wageNumber).enterEmployerAddress(employerAddress);
-    }
 
     public void enterTikNikuim(int wageNumber, String tikNikuim) {
         if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel tik nikuim for a wage #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to enter tik nikuim to a wage #%d. " +
                     "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterTikNikuim(tikNikuim);
     }
 
     public void enterAnnualIncome(int wageNumber, String annualIncome) {
         if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel annual income for a wage #%d. " +
+            throw new WrongArgumentException(String.format("Impossible to enter annual income to a wage #%d. " +
                     "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterAnnualIncome(annualIncome);
     }
 
 
     // == private methods ==
-    private void recreateMapPannelsOnPage() {
+    private void recreateMapPanelsOnPage() {
         integerWageDetailsMap = new HashMap<>();
 
         PageFactory.initElements(driver, this);

@@ -15,7 +15,10 @@ public class WagesConstants {
 
     // sub-elements
     public static final By txtEmployerNameSubElementDetails = By.xpath(".//*[@name='employerName']");
-    public static final By txtEmployerAddressSubElementDetails = By.xpath(".//input[@name='employerAddress']");
     public static final By txtTikNikuimSubElementDetals = By.xpath(".//input[@name='tikNumber']");
     public static final By txtAnnualIncomeSubElementDetails = By.xpath(".//input[@name='anualIncome']");
+    public static final By btnIsraelIncomeSubElementDetails = By.xpath(".//input[@name='israelIncome']");
+    public static final By btnAbroadIncomeSubElementDetails = By.xpath(".//button[@value='abroardIncome']");
+    public static final By dropDownCountrySubElementDetails = By.xpath(".//div[@class='v-select__slot']");
+    public static final By txtStateSubElementDetails = By.xpath(".//input[@name='state']");
 }

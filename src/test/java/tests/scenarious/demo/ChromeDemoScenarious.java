@@ -5,17 +5,16 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import readresources.drivers.WebDrivers;
-import tests.RunMode;
 import tests.chrome.ChromeSendFormVehicleTests;
 
 import java.net.URISyntaxException;
 
-@Test(groups = {RunMode.CHROME})
+@Test
 public class ChromeDemoScenarious extends DemoScenarious {
 
     private static final Logger log = Logger.getLogger(ChromeSendFormVehicleTests.class);
 
-    @BeforeClass(groups = {RunMode.CHROME}, alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void setUpClass() throws URISyntaxException {
 
         if (osName().equals("windows")) {
@@ -27,7 +26,7 @@ public class ChromeDemoScenarious extends DemoScenarious {
     }
 
 
-    @BeforeMethod(groups = {RunMode.CHROME}, alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUpMethod() {
 
         createChromeDriver();
