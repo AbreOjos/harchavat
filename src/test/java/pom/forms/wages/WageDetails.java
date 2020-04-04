@@ -47,6 +47,18 @@ public class WageDetails extends BasePage {
         return details.findElement(txtStateSubElementDetails);
     }
 
+    protected WebElement getTxtCity() {
+        return details.findElement(txtCitySubElementDetail);
+    }
+
+    protected WebElement getTxtStreet() {
+        return details.findElement(txtStreetSubElementDetails);
+    }
+
+    protected WebElement getTxtHouseNum() {
+        return details.findElement(txtHouseNumSubElementDetails);
+    }
+
     // wage details
     protected void chooseIsraelIncome() {
         if (elementHasClass(getBtnIsraelIncome(), "active"))
@@ -88,6 +100,18 @@ public class WageDetails extends BasePage {
 
     protected void enterState(String state) {
         fillFormField(getTxtState(), state);
+    }
+
+    protected void enterCity(String city) {
+        fillFormField(getTxtCity(), city);
+    }
+
+    protected void enterStreet(String street) {
+        fillFormField(getTxtStreet(), street);
+    }
+
+    protected void enterHouseNum(String houseNum) {
+        fillFormField(getTxtHouseNum(), houseNum);
     }
 
     protected void enterEmployerName(String employerName) {

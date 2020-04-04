@@ -21,4 +21,7 @@ public class WagesConstants {
     public static final By btnAbroadIncomeSubElementDetails = By.xpath(".//button[@value='abroardIncome']");
     public static final By dropDownCountrySubElementDetails = By.xpath(".//div[@class='v-select__slot']");
     public static final By txtStateSubElementDetails = By.xpath(".//input[@name='state']");
+    public static final By txtCitySubElementDetail = By.xpath(".//input[@name='city']");
+    public static final By txtStreetSubElementDetails = By.xpath(".//input[@name='street']");
+    public static final By txtHouseNumSubElementDetails = By.xpath(".//input[@name='houseNum']");
 }

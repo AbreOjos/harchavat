@@ -169,7 +169,7 @@ public class TemporalTests extends TestBase {
         wage.addWage();
 
         wage.enterAnnualIncome(0, "1000");
-        wage.enterEmployerAddress(2, "Ramat Gan");
+        //wage.enterEmployerAddress(2, "Ramat Gan");
 
         wage.deleteWage(1);
 
@@ -179,7 +179,7 @@ public class TemporalTests extends TestBase {
         wage.addWage();
         wage.enterTikNikuim(2,"aaaa");
         wage.enterEmployerName(2, "BBB");
-        wage.enterEmployerAddress(2, "cccc");
+        //wage.enterEmployerAddress(2, "cccc");
         wage.enterAnnualIncome(2, "0");
 
     }
