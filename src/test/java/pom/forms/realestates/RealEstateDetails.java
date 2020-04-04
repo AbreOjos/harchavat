@@ -28,6 +28,10 @@ public class RealEstateDetails extends BasePage {
         return details.findElement(dropDownRealEstateTypeSubElementDetails);
     }
 
+    protected WebElement getTxtExplainPropertyType() {
+        return details.findElement(txtExplainPropertyTypeSubElementDetails);
+    }
+
     protected WebElement getCalendarRealEstate() {
         return details.findElement(calendarRealEstateSubElementDetails);
     }
@@ -53,57 +57,67 @@ public class RealEstateDetails extends BasePage {
     }
 
     protected WebElement getBtnRealEstateInIsrael() {
-        return details.findElements(btnsRealEstateTrueSubElementDetails).get(0);
+//        return details.findElements(btnsRealEstateTrueSubElementDetails).get(0);
+        return details.findElements(btnsRealEstateAssetIsraelOrAbroadSubElementDetails).get(0);
     }
 
     protected WebElement getBtnRealEstateOversea() {
-        return details.findElements(btnsRealEstateFalseSubElementDetails).get(0);
+//        return details.findElements(btnsRealEstateFalseSubElementDetails).get(0);
+        return details.findElements(btnsRealEstateAssetIsraelOrAbroadSubElementDetails).get(1);
+    }
+
+    protected WebElement getBtnRealEstateAssetGushHalka() {
+        return details.findElements(btnsRealEstateAssetDetailsSubElementDetails).get(0);
+    }
+
+    protected WebElement getBtnRealEstateAssetAddress() {
+        return details.findElements(btnsRealEstateAssetDetailsSubElementDetails).get(1);
     }
 
 
-
-    protected WebElement getBtnRealEstateDivided() {
-        return details.findElements(btnsRealEstateTrueSubElementDetails).get(1);
-    }
-
-    protected WebElement getBtnRealEstateNotDivided() {
-        return details.findElements(btnsRealEstateFalseSubElementDetails).get(1);
-    }
-
-    protected WebElement getBtnRealEstateTenantIsraeli() {
-        return details.findElements(btnsRealEstateTrueSubElementDetails).get(2);
-    }
-
-    protected WebElement getBtnRealEstateTenantNotIsraeli() {
-        return details.findElements(btnsRealEstateFalseSubElementDetails).get(2);
-    }
+//    protected WebElement getBtnRealEstateDivided() {
+//        return details.findElements(btnsRealEstateTrueSubElementDetails).get(1);
+//    }
+//
+//    protected WebElement getBtnRealEstateNotDivided() {
+//        return details.findElements(btnsRealEstateFalseSubElementDetails).get(1);
+//    }
+//
+//    protected WebElement getBtnRealEstateTenantIsraeli() {
+//        return details.findElements(btnsRealEstateTrueSubElementDetails).get(2);
+//    }
+//
+//    protected WebElement getBtnRealEstateTenantNotIsraeli() {
+//        return details.findElements(btnsRealEstateFalseSubElementDetails).get(2);
+//    }
 
     protected WebElement getBtnRealEstatePersonalUsage() {
-        return details.findElements(btnsRealEstateUsageSubElementDetails).get(0);
+        return details.findElement(btnRealEstatePersonalUseSubElementDetails);
     }
 
     protected WebElement getBtnRealEstateFamilyUsage() {
-        return details.findElements(btnsRealEstateUsageSubElementDetails).get(1);
+        return details.findElement(btnRealEstateFamilyUseSubElementDetails);
+
     }
 
     protected WebElement getBtnRealEstateRenting() {
-        return details.findElements(btnsRealEstateUsageSubElementDetails).get(2);
+        return details.findElement(btnRealEstateRentUseSubElementDetails);
     }
 
     protected WebElement getBtnRealEstateNotUsing() {
-        return details.findElements(btnsRealEstateUsageSubElementDetails).get(3);
+        return details.findElement(btnRealEstateNoUseSubElementDetails);
     }
 
     protected WebElement getBtnRealEstateAnotherUsage() {
-        return details.findElements(btnsRealEstateUsageSubElementDetails).get(4);
+        return details.findElement(btnRealEstateOtherUseSubElementDetails);
     }
 
-    protected WebElement getBtnRealEstateResidentialPurpose() {
-        return details.findElements(btnsRealEstateRentingPurposeSubElementDetails).get(0);
+    protected WebElement getBtnRealEstateSplit() {
+        return details.findElement(btnRealEstateSplitSubElementDetails);
     }
 
-    protected WebElement getBtnRealEstateBusinessPurpose() {
-        return details.findElements(btnsRealEstateRentingPurposeSubElementDetails).get(1);
+    protected WebElement getBtnRealEstateNotSplit() {
+        return details.findElement(btnRealEstateNotSplitSubElementDetails);
     }
 
     protected WebElement getVolumeRealEstateDivided() {
@@ -209,6 +223,10 @@ public class RealEstateDetails extends BasePage {
         clickDropDownList(getDropDownRealEstateType(), 9);
     }
 
+    protected void enterExplainPropertyType(String propertyType) {
+        fillFormField(getTxtExplainPropertyType(), propertyType);
+    }
+
     // date picker
     protected void openDatePicker() {
         try {
@@ -294,6 +312,9 @@ public class RealEstateDetails extends BasePage {
 
     // choose real estate place
     protected void chooseRealEstateInIsrael() {
+        if (elementHasClass(getBtnRealEstateInIsrael(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateInIsrael());
         } catch (InterruptedException e) {
@@ -304,6 +325,9 @@ public class RealEstateDetails extends BasePage {
     }
 
     protected void chooseRealEstateOversea() {
+        if (elementHasClass(getBtnRealEstateOversea(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateOversea());
         } catch (InterruptedException e) {
@@ -313,11 +337,12 @@ public class RealEstateDetails extends BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
+    protected void chooseRealEstateAssetGushHalka() {
+        if (elementHasClass(getBtnRealEstateAssetGushHalka(), "active"))
+            return;
 
-
-    protected void chooseRealEstateDivided() {
         try {
-            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateDivided());
+            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateAssetGushHalka());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -325,9 +350,12 @@ public class RealEstateDetails extends BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
-    protected void chooseRealEstateNotDivided() {
+    protected void chooseRealEstateAssetAddress() {
+        if (elementHasClass(getBtnRealEstateAssetAddress(), "active"))
+            return;
+
         try {
-            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateNotDivided());
+            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateAssetAddress());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -335,28 +363,65 @@ public class RealEstateDetails extends BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
-    protected void chooseRealEstateTenantIsraeli() {
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantIsraeli());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
-        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-    }
 
-    protected void chooseRealEstateTenantNotIsraeli() {
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantNotIsraeli());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//    protected void chooseRealEstateDivided() {
+//        if (elementHasClass(getBtnRealEstateDivided(), "active"))
+//            return;
+//
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateDivided());
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+//    }
 
-        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-    }
+//    protected void chooseRealEstateNotDivided() {
+//        if (elementHasClass(getBtnRealEstateNotDivided(), "active"))
+//            return;
+//
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateNotDivided());
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+//    }
+
+//    protected void chooseRealEstateTenantIsraeli() {
+//        if (elementHasClass(getBtnRealEstateTenantIsraeli(), "active"))
+//            return;
+//
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantIsraeli());
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+//    }
+
+//    protected void chooseRealEstateTenantNotIsraeli() {
+//        if (elementHasClass(getBtnRealEstateTenantNotIsraeli(), "active"))
+//            return;
+//
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantNotIsraeli());
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+//    }
 
     // choose real estate usage
     protected void chooseRealEstatePersonalUsage() {
+        if (elementHasClass(getBtnRealEstatePersonalUsage(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstatePersonalUsage());
         } catch (InterruptedException e) {
@@ -367,6 +432,9 @@ public class RealEstateDetails extends BasePage {
     }
 
     protected void chooseRealEstateFamilyUsage() {
+        if (elementHasClass(getBtnRealEstateFamilyUsage(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateFamilyUsage());
         } catch (InterruptedException e) {
@@ -377,6 +445,9 @@ public class RealEstateDetails extends BasePage {
     }
 
     protected void chooseRealEstateRenting() {
+        if (elementHasClass(getBtnRealEstateRenting(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateRenting());
         } catch (InterruptedException e) {
@@ -387,6 +458,9 @@ public class RealEstateDetails extends BasePage {
     }
 
     protected void chooseRealEstateNotUsing() {
+        if (elementHasClass(getBtnRealEstateNotUsing(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateNotUsing());
         } catch (InterruptedException e) {
@@ -397,6 +471,9 @@ public class RealEstateDetails extends BasePage {
     }
 
     protected void chooseRealEstateAnotherUsage() {
+        if (elementHasClass(getBtnRealEstateAnotherUsage(), "active"))
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateAnotherUsage());
         } catch (InterruptedException e) {
@@ -406,10 +483,12 @@ public class RealEstateDetails extends BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
-    // real estate renting purpose
-    protected void chooseRealEstateResidentialPurpose() {
+    protected void chooseRealEstateSplit() {
+        if (elementHasClass(getBtnRealEstateSplit(), "active"))
+            return;
+
         try {
-            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateResidentialPurpose());
+            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateSplit());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -417,9 +496,12 @@ public class RealEstateDetails extends BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
-    protected void chooseRealEstateBusinessPurpose() {
+    protected void chooseRealEstateNotSplit() {
+        if (elementHasClass(getBtnRealEstateNotSplit(), "active"))
+            return;
+
         try {
-            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateBusinessPurpose());
+            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateNotSplit());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
