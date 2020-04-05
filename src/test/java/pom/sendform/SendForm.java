@@ -14,11 +14,14 @@ import java.util.Map;
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static constants.BaseConstants.checkCircleIconSubElementMenu;
 import static constants.BaseConstants.errorIconSubElementMenu;
+import static constants.EnglishHebrewConstants.INCOME_ABROAD;
+import static constants.EnglishHebrewConstants.INCOME_ISRAEL;
 
 public class SendForm extends BasePage {
 
     // == private members ==
     private Map<Integer, SendFormVehicleDetails> integerSendFormVehicleDetailsMap;
+    private Map<Integer, SendFormWageDetails> integerSendFormWageDetailsMap;
 
     // == constructors==
     public SendForm(WebDriver driver) {
@@ -72,7 +75,9 @@ public class SendForm extends BasePage {
 
     // Vehicle elements
     @FindBy(xpath = "(//*[@class='info-box'])[2]//ul/li")
-    private List<WebElement> vehicles;
+    private List<WebElement> vehicle;
+    @FindBy(xpath = "(//*[@class='info-box'])[3]//ul/li")
+    private List<WebElement> wage;
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement btnSubmit;
@@ -134,8 +139,12 @@ public class SendForm extends BasePage {
         return spouseState;
     }
 
-    public List<WebElement> getVehicles() {
-        return vehicles;
+    public List<WebElement> getVehicle() {
+        return vehicle;
+    }
+
+    public List<WebElement> getWage() {
+        return wage;
     }
 
 
@@ -326,6 +335,101 @@ public class SendForm extends BasePage {
         return integerSendFormVehicleDetailsMap.size();
     }
 
+    // method info-box wages
+    public boolean wageIncomeTypeIsrael(int wageNumber) {
+        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get income type from a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
+        }
+
+        return integerSendFormWageDetailsMap.get(wageNumber).elementContainsText(INCOME_ISRAEL);
+    }
+
+    public boolean wageIncomeTypeAbroad(int wageNumber) {
+        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get income type from a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
+        }
+
+        return integerSendFormWageDetailsMap.get(wageNumber).elementContainsText(INCOME_ABROAD);
+    }
+
+    public boolean wageAnnualRevenueContainsText(int wageNumber, String annualRevenue) {
+        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get annual revenue from a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
+        }
+
+        return integerSendFormWageDetailsMap.get(wageNumber).elementContainsText(annualRevenue);
+    }
+
+    public boolean wageEmployerNameContainsText(int wageNumber, String employerName) {
+        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get employer name from a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
+        }
+
+        return integerSendFormWageDetailsMap.get(wageNumber).elementContainsText(employerName);
+    }
+
+    public boolean wageCityContainsText(int wageNumber, String city) {
+        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get city from a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
+        }
+
+        return integerSendFormWageDetailsMap.get(wageNumber).elementContainsText(city);
+    }
+
+    public boolean wageStreetContainsText(int wageNumber, String street) {
+        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get street from a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
+        }
+
+        return integerSendFormWageDetailsMap.get(wageNumber).elementContainsText(street);
+    }
+
+    public boolean wageNumHouseContainsText(int wageNumber, String numHouse) {
+        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get house number from a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
+        }
+
+        return integerSendFormWageDetailsMap.get(wageNumber).elementContainsText(numHouse);
+    }
+
+    public boolean wageTikNikuimContainsText(int wageNumber, String tikNikuim) {
+        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get tik nikuim from a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
+        }
+
+        return integerSendFormWageDetailsMap.get(wageNumber).elementContainsText(tikNikuim);
+    }
+
+    public boolean wageCountryContainsText(int wageNumber, String country) {
+        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get country from a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
+        }
+
+        return integerSendFormWageDetailsMap.get(wageNumber).elementContainsText(country);
+    }
+
+    public boolean wageStateContainsText(int wageNumber, String state) {
+        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to get state from a wage #%d. " +
+                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
+        }
+
+        return integerSendFormWageDetailsMap.get(wageNumber).elementContainsText(state);
+    }
+
+    public int numberWages() {
+        return integerSendFormWageDetailsMap.size();
+    }
+
     // send form method
     public void clickBtnSubmit() {
         try {
@@ -341,9 +445,14 @@ public class SendForm extends BasePage {
     private void recreateMapPanelsOnPage() {
         integerSendFormVehicleDetailsMap = new HashMap<>();
 
-        for (int i = 0; i < vehicles.size(); ++i) {
-            WebElement webElement = vehicles.get(i);
+        for (int i = 0; i < vehicle.size(); ++i) {
+            WebElement webElement = vehicle.get(i);
             integerSendFormVehicleDetailsMap.put(i, new SendFormVehicleDetails(driver, webElement));
+        }
+
+        for (int i = 0; i < wage.size(); ++i) {
+            WebElement webElement = wage.get(i);
+            integerSendFormWageDetailsMap.put(i, new SendFormWageDetails(driver, webElement));
         }
 
     }

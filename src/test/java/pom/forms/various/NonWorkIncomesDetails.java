@@ -6,6 +6,7 @@ import pom.BasePage;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
+import static constants.BaseConstants.dropDownCitySubElementNonWorkIncomesDetails;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static constants.VariousConstants.*;
 

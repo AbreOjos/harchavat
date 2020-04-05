@@ -209,7 +209,6 @@ public class TemporalTests extends TestBase {
         realEstate.chooseRealEstateInIsrael(0);
         realEstate.chooseRealEstateOversea(1);
 
-        realEstate.enterRealEstateAddress(0, "AAA");
         realEstate.enterRealEstateBlock(0, "BBB");
         realEstate.enterRealEstatePlot(0, "CCC");
 
@@ -223,7 +222,7 @@ public class TemporalTests extends TestBase {
         System.out.println("Amount of partitions " + realEstate.amountPartitionsOfDividedRealEstate(1));
 
 //        realEstate.chooseRealEstateTenantNotIsraeli(1);
-        realEstate.enterRenterCountry(1, "USA");
+//        realEstate.enterRenterCountry(1, "USA");
         realEstate.enterRenterPassword(1, "123456789");
         realEstate.enterMonthlyRent(1, "3000");
 

@@ -189,8 +189,8 @@ public class DemoScenarious extends TestBase {
 
         SendForm sendForm = basePage.clickMenuSendForm();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(sendForm.getVehicles(), 3,
-                String.format("Expected %d vehicles on Send Form page, but found %d", 3, sendForm.getVehicles().size()));
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(sendForm.getVehicle(), 3,
+                String.format("Expected %d vehicles on Send Form page, but found %d", 3, sendForm.getVehicle().size()));
 
         Assert.assertTrue(sendForm.vehiclePrivate(0), "First vehicle not private");
         Assert.assertTrue(sendForm.vehicleAircraft(1), "Second vehicle not aircraft");
@@ -210,8 +210,8 @@ public class DemoScenarious extends TestBase {
 
         sendForm = basePage.clickMenuSendForm();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(sendForm.getVehicles(), 2,
-                String.format("Expected %d vehicles on Send Form page, but found %d", 2, sendForm.getVehicles().size()));
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(sendForm.getVehicle(), 2,
+                String.format("Expected %d vehicles on Send Form page, but found %d", 2, sendForm.getVehicle().size()));
 
         Assert.assertTrue(sendForm.vehiclePrivate(0), "First vehicle not private");
         Assert.assertTrue(sendForm.typeVehicleContainsText(1, anotherVehicle), String.format("Second vehicle not '%s'", anotherVehicle));

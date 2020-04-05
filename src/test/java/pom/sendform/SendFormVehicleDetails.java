@@ -32,7 +32,8 @@ public class SendFormVehicleDetails extends BasePage {
     }
 
     protected boolean elementContainsText(String text) {
-        return details.getText().contains(text);
+//        return details.getText().contains(text);
+        return subElementContainsText(details, text);
     }
 
     protected boolean vehiclePrivate() {

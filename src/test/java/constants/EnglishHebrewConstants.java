@@ -34,6 +34,8 @@ public class EnglishHebrewConstants {
     // countries
     public static final String ISRAEL = "ישראל";
     public static final String USA = "ארצות הברית";
+    public static final String INCOME_ISRAEL = "הכנסה מהארץ";
+    public static final String INCOME_ABROAD = "הכנסה מחו״ל";
 
     // error messages
     public static final String ENTER_LANDLINES_OR_MOBILE_PHONE = "יש להזין טלפון נייח או טלפון נייד";

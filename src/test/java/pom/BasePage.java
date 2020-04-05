@@ -6,11 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.forms.PersonalDetails;
-import pom.sendform.SendForm;
 import pom.forms.realestates.RealEstate;
 import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
+import pom.sendform.SendForm;
 
 import java.util.Arrays;
 import java.util.List;
@@ -76,12 +76,11 @@ public class BasePage {
     private WebElement btnHave;
     @FindBy(xpath = "//*[contains(@class, 'yes-no-box')]//button[@value='false']")
     private WebElement btnDontHave;
-//    @FindBy(xpath = "//span[contains(., 'deletePanel')]")
     @FindBy(xpath = "//span[contains(., 'delete')]")
     private List<WebElement> btnsDelete;
-//    @FindBy(xpath = "//div[@class='addPanel-item w-inline-block']//img")
     @FindBy(xpath = "//div[@class='add-item w-inline-block']//img")
-    private WebElement btnAdd;
+    private List<WebElement> btnAdd;
+
 
     // == getters ==
     public WebElement getBtnLogout() {
@@ -145,7 +144,7 @@ public class BasePage {
     }
 
     public WebElement getBtnAdd() {
-        return btnAdd;
+        return btnAdd.get(btnAdd.size()-1);
     }
 
 
@@ -345,17 +344,35 @@ public class BasePage {
     }
 
     protected void deletePanel(int index) {
-        if (btnsDelete.isEmpty()) {
+//        if (btnsDelete.isEmpty()) {
+//            throw new WrongArgumentException(String.format("Impossible to deletePanel a panel #%d," +
+//                    "the list of panels is empty", index));
+//        } else if (index == 0) {
+//            throw new WrongArgumentException(String.format("Impossible to deletePanel a panel #%d", index));
+//        } else if (index<0 || index> btnsDelete.size()) {
+//            throw new WrongArgumentException(String.format("Impossible to deletePanel a vehicle #%d. " +
+//                    "The number need to be between 1 and %d inclusive", index, btnsDelete.size()));
+//        }
+//
+//        btnsDelete.get(index-1).click();
+//
+//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        deletePanel(index, btnsDelete);
+    }
+
+    protected void deletePanel(int index, List<WebElement> btns) {
+        if (btns.isEmpty()) {
             throw new WrongArgumentException(String.format("Impossible to deletePanel a panel #%d," +
                     "the list of panels is empty", index));
         } else if (index == 0) {
             throw new WrongArgumentException(String.format("Impossible to deletePanel a panel #%d", index));
-        } else if (index<0 || index> btnsDelete.size()) {
+        } else if (index<0 || index> btns.size()) {
             throw new WrongArgumentException(String.format("Impossible to deletePanel a vehicle #%d. " +
-                    "The number need to be between 1 and %d inclusive", index, btnsDelete.size()));
+                    "The number need to be between 1 and %d inclusive", index, btns.size()));
         }
 
-        btnsDelete.get(index-1).click();
+        btns.get(index-1).click();
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
@@ -368,7 +385,7 @@ public class BasePage {
     }
 
     protected void addPanel() {
-        btnAdd.click();
+        getBtnAdd().click();
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
@@ -398,6 +415,10 @@ public class BasePage {
 
     protected List<WebElement> getDropDownListsItems() {
         return driver.findElements(dropDownListItems);
+    }
+
+    protected boolean subElementContainsText(WebElement details, String text) {
+        return details.getText().contains(text);
     }
 
     // check if an element contains a specific class

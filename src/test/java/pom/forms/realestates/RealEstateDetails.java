@@ -10,9 +10,10 @@ import java.util.List;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
-import static constants.BaseConstants.waitFewSecondsWarningDisabled;
+import static constants.BaseConstants.*;
 import static constants.EnglishHebrewConstants.JANUARY;
 import static constants.RealEstateConstants.*;
+import static constants.VariousConstants.dropDownStreetSubElementNonWorkIncomesDetails;
 
 public class RealEstateDetails extends BasePage {
 
@@ -44,9 +45,9 @@ public class RealEstateDetails extends BasePage {
         return details.findElement(txtRealEstateOwnershipPercentageSubElementDetails);
     }
 
-    protected WebElement getTxtRealEstateAddress() {
-        return details.findElement(txtRealEstateAddressSubElementDetails);
-    }
+//    protected WebElement getTxtRealEstateAddress() {
+//        return details.findElement(txtRealEstateAddressSubElementDetails);
+//    }
 
     protected WebElement getTxtRealEstateBlock() {
         return details.findElement(txtRealEstateBlockSubElementDetails);
@@ -54,6 +55,10 @@ public class RealEstateDetails extends BasePage {
 
     protected WebElement getTxtRealEstatePlot() {
         return details.findElement(txtRealEstatePlotSubElementDetails);
+    }
+
+    protected WebElement getTxtRealEstateSubPlot() {
+        return details.findElement(txtRealEstateSubPlotSubElementDetails);
     }
 
     protected WebElement getBtnRealEstateInIsrael() {
@@ -74,6 +79,26 @@ public class RealEstateDetails extends BasePage {
         return details.findElements(btnsRealEstateAssetDetailsSubElementDetails).get(1);
     }
 
+    private WebElement getDropDownCity() {
+        return details.findElement(dropDownCitySubElementNonWorkIncomesDetails);
+    }
+
+    protected WebElement getTxtState() {
+        return details.findElement(txtStateSubElementDetails);
+    }
+
+    private WebElement getDropDownStreet() {
+        return details.findElement(dropDownStreetSubElementNonWorkIncomesDetails);
+    }
+
+    protected WebElement getTxtHouseNum() {
+        return details.findElement(txtHouseNumSubElementDetails);
+    }
+
+    protected WebElement getDropDownCountry() {
+        return details.findElement(dropDownCountrySubElementDetails);
+    }
+
 
 //    protected WebElement getBtnRealEstateDivided() {
 //        return details.findElements(btnsRealEstateTrueSubElementDetails).get(1);
@@ -83,13 +108,21 @@ public class RealEstateDetails extends BasePage {
 //        return details.findElements(btnsRealEstateFalseSubElementDetails).get(1);
 //    }
 //
-//    protected WebElement getBtnRealEstateTenantIsraeli() {
-//        return details.findElements(btnsRealEstateTrueSubElementDetails).get(2);
-//    }
-//
-//    protected WebElement getBtnRealEstateTenantNotIsraeli() {
-//        return details.findElements(btnsRealEstateFalseSubElementDetails).get(2);
-//    }
+    protected WebElement getBtnRealEstateTenantIsraeli() {
+        return details.findElements(btnsRealEstateTrueSubElementDetails).get(2);
+    }
+
+    protected WebElement getBtnRealEstateTenantNotIsraeli() {
+        return details.findElements(btnsRealEstateFalseSubElementDetails).get(2);
+    }
+
+    protected WebElement getBtnAddTenant() {
+        return details.findElement(btnAddTenantSubElementDetails);
+    }
+
+    protected List<WebElement> getBtnsDeleteTenant() {
+        return details.findElements(btnsDeleteTenantSubElementDetails);
+    }
 
     protected WebElement getBtnRealEstatePersonalUsage() {
         return details.findElement(btnRealEstatePersonalUseSubElementDetails);
@@ -140,8 +173,12 @@ public class RealEstateDetails extends BasePage {
         return details.findElement(txtMonthlyRentSubElementDetails);
     }
 
-    protected WebElement getTxtRenterCountry() {
-        return details.findElement(txtRenterCountrySubElementDetails);
+//    protected WebElement getTxtRenterCountry() {
+//        return details.findElement(txtRenterCountrySubElementDetails);
+//    }
+
+    protected WebElement getDropDownCountryRenter() {
+        return details.findElement(dropDownCountryRenterSubElementDetails);
     }
 
     protected WebElement getTxtRenterPassword() {
@@ -297,17 +334,38 @@ public class RealEstateDetails extends BasePage {
         fillFormField(getTxtRealEstateOwnershipPercentage(), ownershipPercentage);
     }
 
-    // enter real estate address
-    protected void enterRealEstateAddress(String address) {
-        fillFormField(getTxtRealEstateAddress(), address);
-    }
-
+    // GUSH only
     protected void enterRealEstateBlock(String block) {
         fillFormField(getTxtRealEstateBlock(), block);
     }
 
     protected void enterRealEstatePlot(String plot) {
         fillFormField(getTxtRealEstatePlot(), plot);
+    }
+
+    protected void enterRealEstateSubPlot(String subPlot) {
+        fillFormField(getTxtRealEstateSubPlot(), subPlot);
+    }
+
+    // Address only
+    protected void selectCityFromDropDownListByName(String city) {
+        selectItemFromDropDownListByName(getDropDownCity(), city);
+    }
+
+    protected void selectStreetFromDropDownListByName(String street) {
+        selectItemFromDropDownListByName(getDropDownStreet(), street);
+    }
+
+    protected void enterHouseNum(String houseNum) {
+        fillFormField(getTxtHouseNum(), houseNum);
+    }
+
+    protected void selectCountryFromDropDownListByName(String country) {
+        selectItemFromDropDownListByName(getDropDownCountry(), country);
+    }
+
+    protected void enterState(String state) {
+        fillFormField(getTxtState(), state);
     }
 
     // choose real estate place
@@ -391,31 +449,48 @@ public class RealEstateDetails extends BasePage {
 //        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 //    }
 
-//    protected void chooseRealEstateTenantIsraeli() {
-//        if (elementHasClass(getBtnRealEstateTenantIsraeli(), "active"))
-//            return;
-//
-//        try {
-//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantIsraeli());
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-//    }
+    protected void chooseRealEstateTenantIsraeli() {
+        if (elementHasClass(getBtnRealEstateTenantIsraeli(), "active"))
+            return;
 
-//    protected void chooseRealEstateTenantNotIsraeli() {
-//        if (elementHasClass(getBtnRealEstateTenantNotIsraeli(), "active"))
-//            return;
-//
-//        try {
-//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantNotIsraeli());
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-//    }
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantIsraeli());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+    }
+
+    protected void chooseRealEstateTenantNotIsraeli() {
+        if (elementHasClass(getBtnRealEstateTenantNotIsraeli(), "active"))
+            return;
+
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantNotIsraeli());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+    }
+
+    protected void addTenant() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnAddTenant());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+    }
+
+    public void deleteTenant(int tenantNumber) {
+
+        deletePanel(tenantNumber, getBtnsDeleteTenant());
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+    }
 
     // choose real estate usage
     protected void chooseRealEstatePersonalUsage() {
@@ -557,8 +632,8 @@ public class RealEstateDetails extends BasePage {
         fillFormField(getTxtMonthlyRent(), monthlyRent);
     }
 
-    protected void enterRenterCountry(String renterCountry) {
-        fillFormField(getTxtRenterCountry(), renterCountry);
+    protected void selectCountryRenterFromDropDownListByName(String countryRenter) {
+        selectItemFromDropDownListByName(getDropDownCountryRenter(), countryRenter);
     }
 
     protected void enterRenterPassword(String renterPassword) {
