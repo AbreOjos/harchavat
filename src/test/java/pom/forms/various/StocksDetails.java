@@ -24,9 +24,12 @@ public class StocksDetails extends BasePage {
         fillFormField(getTxtCompanyName(), companyName);
     }
 
-    protected void chooseCompanySourceOversea() {
+    protected void chooseCompanySourceIsrael() {
+        if (elementHasClass(getBtnCompanySourceIsrael(), "active"))
+            return;
+
         try {
-            scrollIntoViewMoveFocusAndClick(driver, getBtnCompanySourceOversea());
+            scrollIntoViewMoveFocusAndClick(driver, getBtnCompanySourceIsrael());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -34,9 +37,12 @@ public class StocksDetails extends BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
-    protected void chooseCompanySourceIsrael() {
+    protected void chooseCompanySourceOversea() {
+        if (elementHasClass(getBtnCompanySourceOversea(), "active"))
+            return;
+
         try {
-            scrollIntoViewMoveFocusAndClick(driver, getBtnCompanySourceIsrael());
+            scrollIntoViewMoveFocusAndClick(driver, getBtnCompanySourceOversea());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -67,11 +73,11 @@ public class StocksDetails extends BasePage {
         return details.findElement(txtCompanyNameSubElementStocksDetails);
     }
 
-    private WebElement getBtnCompanySourceOversea() {
+    private WebElement getBtnCompanySourceIsrael() {
         return details.findElements(btnsCompanySourceSubElementStocksDetails).get(0);
     }
 
-    private WebElement getBtnCompanySourceIsrael() {
+    private WebElement getBtnCompanySourceOversea() {
         return details.findElements(btnsCompanySourceSubElementStocksDetails).get(1);
     }
 

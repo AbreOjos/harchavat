@@ -36,7 +36,7 @@ public class VariousConstants {
     public static final By txtStateSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='state']");
 
     // abroad bank accounts details sub-element
-    public static final By dropDownCountrySubElementAbroadBankAccountsDetails = By.xpath(".//div[@class='v-select__selections']//input");
+    public static final By dropDownCountrySubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='country']");
     public static final By txtStateSubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='state']");
     public static final By txtCitySubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='city']");
     public static final By txtBankNameSubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='bankName']");
@@ -73,7 +73,7 @@ public class VariousConstants {
     public static final By btnsPartnershipLocationSubElementPartnershipsDetails = By.xpath(".//div[@name='partnershipLocation']/button");
     public static final By txtOsekNumSubElementPartnershipsDetails = By.xpath(".//input[@name='osekNum']");
     public static final By txtPercentageSubElementPartnershipsDetails = By.xpath(".//input[@name='percentage']");
-    public static final By dropDownCountrySubElementPartnershipsDetails = By.xpath(".//div[@class='v-select__selections']//input");
+    public static final By dropDownCountrySubElementPartnershipsDetails = By.xpath(".//input[@name='country']");
     public static final By txtStateSubElementPartnershipsDetails = By.xpath(".//input[@name='state']");
 
 

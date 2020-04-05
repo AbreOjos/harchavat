@@ -69,15 +69,15 @@ public class Various extends BasePage {
     @FindBy(xpath = "//div[@id='partnerships']//img")
     private WebElement btnAddPartnerships;
 
-    @FindBy(xpath = "//div[@id='nonWorkIncomes']//span[contains(., 'deletePanel')]")
+    @FindBy(xpath = "//div[@id='nonWorkIncomes']//span[contains(., 'delete')]")
     private List<WebElement> btnsDeleteNonWorkIncomes;
-    @FindBy(xpath = "//div[@id='abroadBankAccounts']//span[contains(., 'deletePanel')]")
+    @FindBy(xpath = "//div[@id='abroadBankAccounts']//span[contains(., 'delete')]")
     private List<WebElement> btnsDeleteAbroadBankAccounts;
-    @FindBy(xpath = "//div[@id='digitalCoins']//span[contains(., 'deletePanel')]")
+    @FindBy(xpath = "//div[@id='digitalCoins']//span[contains(., 'delete')]")
     private List<WebElement> btnsDeleteDigitalCoins;
-    @FindBy(xpath = "//div[@id='stocks']//span[contains(., 'deletePanel')]")
+    @FindBy(xpath = "//div[@id='stocks']//span[contains(., 'delete')]")
     private List<WebElement> btnsDeleteStocks;
-    @FindBy(xpath = "//div[@id='partnerships']//span[contains(., 'deletePanel')]")
+    @FindBy(xpath = "//div[@id='partnerships']//span[contains(., 'delete')]")
     private List<WebElement> btnsDeletePartnerships;
 
     // == constructors==
@@ -87,7 +87,7 @@ public class Various extends BasePage {
 
         PageFactory.initElements(this.driver, this);
 
-        recreateMapPannelsOnPage();
+        recreateMapPanelsOnPage();
     }
 
 
@@ -209,9 +209,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).chooseIncomeIsraeli();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void chooseNonWorkIncomesIncomeOversea(int nonWorkIncomeNumber) {
@@ -220,9 +221,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).chooseIncomeOversea();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void enterNonWorkIncomesIncomeSource(int nonWorkIncomeNumber, String incomeSource) {
@@ -231,6 +233,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterIncomeSource(incomeSource);
     }
 
@@ -240,6 +243,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterYearlyIncome(yearlyIncome);
     }
 
@@ -249,6 +253,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterPayerName(payerName);
     }
 
@@ -258,6 +263,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterTikNikuim(tikNikuim);
     }
 
@@ -267,9 +273,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectCityFromDropDownListByName(city);
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void selectStreetNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String street) {
@@ -278,9 +285,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectStreetFromDropDownListByName(street);
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void selectCountryNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String country) {
@@ -289,9 +297,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectCountryFromDropDownListByName(country);
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void enterNonWorkIncomesHouseNum(int nonWorkIncomeNumber, String houseNum) {
@@ -300,6 +309,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterHouseNum(houseNum);
     }
 
@@ -309,6 +319,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterState(state);
     }
 
@@ -320,9 +331,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).selectCountryFromDropDownListByName(country);
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void enterAbroadBankAccountsState(int abroadBankAccountsNumber, String state) {
@@ -331,6 +343,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterState(state);
     }
 
@@ -340,6 +353,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterCity(city);
     }
 
@@ -349,6 +363,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBankName(bankName);
     }
 
@@ -358,6 +373,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBankNum(bankNum);
     }
 
@@ -367,6 +383,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBranchName(branchName);
     }
 
@@ -376,6 +393,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBranchNum(branchNum);
     }
 
@@ -385,6 +403,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterAccountNum(accountNum);
     }
 
@@ -394,6 +413,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterPartnersNum(partnersNum);
     }
 
@@ -405,9 +425,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseBitcoin();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsNano(int digitalCoinsNumber) {
@@ -416,9 +437,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseNano();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsSteem(int digitalCoinsNumber) {
@@ -427,9 +449,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseSteem();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsCardano(int digitalCoinsNumber) {
@@ -438,9 +461,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCardano();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsAnotherCoin(int digitalCoinsNumber) {
@@ -449,9 +473,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseAnotherCoin();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void enterDigitalCoinsAnotherCoin(int digitalCoinsNumber, String anotherCoinName) {
@@ -460,6 +485,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAnotherCoin(anotherCoinName);
     }
 
@@ -469,6 +495,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterCoinAmount(coinAmount);
     }
 
@@ -478,6 +505,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterPublicKey(publicKey);
     }
 
@@ -487,9 +515,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCoinsMaterialized();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsCoinsDontMaterialized(int digitalCoinsNumber) {
@@ -498,9 +527,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCoinsDontMaterialized();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void enterDigitalCoinsAmountMaterialized(int digitalCoinsNumber, String amountMaterialized) {
@@ -509,6 +539,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAmountMaterialized(amountMaterialized);
     }
 
@@ -518,6 +549,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterMaterializationValue(materializationValue);
     }
 
@@ -527,9 +559,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).choosePurchasedWithCoins();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsDontPurchasedWithCoins(int digitalCoinsNumber) {
@@ -538,9 +571,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseDontPurchasedWithCoins();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void enterDigitalCoinsAmountSold(int digitalCoinsNumber, String amountSold) {
@@ -549,6 +583,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAmountSold(amountSold);
     }
 
@@ -558,6 +593,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterSoldValue(soldValue);
     }
 
@@ -569,6 +605,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).enterCompanyName(companyName);
     }
 
@@ -578,9 +615,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).chooseCompanySourceOversea();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void chooseStocksCompanySourceIsrael(int stocksNumber) {
@@ -589,9 +627,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).chooseCompanySourceIsrael();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void selectCountryStocksFromDropDownListByName(int stocksNumber, String country) {
@@ -600,9 +639,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).selectCountryFromDropDownListByName(country);
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void enterStocksState(int stocksNumber, String state) {
@@ -611,6 +651,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).enterState(state);
     }
 
@@ -620,6 +661,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).enterCompanyNum(companyNum);
     }
 
@@ -629,6 +671,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).enterCompanyPercentage(companyPercentage);
     }
 
@@ -639,6 +682,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterName(name);
     }
 
@@ -648,9 +692,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).choosePartnershipLocationIsrael();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void choosePartnershipLocationOversea(int partnershipsNumber) {
@@ -659,9 +704,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).choosePartnershipLocationOversea();
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void enterPartnershipOsekNum(int partnershipsNumber, String osekNum) {
@@ -670,6 +716,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterOsekNum(osekNum);
     }
 
@@ -679,6 +726,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterPercentage(percentage);
     }
 
@@ -688,9 +736,10 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).selectCountryFromDropDownListByName(country);
 
-        recreateMapPannelsOnPage();
+//        recreateMapPanelsOnPage();
     }
 
     public void enterPartnershipsState(int partnershipsNumber, String state) {
@@ -699,6 +748,7 @@ public class Various extends BasePage {
                     "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
         }
 
+        recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterState(state);
     }
 
@@ -717,7 +767,7 @@ public class Various extends BasePage {
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
-        recreateMapPannelsOnPage();
+        recreateMapPanelsOnPage();
     }
 
     private void chooseDontHave(WebElement button) {
@@ -732,7 +782,7 @@ public class Various extends BasePage {
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
-        recreateMapPannelsOnPage();
+        recreateMapPanelsOnPage();
     }
 
     private void add(WebElement btnAdd) {
@@ -740,7 +790,7 @@ public class Various extends BasePage {
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
-        recreateMapPannelsOnPage();
+        recreateMapPanelsOnPage();
     }
 
     private void delete(int index, List<WebElement> btnsDelete) {
@@ -758,10 +808,10 @@ public class Various extends BasePage {
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
-        recreateMapPannelsOnPage();
+        recreateMapPanelsOnPage();
     }
 
-    private void recreateMapPannelsOnPage() {
+    private void recreateMapPanelsOnPage() {
         integerAbroadBankAccountsDetailsMap = new HashMap<>();
         integerDigitalCoinsDetailsMap = new HashMap<>();
         integerNonWorkIncomesDetailsMap = new HashMap<>();
