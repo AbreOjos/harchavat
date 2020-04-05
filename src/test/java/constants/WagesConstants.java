@@ -19,7 +19,7 @@ public class WagesConstants {
     public static final By txtAnnualIncomeSubElementDetails = By.xpath(".//input[@name='anualIncome']");
     public static final By btnIsraelIncomeSubElementDetails = By.xpath(".//input[@name='israelIncome']");
     public static final By btnAbroadIncomeSubElementDetails = By.xpath(".//button[@value='abroardIncome']");
-    public static final By dropDownCountrySubElementDetails = By.xpath(".//div[@class='v-select__slot']");
+    public static final By dropDownCountrySubElementDetails = By.xpath(".//input[@name='countryOfIncomeWork']");
 //    public static final By txtStateSubElementDetails = By.xpath(".//input[@name='state']");
 //    public static final By txtCitySubElementDetail = By.xpath(".//input[@name='city']");
     public static final By txtStreetSubElementDetails = By.xpath(".//input[@name='street']");

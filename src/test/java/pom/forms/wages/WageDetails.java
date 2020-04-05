@@ -47,17 +47,17 @@ public class WageDetails extends BasePage {
         return details.findElement(txtStateSubElementDetails);
     }
 
-    protected WebElement getTxtCity() {
-        return details.findElement(txtCitySubElementDetail);
-    }
+//    protected WebElement getTxtCity() {
+//        return details.findElement(txtCitySubElementDetail);
+//    }
 
-    protected WebElement getTxtStreet() {
-        return details.findElement(txtStreetSubElementDetails);
-    }
+//    protected WebElement getTxtStreet() {
+//        return details.findElement(txtStreetSubElementDetails);
+//    }
 
-    protected WebElement getTxtHouseNum() {
-        return details.findElement(txtHouseNumSubElementDetails);
-    }
+//    protected WebElement getTxtHouseNum() {
+//        return details.findElement(txtHouseNumSubElementDetails);
+//    }
 
     // wage details
     protected void chooseIsraelIncome() {
@@ -103,15 +103,23 @@ public class WageDetails extends BasePage {
     }
 
     protected void enterCity(String city) {
-        fillFormField(getTxtCity(), city);
+        fillFormField(getTxtCity(details), city);
+    }
+
+    protected void selectCityFromDropDownListByName(String city) {
+        selectItemFromDropDownListByName(getDropDownCity(details), city);
+    }
+
+    protected void selectStreetFromDropDownListByName(String street) {
+        selectItemFromDropDownListByName(getDropDownStreet(details), street);
     }
 
     protected void enterStreet(String street) {
-        fillFormField(getTxtStreet(), street);
+        fillFormField(getTxtStreet(details), street);
     }
 
     protected void enterHouseNum(String houseNum) {
-        fillFormField(getTxtHouseNum(), houseNum);
+        fillFormField(getTxtHouseNum(details), houseNum);
     }
 
     protected void enterEmployerName(String employerName) {

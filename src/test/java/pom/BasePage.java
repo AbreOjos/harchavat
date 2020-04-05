@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.*;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
-import static constants.BaseConstants.waitFewSecondsWarningDisabled;
+import static constants.BaseConstants.*;
 import static constants.VariousConstants.dropDownListItems;
 import static utils.helpers.ActionsHelper.clear;
 import static utils.helpers.Waits.fluentWaitElementClickable;
@@ -80,6 +80,8 @@ public class BasePage {
     private List<WebElement> btnsDelete;
     @FindBy(xpath = "//div[@class='add-item w-inline-block']//img")
     private List<WebElement> btnAdd;
+    @FindBy(xpath = "//div[@class='v-btn__content']//input[@type='file']")
+    private WebElement attachFileInput;
 
 
     // == getters ==
@@ -413,12 +415,44 @@ public class BasePage {
         PageFactory.initElements(this.driver, this);
     }
 
+    protected WebElement getDropDownCity(WebElement details) {
+        return details.findElement(dropDownCitySubElementDetails);
+    }
+
+    protected WebElement getDropDownStreet(WebElement details) {
+        return details.findElement(dropDownStreetSubElementDetails);
+    }
+
+    protected WebElement getTxtCity(WebElement details) {
+        return details.findElement(txtCitySubElementDetail);
+    }
+
+    protected WebElement getTxtState(WebElement details) {
+        return details.findElement(txtStateSubElementDetails);
+    }
+
+    protected WebElement getTxtStreet(WebElement details) {
+        return details.findElement(txtStreetSubElementDetails);
+    }
+
+    protected WebElement getTxtHouseNum(WebElement details) {
+        return details.findElement(txtHouseNumSubElementDetails);
+    }
+
     protected List<WebElement> getDropDownListsItems() {
         return driver.findElements(dropDownListItems);
     }
 
     protected boolean subElementContainsText(WebElement details, String text) {
         return details.getText().contains(text);
+    }
+
+    public void attachFile(String filename) {
+        attachFileInput.sendKeys(filename);
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        PageFactory.initElements(this.driver, this);
     }
 
     // check if an element contains a specific class

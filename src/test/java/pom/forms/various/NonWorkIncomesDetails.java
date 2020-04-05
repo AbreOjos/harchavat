@@ -6,7 +6,6 @@ import pom.BasePage;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
-import static constants.BaseConstants.dropDownCitySubElementNonWorkIncomesDetails;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static constants.VariousConstants.*;
 
@@ -59,7 +58,7 @@ public class NonWorkIncomesDetails extends BasePage {
     }
 
     protected void selectCityFromDropDownListByName(String city) {
-        selectItemFromDropDownListByName(getDropDownCity(), city);
+        selectItemFromDropDownListByName(getDropDownCity(details), city);
     }
 
     protected void selectStreetFromDropDownListByName(String street) {
@@ -71,11 +70,11 @@ public class NonWorkIncomesDetails extends BasePage {
     }
 
     protected void enterHouseNum(String houseNum) {
-        fillFormField(getTxtHouseNum(), houseNum);
+        fillFormField(getTxtHouseNum(details), houseNum);
     }
 
     protected void enterState(String state) {
-        fillFormField(getTxtState(), state);
+        fillFormField(getTxtState(details), state);
     }
 
 
@@ -104,9 +103,9 @@ public class NonWorkIncomesDetails extends BasePage {
         return details.findElement(txtTikNikuimSubElementNonWorkIncomesDetails);
     }
 
-    private WebElement getDropDownCity() {
-        return details.findElement(dropDownCitySubElementNonWorkIncomesDetails);
-    }
+//    private WebElement getDropDownCity() {
+//        return details.findElement(dropDownCitySubElementNonWorkIncomesDetails);
+//    }
 
     private WebElement getDropDownStreet() {
         return details.findElement(dropDownStreetSubElementNonWorkIncomesDetails);
@@ -116,12 +115,12 @@ public class NonWorkIncomesDetails extends BasePage {
         return details.findElement(dropDownCountrySubElementNonWorkIncomesDetails);
     }
 
-    private WebElement getTxtHouseNum() {
-        return details.findElement(txtHouseNumSubElementNonWorkIncomesDetails);
-    }
+//    private WebElement getTxtHouseNum() {
+//        return details.findElement(txtHouseNumSubElementNonWorkIncomesDetails);
+//    }
 
-    private WebElement getTxtState() {
-        return details.findElement(txtStateSubElementNonWorkIncomesDetails);
-    }
+//    private WebElement getTxtState() {
+//        return details.findElement(txtStateSubElementNonWorkIncomesDetails);
+//    }
 
 }

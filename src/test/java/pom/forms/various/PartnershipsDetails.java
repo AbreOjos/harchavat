@@ -56,7 +56,7 @@ public class PartnershipsDetails extends BasePage {
     }
 
     protected void enterState(String state) {
-        fillFormField(getTxtState(), state);
+        fillFormField(getTxtState(details), state);
     }
 
 
@@ -85,9 +85,9 @@ public class PartnershipsDetails extends BasePage {
         return details.findElement(dropDownCountrySubElementPartnershipsDetails);
     }
 
-    private WebElement getTxtState() {
-        return details.findElement(txtStateSubElementPartnershipsDetails);
-    }
+//    private WebElement getTxtState() {
+//        return details.findElement(txtStateSubElementPartnershipsDetails);
+//    }
 
 
 }

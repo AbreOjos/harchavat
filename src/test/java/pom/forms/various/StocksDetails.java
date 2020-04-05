@@ -55,7 +55,7 @@ public class StocksDetails extends BasePage {
     }
 
     protected void enterState(String state) {
-        fillFormField(getTxtState(), state);
+        fillFormField(getTxtState(details), state);
     }
 
     protected void enterCompanyNum(String companyNum) {
@@ -85,9 +85,9 @@ public class StocksDetails extends BasePage {
         return details.findElement(dropDownCountrySubElementStocksDetails);
     }
 
-    private WebElement getTxtState() {
-        return details.findElement(txtStateSubElementStocksDetails);
-    }
+//    private WebElement getTxtState() {
+//        return details.findElement(txtStateSubElementStocksDetails);
+//    }
 
     private WebElement getTxtCompanyNum() {
         return details.findElement(txtCompanyNumSubElementStocksDetails);

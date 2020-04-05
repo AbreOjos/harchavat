@@ -21,11 +21,11 @@ public class AbroadBankAccountsDetails extends BasePage {
     }
 
     protected void enterState(String state) {
-        fillFormField(getTxtState(), state);
+        fillFormField(getTxtState(details), state);
     }
 
     protected void enterCity(String city) {
-        fillFormField(getTxtCity(), city);
+        fillFormField(getTxtCity(details), city);
     }
 
     protected void enterBankName(String city) {
@@ -58,13 +58,13 @@ public class AbroadBankAccountsDetails extends BasePage {
         return details.findElement(dropDownCountrySubElementAbroadBankAccountsDetails);
     }
 
-    private WebElement getTxtState() {
-        return details.findElement(txtStateSubElementAbroadBankAccountsDetails);
-    }
+//    private WebElement getTxtState() {
+//        return details.findElement(txtStateSubElementAbroadBankAccountsDetails);
+//    }
 
-    private WebElement getTxtCity() {
-        return details.findElement(txtCitySubElementAbroadBankAccountsDetails);
-    }
+//    private WebElement getTxtCity() {
+//        return details.findElement(txtCitySubElementDetail);
+//    }
 
     private WebElement getTxtBankName() {
         return details.findElement(txtBankNameSubElementAbroadBankAccountsDetails);

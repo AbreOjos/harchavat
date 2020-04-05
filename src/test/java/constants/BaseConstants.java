@@ -16,7 +16,9 @@ public class BaseConstants {
     public static final By errorIconSubElementMenu = By.xpath(".//i[contains(., 'error')]");
     public static final By checkCircleIconSubElementMenu = By.xpath(".//i[contains(., 'check_circle')]");
 
-    public static final By dropDownCitySubElementNonWorkIncomesDetails = By.xpath(".//input[@name='city']");
+    public static final By dropDownCitySubElementDetails = By.xpath(".//input[@name='city']");
+    public static final By dropDownStreetSubElementDetails = By.xpath(".//input[@name='street']");
+    public static final By txtStreetSubElementDetails = By.xpath(".//input[@name='street']");
     public static final By txtCitySubElementDetail = By.xpath(".//input[@name='city']");
     public static final By txtHouseNumSubElementDetails = By.xpath(".//input[@name='houseNum']");
     public static final By txtStateSubElementDetails = By.xpath(".//input[@name='state']");

@@ -30,7 +30,7 @@ public class VariousConstants {
     public static final By txtPayerNameSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='payerName']");
     public static final By txtTikNikuimSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='tikNikuim']");
 //    public static final By dropDownCitySubElementNonWorkIncomesDetails = By.xpath(".//input[@name='city']");
-    public static final By dropDownStreetSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='street']");
+    public static final By dropDownStreetSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='houseNum']//input[@name='street']");
     public static final By dropDownCountrySubElementNonWorkIncomesDetails = By.xpath(".//input[@name='countryOfIncome']");
     public static final By txtHouseNumSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='houseNum']");
     public static final By txtStateSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='state']");
@@ -38,7 +38,7 @@ public class VariousConstants {
     // abroad bank accounts details sub-element
     public static final By dropDownCountrySubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='country']");
     public static final By txtStateSubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='state']");
-    public static final By txtCitySubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='city']");
+//    public static final By txtCitySubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='city']");
     public static final By txtBankNameSubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='bankName']");
     public static final By txtBankNumSubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='bankNum']");
     public static final By txtBranchNameSubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='branchName']");

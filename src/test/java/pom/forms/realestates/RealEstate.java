@@ -402,6 +402,16 @@ public class RealEstate extends BasePage {
         integerRealEstateDetailsMap.get(realEstateNumber).selectStreetFromDropDownListByName(street);
     }
 
+    public void enterStreet(int realEstateNumber, String street) {
+        if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
+            throw new WrongArgumentException(String.format("Impossible to enter street of a real estate #%d. " +
+                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerRealEstateDetailsMap.size()));
+        }
+
+        recreateMapPanelsOnPage();
+        integerRealEstateDetailsMap.get(realEstateNumber).enterStreet(street);
+    }
+
     public void enterHouseNum(int realEstateNumber, String houseNum) {
         if (realEstateNumber<0 || realEstateNumber>=integerRealEstateDetailsMap.size()) {
             throw new WrongArgumentException(String.format("Impossible to add details for a real estate #%d. " +

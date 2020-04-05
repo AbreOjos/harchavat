@@ -22,6 +22,7 @@ public class SendForm extends BasePage {
     // == private members ==
     private Map<Integer, SendFormVehicleDetails> integerSendFormVehicleDetailsMap;
     private Map<Integer, SendFormWageDetails> integerSendFormWageDetailsMap;
+    private Map<Integer, SendFormRealEstateDetails> integerSendFormRealEstateDetailsMap;
 
     // == constructors==
     public SendForm(WebDriver driver) {
@@ -78,6 +79,8 @@ public class SendForm extends BasePage {
     private List<WebElement> vehicle;
     @FindBy(xpath = "(//*[@class='info-box'])[3]//ul/li")
     private List<WebElement> wage;
+    @FindBy(xpath = "(//*[@class='info-box'])[4]//ul/li")
+    private List<WebElement> realEstate;
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement btnSubmit;
@@ -453,6 +456,11 @@ public class SendForm extends BasePage {
         for (int i = 0; i < wage.size(); ++i) {
             WebElement webElement = wage.get(i);
             integerSendFormWageDetailsMap.put(i, new SendFormWageDetails(driver, webElement));
+        }
+
+        for (int i = 0; i < realEstate.size(); ++i) {
+            WebElement webElement = realEstate.get(i);
+            integerSendFormRealEstateDetailsMap.put(i, new SendFormRealEstateDetails(driver, webElement));
         }
 
     }

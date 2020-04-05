@@ -113,7 +113,7 @@ public class TemporalTests extends TestBase {
         personalDetails.chooseMaritalStatusSpousalAlliance();
         personalDetails.chooseMaritalStatusSeparated();
 
-        personalDetails.attachFileSeparated(FileAttachments.getDocumentPdf().toString());
+        personalDetails.attachFile(FileAttachments.getDocumentPdf().toString());
 
         personalDetails.chooseMaritalStatusPolygamy();
 

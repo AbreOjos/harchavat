@@ -63,8 +63,8 @@ public class PersonalDetails extends BasePage {
     private WebElement txtSpouseIdentity;
 
     // for separated only
-    @FindBy(xpath = "//div[@class='v-btn__content']//input[@type='file']")
-    private WebElement attachFileInput;
+//    @FindBy(xpath = "//div[@class='v-btn__content']//input[@type='file']")
+//    private WebElement attachFileInput;
     @FindBy(xpath = "//span[@class='link-inner']")
     private WebElement downloadFileLink;
 
@@ -436,13 +436,6 @@ public class PersonalDetails extends BasePage {
     }
 
     // for separates only
-    public void attachFileSeparated(String filename) {
-        attachFileInput.sendKeys(filename);
-
-        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-
-        PageFactory.initElements(this.driver, this);
-    }
 
     public void clickDownloadLink() {
         downloadFileLink.click();

@@ -10,10 +10,10 @@ import java.util.List;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
-import static constants.BaseConstants.*;
+import static constants.BaseConstants.txtStateSubElementDetails;
+import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static constants.EnglishHebrewConstants.JANUARY;
 import static constants.RealEstateConstants.*;
-import static constants.VariousConstants.dropDownStreetSubElementNonWorkIncomesDetails;
 
 public class RealEstateDetails extends BasePage {
 
@@ -79,21 +79,21 @@ public class RealEstateDetails extends BasePage {
         return details.findElements(btnsRealEstateAssetDetailsSubElementDetails).get(1);
     }
 
-    private WebElement getDropDownCity() {
-        return details.findElement(dropDownCitySubElementNonWorkIncomesDetails);
-    }
+//    private WebElement getDropDownCity() {
+//        return details.findElement(dropDownCitySubElementDetails);
+//    }
 
     protected WebElement getTxtState() {
         return details.findElement(txtStateSubElementDetails);
     }
 
-    private WebElement getDropDownStreet() {
-        return details.findElement(dropDownStreetSubElementNonWorkIncomesDetails);
-    }
+//    private WebElement getDropDownStreet() {
+//        return details.findElement(dropDownStreetSubElementNonWorkIncomesDetails);
+//    }
 
-    protected WebElement getTxtHouseNum() {
-        return details.findElement(txtHouseNumSubElementDetails);
-    }
+//    protected WebElement getTxtHouseNum() {
+//        return details.findElement(txtHouseNumSubElementDetails);
+//    }
 
     protected WebElement getDropDownCountry() {
         return details.findElement(dropDownCountrySubElementDetails);
@@ -349,15 +349,19 @@ public class RealEstateDetails extends BasePage {
 
     // Address only
     protected void selectCityFromDropDownListByName(String city) {
-        selectItemFromDropDownListByName(getDropDownCity(), city);
+        selectItemFromDropDownListByName(getDropDownCity(details), city);
     }
 
     protected void selectStreetFromDropDownListByName(String street) {
-        selectItemFromDropDownListByName(getDropDownStreet(), street);
+        selectItemFromDropDownListByName(getDropDownStreet(details), street);
+    }
+
+    protected void enterStreet(String street) {
+        fillFormField(getTxtStreet(details), street);
     }
 
     protected void enterHouseNum(String houseNum) {
-        fillFormField(getTxtHouseNum(), houseNum);
+        fillFormField(getTxtHouseNum(details), houseNum);
     }
 
     protected void selectCountryFromDropDownListByName(String country) {
