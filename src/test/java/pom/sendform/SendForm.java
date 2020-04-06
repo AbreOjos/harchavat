@@ -6,6 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
+import pom.sendform.various.VariousAbroadBankAccount;
+import pom.sendform.various.VariousDigitalCoins;
+import pom.sendform.various.VariousNonWorkIncomes;
+import pom.sendform.various.VariousStocks;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +27,12 @@ public class SendForm extends BasePage {
     private Map<Integer, SendFormWageDetails> integerSendFormWageDetailsMap;
     private Map<Integer, SendFormRealEstateDetails> integerSendFormRealEstateDetailsMap;
 
+    private Map<Integer, VariousNonWorkIncomes> integerVariousNonWorkIncomesMap;
+    private Map<Integer, VariousAbroadBankAccount> integerVariousAbroadBankAccountsMap;
+    private Map<Integer, VariousDigitalCoins> integerVariousDigitalCoinsMap;
+    private Map<Integer, VariousStocks> integerVariousStocksMap;
+    private Map<Integer, SendFormRealEstateDetails> integerVariousPartnershipMap;
+
     // == constructors==
     public SendForm(WebDriver driver) {
         super(driver);
@@ -34,6 +44,9 @@ public class SendForm extends BasePage {
     }
 
     // == web-elements ==
+    @FindBy(xpath = "//textarea[@name='comments']")
+    private WebElement commentsTextArea;
+
     @FindBy(xpath = "(//*[@class='info-box'])[1]")
     private WebElement infoBoxPersonalDetails;
     @FindBy(xpath = "(//*[@class='info-box'])[2]")
@@ -73,18 +86,40 @@ public class SendForm extends BasePage {
     @FindBy(xpath = "//span/strong[contains(text(),'מחוז בן/בת זוג')]/..")
     private List<WebElement> spouseState;
 
+
     // Vehicle elements
     @FindBy(xpath = "(//*[@class='info-box'])[2]//ul/li")
     private List<WebElement> vehicle;
     @FindBy(xpath = "(//*[@class='info-box'])[3]//ul/li")
+
+    // Wage elements
     private List<WebElement> wage;
+
+    // Real Estate elements
     @FindBy(xpath = "(//*[@class='info-box'])[4]//ul/li")
     private List<WebElement> realEstate;
+
+    // Various elements
+    @FindBy(xpath = "((//*[@class='info-box'])[5]/div)[1]//ul/li")
+    private List<WebElement> variousNonWorkIncomes;
+    @FindBy(xpath = "((//*[@class='info-box'])[5]/div)[2]//ul/li")
+    private List<WebElement> variousAbroadBankAccount;
+    @FindBy(xpath = "((//*[@class='info-box'])[5]/div)[3]//ul/li")
+    private List<WebElement> variousDigitalCoins;
+    @FindBy(xpath = "((//*[@class='info-box'])[5]/div)[4]//ul/li")
+    private List<WebElement> variousStocks;
+    @FindBy(xpath = "((//*[@class='info-box'])[5]/div)[5]//ul/li")
+    private List<WebElement> variousPartnership;
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement btnSubmit;
 
     // == getters ==
+
+    public WebElement getCommentsTextArea() {
+        return commentsTextArea;
+    }
+
     public WebElement getBtnSubmit() {
         return btnSubmit;
     }
@@ -149,8 +184,36 @@ public class SendForm extends BasePage {
         return wage;
     }
 
+    public List<WebElement> getRealEstate() {
+        return realEstate;
+    }
+
+    public List<WebElement> getVariousNonWorkIncomes() {
+        return variousNonWorkIncomes;
+    }
+
+    public List<WebElement> getVariousAbroadBankAccount() {
+        return variousAbroadBankAccount;
+    }
+
+    public List<WebElement> getVariousDigitalCoins() {
+        return variousDigitalCoins;
+    }
+
+    public List<WebElement> getVariousStocks() {
+        return variousStocks;
+    }
+
+    public List<WebElement> getVariousPartnership() {
+        return variousPartnership;
+    }
+
 
     // == pubic methods ==
+
+    public void enterComment(String comment) {
+        fillFormField(commentsTextArea, comment);
+    }
 
     // menu icons
     public List<WebElement> getErrorIconMenu() {
@@ -534,6 +597,14 @@ public class SendForm extends BasePage {
     // == private methods ==
     private void recreateMapPanelsOnPage() {
         integerSendFormVehicleDetailsMap = new HashMap<>();
+        integerSendFormWageDetailsMap = new HashMap<>();
+        integerSendFormRealEstateDetailsMap = new HashMap<>();
+        integerVariousNonWorkIncomesMap = new HashMap<>();
+        integerVariousAbroadBankAccountsMap = new HashMap<>();
+        integerVariousDigitalCoinsMap = new HashMap<>();
+        integerVariousStocksMap = new HashMap<>();
+        integerVariousPartnershipMap = new HashMap<>();
+
 
         for (int i = 0; i < vehicle.size(); ++i) {
             WebElement webElement = vehicle.get(i);
@@ -548,6 +619,31 @@ public class SendForm extends BasePage {
         for (int i = 0; i < realEstate.size(); ++i) {
             WebElement webElement = realEstate.get(i);
             integerSendFormRealEstateDetailsMap.put(i, new SendFormRealEstateDetails(driver, webElement));
+        }
+
+        for (int i = 0; i < realEstate.size(); ++i) {
+            WebElement webElement = realEstate.get(i);
+            integerVariousNonWorkIncomesMap.put(i, new VariousNonWorkIncomes(driver, webElement));
+        }
+
+        for (int i = 0; i < realEstate.size(); ++i) {
+            WebElement webElement = realEstate.get(i);
+            integerVariousAbroadBankAccountsMap.put(i, new VariousAbroadBankAccount(driver, webElement));
+        }
+
+        for (int i = 0; i < realEstate.size(); ++i) {
+            WebElement webElement = realEstate.get(i);
+            integerVariousDigitalCoinsMap.put(i, new VariousDigitalCoins(driver, webElement));
+        }
+
+        for (int i = 0; i < realEstate.size(); ++i) {
+            WebElement webElement = realEstate.get(i);
+            integerVariousStocksMap.put(i, new VariousStocks(driver, webElement));
+        }
+
+        for (int i = 0; i < realEstate.size(); ++i) {
+            WebElement webElement = realEstate.get(i);
+            integerVariousPartnershipMap.put(i, new SendFormRealEstateDetails(driver, webElement));
         }
 
     }
