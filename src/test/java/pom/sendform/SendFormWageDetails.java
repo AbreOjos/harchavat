@@ -16,7 +16,7 @@ public class SendFormWageDetails extends BasePage {
     }
 
     // == protected methods ==
-    protected boolean elementContainsText(String text) {
+    protected boolean wageContainsText(String text) {
         return subElementContainsText(details, text);
     }
 }

@@ -31,7 +31,7 @@ public class SendFormVehicleDetails extends BasePage {
         return details.findElements(usageVehicleSubElementVehiclesList).size() > 0;
     }
 
-    protected boolean elementContainsText(String text) {
+    protected boolean vehicleContainsText(String text) {
 //        return details.getText().contains(text);
         return subElementContainsText(details, text);
     }
