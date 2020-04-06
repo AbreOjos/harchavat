@@ -19,7 +19,10 @@ import pom.forms.PersonalDetails;
 import pom.forms.vehicles.Vehicle;
 import readresources.parameters.WebUiParameters;
 
+import java.io.File;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
@@ -46,6 +49,8 @@ public abstract class TestBase {
     public static final String userFamilyName = GINDIN;
     public static final String userId = "320959604";
 
+    private String downloadDir;
+
     ////////// AXE ///////////////
     protected static final URL scriptUrl = TestBase.class.getResource("/axe.min.js");
     /////////////////////////////
@@ -57,6 +62,8 @@ public abstract class TestBase {
     public void setUpSuite() {
 
         hnURL = WebUiParameters.getHnUrl();
+        downloadDir = System.getProperty("downloadDir",
+                System.getProperty("user.dir") + File.separator + "externalFiles" + File.separator + "downloadFiles");
     }
 
     public void setUpMethod() {
@@ -81,15 +88,28 @@ public abstract class TestBase {
 
         log.info("Create Chrome driver");
 
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+//        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 //        capabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
 
-        capabilities.setCapability (CapabilityType.ACCEPT_SSL_CERTS, true);
-        capabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+//        capabilities.setCapability (CapabilityType.ACCEPT_SSL_CERTS, true);
+//        capabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+
+        Map<String, Object> prefs = new HashMap<>();
+//        prefs.put(CapabilityType.ACCEPT_SSL_CERTS, true);
+//        prefs.put(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+        prefs.put("download.default_directory", downloadDir);
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.merge(capabilities);
+        chromeOptions.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+        chromeOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+        chromeOptions.setExperimentalOption("prefs", prefs);
+//        chromeOptions.merge(capabilities);
         driver = new ChromeDriver(chromeOptions);
+
+//        System.out.println("////////////////////");
+//        System.out.println(chromeOptions.getExperimentalOption("prefs"));
+//        System.out.println("////////////////////");
+
 //        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 //        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 

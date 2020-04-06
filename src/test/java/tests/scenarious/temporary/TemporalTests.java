@@ -174,10 +174,12 @@ public class TemporalTests extends TestBase {
         wage.deleteWage(1);
 
         wage.enterEmployerName(0,"Moshe");
+        wage.chooseIsraelIncome(1);
         wage.enterTikNikuim(1, "123456");
 
         wage.addWage();
-        wage.enterTikNikuim(2,"aaaa");
+        wage.chooseAbroadIncome(2);
+//        wage.enterTikNikuim(2,"aaaa");
         wage.enterEmployerName(2, "BBB");
         //wage.enterEmployerAddress(2, "cccc");
         wage.enterAnnualIncome(2, "0");
@@ -218,12 +220,15 @@ public class TemporalTests extends TestBase {
 //        realEstate.chooseRealEstateBusinessPurpose(1);
 
 //        realEstate.chooseRealEstateDivided(1);
+        realEstate.chooseRealEstateSplit(1);
         realEstate.setAmountPartitionsOfDividedRealEstate(1, 5);
         System.out.println("Amount of partitions " + realEstate.amountPartitionsOfDividedRealEstate(1));
 
 //        realEstate.chooseRealEstateTenantNotIsraeli(1);
 //        realEstate.enterRenterCountry(1, "USA");
-        realEstate.enterRenterPassword(1, "123456789");
+        realEstate.chooseRealEstateRenting(1);
+        realEstate.chooseRealEstateTenantNotIsraeli(1);
+        realEstate.enterRenterPassport(1, "123456789");
         realEstate.enterMonthlyRent(1, "3000");
 
         realEstate.attachContractFile(1, FileAttachments.getDocumentPdf().toString());

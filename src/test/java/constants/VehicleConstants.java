@@ -8,7 +8,7 @@ public class VehicleConstants {
     }
 
     // elements
-    public static final By vehicleDetailsPanel = By.xpath("//*[@class='shaamPage']");
+    public static final By vehicleDetailsPanel = By.xpath("//div[@class='other-box']/div[2]/div/div");
 
     // sub-elements
     public static final By btnsVehicleTypesSubElementDetails = By.xpath(".//*[not(@name='usage')]/button");
