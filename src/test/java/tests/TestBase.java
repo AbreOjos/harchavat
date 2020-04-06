@@ -49,7 +49,7 @@ public abstract class TestBase {
     public static final String userFamilyName = GINDIN;
     public static final String userId = "320959604";
 
-    private String downloadDir;
+    protected static String downloadDir;
 
     ////////// AXE ///////////////
     protected static final URL scriptUrl = TestBase.class.getResource("/axe.min.js");
