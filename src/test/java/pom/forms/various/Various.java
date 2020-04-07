@@ -18,6 +18,13 @@ import static constants.VariousConstants.*;
 
 public class Various extends BasePage {
 
+    // == final members ==
+    private String nonWorkIncomes = "Non Work Incomes";
+    private String abroadBankAccounts = "Abroad Bank Accounts";
+    private String digitalCoins = "Digital Coins";
+    private String stocks = "Stocks";
+    private String partnerships = "Partnerships";
+
     // == private fields =
     private Map<Integer, NonWorkIncomesDetails> integerNonWorkIncomesDetailsMap;
     private Map<Integer, AbroadBankAccountsDetails> integerAbroadBankAccountsDetailsMap;
@@ -204,10 +211,7 @@ public class Various extends BasePage {
 
     // NonWorkIncomesDetails
     public void chooseNonWorkIncomesIncomeIsraeli(int nonWorkIncomeNumber) {
-        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
-                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
-        }
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).chooseIncomeIsraeli();
@@ -216,10 +220,7 @@ public class Various extends BasePage {
     }
 
     public void chooseNonWorkIncomesIncomeOversea(int nonWorkIncomeNumber) {
-        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
-                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
-        }
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).chooseIncomeOversea();
@@ -228,50 +229,35 @@ public class Various extends BasePage {
     }
 
     public void enterNonWorkIncomesIncomeSource(int nonWorkIncomeNumber, String incomeSource) {
-        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
-                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
-        }
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterIncomeSource(incomeSource);
     }
 
     public void enterNonWorkIncomesYearlyIncome(int nonWorkIncomeNumber, String yearlyIncome) {
-        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
-                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
-        }
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterYearlyIncome(yearlyIncome);
     }
 
     public void enterNonWorkIncomesPayerName(int nonWorkIncomeNumber, String payerName) {
-        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
-                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
-        }
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterPayerName(payerName);
     }
 
     public void enterNonWorkIncomesTikNikuim(int nonWorkIncomeNumber, String tikNikuim) {
-        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
-                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
-        }
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterTikNikuim(tikNikuim);
     }
 
     public void selectCityNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String city) {
-        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
-                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
-        }
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectCityFromDropDownListByName(city);
@@ -280,10 +266,7 @@ public class Various extends BasePage {
     }
 
     public void selectStreetNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String street) {
-        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
-                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
-        }
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectStreetFromDropDownListByName(street);
@@ -292,10 +275,7 @@ public class Various extends BasePage {
     }
 
     public void selectCountryNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String country) {
-        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
-                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
-        }
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectCountryFromDropDownListByName(country);
@@ -304,20 +284,14 @@ public class Various extends BasePage {
     }
 
     public void enterNonWorkIncomesHouseNum(int nonWorkIncomeNumber, String houseNum) {
-        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
-                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
-        }
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterHouseNum(houseNum);
     }
 
     public void enterNonWorkIncomesState(int nonWorkIncomeNumber, String state) {
-        if (nonWorkIncomeNumber<0 || nonWorkIncomeNumber>=integerNonWorkIncomesDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Non Work Incomes #%d. " +
-                    "The number need to be between 0 and %d not inclusive", nonWorkIncomeNumber, integerNonWorkIncomesDetailsMap.size()));
-        }
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterState(state);
@@ -326,10 +300,7 @@ public class Various extends BasePage {
 
     // Abroad Bank Accounts methods
     public void selectCountryAbroadBankAccountsFromDropDownListByName(int abroadBankAccountsNumber, String country) {
-        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
-        }
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).selectCountryFromDropDownListByName(country);
@@ -338,80 +309,56 @@ public class Various extends BasePage {
     }
 
     public void enterAbroadBankAccountsState(int abroadBankAccountsNumber, String state) {
-        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
-        }
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterState(state);
     }
 
     public void enterAbroadBankAccountsCity(int abroadBankAccountsNumber, String city) {
-        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
-        }
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterCity(city);
     }
 
     public void enterAbroadBankAccountsBankName(int abroadBankAccountsNumber, String bankName) {
-        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
-        }
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBankName(bankName);
     }
 
     public void enterAbroadBankAccountsBankNum(int abroadBankAccountsNumber, String bankNum) {
-        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
-        }
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBankNum(bankNum);
     }
 
     public void enterAbroadBankAccountsBranchName(int abroadBankAccountsNumber, String branchName) {
-        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
-        }
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBranchName(branchName);
     }
 
     public void enterAbroadBankAccountsBranchNum(int abroadBankAccountsNumber, String branchNum) {
-        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
-        }
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBranchNum(branchNum);
     }
 
     public void enterAbroadBankAccountsAccountNum(int abroadBankAccountsNumber, String accountNum) {
-        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
-        }
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterAccountNum(accountNum);
     }
 
     public void enterAbroadBankAccountsPartners(int abroadBankAccountsNumber, String partnersNum) {
-        if (abroadBankAccountsNumber<0 || abroadBankAccountsNumber>=integerAbroadBankAccountsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for an Abroad Bank Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", abroadBankAccountsNumber, integerAbroadBankAccountsDetailsMap.size()));
-        }
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterPartnersNum(partnersNum);
@@ -420,10 +367,7 @@ public class Various extends BasePage {
 
     // Digital Coins methods
     public void chooseDigitalCoinsBitcoin(int digitalCoinsNumber) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseBitcoin();
@@ -432,10 +376,7 @@ public class Various extends BasePage {
     }
 
     public void chooseDigitalCoinsNano(int digitalCoinsNumber) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseNano();
@@ -444,10 +385,7 @@ public class Various extends BasePage {
     }
 
     public void chooseDigitalCoinsSteem(int digitalCoinsNumber) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseSteem();
@@ -456,10 +394,7 @@ public class Various extends BasePage {
     }
 
     public void chooseDigitalCoinsCardano(int digitalCoinsNumber) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCardano();
@@ -468,10 +403,7 @@ public class Various extends BasePage {
     }
 
     public void chooseDigitalCoinsAnotherCoin(int digitalCoinsNumber) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseAnotherCoin();
@@ -480,40 +412,28 @@ public class Various extends BasePage {
     }
 
     public void enterDigitalCoinsAnotherCoin(int digitalCoinsNumber, String anotherCoinName) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAnotherCoin(anotherCoinName);
     }
 
     public void enterDigitalCoinsCoinAmount(int digitalCoinsNumber, String coinAmount) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterCoinAmount(coinAmount);
     }
 
     public void enterDigitalCoinsPublicKey(int digitalCoinsNumber, String publicKey) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterPublicKey(publicKey);
     }
 
     public void chooseDigitalCoinsCoinsMaterialized(int digitalCoinsNumber) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCoinsMaterialized();
@@ -522,10 +442,7 @@ public class Various extends BasePage {
     }
 
     public void chooseDigitalCoinsCoinsDontMaterialized(int digitalCoinsNumber) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCoinsDontMaterialized();
@@ -534,30 +451,21 @@ public class Various extends BasePage {
     }
 
     public void enterDigitalCoinsAmountMaterialized(int digitalCoinsNumber, String amountMaterialized) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAmountMaterialized(amountMaterialized);
     }
 
     public void enterDigitalCoinsMaterializationValue(int digitalCoinsNumber, String materializationValue) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterMaterializationValue(materializationValue);
     }
 
     public void chooseDigitalCoinsPurchasedWithCoins(int digitalCoinsNumber) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).choosePurchasedWithCoins();
@@ -566,10 +474,7 @@ public class Various extends BasePage {
     }
 
     public void chooseDigitalCoinsDontPurchasedWithCoins(int digitalCoinsNumber) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseDontPurchasedWithCoins();
@@ -578,20 +483,14 @@ public class Various extends BasePage {
     }
 
     public void enterDigitalCoinsAmountSold(int digitalCoinsNumber, String amountSold) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAmountSold(amountSold);
     }
 
     public void enterDigitalCoinsSoldValue(int digitalCoinsNumber, String soldValue) {
-        if (digitalCoinsNumber<0 || digitalCoinsNumber>=integerDigitalCoinsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Digital Coins Accounts #%d. " +
-                    "The number need to be between 0 and %d not inclusive", digitalCoinsNumber, integerDigitalCoinsDetailsMap.size()));
-        }
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterSoldValue(soldValue);
@@ -600,20 +499,14 @@ public class Various extends BasePage {
 
     // Stocks methods
     public void enterStocksCompanyName(int stocksNumber, String companyName) {
-        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
-                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
-        }
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).enterCompanyName(companyName);
     }
 
     public void chooseStocksCompanySourceOversea(int stocksNumber) {
-        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
-                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
-        }
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).chooseCompanySourceOversea();
@@ -622,10 +515,7 @@ public class Various extends BasePage {
     }
 
     public void chooseStocksCompanySourceIsrael(int stocksNumber) {
-        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
-                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
-        }
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).chooseCompanySourceIsrael();
@@ -634,10 +524,7 @@ public class Various extends BasePage {
     }
 
     public void selectCountryStocksFromDropDownListByName(int stocksNumber, String country) {
-        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
-                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
-        }
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).selectCountryFromDropDownListByName(country);
@@ -646,30 +533,21 @@ public class Various extends BasePage {
     }
 
     public void enterStocksState(int stocksNumber, String state) {
-        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
-                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
-        }
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).enterState(state);
     }
 
     public void enterStocksCompanyNum(int stocksNumber, String companyNum) {
-        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
-                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
-        }
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).enterCompanyNum(companyNum);
     }
 
     public void enterStocksCompanyPercentage(int stocksNumber, String companyPercentage) {
-        if (stocksNumber<0 || stocksNumber>=integerStocksDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Stocks #%d. " +
-                    "The number need to be between 0 and %d not inclusive", stocksNumber, integerStocksDetailsMap.size()));
-        }
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).enterCompanyPercentage(companyPercentage);
@@ -677,20 +555,14 @@ public class Various extends BasePage {
 
     // partnerships methods
     public void enterPartnershipName(int partnershipsNumber, String name) {
-        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
-                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
-        }
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterName(name);
     }
 
     public void choosePartnershipLocationIsrael(int partnershipsNumber) {
-        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
-                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
-        }
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).choosePartnershipLocationIsrael();
@@ -699,10 +571,7 @@ public class Various extends BasePage {
     }
 
     public void choosePartnershipLocationOversea(int partnershipsNumber) {
-        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
-                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
-        }
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).choosePartnershipLocationOversea();
@@ -711,30 +580,21 @@ public class Various extends BasePage {
     }
 
     public void enterPartnershipOsekNum(int partnershipsNumber, String osekNum) {
-        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
-                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
-        }
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterOsekNum(osekNum);
     }
 
     public void enterPartnershipPercentage(int partnershipsNumber, String percentage) {
-        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
-                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
-        }
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterPercentage(percentage);
     }
 
     public void selectCountryPartnershipsFromDropDownListByName(int partnershipsNumber, String country) {
-        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
-                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
-        }
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).selectCountryFromDropDownListByName(country);
@@ -743,10 +603,7 @@ public class Various extends BasePage {
     }
 
     public void enterPartnershipsState(int partnershipsNumber, String state) {
-        if (partnershipsNumber<0 || partnershipsNumber>=integerPartnershipsDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to addPanel details for a Partnerships #%d. " +
-                    "The number need to be between 0 and %d not inclusive", partnershipsNumber, integerPartnershipsDetailsMap.size()));
-        }
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterState(state);
@@ -864,7 +721,6 @@ public class Various extends BasePage {
             WebElement webElement = stocksDetailsRows.get(i);
             integerStocksDetailsMap.put(i, new StocksDetails(driver, webElement));
         }
-
     }
 
 }

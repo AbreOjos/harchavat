@@ -7,14 +7,13 @@ import pom.forms.realestates.RealEstate;
 import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
-import pom.sendform.SendForm;
+import pom.forms.sendform.SendForm;
 import readresources.documents.FileAttachments;
 import tests.TestBase;
 
 import java.net.URISyntaxException;
 
-import static constants.EnglishHebrewConstants.ISRAEL;
-import static constants.EnglishHebrewConstants.JERUSALEM;
+import static constants.EnglishHebrewConstants.*;
 
 public class TemporalTests extends TestBase {
     private static final Logger log = Logger.getLogger(TemporalTests.class);
@@ -186,7 +185,7 @@ public class TemporalTests extends TestBase {
 
     }
 
-    protected void fillRealEstateDetails() throws URISyntaxException {
+    protected void fillRealEstateDetails() throws Exception {
         RealEstate realEstate = basePage.clickMenuRealEstate();
 
         realEstate.chooseDontHaveRealEstate();
@@ -198,6 +197,8 @@ public class TemporalTests extends TestBase {
         realEstate.deleteRealEstate(1);
 
         realEstate.addRealEstate();
+
+        realEstate.pickDayMonthYear(1, "12", MARCH, "2020");
 
         realEstate.chooseRealEstateTypeHousingUnit(1);
         realEstate.chooseRealEstateTypeAnother(0);
@@ -227,9 +228,21 @@ public class TemporalTests extends TestBase {
 //        realEstate.chooseRealEstateTenantNotIsraeli(1);
 //        realEstate.enterRenterCountry(1, "USA");
         realEstate.chooseRealEstateRenting(1);
-        realEstate.chooseRealEstateTenantNotIsraeli(1);
-        realEstate.enterRenterPassport(1, "123456789");
+//        realEstate.enterRenterPassport(1, "123456789");
         realEstate.enterMonthlyRent(1, "3000");
+
+        realEstate.addTenant(1);
+        realEstate.addTenant(1);
+        realEstate.chooseTenantFromAbroad(1, 2);
+        realEstate.chooseTenantFromIsrael(1, 0);
+
+        realEstate.enterTenantId(1, 0, "320959604");
+        realEstate.enterTenantPassport(1, 2, "999999");
+
+        realEstate.deleteTenant(1, 1);
+
+        realEstate.selectCountryRenterFromDropDownListByName(1, 1, USA);
+        realEstate.enterTenantState(1, 1, "Alabama");
 
         realEstate.attachContractFile(1, FileAttachments.getDocumentPdf().toString());
     }

@@ -1,6 +1,5 @@
 package pom.forms.wages;
 
-import com.mysql.cj.exceptions.WrongArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -15,9 +14,11 @@ import static constants.BaseConstants.errorIconSubElementMenu;
 import static constants.WagesConstants.wagesDetailsPanel;
 
 public class Wage extends BasePage {
-
+    
     // == private fields =
     private Map<Integer, WageDetails> integerWageDetailsMap;
+    
+    private String wage = "wage";
 
     // == constructors==
     public Wage(WebDriver driver) {
@@ -25,6 +26,8 @@ public class Wage extends BasePage {
         this.driver = driver;
 
         PageFactory.initElements(this.driver, this);
+
+        recreateMapPanelsOnPage();
     }
 
     // == public methods ==
@@ -67,20 +70,14 @@ public class Wage extends BasePage {
 
 
     public void chooseIsraelIncome(int wageNumber) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to choose Israel Income on a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).chooseIsraelIncome();
     }
 
     public void chooseAbroadIncome(int wageNumber) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to choose Abroad Income for a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).chooseAbroadIncome();
@@ -88,60 +85,42 @@ public class Wage extends BasePage {
 
     // for Abroad Income only
     public void chooseCountryIsrael(int wageNumber) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to choose state on a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).chooseCountryIsrael();
     }
 
     public void chooseCountryZambia(int wageNumber) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to choose state on a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).chooseCountryZambia();
     }
 
     public void chooseCountryUsa(int wageNumber) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to choose state on a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).chooseCountryUsa();
     }
 
     public void enterState(int wageNumber, String state) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to enter state to a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterState(state);
     }
 
     public void enterCity(int wageNumber, String city) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to enter city to a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterCity(city);
     }
 
     public void enterStreet(int wageNumber, String street) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to enter street to a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterStreet(street);
@@ -149,60 +128,42 @@ public class Wage extends BasePage {
 
     // for Israel Income only
     public void enterTikNikuim(int wageNumber, String tikNikuim) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to enter tik nikuim to a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterTikNikuim(tikNikuim);
     }
 
     public void selectCityFromDropDownListByName(int wageNumber, String city) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to choose city of a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).selectCityFromDropDownListByName(city);
     }
 
     public void selectStreetFromDropDownListByName(int wageNumber, String street) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to choose street of a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).selectStreetFromDropDownListByName(street);
     }
 
     public void enterHouseNum(int wageNumber, String houseNum) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to enter house number to a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterHouseNum(houseNum);
     }
 
     public void enterEmployerName(int wageNumber, String employerName) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to enter employer name to a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterEmployerName(employerName);
     }
 
     public void enterAnnualIncome(int wageNumber, String annualIncome) {
-        if (wageNumber<0 || wageNumber>=integerWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to enter annual income to a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerWageDetailsMap.size()));
-        }
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterAnnualIncome(annualIncome);
@@ -221,7 +182,6 @@ public class Wage extends BasePage {
             WebElement webElement = wageDetailsRows.get(i);
             integerWageDetailsMap.put(i, new WageDetails(driver, webElement));
         }
-
     }
 
 }

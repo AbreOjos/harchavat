@@ -1,4 +1,4 @@
-package pom.sendform.various;
+package pom.forms.sendform.various;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

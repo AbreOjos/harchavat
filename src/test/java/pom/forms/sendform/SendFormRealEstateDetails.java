@@ -1,4 +1,4 @@
-package pom.sendform;
+package pom.forms.sendform;
 
 import com.mysql.cj.exceptions.WrongArgumentException;
 import org.openqa.selenium.WebDriver;

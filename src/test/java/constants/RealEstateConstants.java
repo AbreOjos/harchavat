@@ -9,13 +9,11 @@ public class RealEstateConstants {
     }
 
     // elements
-//    public static final By realEstateDetailsPanel = By.xpath("//div[@class='other-box']//div[contains(@class, 'shaamPage')]");
     public static final By realEstateDetailsPanel = By.xpath("//div[@class='other-box']/div[2]/div/div/div");
     public static final By btnsDeletePanel = By.xpath("//div[not(contains(@class, '_250'))]/div/div/p/span[contains(., 'delete')]");
+    public static final By tenantPanelSubElementRealEstatePanel = By.xpath(".//p[@class='item-head']/following-sibling::*");
 
     // sub-elements
-    public static final By btnsRealEstateTrueSubElementDetails = By.xpath(".//*[not(contains(@class, 'yes-no-box'))]/*[contains(@class, 'toggle')]/button[@value='true']");
-    public static final By btnsRealEstateFalseSubElementDetails = By.xpath(".//*[not(contains(@class, 'yes-no-box'))]/*[contains(@class, 'toggle')]/button[@value='false']");
     public static final By btnsRealEstateAssetIsraelOrAbroadSubElementDetails = By.xpath(".//div[@name='assetInIsrael']//button");
     public static final By btnsRealEstateAssetDetailsSubElementDetails = By.xpath(".//div[@name='assetDetails']//button");
     public static final By dropDownRealEstateTypeSubElementDetails = By.xpath(".//div[@class='v-select__slot']");
@@ -39,18 +37,28 @@ public class RealEstateConstants {
     public static final By volumeRealEstateDividedSubElementDetails = By.xpath(".//input[@name='splitAmount']");
     public static final By volumeRealEstateAddSubElementDetails = By.xpath(".//button[contains(@class, 'add')]");
     public static final By volumeRealEstateRemoveSubElementDetails = By.xpath(".//button[contains(@class, 'remove')]");
-    public static final By txtRenterIdSubElementDetails = By.xpath(".//input[@name='renterId']");
     public static final By txtMonthlyRentSubElementDetails = By.xpath(".//input[@name='monthlyRent']");
-    public static final By dropDownCountryRenterSubElementDetails = By.xpath(".//input[@name='countryOfRenter']");
-    public static final By txtRenterPasswordSubElementDetails = By.xpath(".//input[@name='renterPassport']");
     public static final By attachContractFileSubElementDetails = By.xpath(".//div[@class='v-btn__content']//input");
 
-    // picker (sub-element of Details)
+    // sub-elements of tenant sub-panel
+    public static final By btnRentIsraeliSubElementTenant = By.xpath(".//*[@name='isRentIsraeli']/button[@value='true']");
+    public static final By btnRentAbroadSubElementTenant = By.xpath(".//*[@name='isRentIsraeli']/button[@value='false']");
+    public static final By txtRenterIdSubElementTenant = By.xpath(".//input[@name='renterId']");
+    public static final By dropDownCountryRenterSubElementTenant = By.xpath(".//input[@name='countryOfRenter']");
+    public static final By txtRenterStateSubElementTenant = By.xpath(".//input[@name='state']");
+    public static final By txtRenterPassportSubElementTenant = By.xpath(".//input[@name='renterPassport']");
+
+
+    // picker
     public static final By btnPickerSubElementDetail = By.xpath(".//input[@name='date']");
-    public static final By btnHeaderPickerSubElementDetails = By.xpath(".//div[@class='accent--text']/button");
-    public static final By btnRightSubElementDetails = By.xpath(".//button//i[contains(text(),'chevron_right')]");
-    public static final By btnLeftSubElementDetails = By.xpath(".//button//i[contains(text(),'chevron_left')]");
-    public static final By lblDaySubElementDetails = By.xpath(".//tbody/tr/td/button/div");
-    public static final By btnsActionsPickerSubElementDetails = By.xpath(".//div[contains(@class, 'v-picker__actions')]/button");
+
+    public static final By btnHeaderPicker = By.xpath("//div[@class='accent--text']/button");
+    public static final By btnRight = By.xpath("//button//i[contains(text(),'chevron_right')]");
+    public static final By btnLeft = By.xpath("//button//i[contains(text(),'chevron_left')]");
+    public static final By lblDay = By.xpath("//tbody/tr/td/button/div");
+    public static final By btnCalendarCancel =
+            By.xpath("//div[contains(@class, 'v-picker__actions')]/button/div[contains(text(), 'ביטול')]");
+    public static final By btnCalendarOk =
+            By.xpath("//div[contains(@class, 'v-picker__actions')]/button/div[contains(text(), 'אישור')]");
 
 }

@@ -10,10 +10,11 @@ import pom.forms.realestates.RealEstate;
 import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
-import pom.sendform.SendForm;
+import pom.forms.sendform.SendForm;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.*;
@@ -456,8 +457,17 @@ public class BasePage {
     }
 
     // check if an element contains a specific class
-    public boolean elementHasClass(WebElement element, String active) {
+    protected boolean elementHasClass(WebElement element, String active) {
         return Arrays.asList(element.getAttribute("class").split(" ")).contains(active);
+    }
+
+    protected <T> void checkNumber(int number, String panel, Map<Integer, T> integerDetailsMap) {
+        if (number<0 || number>=integerDetailsMap.size()) {
+            String IMPOSSIBLE_ADD_DETAILS =
+                    String.format("Impossible to add details for a %s ", panel)
+                            + "#%d. The number need to be between 0 and %d not inclusive";
+            throw new WrongArgumentException(String.format(IMPOSSIBLE_ADD_DETAILS, number, integerDetailsMap.size()));
+        }
     }
 
 }

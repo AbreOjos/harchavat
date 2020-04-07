@@ -1,27 +1,37 @@
 package pom.forms.realestates;
 
 import com.mysql.cj.exceptions.WrongArgumentException;
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.txtStateSubElementDetails;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
-import static constants.EnglishHebrewConstants.JANUARY;
 import static constants.RealEstateConstants.*;
 
 public class RealEstateDetails extends BasePage {
 
+    // == private fields ==
     private final WebElement details;
+    private Map<Integer, TenantDetails> integerTenantDetailsMap;
+    
+    private String tenant = "tenant";
+
+    // == static final fields ==
+    private static final String IMPOSSIBLE_ADD_DETAILS =
+            "Impossible to add details for a tenant #%d. The number need to be between 0 and %d not inclusive";
 
     public RealEstateDetails(WebDriver driver, WebElement details) {
         super(driver);
         this.details = details;
+
+        recreateMapPanelsOnPage();
     }
 
     // == protected methods ==
@@ -108,13 +118,13 @@ public class RealEstateDetails extends BasePage {
 //        return details.findElements(btnsRealEstateFalseSubElementDetails).get(1);
 //    }
 //
-    protected WebElement getBtnRealEstateTenantIsraeli() {
-        return details.findElements(btnsRealEstateTrueSubElementDetails).get(2);
-    }
-
-    protected WebElement getBtnRealEstateTenantNotIsraeli() {
-        return details.findElements(btnsRealEstateFalseSubElementDetails).get(2);
-    }
+//    protected WebElement getBtnRealEstateTenantIsraeli() {
+//        return details.findElements(btnsRealEstateTrueSubElementDetails).get(2);
+//    }
+//
+//    protected WebElement getBtnRealEstateTenantNotIsraeli() {
+//        return details.findElements(btnsRealEstateFalseSubElementDetails).get(2);
+//    }
 
     protected WebElement getBtnAddTenant() {
         return details.findElement(btnAddTenantSubElementDetails);
@@ -165,9 +175,9 @@ public class RealEstateDetails extends BasePage {
         return details.findElement(volumeRealEstateRemoveSubElementDetails);
     }
 
-    protected WebElement getTxtRenterId() {
-        return details.findElement(txtRenterIdSubElementDetails);
-    }
+//    protected WebElement getTxtRenterId() {
+//        return details.findElement(txtRenterIdSubElementDetails);
+//    }
 
     protected WebElement getTxtMonthlyRent() {
         return details.findElement(txtMonthlyRentSubElementDetails);
@@ -177,13 +187,13 @@ public class RealEstateDetails extends BasePage {
 //        return details.findElement(txtRenterCountrySubElementDetails);
 //    }
 
-    protected WebElement getDropDownCountryRenter() {
-        return details.findElement(dropDownCountryRenterSubElementDetails);
-    }
+//    protected WebElement getDropDownCountryRenter() {
+//        return details.findElement(dropDownCountryRenterSubElementDetails);
+//    }
 
-    protected WebElement getTxtRenterPassword() {
-        return details.findElement(txtRenterPasswordSubElementDetails);
-    }
+//    protected WebElement getTxtRenterPassword() {
+//        return details.findElement(txtRenterPasswordSubElementDetails);
+//    }
 
     protected WebElement getAttachContractFile() {
         return details.findElement(attachContractFileSubElementDetails);
@@ -194,29 +204,29 @@ public class RealEstateDetails extends BasePage {
         return details.findElement(btnPickerSubElementDetail);
     }
 
-    protected WebElement getBtnHeaderPicker() {
-        return details.findElement(btnHeaderPickerSubElementDetails);
-    }
+//    protected WebElement getBtnHeaderPicker() {
+//        return details.findElement(btnHeaderPicker);
+//    }
 
-    protected WebElement getBtnRight() {
-        return details.findElement(btnRightSubElementDetails);
-    }
+//    protected WebElement getBtnRight() {
+//        return details.findElement(btnRight);
+//    }
+//
+//    protected WebElement getBtnLeft() {
+//        return details.findElement(btnLeft);
+//    }
 
-    protected WebElement getBtnLeft() {
-        return details.findElement(btnLeftSubElementDetails);
-    }
+//    protected List<WebElement> getLblsDay() {
+//        return details.findElements(lblDay);
+//    }
 
-    protected List<WebElement> getLblsDay() {
-        return details.findElements(lblDaySubElementDetails);
-    }
-
-    protected WebElement getBtnCancelPick() {
-        return details.findElements(btnsActionsPickerSubElementDetails).get(0);
-    }
-
-    protected WebElement getBtnOkPick() {
-        return details.findElements(btnsActionsPickerSubElementDetails).get(1);
-    }
+//    protected WebElement getBtnCancelPick() {
+//        return details.findElements(btnsActionsPicker).get(0);
+//    }
+//
+//    protected WebElement getBtnOkPick() {
+//        return details.findElements(btnsActionsPicker).get(1);
+//    }
 
 
     // choose real estate type
@@ -273,55 +283,56 @@ public class RealEstateDetails extends BasePage {
         }
     }
 
-    protected String fetchCurrentMonthYear() {
-        return getBtnHeaderPicker().getText().trim();
-    }
+//    protected String fetchCurrentMonthYear() {
+////        PageFactory.initElements(driver, this);
+//        return getBtnHeaderPicker().getText().trim();
+//    }
 
-    protected String clickRightOnce() {
-        getBtnRight().click();
-        return fetchCurrentMonthYear();
-    }
+//    protected String clickRightOnce() {
+//        getBtnRight().click();
+//        return fetchCurrentMonthYear();
+//    }
+//
+//    protected String clickLeftOnce() {
+//        getBtnLeft().click();
+//        return fetchCurrentMonthYear();
+//    }
 
-    protected String clickLeftOnce() {
-        getBtnLeft().click();
-        return fetchCurrentMonthYear();
-    }
+//    protected String pickMonthYear(String month, String year) {
+//        String currentMonthYear = fetchCurrentMonthYear();
+//        String currentYear = StringUtils.getDigits(currentMonthYear);
+//
+//        if (Integer.parseInt(year) > Integer.parseInt(currentYear)) {
+//            clickLeft(JANUARY, year);
+//        } else {
+//            clickRight(JANUARY, year);
+//        }
+//
+//        while (!currentMonthYear.contains(month) || !currentMonthYear.contains(year)) {
+//            currentMonthYear = clickLeft(month, year);
+//        }
+//
+//        return currentMonthYear;
+//    }
 
-    protected String pickMonthYear(String month, String year) {
-        String currentMonthYear = fetchCurrentMonthYear();
-        String currentYear = StringUtils.getDigits(currentMonthYear);
+//    protected String pickDay(String day) {
+//        for (WebElement singleDay : getLblsDay()) {
+//            if (singleDay.getText().trim().equals(day)) {
+//                singleDay.click();
+//                return singleDay.getText().trim();
+//            }
+//        }
+//
+//        throw new WrongArgumentException(String.format("Day %s not found in the picker", day));
+//    }
 
-        if (Integer.parseInt(year) > Integer.parseInt(currentYear)) {
-            clickLeft(JANUARY, year);
-        } else {
-            clickRight(JANUARY, year);
-        }
-
-        while (!currentMonthYear.contains(month) || !currentMonthYear.contains(year)) {
-            currentMonthYear = clickLeft(month, year);
-        }
-
-        return currentMonthYear;
-    }
-
-    protected String pickDay(String day) {
-        for (WebElement singleDay : getLblsDay()) {
-            if (singleDay.getText().trim().equals(day)) {
-                singleDay.click();
-                return singleDay.getText().trim();
-            }
-        }
-
-        throw new WrongArgumentException(String.format("Day %s not found in the picker", day));
-    }
-
-    protected void pickCancel() {
-        getBtnCancelPick().click();
-    }
-
-    protected void pickOk() {
-        getBtnOkPick().click();
-    }
+//    protected void pickCancel() {
+//        getBtnCancelPick().click();
+//    }
+//
+//    protected void pickOk() {
+//        getBtnOkPick().click();
+//    }
 
 
 
@@ -453,31 +464,31 @@ public class RealEstateDetails extends BasePage {
 //        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 //    }
 
-    protected void chooseRealEstateTenantIsraeli() {
-        if (elementHasClass(getBtnRealEstateTenantIsraeli(), "active"))
-            return;
+//    protected void chooseRealEstateTenantIsraeli() {
+//        if (elementHasClass(getBtnRealEstateTenantIsraeli(), "active"))
+//            return;
+//
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantIsraeli());
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+//    }
 
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantIsraeli());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-    }
-
-    protected void chooseRealEstateTenantNotIsraeli() {
-        if (elementHasClass(getBtnRealEstateTenantNotIsraeli(), "active"))
-            return;
-
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantNotIsraeli());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-    }
+//    protected void chooseRealEstateTenantNotIsraeli() {
+//        if (elementHasClass(getBtnRealEstateTenantNotIsraeli(), "active"))
+//            return;
+//
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantNotIsraeli());
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+//    }
 
     protected void addTenant() {
         try {
@@ -628,20 +639,62 @@ public class RealEstateDetails extends BasePage {
     }
 
     // tenant details
-    protected void enterRenterId(String renterId) {
-        fillFormField(getTxtRenterId(), renterId);
-    }
+//    protected void enterRenterId(String renterId) {
+//        fillFormField(getTxtRenterId(), renterId);
+//    }
 
     protected void enterMonthlyRent(String monthlyRent) {
         fillFormField(getTxtMonthlyRent(), monthlyRent);
     }
 
-    protected void selectCountryRenterFromDropDownListByName(String countryRenter) {
-        selectItemFromDropDownListByName(getDropDownCountryRenter(), countryRenter);
+//    protected void selectCountryRenterFromDropDownListByName(String countryRenter) {
+//        selectItemFromDropDownListByName(getDropDownCountryRenter(), countryRenter);
+//    }
+
+//    protected void enterRenterPassport(String renterPassport) {
+//        fillFormField(getTxtRenterPassword(), renterPassport);
+//    }
+
+    public void chooseTenantFromIsrael(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerTenantDetailsMap.get(tenantNumber).chooseTenantFromIsrael();
     }
 
-    protected void enterRenterPassword(String renterPassword) {
-        fillFormField(getTxtRenterPassword(), renterPassword);
+    public void chooseTenantFromAbroad(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerTenantDetailsMap.get(tenantNumber).chooseTenantFromAbroad();
+    }
+
+    public void enterTenantId(int tenantNumber, String tenantId) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerTenantDetailsMap.get(tenantNumber).enterTenantId(tenantId);
+    }
+
+    public void selectCountryRenterFromDropDownListByName(int tenantNumber, String countryTenant) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerTenantDetailsMap.get(tenantNumber).selectCountryTenantFromDropDownListByName(countryTenant);
+    }
+
+    public void enterTenantState(int tenantNumber, String tenantState) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerTenantDetailsMap.get(tenantNumber).enterTenantState(tenantState);
+    }
+
+    public void enterTenantPassport(int tenantNumber, String tenantPassport) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerTenantDetailsMap.get(tenantNumber).enterTenantPassport(tenantPassport);
     }
 
     // attach contract
@@ -651,6 +704,21 @@ public class RealEstateDetails extends BasePage {
 
 
     // == private methods ==
+    private void recreateMapPanelsOnPage() {
+        integerTenantDetailsMap = new HashMap<>();
+
+//        PageFactory.initElements(driver, this);
+
+        List<WebElement> tenantDetailsRows = details.findElements(tenantPanelSubElementRealEstatePanel);
+
+        for (int i = 0; i < tenantDetailsRows.size(); ++i) {
+            WebElement webElement = tenantDetailsRows.get(i);
+            integerTenantDetailsMap.put(i, new TenantDetails(driver, webElement));
+        }
+
+    }
+
+
     private int addOrRemoveSinglePartitionsOfDividedRealEstate(int amountPartitions) {
         if (amountPartitionsOfDividedRealEstate() > amountPartitions) {
             return removeSinglePartitionsOfDividedRealEstate();
@@ -661,22 +729,22 @@ public class RealEstateDetails extends BasePage {
         }
     }
 
-    private String clickRight(String month, String year) {
-        String currentMonthYear = fetchCurrentMonthYear();
-        while (!currentMonthYear.contains(month) || !currentMonthYear.contains(year)) {
-            currentMonthYear = clickRightOnce();
-        }
-
-        return fetchCurrentMonthYear();
-    }
-
-    private String clickLeft(String month, String year) {
-        String currentMonthYear = fetchCurrentMonthYear();
-        while (!currentMonthYear.contains(month) || !currentMonthYear.contains(year)) {
-            currentMonthYear = clickLeftOnce();
-        }
-
-        return fetchCurrentMonthYear();
-    }
+//    private String clickRight(String month, String year) {
+//        String currentMonthYear = fetchCurrentMonthYear();
+//        while (!currentMonthYear.contains(month) || !currentMonthYear.contains(year)) {
+//            currentMonthYear = clickRightOnce();
+//        }
+//
+//        return fetchCurrentMonthYear();
+//    }
+//
+//    private String clickLeft(String month, String year) {
+//        String currentMonthYear = fetchCurrentMonthYear();
+//        while (!currentMonthYear.contains(month) || !currentMonthYear.contains(year)) {
+//            currentMonthYear = clickLeftOnce();
+//        }
+//
+//        return fetchCurrentMonthYear();
+//    }
 
 }

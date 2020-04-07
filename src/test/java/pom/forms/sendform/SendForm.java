@@ -1,4 +1,4 @@
-package pom.sendform;
+package pom.forms.sendform;
 
 import com.mysql.cj.exceptions.WrongArgumentException;
 import org.openqa.selenium.WebDriver;
@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
-import pom.sendform.various.VariousAbroadBankAccount;
-import pom.sendform.various.VariousDigitalCoins;
-import pom.sendform.various.VariousNonWorkIncomes;
-import pom.sendform.various.VariousStocks;
+import pom.forms.sendform.various.VariousAbroadBankAccount;
+import pom.forms.sendform.various.VariousDigitalCoins;
+import pom.forms.sendform.various.VariousNonWorkIncomes;
+import pom.forms.sendform.various.VariousStocks;
 
 import java.util.HashMap;
 import java.util.List;

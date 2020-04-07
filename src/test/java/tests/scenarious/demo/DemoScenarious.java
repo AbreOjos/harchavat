@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 import org.testng.Assert;
 import pom.forms.PersonalDetails;
 import pom.forms.vehicles.Vehicle;
-import pom.sendform.SendForm;
+import pom.forms.sendform.SendForm;
 import tests.TestBase;
 
 import static constants.EnglishHebrewConstants.NO;
