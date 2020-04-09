@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import readresources.drivers.WebDrivers;
 import tests.RunMode;
 import tests.scenarious.AxeTests;
+import utils.utilitiesForInfra.MiscellaneousForInfra;
 
 import java.net.URISyntaxException;
 
@@ -15,9 +16,9 @@ public class ChromeAxeTests extends AxeTests {
     @BeforeClass(groups = {RunMode.CHROME_AXE}, alwaysRun = true)
     public void setUpClass() throws URISyntaxException {
 
-        if (osName().equals("windows")) {
+        if (MiscellaneousForInfra.osName().equals("windows")) {
             System.setProperty("webdriver.chrome.driver", WebDrivers.getChromeDriverWindows().toString());
-        } else if (osName().equals("unix")) {
+        } else if (MiscellaneousForInfra.osName().equals("unix")) {
             System.setProperty("webdriver.chrome.driver", WebDrivers.getChromeDriverUnix().toString());
         }
 

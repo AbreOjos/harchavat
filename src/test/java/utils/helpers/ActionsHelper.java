@@ -3,6 +3,7 @@ package utils.helpers;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import utils.utilitiesForInfra.MiscellaneousForInfra;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,16 +24,53 @@ public class ActionsHelper {
     public static void clear(WebDriver driver, WebElement webElement) {
 
         org.openqa.selenium.interactions.Actions navigator = new org.openqa.selenium.interactions.Actions(driver);
-        navigator.click(webElement)
-//                .keyDown(Keys.CONTROL).keyDown(Keys.LEFT_SHIFT)
+
+        if (MiscellaneousForInfra.osName().equals("mac")) {
+//            navigator.click(webElement)
+//                    .clickAndHold().sendKeys(Keys.chord(Keys.COMMAND), "a")
+//                    .pause(500)
+//                    .release()
+//                    .sendKeys(Keys.BACK_SPACE)
+//                    .build().perform();
+
+//            webElement.clear();
+
+            int textLength = webElement.getAttribute("value").length();
+            while (textLength > 0) {
+                navigator.click(webElement)
+                        .clickAndHold().sendKeys(Keys.chord(Keys.COMMAND, Keys.ARROW_LEFT))
+                        .release()
+                        .sendKeys(Keys.BACK_SPACE)
+                        .perform();
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+//            textLength--;
+                textLength = webElement.getAttribute("value").length();
+            }
+        } else {
+            navigator.click(webElement)
+                    .keyDown(Keys.CONTROL).sendKeys(Keys.HOME)
+                    .keyDown(Keys.LEFT_SHIFT).sendKeys(Keys.END)
+                    .keyUp(Keys.CONTROL).keyUp(Keys.LEFT_SHIFT)
+                    .sendKeys(Keys.BACK_SPACE)
+                    .build().perform();
+        }
+
+//        navigator.click(webElement)
+////                .keyDown(Keys.CONTROL).keyDown(Keys.LEFT_SHIFT)
+////                .keyUp(Keys.CONTROL).keyUp(Keys.LEFT_SHIFT)
+//                .keyDown(Keys.CONTROL).sendKeys(Keys.HOME)
+////                .keyUp(Keys.CONTROL)
+//                .keyDown(Keys.LEFT_SHIFT).sendKeys(Keys.END)
 //                .keyUp(Keys.CONTROL).keyUp(Keys.LEFT_SHIFT)
-                .keyDown(Keys.CONTROL).sendKeys(Keys.HOME)
-//                .keyUp(Keys.CONTROL)
-                .keyDown(Keys.LEFT_SHIFT).sendKeys(Keys.END)
-                .keyUp(Keys.CONTROL).keyUp(Keys.LEFT_SHIFT)
-//                .sendKeys(Keys.DELETE).sendKeys(Keys.BACK_SPACE)
-                .sendKeys(Keys.BACK_SPACE)
-                .perform();
+////                .sendKeys(Keys.DELETE).sendKeys(Keys.BACK_SPACE)
+//                .sendKeys(Keys.BACK_SPACE)
+//                .perform();
+
 
 //        navigator.moveToElement(webElement)
 //                .clickAndHold().sendKeys(Keys.chord(Keys.LEFT_CONTROL, Keys.LEFT_SHIFT))

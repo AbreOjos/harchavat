@@ -153,20 +153,6 @@ public abstract class TestBase {
 
     }
 
-    protected String osName() {
-        String OS = System.getProperty("os.name").toLowerCase();
-
-        if (OS.contains("win")) {
-            return "windows";
-        } else if (OS.contains("nix") || OS.contains("nux") || OS.contains("aix") || OS.contains("sunos")) {
-            return "unix";
-        } else if (OS.contains("mac")) {
-            return "mac";
-        } else {
-            throw new RuntimeException("OS not supported");
-        }
-    }
-
     @AfterMethod(alwaysRun = true)
     public void tearDownMethod() {
         if (driver != null) driver.quit();

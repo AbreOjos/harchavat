@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import readresources.drivers.WebDrivers;
 import tests.chrome.ChromeSendFormVehicleTests;
+import utils.utilitiesForInfra.MiscellaneousForInfra;
 
 import java.net.URISyntaxException;
 
@@ -17,9 +18,9 @@ public class ChromeDemoScenarious extends DemoScenarious {
     @BeforeClass(alwaysRun = true)
     public void setUpClass() throws URISyntaxException {
 
-        if (osName().equals("windows")) {
+        if (MiscellaneousForInfra.osName().equals("windows")) {
             System.setProperty("webdriver.chrome.driver", WebDrivers.getChromeDriverWindows().toString());
-        } else if (osName().equals("unix")) {
+        } else if (MiscellaneousForInfra.osName().equals("unix")) {
             System.setProperty("webdriver.chrome.driver", WebDrivers.getChromeDriverUnix().toString());
         }
 

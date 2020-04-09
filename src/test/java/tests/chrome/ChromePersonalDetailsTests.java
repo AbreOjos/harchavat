@@ -8,6 +8,7 @@ import readresources.drivers.WebDrivers;
 import tests.RunMode;
 import tests.scenarious.PersonalDetailsTests;
 import utils.dataprovider.NEDataProvider;
+import utils.utilitiesForInfra.MiscellaneousForInfra;
 
 import java.net.URISyntaxException;
 
@@ -18,9 +19,9 @@ public class ChromePersonalDetailsTests extends PersonalDetailsTests {
     @BeforeClass(groups = {RunMode.CHROME}, alwaysRun = true)
     public void setUpClass() throws URISyntaxException {
 
-        if (osName().equals("windows")) {
+        if (MiscellaneousForInfra.osName().equals("windows")) {
             System.setProperty("webdriver.chrome.driver", WebDrivers.getChromeDriverWindows().toString());
-        } else if (osName().equals("unix")) {
+        } else if (MiscellaneousForInfra.osName().equals("unix")) {
             System.setProperty("webdriver.chrome.driver", WebDrivers.getChromeDriverUnix().toString());
         }
 
@@ -111,7 +112,7 @@ public class ChromePersonalDetailsTests extends PersonalDetailsTests {
         polygamyAllianceSpousePassportFormat();
     }
 
-    public void testCheckMenuIcons() {
+    public void testCheckMenuIcons() throws InterruptedException {
         checkMenuIcons();
     }
 

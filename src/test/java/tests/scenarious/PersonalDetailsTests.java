@@ -267,7 +267,7 @@ public class PersonalDetailsTests extends TestBase {
         spousePassportFormat(personalDetails);
     }
 
-    protected void checkMenuIcons() {
+    protected void checkMenuIcons() throws InterruptedException {
         log.info("Check that Personal Area menu has icons: error, checked");
 
         String correctPhoneNumber = "123456789";
@@ -284,8 +284,13 @@ public class PersonalDetailsTests extends TestBase {
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getCheckCircleIconMenu(), 0,
                 "A check-circle icon menu did not disappears when there are empty mandatory fields");
 
+        personalDetails.checkAgreement();
+
         personalDetails.enterPhone(correctPhoneNumber);
-        personalDetails.enterEmail(correctEmail);
+        //personalDetails.enterEmail(correctEmail);
+
+        personalDetails.chooseIsraeli();
+        personalDetails.chooseMaritalStatusBachelor();
 
         basePage.clickMenuWage();
         personalDetails = basePage.clickMenuPersonalDetails();
