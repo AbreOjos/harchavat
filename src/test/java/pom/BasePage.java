@@ -309,6 +309,7 @@ public class BasePage {
 
     protected void fillFormField(WebElement field, String text) {
         fluentWaitElementClickable(driver, field, 10);
+        field.click();
         field.sendKeys(text);
 
         PageFactory.initElements(driver, this);
