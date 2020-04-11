@@ -105,11 +105,25 @@ public class Wage extends BasePage {
         integerWageDetailsMap.get(wageNumber).chooseCountryUsa();
     }
 
+    public String selectCountryFromDropDownListByIndex(int wageNumber, int index) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).selectCountryFromDropDownListByIndex(index);
+    }
+
     public void enterState(int wageNumber, String state) {
         checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterState(state);
+    }
+
+    public void deleteState(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).deleteState();
     }
 
     public void enterCity(int wageNumber, String city) {
@@ -119,11 +133,25 @@ public class Wage extends BasePage {
         integerWageDetailsMap.get(wageNumber).enterCity(city);
     }
 
+    public void deleteCity(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).deleteCity();
+    }
+
     public void enterStreet(int wageNumber, String street) {
         checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterStreet(street);
+    }
+
+    public void deleteStreet(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).deleteStreet();
     }
 
     // for Israel Income only
@@ -134,11 +162,25 @@ public class Wage extends BasePage {
         integerWageDetailsMap.get(wageNumber).enterTikNikuim(tikNikuim);
     }
 
+    public void deleteTikNikuim(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).deleteTikNikuim();
+    }
+
     public void selectCityFromDropDownListByName(int wageNumber, String city) {
         checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).selectCityFromDropDownListByName(city);
+    }
+
+    public String selectCityFromDropDownListByIndex(int wageNumber, int index) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).selectCityFromDropDownListByIndex(index);
     }
 
     public void selectStreetFromDropDownListByName(int wageNumber, String street) {
@@ -148,11 +190,25 @@ public class Wage extends BasePage {
         integerWageDetailsMap.get(wageNumber).selectStreetFromDropDownListByName(street);
     }
 
+    public String selectStreetFromDropDownListByIndex(int wageNumber, int index) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).selectStreetFromDropDownListByIndex(index);
+    }
+
     public void enterHouseNum(int wageNumber, String houseNum) {
         checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterHouseNum(houseNum);
+    }
+
+    public void deleteHouseNum(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).deleteHouseNum();
     }
 
     public void enterEmployerName(int wageNumber, String employerName) {
@@ -162,11 +218,25 @@ public class Wage extends BasePage {
         integerWageDetailsMap.get(wageNumber).enterEmployerName(employerName);
     }
 
+    public void deleteEmployerName(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).deleteEmployerName();
+    }
+
     public void enterAnnualIncome(int wageNumber, String annualIncome) {
         checkNumber(wageNumber, wage, integerWageDetailsMap);
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).enterAnnualIncome(annualIncome);
+    }
+
+    public void deleteAnnualIncome(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerWageDetailsMap.get(wageNumber).deleteAnnualIncome();
     }
 
 

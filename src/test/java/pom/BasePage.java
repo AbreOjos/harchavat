@@ -7,10 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.forms.PersonalDetails;
 import pom.forms.realestates.RealEstate;
+import pom.forms.sendform.SendForm;
 import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
-import pom.forms.sendform.SendForm;
 
 import java.util.Arrays;
 import java.util.List;
@@ -415,6 +415,29 @@ public class BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
 
         PageFactory.initElements(this.driver, this);
+    }
+
+    protected String selectItemFromDropDownListByIndex(WebElement dropDown, int index) {
+
+        clickElementWithJavaScript(driver, dropDown);
+
+        List<WebElement> dropDownListsItems = getDropDownListsItems();
+
+        if (index < 0 || index >= dropDownListsItems.size())
+            throw new IllegalArgumentException(String.format("Index of an element in a drop-down list must be between 0 and %d not inclusive",
+                    dropDownListsItems.size()));
+
+        // create list items from drop-down menu
+        List<String> listItems = dropDownListsItems.stream().
+                map(WebElement::getText).map(String::trim).collect(Collectors.toList());
+
+        dropDownListsItems.get(index).click();
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        PageFactory.initElements(this.driver, this);
+
+        return listItems.get(index);
     }
 
     protected WebElement getDropDownCity(WebElement details) {

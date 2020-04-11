@@ -86,40 +86,68 @@ public class WageDetails extends BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
-    public void chooseCountryIsrael() {
+    protected void chooseCountryIsrael() {
         clickDropDownList(getDropDownCountry(), 0);
     }
 
-    public void chooseCountryZambia() {
+    protected void chooseCountryZambia() {
         clickDropDownList(getDropDownCountry(), 1);
     }
 
-    public void chooseCountryUsa() {
+    protected void chooseCountryUsa() {
         clickDropDownList(getDropDownCountry(), 2);
+    }
+
+    protected String selectCountryFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownCountry(), index);
     }
 
     protected void enterState(String state) {
         fillFormField(getTxtState(), state);
     }
 
+    protected void deleteState() {
+        cleanFormField(getTxtState());
+    }
+
     protected void enterCity(String city) {
         fillFormField(getTxtCity(details), city);
+    }
+
+    protected void deleteCity() {
+        cleanFormField(getTxtCity(details));
     }
 
     protected void selectCityFromDropDownListByName(String city) {
         selectItemFromDropDownListByName(getDropDownCity(details), city);
     }
 
+    protected String selectCityFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownCity(details), index);
+    }
+
     protected void selectStreetFromDropDownListByName(String street) {
         selectItemFromDropDownListByName(getDropDownStreet(details), street);
+    }
+
+    protected String selectStreetFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownStreet(details), index);
     }
 
     protected void enterStreet(String street) {
         fillFormField(getTxtStreet(details), street);
     }
 
+    protected void deleteStreet() {
+        cleanFormField(getTxtStreet(details));
+    }
+
     protected void enterHouseNum(String houseNum) {
         fillFormField(getTxtHouseNum(details), houseNum);
+    }
+
+    protected void deleteHouseNum() {
+        cleanFormField(getTxtHouseNum(details));
     }
 
     protected void enterEmployerName(String employerName) {
@@ -127,13 +155,24 @@ public class WageDetails extends BasePage {
 
     }
 
+    protected void deleteEmployerName() {
+        cleanFormField(getTxtEmployerName());
+    }
+
     protected void enterTikNikuim(String tikNikuim) {
         fillFormField(getTxtTikNikuim(), tikNikuim);
 
     }
 
+    protected void deleteTikNikuim() {
+        cleanFormField(getTxtTikNikuim());
+    }
+
     protected void enterAnnualIncome(String annualIncome) {
         fillFormField(getTxtAnnualIncome(), annualIncome);
+    }
 
+    protected void deleteAnnualIncome() {
+        cleanFormField(getTxtAnnualIncome());
     }
 }

@@ -48,8 +48,8 @@ public class ActionsHelper {
                     e.printStackTrace();
                 }
 
-//            textLength--;
-                textLength = webElement.getAttribute("value").length();
+            textLength--;
+//                textLength = webElement.getAttribute("value").length();
             }
         } else {
             navigator.click(webElement)
