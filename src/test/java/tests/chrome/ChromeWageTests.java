@@ -40,4 +40,12 @@ public class ChromeWageTests extends WageTests {
         checkMenuIcons();
     }
 
+    public void testNeedFillTypeIncomeErrorMessage() {
+        needFillTypeIncomeErrorMessage();
+    }
+
+    public void testNeedFillAnnualIncomeErrorMessage() {
+        needFillAnnualIncomeErrorMessage();
+    }
+
 }

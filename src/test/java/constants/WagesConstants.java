@@ -24,4 +24,22 @@ public class WagesConstants {
 //    public static final By txtCitySubElementDetail = By.xpath(".//input[@name='city']");
     public static final By txtStreetSubElementDetails = By.xpath(".//input[@name='street']");
 //    public static final By txtHouseNumSubElementDetails = By.xpath(".//input[@name='houseNum']");
+
+    // error messages sub-elements
+    public static final By errorMessageNeedFillTypeIncomeSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה סוג ההכנסה')]");
+    public static final By errorMessageNeedFillAnnualIncomeSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה הכנסה שנתית')]");
+    public static final By errorMessageNeedFillEmployerNameSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה שם מעסיק')]");
+    public static final By errorMessageNeedFillCitySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה עיר')]");
+    public static final By errorMessageNeedFillStreetSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה רחוב')]");
+    public static final By errorMessageNeedFillHouseNumberSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מספר בית')]");
+    public static final By errorMessageNeedFillTikNikuimSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה תיק ניכויים')]");
+    public static final By errorMessageNeedFillCountrySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מדינה')]");
 }

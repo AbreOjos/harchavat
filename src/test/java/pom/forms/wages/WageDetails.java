@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
+import java.util.List;
+
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.*;
@@ -61,7 +63,7 @@ public class WageDetails extends BasePage {
 
     // wage details
     protected void chooseIsraelIncome() {
-        if (elementHasClass(getBtnIsraelIncome(), "active"))
+        if (israelIncomeChosen())
             return;
 
         try {
@@ -74,7 +76,7 @@ public class WageDetails extends BasePage {
     }
 
     protected void chooseAbroadIncome() {
-        if (elementHasClass(getBtnAbroadIncome(), "active"))
+        if (abroadIncomeChosen())
             return;
 
         try {
@@ -84,6 +86,14 @@ public class WageDetails extends BasePage {
         }
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+    }
+
+    protected boolean israelIncomeChosen() {
+        return elementHasClass(getBtnIsraelIncome(), "active");
+    }
+
+    protected boolean abroadIncomeChosen() {
+        return elementHasClass(getBtnAbroadIncome(), "active");
     }
 
     protected void chooseCountryIsrael() {
@@ -174,5 +184,38 @@ public class WageDetails extends BasePage {
 
     protected void deleteAnnualIncome() {
         cleanFormField(getTxtAnnualIncome());
+    }
+
+    // error messages
+    protected List<WebElement> getErrorMessageNeedFillTypeIncome() {
+        return details.findElements(errorMessageNeedFillTypeIncomeSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillAnnualIncome() {
+        return details.findElements(errorMessageNeedFillAnnualIncomeSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillEmployerName() {
+        return details.findElements(errorMessageNeedFillEmployerNameSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillCity() {
+        return details.findElements(errorMessageNeedFillCitySubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillStreet() {
+        return details.findElements(errorMessageNeedFillStreetSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillHouseNumber() {
+        return details.findElements(errorMessageNeedFillHouseNumberSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillTikNikuim() {
+        return details.findElements(errorMessageNeedFillTikNikuimSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillCountry() {
+        return details.findElements(errorMessageNeedFillCountrySubElementDetails);
     }
 }

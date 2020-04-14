@@ -83,6 +83,20 @@ public class Wage extends BasePage {
         integerWageDetailsMap.get(wageNumber).chooseAbroadIncome();
     }
 
+    public boolean israelIncomeChosen(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).israelIncomeChosen();
+    }
+
+    public boolean abroadIncomeChosen(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).abroadIncomeChosen();
+    }
+
     // for Abroad Income only
     public void chooseCountryIsrael(int wageNumber) {
         checkNumber(wageNumber, wage, integerWageDetailsMap);
@@ -237,6 +251,63 @@ public class Wage extends BasePage {
 
         recreateMapPanelsOnPage();
         integerWageDetailsMap.get(wageNumber).deleteAnnualIncome();
+    }
+
+    // error messages
+    public List<WebElement> getErrorMessageNeedFillTypeIncome(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageNeedFillTypeIncome();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillAnnualIncome(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageNeedFillAnnualIncome();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillEmployerName(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageNeedFillEmployerName();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillCity(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageNeedFillCity();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillStreet(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageNeedFillStreet();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillHouseNumber(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageNeedFillHouseNumber();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillTikNikuim(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageNeedFillTikNikuim();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillCountry(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageNeedFillCountry();
     }
 
 
