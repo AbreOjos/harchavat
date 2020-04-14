@@ -48,4 +48,32 @@ public class ChromeWageTests extends WageTests {
         needFillAnnualIncomeErrorMessage();
     }
 
+    public void testNeedFillEmployerNameErrorMessage() {
+        needFillEmployerNameErrorMessage();
+    }
+
+    public void testNeedFillCityErrorMessage() {
+        needFillCityErrorMessage();
+    }
+
+    public void testNeedFillStreetErrorMessage() {
+        needFillStreetErrorMessage();
+    }
+
+    public void testNeedFillHouseNumberErrorMessage() {
+        needFillHouseNumberErrorMessage();
+    }
+
+    public void testNeedFillTikNikuimErrorMessage() {
+        needFillTikNikuimErrorMessage();
+    }
+
+    public void testNeedFillCountryErrorMessage() {
+        needFillCountryErrorMessage();
+    }
+
+    public void testTikNikuimCorrectFormat() {
+        tikNikuimCorrectFormat();
+    }
+
 }

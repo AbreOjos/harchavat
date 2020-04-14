@@ -144,7 +144,7 @@ public class WageTests extends TestBase {
     }
 
     protected void needFillAnnualIncomeErrorMessage() {
-        log.info("Add a few wages, play with 'need to add annual income' error message");
+        log.info("Add a few wages, play with 'need to fill annual income' error message");
 
         String income = "123";
 
@@ -195,9 +195,383 @@ public class WageTests extends TestBase {
         AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillAnnualIncome(0), 1,
                 "Error message 'need to fill annual income' disappear on a first panel after all other panels deleted");
 
+    }
+
+    protected void needFillEmployerNameErrorMessage() {
+        log.info("Add a few wages, play with 'need to fill employer' error message");
+
+        String employerName = "Employer Name";
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseIsraelIncome(0);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillEmployerName(0), 1,
+                "Error message 'need to fill employer name' did not appear on a first panel after Israel income was chosen");
+
+        wage.addWage();
+        wage.chooseAbroadIncome(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillEmployerName(1), 1,
+                "Error message 'need to fill employer name' did not appear on a second panel after Abroad income was chosen");
+
+        wage.enterEmployerName(1, employerName);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillEmployerName(1), 0,
+                "Error message 'need to fill employer name' did not disappear on a second panel after Abroad income entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillEmployerName(0), 1,
+                "Error message 'need to fill employer name' disappear on a first panel after income entered on a second panel");
+
+        wage.addWage();
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillEmployerName(1), 0,
+                "Error message 'need to fill employer name' re-appear on a second panel after new panel added");
+
+        wage.deleteWage(2);
+        wage.deleteWage(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillEmployerName(0), 1,
+                "Error message 'need to fill employer name' disappear on a first panel after all other panels deleted");
 
     }
 
+
+    protected void needFillCityErrorMessage() {
+        log.info("Add a few wages, play with 'need to fill city' error message");
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseIsraelIncome(0);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCity(0), 1,
+                "Error message 'need to fill city' did not appear on a first panel after Israel income was chosen");
+
+        wage.addWage();
+        wage.chooseIsraelIncome(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCity(1), 1,
+                "Error message 'need to fill city' did not appear on a second panel after Israel income was chosen");
+
+        wage.selectCityFromDropDownListByIndex(1, 0);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCity(1), 0,
+                "Error message 'need to fill city' did not disappear on a second panel after a city was selected");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCity(0), 1,
+                "Error message 'need to fill city' disappear on a first panel after a city was selected on a second panel");
+
+        wage.addWage();
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCity(1), 0,
+                "Error message 'need to fill city' re-appear on a second panel after new panel added");
+
+        wage.deleteWage(2);
+        wage.deleteWage(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCity(0), 1,
+                "Error message 'need to fill city' disappear on a first panel after all other panels deleted");
+
+    }
+
+    protected void needFillStreetErrorMessage() {
+        log.info("Add a few wages, play with 'need to fill street' error message");
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseIsraelIncome(0);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillStreet(0), 1,
+                "Error message 'need to fill street' did not appear on a first panel after Israel income was chosen");
+
+        wage.addWage();
+        wage.chooseIsraelIncome(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillStreet(1), 1,
+                "Error message 'need to fill street' did not appear on a second panel after Israel income was chosen");
+
+        wage.selectCityFromDropDownListByIndex(1, 0);
+        wage.selectStreetFromDropDownListByIndex(1, 0);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillStreet(1), 0,
+                "Error message 'need to fill street' did not disappear on a second panel after a street was selected");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillStreet(0), 1,
+                "Error message 'need to fill street' disappear on a first panel after a street was selected on a second panel");
+
+        wage.addWage();
+        wage.chooseAbroadIncome(2);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillStreet(2), 0,
+                "Error message 'need to fill street' appear on a third panel after Abroad Income was chosen");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillStreet(1), 0,
+                "Error message 'need to fill street' re-appear on a second panel after new panel added");
+
+        wage.deleteWage(2);
+        wage.deleteWage(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillStreet(0), 1,
+                "Error message 'need to fill street' disappear on a first panel after all other panels deleted");
+
+    }
+
+    protected void needFillHouseNumberErrorMessage() {
+        log.info("Add a few wages, play with 'need to fill house number' error message");
+
+        String houseNumber = "123";
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseIsraelIncome(0);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillHouseNumber(0), 1,
+                "Error message 'need to fill house number' did not appear on a first panel after Israel income was chosen");
+
+        wage.addWage();
+        wage.chooseIsraelIncome(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillHouseNumber(1), 1,
+                "Error message 'need to fill house number' did not appear on a second panel after Israel income was chosen");
+
+        wage.enterHouseNum(1, houseNumber);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillHouseNumber(1), 0,
+                "Error message 'need to fill house number' did not disappear on a second panel after a house number was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillHouseNumber(0), 1,
+                "Error message 'need to fill house number' disappear on a first panel after a house number was entered on a second panel");
+
+        wage.addWage();
+        wage.chooseAbroadIncome(2);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillHouseNumber(2), 0,
+                "Error message 'need to fill house number' appear on a third panel after Abroad Income was chosen");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillHouseNumber(1), 0,
+                "Error message 'need to fill house number' re-appear on a second panel after new panel added");
+
+        wage.deleteWage(2);
+        wage.deleteWage(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillHouseNumber(0), 1,
+                "Error message 'need to fill house number' disappear on a first panel after all other panels deleted");
+
+    }
+
+    protected void needFillTikNikuimErrorMessage() {
+        log.info("Add a few wages, play with 'need to fill tik nikuim' error message");
+
+        String correctTikNikuim = "123456789";
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseIsraelIncome(0);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTikNikuim(0), 1,
+                "Error message 'need to fill tik nikuim' did not appear on a first panel after Israel income was chosen");
+
+        wage.addWage();
+        wage.chooseIsraelIncome(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTikNikuim(1), 1,
+                "Error message 'need to fill tik nikuim' did not appear on a second panel after Israel income was chosen");
+
+        wage.enterTikNikuim(1, correctTikNikuim);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTikNikuim(1), 0,
+                "Error message 'need to fill tik nikuim' did not disappear on a second panel after a tik nikuim was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTikNikuim(0), 1,
+                "Error message 'need to fill tik nikuim' disappear on a first panel after a tik nikuim was entered on a second panel");
+
+        wage.addWage();
+        wage.chooseAbroadIncome(2);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTikNikuim(2), 0,
+                "Error message 'need to fill tik nikuim' appear on a third panel after Abroad Income was chosen");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTikNikuim(1), 0,
+                "Error message 'need to fill tik nikuim' re-appear on a second panel after new panel added");
+
+        wage.deleteWage(2);
+        wage.deleteWage(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTikNikuim(0), 1,
+                "Error message 'need to fill tik nikuim' disappear on a first panel after all other panels deleted");
+
+    }
+
+    protected void needFillCountryErrorMessage() {
+        log.info("Add a few wages, play with 'need to fill country' error message");
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseAbroadIncome(0);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCountry(0), 1,
+                "Error message 'need to fill country' did not appear on a first panel after Abroad income was chosen");
+
+        wage.addWage();
+        wage.chooseAbroadIncome(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCountry(1), 1,
+                "Error message 'need to fill country' did not appear on a second panel after Abroad income was chosen");
+
+        wage.selectCountryFromDropDownListByIndex(1, 0);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCountry(1), 0,
+                "Error message 'need to fill country' did not disappear on a second panel after a country was selected");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCountry(0), 1,
+                "Error message 'need to fill country' disappear on a first panel after a country was selected on a second panel");
+
+        wage.addWage();
+        wage.chooseIsraelIncome(2);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCountry(2), 0,
+                "Error message 'need to fill country' appear on a third panel after Israel Income was chosen");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCountry(1), 0,
+                "Error message 'need to fill country' re-appear on a second panel after new panel added");
+
+        wage.deleteWage(2);
+        wage.deleteWage(1);
+
+        basePage.clickMenuVehicle();
+        wage = basePage.clickMenuWage();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillCountry(0), 1,
+                "Error message 'need to fill country' disappear on a first panel after all other panels deleted");
+
+    }
+
+    protected void tikNikuimCorrectFormat() {
+        log.info("Check that only correct format allowed in the field 'tik nikuim'");
+
+        String nonDigitTikNikuim = "abc";
+        String shortTikNikuim = "12345678";
+        String longTikNikuim = "1234567890";
+        String correctTikNikuim = "123456789";
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseIsraelIncome(0);
+
+        wage.enterTikNikuim(0, nonDigitTikNikuim);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageTikNikuimTikNikuimCanContainDigitsOnly(0), 1,
+                "Error message 'tik nikuim need must contain digits only' did not appear after non-digital value was entered");
+
+        wage.deleteTikNikuim(0);
+        wage.enterTikNikuim(0, shortTikNikuim);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageTikNikuimNeedBeNineDigits(0), 1,
+                "Error message 'tik nikuim need be 9-digits long' did not appear after too short value was entered");
+
+        wage.deleteTikNikuim(0);
+        wage.enterTikNikuim(0, longTikNikuim);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageTikNikuimCannotBeLongerNineDigits(0), 1,
+                "Error message 'tik nikuim cannot be longer than 9 digits' did not appear after too long value was entered");
+
+        wage.deleteTikNikuim(0);
+        wage.enterTikNikuim(0, correctTikNikuim);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageTikNikuimNeedBeNineDigits(0), 0,
+                "Error message 'tik nikuim need be 9-digits long' appeared after a correct value was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageTikNikuimCannotBeLongerNineDigits(0), 0,
+                "Error message 'tik nikuim cannot be longer than 9 digits' appeared after a correct value was entered");
+
+    }
 
 
 }

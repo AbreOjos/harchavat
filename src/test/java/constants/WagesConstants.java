@@ -42,4 +42,10 @@ public class WagesConstants {
             By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה תיק ניכויים')]");
     public static final By errorMessageNeedFillCountrySubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מדינה')]");
+    public static final By errorMessageTikNikuimNeedBeNineDigitsSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה תיק ניכויים חייב להכיל 9 תווים לפחות')]");
+    public static final By errorMessageTikNikuimCannotBeLongerNineDigitsSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה תיק ניכויים לא יכול להכיל יותר מ- 9 תווים')]");
+    public static final By errorMessageTikNikuimCanContainDigitsOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה תיק ניכויים יכול להכיל ספרות שלמות בלבד')]");
 }

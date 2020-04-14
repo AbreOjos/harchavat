@@ -218,4 +218,16 @@ public class WageDetails extends BasePage {
     protected List<WebElement> getErrorMessageNeedFillCountry() {
         return details.findElements(errorMessageNeedFillCountrySubElementDetails);
     }
+
+    protected List<WebElement> getErrorMessageTikNikuimNeedBeNineDigits() {
+        return details.findElements(errorMessageTikNikuimNeedBeNineDigitsSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageTikNikuimCannotBeLongerNineDigits() {
+        return details.findElements(errorMessageTikNikuimCannotBeLongerNineDigitsSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageTikNikuimTikNikuimCanContainDigitsOnly() {
+        return details.findElements(errorMessageTikNikuimCanContainDigitsOnlySubElementDetails);
+    }
 }

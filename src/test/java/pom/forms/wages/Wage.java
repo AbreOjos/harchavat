@@ -310,6 +310,27 @@ public class Wage extends BasePage {
         return integerWageDetailsMap.get(wageNumber).getErrorMessageNeedFillCountry();
     }
 
+    public List<WebElement> getErrorMessageTikNikuimNeedBeNineDigits(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageTikNikuimNeedBeNineDigits();
+    }
+
+    public List<WebElement> getErrorMessageTikNikuimCannotBeLongerNineDigits(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageTikNikuimCannotBeLongerNineDigits();
+    }
+
+    public List<WebElement> getErrorMessageTikNikuimTikNikuimCanContainDigitsOnly(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageTikNikuimTikNikuimCanContainDigitsOnly();
+    }
+
 
     // == private methods ==
     private void recreateMapPanelsOnPage() {
