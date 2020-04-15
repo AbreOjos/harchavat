@@ -494,4 +494,13 @@ public class BasePage {
         }
     }
 
+    protected <T> void checkNumber(int number, String sendForm, String panel, Map<Integer, T> integerDetailsMap) {
+        if (number<0 || number>=integerDetailsMap.size()) {
+            String IMPOSSIBLE_GET_DETAILS =
+                    String.format("Impossible to get %s from a %s ", sendForm, panel)
+                            + "#%d. The number need to be between 0 and %d not inclusive";
+            throw new WrongArgumentException(String.format(IMPOSSIBLE_GET_DETAILS, number, integerDetailsMap.size()));
+        }
+    }
+
 }

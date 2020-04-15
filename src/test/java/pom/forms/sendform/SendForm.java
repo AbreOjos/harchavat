@@ -1,6 +1,5 @@
 package pom.forms.sendform;
 
-import com.mysql.cj.exceptions.WrongArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +22,10 @@ import static constants.EnglishHebrewConstants.*;
 public class SendForm extends BasePage {
 
     // == private members ==
+    private final String VEHICLE = "vehicle";
+    private final String WAGE = "wage";
+    private final String REAL_ESTATE = "real estate";
+
     private Map<Integer, SendFormVehicleDetails> integerSendFormVehicleDetailsMap;
     private Map<Integer, SendFormWageDetails> integerSendFormWageDetailsMap;
     private Map<Integer, SendFormRealEstateDetails> integerSendFormRealEstateDetailsMap;
@@ -90,9 +93,9 @@ public class SendForm extends BasePage {
     // Vehicle elements
     @FindBy(xpath = "(//*[@class='info-box'])[2]//ul/li")
     private List<WebElement> vehicle;
-    @FindBy(xpath = "(//*[@class='info-box'])[3]//ul/li")
 
     // Wage elements
+    @FindBy(xpath = "(//*[@class='info-box'])[3]//ul/li")
     private List<WebElement> wage;
 
     // Real Estate elements
@@ -280,118 +283,96 @@ public class SendForm extends BasePage {
 
     // methods info-box Vehicles
     public boolean typeVehicleExists(int vehicleNumber) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+//        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
+//            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
+//                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
+//        }
+
+        checkNumber(vehicleNumber, "type vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).typeVehicleExists();
     }
 
     public boolean licenseVehicleExists(int vehicleNumber) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "license vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).licenseVehicleExists();
     }
 
     public boolean usageVehicleExists(int vehicleNumber) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "usage vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).usageVehicleExists();
     }
 
     public boolean typeVehicleContainsText(int vehicleNumber, String vehicleType) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "type vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).vehicleContainsText(vehicleType);
     }
 
     public boolean licenseVehicleContainsText(int vehicleNumber, String vehicleLicense) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "license vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).vehicleContainsText(vehicleLicense);
     }
 
     public boolean usageVehicleContainsText(int vehicleNumber, String vehicleUsage) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "usage vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).vehicleContainsText(vehicleUsage);
     }
 
     public boolean vehiclePrivate(int vehicleNumber) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "type vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).vehiclePrivate();
     }
 
     public boolean vehicleCommercial(int vehicleNumber) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "type vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).vehicleCommercial();
     }
 
     public boolean vehicleHeavyEngineeringEquipment(int vehicleNumber) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "type vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).vehicleHeavyEngineeringEquipment();
     }
 
     public boolean vehicleAircraft(int vehicleNumber) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "type vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).vehicleAircraft();
     }
 
     public boolean vehicleVessel(int vehicleNumber) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "type vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).vehicleVessel();
     }
 
     public boolean usageVehiclePrivate(int vehicleNumber) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "usage vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).usageVehiclePrivate();
     }
 
     public boolean usageVehicleBusiness(int vehicleNumber) {
-        if (vehicleNumber<0 || vehicleNumber>=integerSendFormVehicleDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get error message from a vehicle #%d. " +
-                    "The number need to be between 0 and %d not inclusive", vehicleNumber, integerSendFormVehicleDetailsMap.size()));
-        }
+
+        checkNumber(vehicleNumber, "usage vehicle", VEHICLE, integerSendFormVehicleDetailsMap);
 
         return integerSendFormVehicleDetailsMap.get(vehicleNumber).usageVehicleBusiness();
     }
@@ -400,93 +381,141 @@ public class SendForm extends BasePage {
         return integerSendFormVehicleDetailsMap.size();
     }
 
+
     // methods info-box Wages
+    public boolean typeIncomeExists(int wageNumber) {
+//        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
+//            throw new WrongArgumentException(String.format("Impossible to get income type from a wage #%d. " +
+//                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
+//        }
+
+        checkNumber(wageNumber, "income type", WAGE, integerSendFormWageDetailsMap);
+
+        return integerSendFormWageDetailsMap.get(wageNumber).typeIncomeExists();
+    }
+
+    public boolean annualIncomeExists(int wageNumber) {
+
+        checkNumber(wageNumber, "annual income", WAGE, integerSendFormWageDetailsMap);
+
+        return integerSendFormWageDetailsMap.get(wageNumber).annualIncomeExists();
+    }
+
+    public boolean employerNameExists(int wageNumber) {
+
+        checkNumber(wageNumber, "employer name", WAGE, integerSendFormWageDetailsMap);
+
+        return integerSendFormWageDetailsMap.get(wageNumber).employerNameExists();
+    }
+
+    public boolean citySubExists(int wageNumber) {
+
+        checkNumber(wageNumber, "city", WAGE, integerSendFormWageDetailsMap);
+
+        return integerSendFormWageDetailsMap.get(wageNumber).citySubExists();
+    }
+
+    public boolean streetIncomeExists(int wageNumber) {
+
+        checkNumber(wageNumber, "street", WAGE, integerSendFormWageDetailsMap);
+
+        return integerSendFormWageDetailsMap.get(wageNumber).streetIncomeExists();
+    }
+
+    public boolean houseNumberExists(int wageNumber) {
+
+        checkNumber(wageNumber, "house number", WAGE, integerSendFormWageDetailsMap);
+
+        return integerSendFormWageDetailsMap.get(wageNumber).houseNumberExists();
+    }
+
+    public boolean tikNikuimExists(int wageNumber) {
+
+        checkNumber(wageNumber, "tik nikuim", WAGE, integerSendFormWageDetailsMap);
+
+        return integerSendFormWageDetailsMap.get(wageNumber).tikNikuimExists();
+    }
+
+    public boolean countryExists(int wageNumber) {
+
+        checkNumber(wageNumber, "country", WAGE, integerSendFormWageDetailsMap);
+
+        return integerSendFormWageDetailsMap.get(wageNumber).countryExists();
+    }
+
+    public boolean stateExists(int wageNumber) {
+
+        checkNumber(wageNumber, "state", WAGE, integerSendFormWageDetailsMap);
+
+        return integerSendFormWageDetailsMap.get(wageNumber).stateExists();
+    }
+
     public boolean wageIncomeTypeIsrael(int wageNumber) {
-        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get income type from a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
-        }
+
+        checkNumber(wageNumber, "income type", WAGE, integerSendFormWageDetailsMap);
 
         return integerSendFormWageDetailsMap.get(wageNumber).wageContainsText(INCOME_ISRAEL);
     }
 
     public boolean wageIncomeTypeAbroad(int wageNumber) {
-        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get income type from a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
-        }
+
+        checkNumber(wageNumber, "income type", WAGE, integerSendFormWageDetailsMap);
 
         return integerSendFormWageDetailsMap.get(wageNumber).wageContainsText(INCOME_ABROAD);
     }
 
-    public boolean wageAnnualRevenueContainsText(int wageNumber, String annualRevenue) {
-        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get annual revenue from a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
-        }
+    public boolean wageAnnualIncomeContainsText(int wageNumber, String annualIncome) {
 
-        return integerSendFormWageDetailsMap.get(wageNumber).wageContainsText(annualRevenue);
+        checkNumber(wageNumber, "annual income", WAGE, integerSendFormWageDetailsMap);
+
+        return integerSendFormWageDetailsMap.get(wageNumber).wageContainsText(annualIncome);
     }
 
     public boolean wageEmployerNameContainsText(int wageNumber, String employerName) {
-        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get employer name from a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
-        }
+
+        checkNumber(wageNumber, "employer name", WAGE, integerSendFormWageDetailsMap);
 
         return integerSendFormWageDetailsMap.get(wageNumber).wageContainsText(employerName);
     }
 
     public boolean wageCityContainsText(int wageNumber, String city) {
-        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get city from a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
-        }
+
+        checkNumber(wageNumber, "city", WAGE, integerSendFormWageDetailsMap);
 
         return integerSendFormWageDetailsMap.get(wageNumber).wageContainsText(city);
     }
 
     public boolean wageStreetContainsText(int wageNumber, String street) {
-        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get street from a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
-        }
+
+        checkNumber(wageNumber, "street", WAGE, integerSendFormWageDetailsMap);
 
         return integerSendFormWageDetailsMap.get(wageNumber).wageContainsText(street);
     }
 
     public boolean wageNumHouseContainsText(int wageNumber, String numHouse) {
-        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get house number from a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
-        }
+
+        checkNumber(wageNumber, "house number", WAGE, integerSendFormWageDetailsMap);
 
         return integerSendFormWageDetailsMap.get(wageNumber).wageContainsText(numHouse);
     }
 
     public boolean wageTikNikuimContainsText(int wageNumber, String tikNikuim) {
-        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get tik nikuim from a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
-        }
+
+        checkNumber(wageNumber, "tik nikuim", WAGE, integerSendFormWageDetailsMap);
 
         return integerSendFormWageDetailsMap.get(wageNumber).wageContainsText(tikNikuim);
     }
 
     public boolean wageCountryContainsText(int wageNumber, String country) {
-        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get country from a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
-        }
+
+        checkNumber(wageNumber, "country", WAGE, integerSendFormWageDetailsMap);
 
         return integerSendFormWageDetailsMap.get(wageNumber).wageContainsText(country);
     }
 
     public boolean wageStateContainsText(int wageNumber, String state) {
-        if (wageNumber<0 || wageNumber>=integerSendFormWageDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get state from a wage #%d. " +
-                    "The number need to be between 0 and %d not inclusive", wageNumber, integerSendFormWageDetailsMap.size()));
-        }
+
+        checkNumber(wageNumber, "state", WAGE, integerSendFormWageDetailsMap);
 
         return integerSendFormWageDetailsMap.get(wageNumber).wageContainsText(state);
     }
@@ -494,6 +523,7 @@ public class SendForm extends BasePage {
     public int numberWages() {
         return integerSendFormWageDetailsMap.size();
     }
+
 
     // methods info-box Real Estate
     public boolean tenantIsraeli(int realEstateNumber, int tenantNumber) {
@@ -521,64 +551,53 @@ public class SendForm extends BasePage {
     }
 
     public boolean realEstateTypeContainsText(int realEstateNumber, String typeRealEstate) {
-        if (realEstateNumber<0 || realEstateNumber>=integerSendFormRealEstateDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a real estate #%d. " +
-                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerSendFormRealEstateDetailsMap.size()));
-        }
+//        if (realEstateNumber<0 || realEstateNumber>=integerSendFormRealEstateDetailsMap.size()) {
+//            throw new WrongArgumentException(String.format("Impossible to get details about a real estate #%d. " +
+//                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerSendFormRealEstateDetailsMap.size()));
+//        }
+        checkNumber(realEstateNumber, "type real estate", REAL_ESTATE, integerSendFormRealEstateDetailsMap);
 
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).realEstateContainsText(typeRealEstate);
     }
 
     public boolean realEstateDateOwnershipContainsText(int realEstateNumber, String dateOwnership) {
-        if (realEstateNumber<0 || realEstateNumber>=integerSendFormRealEstateDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a real estate #%d. " +
-                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerSendFormRealEstateDetailsMap.size()));
-        }
+
+        checkNumber(realEstateNumber, "date ownership real estate", REAL_ESTATE, integerSendFormRealEstateDetailsMap);
 
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).realEstateContainsText(dateOwnership);
     }
 
     public boolean realEstateAreaSizeContainsText(int realEstateNumber, String areaSize) {
-        if (realEstateNumber<0 || realEstateNumber>=integerSendFormRealEstateDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a real estate #%d. " +
-                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerSendFormRealEstateDetailsMap.size()));
-        }
+
+        checkNumber(realEstateNumber, "area size real estate", REAL_ESTATE, integerSendFormRealEstateDetailsMap);
 
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).realEstateContainsText(areaSize);
     }
 
     public boolean realEstateOwnershipPercentageContainsText(int realEstateNumber, String ownershipPercentage) {
-        if (realEstateNumber<0 || realEstateNumber>=integerSendFormRealEstateDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a real estate #%d. " +
-                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerSendFormRealEstateDetailsMap.size()));
-        }
+
+        checkNumber(realEstateNumber, "ownership percentage real estate", REAL_ESTATE, integerSendFormRealEstateDetailsMap);
 
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).realEstateContainsText(ownershipPercentage);
     }
 
     public boolean realEstateIsraeli(int realEstateNumber) {
-        if (realEstateNumber<0 || realEstateNumber>=integerSendFormRealEstateDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a real estate #%d. " +
-                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerSendFormRealEstateDetailsMap.size()));
-        }
+
+        checkNumber(realEstateNumber, "type real estate", REAL_ESTATE, integerSendFormRealEstateDetailsMap);
 
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).realEstateContainsText(YES);
     }
 
     public boolean realEstateAbroad(int realEstateNumber) {
-        if (realEstateNumber<0 || realEstateNumber>=integerSendFormRealEstateDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a real estate #%d. " +
-                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerSendFormRealEstateDetailsMap.size()));
-        }
+
+        checkNumber(realEstateNumber, "type real estate", REAL_ESTATE, integerSendFormRealEstateDetailsMap);
 
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).realEstateContainsText(NO);
     }
 
     public boolean realEstateUsageContainsText(int realEstateNumber, String usage) {
-        if (realEstateNumber<0 || realEstateNumber>=integerSendFormRealEstateDetailsMap.size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a real estate #%d. " +
-                    "The number need to be between 0 and %d not inclusive", realEstateNumber, integerSendFormRealEstateDetailsMap.size()));
-        }
+
+        checkNumber(realEstateNumber, "real estate details", REAL_ESTATE, integerSendFormRealEstateDetailsMap);
 
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).realEstateContainsText(usage);
     }
