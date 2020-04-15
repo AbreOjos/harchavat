@@ -408,18 +408,18 @@ public class SendForm extends BasePage {
         return integerSendFormWageDetailsMap.get(wageNumber).employerNameExists();
     }
 
-    public boolean citySubExists(int wageNumber) {
+    public boolean cityExists(int wageNumber) {
 
         checkNumber(wageNumber, "city", WAGE, integerSendFormWageDetailsMap);
 
-        return integerSendFormWageDetailsMap.get(wageNumber).citySubExists();
+        return integerSendFormWageDetailsMap.get(wageNumber).cityExists();
     }
 
-    public boolean streetIncomeExists(int wageNumber) {
+    public boolean streetExists(int wageNumber) {
 
         checkNumber(wageNumber, "street", WAGE, integerSendFormWageDetailsMap);
 
-        return integerSendFormWageDetailsMap.get(wageNumber).streetIncomeExists();
+        return integerSendFormWageDetailsMap.get(wageNumber).streetIExists();
     }
 
     public boolean houseNumberExists(int wageNumber) {

@@ -43,5 +43,8 @@ public class ChromeSendFormWageTests extends SendFormWageTests {
         checkEmptyAbroadIncomeFields();
     }
 
+    public void testCheckUnnecessaryIsraelIncomeFields() {
+        checkUnnecessaryIsraelIncomeFields();
+    }
 
 }

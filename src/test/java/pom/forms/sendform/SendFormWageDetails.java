@@ -34,11 +34,11 @@ public class SendFormWageDetails extends BasePage {
         return details.findElements(employerNameSubElementWagesList).size() > 0;
     }
 
-    protected boolean citySubExists() {
+    protected boolean cityExists() {
         return details.findElements(citySubElementWagesList).size() > 0;
     }
 
-    protected boolean streetIncomeExists() {
+    protected boolean streetIExists() {
         return details.findElements(streetIncomeSubElementWagesList).size() > 0;
     }
 
