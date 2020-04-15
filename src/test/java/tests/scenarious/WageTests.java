@@ -573,6 +573,71 @@ public class WageTests extends TestBase {
 
     }
 
+    protected void forbiddenCharactersEmployerName(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Employer Name field, find the error message", forbiddenChar));
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseIsraelIncome(0);
+
+        wage.enterEmployerName(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageEmployerNameContainsCharacters(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Employer Name", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersHouseNumber(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a House Number field, find the error message", forbiddenChar));
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseIsraelIncome(0);
+
+        wage.enterHouseNum(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageHouseNumberContainsCharacters(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into House Number", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersState(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a State field, find the error message", forbiddenChar));
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseAbroadIncome(0);
+
+        wage.enterState(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageStateContainsCharacters(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into State", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersCity(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a City field, find the error message", forbiddenChar));
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseAbroadIncome(0);
+
+        wage.enterCity(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageCityContainsCharacters(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into City", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersStreet(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Street field, find the error message", forbiddenChar));
+
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseHaveWage();
+        wage.chooseAbroadIncome(0);
+
+        wage.enterStreet(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageStreetContainsCharacters(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Street", forbiddenChar));
+    }
+
 
 }
 

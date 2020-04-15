@@ -230,4 +230,24 @@ public class WageDetails extends BasePage {
     protected List<WebElement> getErrorMessageTikNikuimTikNikuimCanContainDigitsOnly() {
         return details.findElements(errorMessageTikNikuimCanContainDigitsOnlySubElementDetails);
     }
+
+    protected List<WebElement> getErrorMessageEmployerNameContainsCharacters() {
+        return details.findElements(errorMessageEmployerNameContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageHouseNumberContainsCharacters() {
+        return details.findElements(errorMessageHouseNumberContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageStateContainsCharacters() {
+        return details.findElements(errorMessageStateContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageCityContainsCharacters() {
+        return details.findElements(errorMessageCityContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageStreetContainsCharacters() {
+        return details.findElements(errorMessageStreetContainsCharactersSubElementDetails);
+    }
 }

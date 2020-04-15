@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import readresources.drivers.WebDrivers;
 import tests.RunMode;
 import tests.scenarious.WageTests;
+import utils.dataprovider.NEDataProvider;
 import utils.utilitiesForInfra.MiscellaneousForInfra;
 
 import java.net.URISyntaxException;
@@ -74,6 +75,31 @@ public class ChromeWageTests extends WageTests {
 
     public void testTikNikuimCorrectFormat() {
         tikNikuimCorrectFormat();
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersEmployerName(String forbiddenChars) {
+        forbiddenCharactersEmployerName(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersHouseNumber(String forbiddenChars) {
+        forbiddenCharactersHouseNumber(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersState(String forbiddenChars) {
+        forbiddenCharactersState(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersCity(String forbiddenChars) {
+        forbiddenCharactersCity(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersStreet(String forbiddenChars) {
+        forbiddenCharactersStreet(forbiddenChars);
     }
 
 }

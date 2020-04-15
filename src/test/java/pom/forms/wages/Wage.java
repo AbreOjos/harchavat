@@ -331,6 +331,41 @@ public class Wage extends BasePage {
         return integerWageDetailsMap.get(wageNumber).getErrorMessageTikNikuimTikNikuimCanContainDigitsOnly();
     }
 
+    public List<WebElement> getErrorMessageEmployerNameContainsCharacters(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageEmployerNameContainsCharacters();
+    }
+
+    public List<WebElement> getErrorMessageHouseNumberContainsCharacters(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageHouseNumberContainsCharacters();
+    }
+
+    public List<WebElement> getErrorMessageStateContainsCharacters(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageStateContainsCharacters();
+    }
+
+    public List<WebElement> getErrorMessageCityContainsCharacters(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageCityContainsCharacters();
+    }
+
+    public List<WebElement> getErrorMessageStreetContainsCharacters(int wageNumber) {
+        checkNumber(wageNumber, wage, integerWageDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerWageDetailsMap.get(wageNumber).getErrorMessageStreetContainsCharacters();
+    }
+
 
     // == private methods ==
     private void recreateMapPanelsOnPage() {
