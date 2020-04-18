@@ -35,6 +35,7 @@ public class ChromeWageTests extends WageTests {
 
         super.setUpMethod();
 
+        prepareEmptyWageDetails();
     }
 
     public void testCheckMenuIcons() {

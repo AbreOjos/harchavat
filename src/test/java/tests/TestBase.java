@@ -17,6 +17,7 @@ import org.testng.annotations.BeforeSuite;
 import pom.BasePage;
 import pom.forms.PersonalDetails;
 import pom.forms.vehicles.Vehicle;
+import pom.forms.wages.Wage;
 import readresources.parameters.WebUiParameters;
 
 import java.io.File;
@@ -174,17 +175,13 @@ public abstract class TestBase {
 
     protected void prepareEmptyVehicleDetails() {
         Vehicle vehicle = basePage.clickMenuVehicle();
-//        vehicle.chooseHaveVehicle();
-//        vehicle.deleteAllVehicles();
-//        vehicle.chooseAnotherVehicle(0);
-//        vehicle.chooseAnotherUsage(0);
-//        vehicle.deleteCarLicense(0);
-//        vehicle.deleteAnotherCarTypeDetails(0);
-//        vehicle.enterAnotherUsageDetails(0, "aaa");
-//        vehicle.deleteAnotherUsageDetails(0);
-//        vehicle.clickBtnSave();
-//        vehicle.chooseDontHaveVehicle();
         vehicle.chooseDontHaveVehicle();
         vehicle.clickBtnSave();
+    }
+
+    protected void prepareEmptyWageDetails() {
+        Wage wage = basePage.clickMenuWage();
+        wage.chooseDontHaveWage();
+        wage.clickBtnSave();
     }
 }

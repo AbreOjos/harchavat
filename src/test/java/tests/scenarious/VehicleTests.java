@@ -99,7 +99,7 @@ public class VehicleTests extends TestBase {
         // recheck remains messages
         AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(0), 0,
                 "Error message 'Need to Fill License Number' did not disappear from a first panel");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(1), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(1), 0,
                 "Error message 'Need to Fill License Number' did not disappear from a second panel");
     }
 
