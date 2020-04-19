@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import readresources.drivers.WebDrivers;
 import tests.RunMode;
 import tests.scenarious.RealEstateTests;
+import utils.dataprovider.NEDataProvider;
 import utils.utilitiesForInfra.MiscellaneousForInfra;
 
 import java.net.URISyntaxException;
@@ -41,6 +42,87 @@ public class ChromeRealEstateTests extends RealEstateTests {
         checkMenuIcons();
     }
 
+    public void testNeedFillRealEstateTypeErrorMessage() {
+        needFillRealEstateTypeErrorMessage();
+    }
+
+    public void testNeedFillDateErrorMessage() throws Exception {
+        needFillDateErrorMessage();
+    }
+
+    public void testNeedFillPropertyAreaErrorMessage() {
+        needFillPropertyAreaErrorMessage();
+    }
+
+    public void testNeedFillOwnershipPercentageErrorMessage() {
+        needFillOwnershipPercentageErrorMessage();
+    }
+
+    public void testNeedFillGushErrorMessage() {
+        needFillGushErrorMessage();
+    }
+
+    public void testNeedFillHelkaErrorMessage() {
+        needFillHelkaErrorMessage();
+    }
+
+    public void testNeedFillCityIsraeliErrorMessage() {
+        needFillCityIsraeliErrorMessage();
+    }
+
+    public void testNeedFillStreetIsraeliErrorMessage() {
+        needFillStreetIsraeliErrorMessage();
+    }
+
+    public void testNeedFillHouseNumberIsraeliErrorMessage() {
+        needFillHouseNumberIsraeliErrorMessage();
+    }
+
+    public void testNeedFillCountryOverseaErrorMessage() {
+        needFillCountryOverseaErrorMessage();
+    }
+
+    public void testNeedFillCityOverseaErrorMessage() {
+        needFillCityOverseaErrorMessage();
+    }
+
+
+
+
+    public void testPropertyAreaContainsDigitsOnlyErrorMessage() {
+        propertyAreaContainsDigitsOnlyErrorMessage();
+    }
+
+    public void testOwnershipPercentageIncorrectFormat() {
+        ownershipPercentageIncorrectFormat();
+    }
+
+    public void testGushContainsDigitsOnlyErrorMessage() {
+        gushContainsDigitsOnlyErrorMessage();
+    }
+
+    public void testHelkaContainsDigitsOnlyErrorMessage() {
+        helkaContainsDigitsOnlyErrorMessage();
+    }
+
+    public void testTatHelkaIncorrectFormat() {
+        tatHelkaIncorrectFormat();
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersHouseNumber(String forbiddenChars) {
+        forbiddenCharactersHouseNumber(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersState(String forbiddenChars) {
+        forbiddenCharactersState(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersCity(String forbiddenChars) {
+        forbiddenCharactersCity(forbiddenChars);
+    }
 
 
 }

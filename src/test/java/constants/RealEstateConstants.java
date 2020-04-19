@@ -17,14 +17,16 @@ public class RealEstateConstants {
     public static final By btnsRealEstateAssetIsraelOrAbroadSubElementDetails = By.xpath(".//div[@name='assetInIsrael']//button");
     public static final By btnsRealEstateAssetDetailsSubElementDetails = By.xpath(".//div[@name='assetDetails']//button");
     public static final By dropDownRealEstateTypeSubElementDetails = By.xpath(".//div[@class='v-select__slot']");
+    public static final By lblDropDownRealEstateTypeSubElementDetails = By.xpath(".//div[@class='v-select__slot']/label");
     public static final By txtExplainPropertyTypeSubElementDetails = By.xpath(".//input[@name='explainPropertyType']");
     public static final By calendarRealEstateSubElementDetails = By.xpath(".//input[@name='date']");
-    public static final By txtRealEstateSizeSubElementDetails = By.xpath(".//input[@name='square']");
+    public static final By txtRealEstatePropertyAreaSubElementDetails = By.xpath(".//input[@name='square']");
     public static final By txtRealEstateOwnershipPercentageSubElementDetails = By.xpath(".//input[@name='ownershipPercentage']");
     public static final By txtRealEstateBlockSubElementDetails = By.xpath(".//input[@name='gush']");
     public static final By txtRealEstatePlotSubElementDetails = By.xpath(".//input[@name='helka']");
     public static final By txtRealEstateSubPlotSubElementDetails = By.xpath(".//input[@name='subHelka']");
     public static final By dropDownCountrySubElementDetails = By.xpath(".//input[@name='country']");
+    public static final By txtRealEstateCitySubElementDetails = By.xpath(".//input[@name='city']");
     public static final By btnRealEstatePersonalUseSubElementDetails = By.xpath(".//button[@value='personal_use']");
     public static final By btnRealEstateFamilyUseSubElementDetails = By.xpath(".//button[@value='family_use']");
     public static final By btnRealEstateRentUseSubElementDetails = By.xpath(".//button[@value='rent']");
@@ -60,5 +62,49 @@ public class RealEstateConstants {
             By.xpath("//div[contains(@class, 'v-picker__actions')]/button/div[contains(text(), 'ביטול')]");
     public static final By btnCalendarOk =
             By.xpath("//div[contains(@class, 'v-picker__actions')]/button/div[contains(text(), 'אישור')]");
+
+    // error messages sub-elements
+    public static final By errorMessageNeedFillRealEstateTypeSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה סוג נדלן')]");
+    public static final By errorMessageNeedFillDateSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה תאריך')]");
+    public static final By errorMessageNeedFillPropertyAreaSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה שטח הנכס')]");
+    public static final By errorMessagePropertyAreaContainsDigitalOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה שטח הנכס יכול להכיל ספרות שלמות בלבד')]");
+    public static final By errorMessageNeedFillOwnershipPercentageSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה אחוז בעלות')]");
+    public static final By errorMessageOwnershipPercentageContainsDigitalOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה אחוז בעלות יכול להכיל ספרות שלמות בלבד')]");
+    public static final By errorMessageOwnershipPercentageHundredMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה אחוז בעלות יכול להיות 100 לכל היותר')]");
+    public static final By errorMessageOwnershipPercentageOneMinSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'הערך של אחוז בעלות חייב להיות לפחות 1')]");
+    public static final By errorMessageNeedFillBlockSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה גוש')]");
+    public static final By errorMessageBlockContainsDigitalOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה גוש יכול להכיל ספרות שלמות בלבד')]");
+    public static final By errorMessageNeedFillPlotSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה חלקה')]");
+    public static final By errorMessagePlotContainsDigitalOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה חלקה יכול להכיל ספרות שלמות בלבד')]");
+    public static final By errorMessageSubPlotContainsDigitalOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה תת-חלקה יכול להכיל ספרות שלמות בלבד')]");
+    public static final By errorMessageSubPlotTooLongSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה תת-חלקה לא יכול להכיל יותר מ- 2 תווים')]");
+    public static final By errorMessageNeedFillCitySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה עיר')]");
+    public static final By errorMessageNeedFillStreetSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה רחוב')]");
+    public static final By errorMessageNeedFillHouseNumberSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מספר בית')]");
+    public static final By errorMessageHouseNumberContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר בית יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+    public static final By errorMessageNeedFillCountrySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מדינה')]");
+    public static final By errorMessageStateContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מחוז יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+    public static final By errorMessageCityContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה עיר יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
 
 }

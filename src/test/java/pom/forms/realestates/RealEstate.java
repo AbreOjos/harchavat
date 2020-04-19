@@ -164,6 +164,13 @@ public class RealEstate extends BasePage {
 //        recreateMapPanelsOnPage();
     }
 
+    public String getChosenRealEstateType(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getChosenRealEstateType();
+    }
+
     public void enterExplainPropertyType(int realEstateNumber, String propertyType) {
         checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
 
@@ -317,13 +324,18 @@ public class RealEstate extends BasePage {
 
 
     // choose real estate ownership and size
-    public void enterRealEstateSize(int realEstateNumber, String size) {
+    public void enterRealEstatePropertyArea(int realEstateNumber, String size) {
         checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
 
         recreateMapPanelsOnPage();
-        integerRealEstateDetailsMap.get(realEstateNumber).enterRealEstateSize(size);
+        integerRealEstateDetailsMap.get(realEstateNumber).enterRealEstatePropertyArea(size);
+    }
 
-//        recreateMapPanelsOnPage();
+    public void deleteRealEstatePropertyArea(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerRealEstateDetailsMap.get(realEstateNumber).deleteRealEstatePropertyArea();
     }
 
     public void enterRealEstateOwnershipPercentage(int realEstateNumber, String ownershipPercentage) {
@@ -331,8 +343,13 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).enterRealEstateOwnershipPercentage(ownershipPercentage);
+    }
 
-//        recreateMapPanelsOnPage();
+    public void deleteRealEstateOwnershipPercentage(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerRealEstateDetailsMap.get(realEstateNumber).deleteRealEstateOwnershipPercentage();
     }
 
     // choose real estate place
@@ -377,8 +394,13 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).enterRealEstateBlock(block);
+    }
 
-//        recreateMapPanelsOnPage();
+    public void deleteRealEstateBlock(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerRealEstateDetailsMap.get(realEstateNumber).deleteRealEstateBlock();
     }
 
     public void enterRealEstatePlot(int realEstateNumber, String plot) {
@@ -386,8 +408,13 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).enterRealEstatePlot(plot);
+    }
 
-//        recreateMapPanelsOnPage();
+    public void deleteRealEstatePlot(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerRealEstateDetailsMap.get(realEstateNumber).deleteRealEstatePlot();
     }
 
     public void enterRealEstateSubPlot(int realEstateNumber, String subPlot) {
@@ -395,6 +422,13 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).enterRealEstateSubPlot(subPlot);
+    }
+
+    public void deleteRealEstateSubPlot(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerRealEstateDetailsMap.get(realEstateNumber).deleteRealEstateSubPlot();
     }
 
     // Address only
@@ -405,11 +439,39 @@ public class RealEstate extends BasePage {
         integerRealEstateDetailsMap.get(realEstateNumber).selectCityFromDropDownListByName(city);
     }
 
+    public String selectCityFromDropDownListByIndex(int realEstateNumber, int index) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).selectCityFromDropDownListByIndex(index);
+    }
+
+    public void enterCity(int realEstateNumber, String city) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerRealEstateDetailsMap.get(realEstateNumber).enterCity(city);
+    }
+
+    public void deleteRealEstateCity(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerRealEstateDetailsMap.get(realEstateNumber).deleteRealEstateCity();
+    }
+
     public void selectStreetFromDropDownListByName(int realEstateNumber, String street) {
         checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).selectStreetFromDropDownListByName(street);
+    }
+
+    public String selectStreetFromDropDownListByIndex(int realEstateNumber, int index) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).selectStreetFromDropDownListByIndex(index);
     }
 
     public void enterStreet(int realEstateNumber, String street) {
@@ -419,11 +481,25 @@ public class RealEstate extends BasePage {
         integerRealEstateDetailsMap.get(realEstateNumber).enterStreet(street);
     }
 
+    public void deleteStreet(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerRealEstateDetailsMap.get(realEstateNumber).deleteStreet();
+    }
+
     public void enterHouseNum(int realEstateNumber, String houseNum) {
         checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).enterHouseNum(houseNum);
+    }
+
+    public void deleteHouseNum(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerRealEstateDetailsMap.get(realEstateNumber).deleteHouseNum();
     }
 
     public void selectCountryFromDropDownListByName(int realEstateNumber, String country) {
@@ -433,11 +509,25 @@ public class RealEstate extends BasePage {
         integerRealEstateDetailsMap.get(realEstateNumber).selectCountryFromDropDownListByName(country);
     }
 
+    public String selectCountryFromDropDownListByIndex(int realEstateNumber, int index) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).selectCountryFromDropDownListByIndex(index);
+    }
+
     public void enterState(int realEstateNumber, String state) {
         checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).enterState(state);
+    }
+
+    public void deleteState(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerRealEstateDetailsMap.get(realEstateNumber).deleteState();
     }
 
     // choose real estate usage
@@ -648,6 +738,155 @@ public class RealEstate extends BasePage {
         integerRealEstateDetailsMap.get(realEstateNumber).attachContractFile(filename);
 
 //        recreateMapPanelsOnPage();
+    }
+
+
+    // error messages
+    public List<WebElement> getErrorMessageNeedFillRealEstateType(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageNeedFillRealEstateType();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillDate(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageNeedFillDate();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillPropertyArea(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageNeedFillPropertyArea();
+    }
+
+    public List<WebElement> getErrorMessagePropertyAreaContainsDigitalOnly(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessagePropertyAreaContainsDigitalOnly();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillOwnershipPercentage(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageNeedFillOwnershipPercentage();
+    }
+
+    public List<WebElement> getErrorMessageOwnershipPercentageContainsDigitalOnly(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageOwnershipPercentageContainsDigitalOnly();
+    }
+
+    public List<WebElement> getErrorMessageOwnershipPercentageHundredMax(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageOwnershipPercentageHundredMax();
+    }
+
+    public List<WebElement> getErrorMessageOwnershipPercentageOneMin(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageOwnershipPercentageOneMin();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillBlock(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageNeedFillBlock();
+    }
+
+    public List<WebElement> getErrorMessageBlockContainsDigitalOnly(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageBlockContainsDigitalOnly();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillPlot(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageNeedFillPlot();
+    }
+
+    public List<WebElement> getErrorMessagePlotContainsDigitalOnly(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessagePlotContainsDigitalOnly();
+    }
+
+    public List<WebElement> getErrorMessageSubPlotContainsDigitalOnly(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageSubPlotContainsDigitalOnly();
+    }
+
+    public List<WebElement> getErrorMessageSubPlotTooLong(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageSubPlotTooLong();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillCity(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageNeedFillCity();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillStreet(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageNeedFillStreet();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillHouseNumber(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageNeedFillHouseNumber();
+    }
+
+    public List<WebElement> getErrorMessageHouseNumberContainsCharacters(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageHouseNumberContainsCharacters();
+    }
+
+    public List<WebElement> getErrorMessageNeedFillCountry(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageNeedFillCountry();
+    }
+
+    public List<WebElement> getErrorMessageStateContainsCharacters(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageStateContainsCharacters();
+    }
+
+    public List<WebElement> getErrorMessageCityContainsCharacters(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageCityContainsCharacters();
     }
 
 

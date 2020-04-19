@@ -39,6 +39,10 @@ public class RealEstateDetails extends BasePage {
         return details.findElement(dropDownRealEstateTypeSubElementDetails);
     }
 
+    protected WebElement geLblDropDownRealEstateType() {
+        return details.findElement(lblDropDownRealEstateTypeSubElementDetails);
+    }
+
     protected WebElement getTxtExplainPropertyType() {
         return details.findElement(txtExplainPropertyTypeSubElementDetails);
     }
@@ -47,8 +51,8 @@ public class RealEstateDetails extends BasePage {
         return details.findElement(calendarRealEstateSubElementDetails);
     }
 
-    protected WebElement getTxtRealEstateSize() {
-        return details.findElement(txtRealEstateSizeSubElementDetails);
+    protected WebElement getTxtRealEstatePropertyArea() {
+        return details.findElement(txtRealEstatePropertyAreaSubElementDetails);
     }
 
     protected WebElement getTxtRealEstateOwnershipPercentage() {
@@ -69,6 +73,10 @@ public class RealEstateDetails extends BasePage {
 
     protected WebElement getTxtRealEstateSubPlot() {
         return details.findElement(txtRealEstateSubPlotSubElementDetails);
+    }
+
+    protected WebElement getTxtRealEstateCity() {
+        return details.findElement(txtRealEstateCitySubElementDetails);
     }
 
     protected WebElement getBtnRealEstateInIsrael() {
@@ -270,6 +278,10 @@ public class RealEstateDetails extends BasePage {
         clickDropDownList(getDropDownRealEstateType(), 9);
     }
 
+    protected String getChosenRealEstateType() {
+        return geLblDropDownRealEstateType().getText().trim();
+    }
+
     protected void enterExplainPropertyType(String propertyType) {
         fillFormField(getTxtExplainPropertyType(), propertyType);
     }
@@ -337,12 +349,20 @@ public class RealEstateDetails extends BasePage {
 
 
     // choose real estate ownership and size
-    protected void enterRealEstateSize(String size) {
-        fillFormField(getTxtRealEstateSize(), size);
+    protected void enterRealEstatePropertyArea(String size) {
+        fillFormField(getTxtRealEstatePropertyArea(), size);
+    }
+
+    protected void deleteRealEstatePropertyArea() {
+        cleanFormField(getTxtRealEstatePropertyArea());
     }
 
     protected void enterRealEstateOwnershipPercentage(String ownershipPercentage) {
         fillFormField(getTxtRealEstateOwnershipPercentage(), ownershipPercentage);
+    }
+
+    protected void deleteRealEstateOwnershipPercentage() {
+        cleanFormField(getTxtRealEstateOwnershipPercentage());
     }
 
     // GUSH only
@@ -350,12 +370,24 @@ public class RealEstateDetails extends BasePage {
         fillFormField(getTxtRealEstateBlock(), block);
     }
 
+    protected void deleteRealEstateBlock() {
+        cleanFormField(getTxtRealEstateBlock());
+    }
+
     protected void enterRealEstatePlot(String plot) {
         fillFormField(getTxtRealEstatePlot(), plot);
     }
 
+    protected void deleteRealEstatePlot() {
+        cleanFormField(getTxtRealEstatePlot());
+    }
+
     protected void enterRealEstateSubPlot(String subPlot) {
         fillFormField(getTxtRealEstateSubPlot(), subPlot);
+    }
+
+    protected void deleteRealEstateSubPlot() {
+        cleanFormField(getTxtRealEstateSubPlot());
     }
 
     // Address only
@@ -363,24 +395,56 @@ public class RealEstateDetails extends BasePage {
         selectItemFromDropDownListByName(getDropDownCity(details), city);
     }
 
+    protected String selectCityFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownCity(details), index);
+    }
+
+    protected void enterCity(String city) {
+        fillFormField(getTxtRealEstateCity(), city);
+    }
+
+    protected void deleteRealEstateCity() {
+        cleanFormField(getTxtRealEstateCity());
+    }
+
     protected void selectStreetFromDropDownListByName(String street) {
         selectItemFromDropDownListByName(getDropDownStreet(details), street);
+    }
+
+    protected String selectStreetFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownStreet(details), index);
     }
 
     protected void enterStreet(String street) {
         fillFormField(getTxtStreet(details), street);
     }
 
+    protected void deleteStreet() {
+        cleanFormField(getTxtStreet(details));
+    }
+
     protected void enterHouseNum(String houseNum) {
         fillFormField(getTxtHouseNum(details), houseNum);
+    }
+
+    protected void deleteHouseNum() {
+        cleanFormField(getTxtHouseNum(details));
     }
 
     protected void selectCountryFromDropDownListByName(String country) {
         selectItemFromDropDownListByName(getDropDownCountry(), country);
     }
 
+    protected String selectCountryFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownCountry(), index);
+    }
+
     protected void enterState(String state) {
         fillFormField(getTxtState(), state);
+    }
+
+    protected void deleteState() {
+        cleanFormField(getTxtState());
     }
 
     // choose real estate place
@@ -700,6 +764,92 @@ public class RealEstateDetails extends BasePage {
     // attach contract
     protected void attachContractFile(String filename) {
         getAttachContractFile().sendKeys(filename);
+    }
+
+
+    // error messages
+    protected List<WebElement> getErrorMessageNeedFillRealEstateType() {
+        return details.findElements(errorMessageNeedFillRealEstateTypeSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillDate() {
+        return details.findElements(errorMessageNeedFillDateSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillPropertyArea() {
+        return details.findElements(errorMessageNeedFillPropertyAreaSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessagePropertyAreaContainsDigitalOnly() {
+        return details.findElements(errorMessagePropertyAreaContainsDigitalOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillOwnershipPercentage() {
+        return details.findElements(errorMessageNeedFillOwnershipPercentageSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageOwnershipPercentageContainsDigitalOnly() {
+        return details.findElements(errorMessageOwnershipPercentageContainsDigitalOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageOwnershipPercentageHundredMax() {
+        return details.findElements(errorMessageOwnershipPercentageHundredMaxSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageOwnershipPercentageOneMin() {
+        return details.findElements(errorMessageOwnershipPercentageOneMinSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillBlock() {
+        return details.findElements(errorMessageNeedFillBlockSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageBlockContainsDigitalOnly() {
+        return details.findElements(errorMessageBlockContainsDigitalOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillPlot() {
+        return details.findElements(errorMessageNeedFillPlotSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessagePlotContainsDigitalOnly() {
+        return details.findElements(errorMessagePlotContainsDigitalOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageSubPlotContainsDigitalOnly() {
+        return details.findElements(errorMessageSubPlotContainsDigitalOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageSubPlotTooLong() {
+        return details.findElements(errorMessageSubPlotTooLongSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillCity() {
+        return details.findElements(errorMessageNeedFillCitySubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillStreet() {
+        return details.findElements(errorMessageNeedFillStreetSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillHouseNumber() {
+        return details.findElements(errorMessageNeedFillHouseNumberSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageHouseNumberContainsCharacters() {
+        return details.findElements(errorMessageHouseNumberContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillCountry() {
+        return details.findElements(errorMessageNeedFillCountrySubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageStateContainsCharacters() {
+        return details.findElements(errorMessageStateContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageCityContainsCharacters() {
+        return details.findElements(errorMessageCityContainsCharactersSubElementDetails);
     }
 
 

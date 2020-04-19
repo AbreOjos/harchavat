@@ -203,10 +203,10 @@ public class TemporalTests extends TestBase {
         realEstate.chooseRealEstateTypeHousingUnit(1);
         realEstate.chooseRealEstateTypeAnother(0);
 
-        realEstate.enterRealEstateSize(0, "10");
+        realEstate.enterRealEstatePropertyArea(0, "10");
         realEstate.enterRealEstateOwnershipPercentage(0, "15");
 
-        realEstate.enterRealEstateSize(1, "20");
+        realEstate.enterRealEstatePropertyArea(1, "20");
         realEstate.enterRealEstateOwnershipPercentage(1, "25");
 
         realEstate.chooseRealEstateInIsrael(0);

@@ -138,7 +138,7 @@ public class WageTests extends TestBase {
 
         if (!wage.israelIncomeChosen(0) && !wage.abroadIncomeChosen(0)) {
             AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(0), 0,
-                    "Error message 'Need to Fill Type of Income' re-disappear on a first panel after second panel was deleted");
+                    "Error message 'Need to Fill Type of Income' re-appear on a first panel after second panel was deleted");
         }
 
     }

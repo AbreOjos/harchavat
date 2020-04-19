@@ -5,17 +5,16 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import readresources.drivers.WebDrivers;
-import tests.RunMode;
 import tests.scenarious.temporary.TemporalTests;
 import utils.utilitiesForInfra.MiscellaneousForInfra;
 
 import java.net.URISyntaxException;
 
-@Test(groups = {RunMode.CHROME})
+@Test
 public class ChromeTemporalTests extends TemporalTests {
     private static final Logger log = Logger.getLogger(ChromeTemporalTests.class);
 
-    @BeforeClass(groups = {RunMode.CHROME}, alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void setUpClass() throws URISyntaxException {
 
         if (MiscellaneousForInfra.osName().equals("windows")) {
@@ -27,7 +26,7 @@ public class ChromeTemporalTests extends TemporalTests {
     }
 
 
-    @BeforeMethod(groups = {RunMode.CHROME}, alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUpMethod() {
 
         createChromeDriver();

@@ -39,6 +39,7 @@ public class EnglishHebrewConstants {
     public static final String FARM = "משק חקלאי";
     public static final String REAL_ESTATE_UNION_ACTION = "פעולה באיגוד מקרקעין";
     public static final String OTHER_REAL_ESTATE = "אחר";
+    public static final String REAL_ESTATE_TYPE = "סוג נדלן";
 
     // cities
     public static final String JERUSALEM = "ירושלים";
