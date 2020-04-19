@@ -4,10 +4,10 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import pom.forms.PersonalDetails;
 import pom.forms.realestates.RealEstate;
+import pom.forms.sendform.SendForm;
 import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
-import pom.forms.sendform.SendForm;
 import readresources.documents.FileAttachments;
 import tests.TestBase;
 

@@ -28,6 +28,18 @@ public class EnglishHebrewConstants {
     public static final String SEPARATED = "פרוד";
     public static final String POLYGAMY = "פוליגם";
 
+    // real estate types
+    public static final String APARTMENT = "דירה";
+    public static final String UNIT = "יחידת דיור";
+    public static final String STORAGE = "מחסן";
+    public static final String PARKING = "חניה";
+    public static final String PRIVATE_LAND = "קרקע פרטית";
+    public static final String AGRICULTURAL_LAND = "קרקע חקלאית";
+    public static final String REAL_ESTATE_OPTION = "אופציה במקרקעין";
+    public static final String FARM = "משק חקלאי";
+    public static final String REAL_ESTATE_UNION_ACTION = "פעולה באיגוד מקרקעין";
+    public static final String OTHER_REAL_ESTATE = "אחר";
+
     // cities
     public static final String JERUSALEM = "ירושלים";
 

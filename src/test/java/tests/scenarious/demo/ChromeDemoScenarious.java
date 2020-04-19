@@ -57,4 +57,23 @@ public class ChromeDemoScenarious extends DemoScenarious {
     public void testSendFormMultiVehicles() {
         sendFormMultiVehicles();
     }
+
+
+    // ==
+
+    public void testMultiWages() {
+        multiWages();
+    }
+
+    public void testCheckUnnecessaryIsraelIncomeFields() {
+        checkUnnecessaryIsraelIncomeFields();
+    }
+
+    public void testMultiVehicles() {
+        multiVehicles();
+    }
+
+    public void testIsraeliSpouseAllianceExpatriate() throws InterruptedException {
+        israeliSpouseAllianceExpatriate();
+    }
 }

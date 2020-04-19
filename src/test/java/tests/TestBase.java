@@ -16,6 +16,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import pom.BasePage;
 import pom.forms.PersonalDetails;
+import pom.forms.realestates.RealEstate;
 import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
 import readresources.parameters.WebUiParameters;
@@ -183,5 +184,11 @@ public abstract class TestBase {
         Wage wage = basePage.clickMenuWage();
         wage.chooseDontHaveWage();
         wage.clickBtnSave();
+    }
+
+    protected void prepareEmptyRealEstateDetails() {
+        RealEstate realEstate = basePage.clickMenuRealEstate();
+        realEstate.chooseDontHaveRealEstate();
+        realEstate.clickBtnSave();
     }
 }
