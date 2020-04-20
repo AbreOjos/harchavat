@@ -27,6 +27,7 @@ public class RealEstateConstants {
     public static final By txtRealEstateSubPlotSubElementDetails = By.xpath(".//input[@name='subHelka']");
     public static final By dropDownCountrySubElementDetails = By.xpath(".//input[@name='country']");
     public static final By txtRealEstateCitySubElementDetails = By.xpath(".//input[@name='city']");
+    public static final By txtExplainUsageSubElementDetails = By.xpath(".//input[@name='explainPropertyUsage']");
     public static final By btnRealEstatePersonalUseSubElementDetails = By.xpath(".//button[@value='personal_use']");
     public static final By btnRealEstateFamilyUseSubElementDetails = By.xpath(".//button[@value='family_use']");
     public static final By btnRealEstateRentUseSubElementDetails = By.xpath(".//button[@value='rent']");
@@ -106,5 +107,39 @@ public class RealEstateConstants {
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מחוז יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
     public static final By errorMessageCityContainsCharactersSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה עיר יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+    public static final By errorMessageStreetContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה רחוב יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+    public static final By errorMessageNeedFillUsageRealEstateSubElementDetails =
+            By.xpath(".//p[@class='errors-msg'][contains(text(),'חובה למלא את השדה שימוש הנכס')]");
+    public static final By errorMessageNeedFillUsageDetailsSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה פרט')]");
+    public static final By errorMessageUsageDetailsContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה פרט יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+    public static final By errorMessageNeedFillPropertyDividedSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה האם הנכס מפוצל למספר יחידות')]");
+    public static final By errorMessageMonthlyRentTwentyMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה שכר דירה חודשי לא יכול להכיל יותר מ- 20 תווים')]");
+    public static final By errorMessageNeedFillAmountPartitionsSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה לכמה יחידות פוצל')]");
+    public static final By errorMessageAmountPartitionsTwoMinSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'הערך של לכמה יחידות פוצל? חייב להיות לפחות 2')]");
+    public static final By errorMessageAmountPartitionsTenCharsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה לכמה יחידות פוצל? לא יכול להכיל יותר מ- 10 תווים')]");
+    public static final By errorMessageNeedFillTenantIDSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה תעודת זהות שוכר')]");
+    public static final By errorMessageTenantIDDigitsOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה תעודת זהות שוכר יכול להכיל ספרות שלמות בלבד')]");
+    public static final By errorMessageTenantIDNineDigitsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה תעודת זהות שוכר לא יכול להכיל יותר מ- 9 תווים')]");
+    public static final By errorMessageNeedFillTenantCountrySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מדינת שוכר')]");
+    public static final By errorMessageTenantStateContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מחוז יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+    public static final By errorMessageNeedFillTenantPassportSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה דרכון שוכר')]");
+    public static final By errorMessageTenantPassportIncorrectSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'מספר דרכון לא תקין')]");
+    public static final By errorMessageTenantPassportFifteenDigitsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה דרכון שוכר לא יכול להכיל יותר מ- 15 תווים')]");
 
 }

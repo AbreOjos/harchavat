@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
+import java.util.List;
+
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
@@ -52,16 +54,65 @@ public class TenantDetails extends BasePage {
         fillFormField(getTxtRenterId(), tenantId);
     }
 
+    protected void deleteTenantId() {
+        cleanFormField(getTxtRenterId());
+    }
+
     protected void selectCountryTenantFromDropDownListByName(String countryTenant) {
         selectItemFromDropDownListByName(getDropDownCountryRenter(), countryTenant);
+    }
+
+    protected String selectCountryTenantFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownCountryRenter(), index);
     }
 
     protected void enterTenantState(String tenantState) {
         fillFormField(getTxtRenterState(), tenantState);
     }
 
+    protected void deleteTenantState() {
+        cleanFormField(getTxtRenterState());
+    }
+
     protected void enterTenantPassport(String tenantPassport) {
         fillFormField(getTxtRenterPassport(), tenantPassport);
+    }
+
+    protected void deleteTenantPassport() {
+        cleanFormField(getTxtRenterPassport());
+    }
+
+    // error messages
+    protected List<WebElement> getErrorMessageNeedFillTenantID() {
+        return details.findElements(errorMessageNeedFillTenantIDSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageTenantIDDigitsOnly() {
+        return details.findElements(errorMessageTenantIDDigitsOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageTenantIDNineDigitsMax() {
+        return details.findElements(errorMessageTenantIDNineDigitsMaxSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillTenantCountry() {
+        return details.findElements(errorMessageNeedFillTenantCountrySubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageTenantStateContainsCharacters() {
+        return details.findElements(errorMessageTenantStateContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillTenantPassport() {
+        return details.findElements(errorMessageNeedFillTenantPassportSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageTenantPassportIncorrect() {
+        return details.findElements(errorMessageTenantPassportIncorrectSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageTenantPassportFifteenDigitsMax() {
+        return details.findElements(errorMessageTenantPassportFifteenDigitsMaxSubElementDetails);
     }
 
     // == private methods ==

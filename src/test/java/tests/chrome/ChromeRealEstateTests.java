@@ -86,8 +86,37 @@ public class ChromeRealEstateTests extends RealEstateTests {
         needFillCityOverseaErrorMessage();
     }
 
+    public void testNeedFillStreetOverseaErrorMessage() {
+        needFillStreetOverseaErrorMessage();
+    }
 
+    public void testNeedFillHouseNumberOverseaErrorMessage() {
+        needFillHouseNumberOverseaErrorMessage();
+    }
 
+    public void testNeedFillUsageRealEstateErrorMessage() {
+        needFillUsageRealEstateErrorMessage();
+    }
+
+    public void testNeedFillUsageDetailsErrorMessage() {
+        needFillUsageDetailsErrorMessage();
+    }
+
+    public void testNeedFillPropertySplitErrorMessage() {
+        needFillPropertySplitErrorMessage();
+    }
+
+    public void testNeedFillTenantIDErrorMessage() {
+        needFillTenantIDErrorMessage();
+    }
+
+    public void testNeedFillTenantCountryErrorMessage() {
+        needFillTenantCountryErrorMessage();
+    }
+
+    public void testNeedFillTenantPassportErrorMessage() {
+        needFillTenantPassportErrorMessage();
+    }
 
     public void testPropertyAreaContainsDigitsOnlyErrorMessage() {
         propertyAreaContainsDigitsOnlyErrorMessage();
@@ -124,5 +153,35 @@ public class ChromeRealEstateTests extends RealEstateTests {
         forbiddenCharactersCity(forbiddenChars);
     }
 
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersStreet(String forbiddenChars) {
+        forbiddenCharactersStreet(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersExplainUsage(String forbiddenChars) {
+        forbiddenCharactersExplainUsage(forbiddenChars);
+    }
+
+    public void testMonthlyRentTwentyCharsMaxErrorMessage() {
+        monthlyRentTwentyCharsMaxErrorMessage();
+    }
+
+    public void testAmountPartitionsErrorMessages() {
+        amountPartitionsErrorMessages();
+    }
+
+    public void testTenantIDErrorMessages() {
+        tenantIDErrorMessages();
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersTenantState(String forbiddenChars) {
+        forbiddenCharactersTenantState(forbiddenChars);
+    }
+
+    public void testTenantPassportErrorMessages() {
+        tenantPassportErrorMessages();
+    }
 
 }

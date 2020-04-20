@@ -216,18 +216,18 @@ public class TemporalTests extends TestBase {
         realEstate.enterRealEstatePlot(0, "CCC");
 
         realEstate.chooseRealEstateFamilyUsage(0);
-        realEstate.chooseRealEstateRenting(1);
+        realEstate.chooseRealEstateRentingUsage(1);
 
 //        realEstate.chooseRealEstateBusinessPurpose(1);
 
 //        realEstate.chooseRealEstateDivided(1);
         realEstate.chooseRealEstateSplit(1);
         realEstate.setAmountPartitionsOfDividedRealEstate(1, 5);
-        System.out.println("Amount of partitions " + realEstate.amountPartitionsOfDividedRealEstate(1));
+        System.out.println("Amount of partitions " + realEstate.getAmountPartitionsOfDividedRealEstate(1));
 
 //        realEstate.chooseRealEstateTenantNotIsraeli(1);
 //        realEstate.enterRenterCountry(1, "USA");
-        realEstate.chooseRealEstateRenting(1);
+        realEstate.chooseRealEstateRentingUsage(1);
 //        realEstate.enterRenterPassport(1, "123456789");
         realEstate.enterMonthlyRent(1, "3000");
 

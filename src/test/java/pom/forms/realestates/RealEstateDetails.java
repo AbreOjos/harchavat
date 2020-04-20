@@ -79,6 +79,10 @@ public class RealEstateDetails extends BasePage {
         return details.findElement(txtRealEstateCitySubElementDetails);
     }
 
+    protected WebElement getTxtExplainUsage() {
+        return details.findElement(txtExplainUsageSubElementDetails);
+    }
+
     protected WebElement getBtnRealEstateInIsrael() {
 //        return details.findElements(btnsRealEstateTrueSubElementDetails).get(0);
         return details.findElements(btnsRealEstateAssetIsraelOrAbroadSubElementDetails).get(0);
@@ -403,8 +407,16 @@ public class RealEstateDetails extends BasePage {
         fillFormField(getTxtRealEstateCity(), city);
     }
 
-    protected void deleteRealEstateCity() {
+    protected void deleteCity() {
         cleanFormField(getTxtRealEstateCity());
+    }
+
+    protected void enterExplainUsage(String explainUsage) {
+        fillFormField(getTxtExplainUsage(), explainUsage);
+    }
+
+    protected void deleteExplainUsage() {
+        cleanFormField(getTxtExplainUsage());
     }
 
     protected void selectStreetFromDropDownListByName(String street) {
@@ -598,7 +610,7 @@ public class RealEstateDetails extends BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
-    protected void chooseRealEstateRenting() {
+    protected void chooseRealEstateRentingUsage() {
         if (elementHasClass(getBtnRealEstateRenting(), "active"))
             return;
 
@@ -664,8 +676,16 @@ public class RealEstateDetails extends BasePage {
     }
 
     // real estate divided
-    protected int amountPartitionsOfDividedRealEstate() {
+    protected int getAmountPartitionsOfDividedRealEstate() {
         return Integer.parseInt(getVolumeRealEstateDivided().getAttribute("value"));
+    }
+
+    protected void enterAmountPartitionsOfDividedRealEstate(String amountPartitions) {
+        fillFormField(getVolumeRealEstateDivided(), amountPartitions);
+    }
+
+    protected void deleteAmountPartitionsOfDividedRealEstate() {
+        cleanFormField(getVolumeRealEstateDivided());
     }
 
     protected int addSinglePartitionsOfDividedRealEstate() {
@@ -675,7 +695,7 @@ public class RealEstateDetails extends BasePage {
             e.printStackTrace();
         }
 
-        return amountPartitionsOfDividedRealEstate();
+        return getAmountPartitionsOfDividedRealEstate();
     }
 
     protected int removeSinglePartitionsOfDividedRealEstate() {
@@ -685,7 +705,7 @@ public class RealEstateDetails extends BasePage {
             e.printStackTrace();
         }
 
-        return amountPartitionsOfDividedRealEstate();
+        return getAmountPartitionsOfDividedRealEstate();
     }
 
     protected int setAmountPartitionsOfDividedRealEstate(int amountPartitions) {
@@ -694,12 +714,12 @@ public class RealEstateDetails extends BasePage {
                     ("Illegal argument %d, Amount of partitions must be positive.", amountPartitions));
         }
 
-        int actualAmountPartitions = amountPartitionsOfDividedRealEstate();
+        int actualAmountPartitions = getAmountPartitionsOfDividedRealEstate();
         while (amountPartitions != actualAmountPartitions) {
             actualAmountPartitions = addOrRemoveSinglePartitionsOfDividedRealEstate(amountPartitions);
         }
 
-        return amountPartitionsOfDividedRealEstate();
+        return getAmountPartitionsOfDividedRealEstate();
     }
 
     // tenant details
@@ -709,6 +729,10 @@ public class RealEstateDetails extends BasePage {
 
     protected void enterMonthlyRent(String monthlyRent) {
         fillFormField(getTxtMonthlyRent(), monthlyRent);
+    }
+
+    protected void deleteMonthlyRent() {
+        cleanFormField(getTxtMonthlyRent());
     }
 
 //    protected void selectCountryRenterFromDropDownListByName(String countryRenter) {
@@ -740,11 +764,25 @@ public class RealEstateDetails extends BasePage {
         integerTenantDetailsMap.get(tenantNumber).enterTenantId(tenantId);
     }
 
+    public void deleteTenantId(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerTenantDetailsMap.get(tenantNumber).deleteTenantId();
+    }
+
     public void selectCountryRenterFromDropDownListByName(int tenantNumber, String countryTenant) {
         checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
 
         recreateMapPanelsOnPage();
         integerTenantDetailsMap.get(tenantNumber).selectCountryTenantFromDropDownListByName(countryTenant);
+    }
+
+    public String selectCountryTenantFromDropDownListByIndex(int tenantNumber, int index) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerTenantDetailsMap.get(tenantNumber).selectCountryTenantFromDropDownListByIndex(index);
     }
 
     public void enterTenantState(int tenantNumber, String tenantState) {
@@ -754,11 +792,25 @@ public class RealEstateDetails extends BasePage {
         integerTenantDetailsMap.get(tenantNumber).enterTenantState(tenantState);
     }
 
+    public void deleteTenantState(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerTenantDetailsMap.get(tenantNumber).deleteTenantState();
+    }
+
     public void enterTenantPassport(int tenantNumber, String tenantPassport) {
         checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
 
         recreateMapPanelsOnPage();
         integerTenantDetailsMap.get(tenantNumber).enterTenantPassport(tenantPassport);
+    }
+
+    public void deleteTenantPassport(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerTenantDetailsMap.get(tenantNumber).deleteTenantPassport();
     }
 
     // attach contract
@@ -852,6 +904,99 @@ public class RealEstateDetails extends BasePage {
         return details.findElements(errorMessageCityContainsCharactersSubElementDetails);
     }
 
+    protected List<WebElement> getErrorMessageStreetContainsCharacters() {
+        return details.findElements(errorMessageStreetContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillUsageRealEstate() {
+        return details.findElements(errorMessageNeedFillUsageRealEstateSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillUsageDetails() {
+        return details.findElements(errorMessageNeedFillUsageDetailsSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageUsageDetailsContainsCharacters() {
+        return details.findElements(errorMessageUsageDetailsContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillPropertyDivided() {
+        return details.findElements(errorMessageNeedFillPropertyDividedSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageMonthlyRentTwentyMax() {
+        return details.findElements(errorMessageMonthlyRentTwentyMaxSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillAmountPartitions() {
+        return details.findElements(errorMessageNeedFillAmountPartitionsSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageAmountPartitionsTwoMin() {
+        return details.findElements(errorMessageAmountPartitionsTwoMinSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageAmountPartitionsTenCharsMax() {
+        return details.findElements(errorMessageAmountPartitionsTenCharsMaxSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillTenantID(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerTenantDetailsMap.get(tenantNumber).getErrorMessageNeedFillTenantID();
+    }
+
+    protected List<WebElement> getErrorMessageTenantIDDigitsOnly(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerTenantDetailsMap.get(tenantNumber).getErrorMessageTenantIDDigitsOnly();
+    }
+
+    protected List<WebElement> getErrorMessageTenantIDNineDigitsMax(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerTenantDetailsMap.get(tenantNumber).getErrorMessageTenantIDNineDigitsMax();
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillTenantCountry(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerTenantDetailsMap.get(tenantNumber).getErrorMessageNeedFillTenantCountry();
+    }
+
+    protected List<WebElement> getErrorMessageTenantStateContainsCharacters(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerTenantDetailsMap.get(tenantNumber).getErrorMessageTenantStateContainsCharacters();
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillTenantPassport(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerTenantDetailsMap.get(tenantNumber).getErrorMessageNeedFillTenantPassport();
+    }
+
+    protected List<WebElement> getErrorMessageTenantPassportIncorrect(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerTenantDetailsMap.get(tenantNumber).getErrorMessageTenantPassportIncorrect();
+    }
+
+    protected List<WebElement> getErrorMessageTenantPassportFifteenDigitsMax(int tenantNumber) {
+        checkNumber(tenantNumber, tenant, integerTenantDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerTenantDetailsMap.get(tenantNumber).getErrorMessageTenantPassportFifteenDigitsMax();
+    }
+
+
 
     // == private methods ==
     private void recreateMapPanelsOnPage() {
@@ -870,12 +1015,12 @@ public class RealEstateDetails extends BasePage {
 
 
     private int addOrRemoveSinglePartitionsOfDividedRealEstate(int amountPartitions) {
-        if (amountPartitionsOfDividedRealEstate() > amountPartitions) {
+        if (getAmountPartitionsOfDividedRealEstate() > amountPartitions) {
             return removeSinglePartitionsOfDividedRealEstate();
-        } else if(amountPartitionsOfDividedRealEstate() < amountPartitions) {
+        } else if(getAmountPartitionsOfDividedRealEstate() < amountPartitions) {
             return addSinglePartitionsOfDividedRealEstate();
         } else {
-            return amountPartitionsOfDividedRealEstate();
+            return getAmountPartitionsOfDividedRealEstate();
         }
     }
 
