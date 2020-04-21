@@ -1,5 +1,7 @@
 package constants;
 
+import com.mysql.cj.exceptions.WrongArgumentException;
+
 public class EnglishHebrewConstants {
 
     private EnglishHebrewConstants() {
@@ -18,6 +20,37 @@ public class EnglishHebrewConstants {
     public static final String OCTOBER = "אוקטובר";
     public static final String NOVEMBER = "נובמבר";
     public static final String DECEMBER = "דצמבר";
+
+    public static String getMonth(String month) {
+        switch (month) {
+            case JANUARY:
+                return "01";
+            case FEBRUARY:
+                return "02";
+            case MARCH:
+                return "03";
+            case APRIL:
+                return "04";
+            case MAY:
+                return "05";
+            case JUNE:
+                return "06";
+            case JULY:
+                return "07";
+            case AUGUST:
+                return "08";
+            case SEPTEMBER:
+                return "09";
+            case OCTOBER:
+                return "10";
+            case NOVEMBER:
+                return "11";
+            case DECEMBER:
+                return "12";
+            default:
+                throw new WrongArgumentException(String.format("Incorrect month name: %s", month));
+        }
+    }
 
     // marital statuses
     public static final String BACHELOR = "רווק";
@@ -40,6 +73,12 @@ public class EnglishHebrewConstants {
     public static final String REAL_ESTATE_UNION_ACTION = "פעולה באיגוד מקרקעין";
     public static final String OTHER_REAL_ESTATE = "אחר";
     public static final String REAL_ESTATE_TYPE = "סוג נדלן";
+
+    // real estate usage
+    public static final String PERSONAL_USAGE = "שימוש עצמי";
+    public static final String FAMILY_USAGE = "בשימוש המשפחה";
+    public static final String RENTING_USAGE = "השכרה";
+    public static final String NOT_USING = "ללא שימוש";
 
     // cities
     public static final String JERUSALEM = "ירושלים";

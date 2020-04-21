@@ -1,6 +1,7 @@
 package pom.forms.realestates;
 
 import com.mysql.cj.exceptions.WrongArgumentException;
+import constants.EnglishHebrewConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
@@ -284,20 +285,6 @@ public class RealEstate extends BasePage {
         }
     }
 
-//    public String pickMonthYear(int realEstateNumber, String month, String year) {
-//        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
-//
-//        recreateMapPanelsOnPage();
-//        return integerRealEstateDetailsMap.get(realEstateNumber).pickMonthYear(month, year);
-//    }
-
-//    public String pickDay(int realEstateNumber, String day) {
-//        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
-//
-//        recreateMapPanelsOnPage();
-//        return integerRealEstateDetailsMap.get(realEstateNumber).pickDay(day);
-//    }
-
     protected String pickDay(String day) {
         for (WebElement singleDay : getLblsDay()) {
             if (singleDay.getText().trim().equals(day)) {
@@ -309,7 +296,7 @@ public class RealEstate extends BasePage {
         throw new WrongArgumentException(String.format("Day %s not found in the picker", day));
     }
 
-    public void pickDayMonthYear(int realEstateNumber, String day, String month, String year) throws Exception {
+    public String pickDayMonthYear(int realEstateNumber, String day, String month, String year) throws Exception {
         checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
 
         openDatePicker(realEstateNumber);
@@ -319,6 +306,8 @@ public class RealEstate extends BasePage {
         pickDay(day);
 
         pickOk();
+
+        return formatDate(day, month, year);
     }
 
 
@@ -1125,6 +1114,12 @@ public class RealEstate extends BasePage {
 
     protected List<WebElement> getBtnLeft() {
         return driver.findElements(btnLeft);
+    }
+
+    private String formatDate(String day, String month, String year) {
+        String fullDay = day.length()==1? "0" + day : day;
+
+        return fullDay + "/" + EnglishHebrewConstants.getMonth(month) + "/" + year;
     }
 
 }

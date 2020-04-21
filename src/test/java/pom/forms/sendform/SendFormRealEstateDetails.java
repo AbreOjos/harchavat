@@ -1,6 +1,5 @@
 package pom.forms.sendform;
 
-import com.mysql.cj.exceptions.WrongArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
@@ -12,6 +11,9 @@ import static constants.EnglishHebrewConstants.YES;
 import static constants.SendFormConstants.tenantSubElementRealEstateList;
 
 public class SendFormRealEstateDetails extends BasePage {
+
+    // == final members ==
+    public static final String TENANT = "tenant";
 
     // == private members ==
     private final WebElement details;
@@ -32,55 +34,42 @@ public class SendFormRealEstateDetails extends BasePage {
     }
 
     protected boolean tenantIsraeli(int tenantNumber) {
-        if (tenantNumber<0 || tenantNumber>=getTenantsList().size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a tenant #%d. " +
-                    "The number need to be between 0 and %d not inclusive", tenantNumber, getTenantsList().size()));
-        }
+//        if (tenantNumber<0 || tenantNumber>=getTenantsList().size()) {
+//            throw new WrongArgumentException(String.format("Impossible to get details about a tenant #%d. " +
+//                    "The number need to be between 0 and %d not inclusive", tenantNumber, getTenantsList().size()));
+//        }
+
+        checkNumber(tenantNumber, TENANT, getTenantsList());
 
         return realEstateContainsText(getTenantsList().get(tenantNumber), YES);
     }
 
     protected boolean tenantAbroad(int tenantNumber) {
-        if (tenantNumber<0 || tenantNumber>=getTenantsList().size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a tenant #%d. " +
-                    "The number need to be between 0 and %d not inclusive", tenantNumber, getTenantsList().size()));
-        }
+        checkNumber(tenantNumber, TENANT, getTenantsList());
 
         return realEstateContainsText(getTenantsList().get(tenantNumber), NO);
     }
 
     protected boolean tenantIdContains(int tenantNumber, String id) {
-        if (tenantNumber<0 || tenantNumber>=getTenantsList().size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a tenant #%d. " +
-                    "The number need to be between 0 and %d not inclusive", tenantNumber, getTenantsList().size()));
-        }
+        checkNumber(tenantNumber, TENANT, getTenantsList());
 
         return realEstateContainsText(getTenantsList().get(tenantNumber), id);
     }
 
     protected boolean tenantCountryContains(int tenantNumber, String country) {
-        if (tenantNumber<0 || tenantNumber>=getTenantsList().size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a tenant #%d. " +
-                    "The number need to be between 0 and %d not inclusive", tenantNumber, getTenantsList().size()));
-        }
+        checkNumber(tenantNumber, TENANT, getTenantsList());
 
         return realEstateContainsText(getTenantsList().get(tenantNumber), country);
     }
 
     protected boolean tenantStateContains(int tenantNumber, String state) {
-        if (tenantNumber<0 || tenantNumber>=getTenantsList().size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a tenant #%d. " +
-                    "The number need to be between 0 and %d not inclusive", tenantNumber, getTenantsList().size()));
-        }
+        checkNumber(tenantNumber, TENANT, getTenantsList());
 
         return realEstateContainsText(getTenantsList().get(tenantNumber), state);
     }
 
     protected boolean tenantPassportContains(int tenantNumber, String passport) {
-        if (tenantNumber<0 || tenantNumber>=getTenantsList().size()) {
-            throw new WrongArgumentException(String.format("Impossible to get details about a tenant #%d. " +
-                    "The number need to be between 0 and %d not inclusive", tenantNumber, getTenantsList().size()));
-        }
+        checkNumber(tenantNumber, TENANT, getTenantsList());
 
         return realEstateContainsText(getTenantsList().get(tenantNumber), passport);
     }

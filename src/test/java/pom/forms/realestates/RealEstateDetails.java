@@ -266,15 +266,13 @@ public class RealEstateDetails extends BasePage {
         clickDropDownList(getDropDownRealEstateType(), 5);
     }
 
-    protected void chooseRealEstateTypeFarm() {
+    protected void chooseRealEstateTypeOption() {
         clickDropDownList(getDropDownRealEstateType(), 6);
     }
 
-    protected void chooseRealEstateTypeUnionAction() {
-        clickDropDownList(getDropDownRealEstateType(), 7);
-    }
+    protected void chooseRealEstateTypeFarm() { clickDropDownList(getDropDownRealEstateType(), 7); }
 
-    protected void chooseRealEstateTypeOption() {
+    protected void chooseRealEstateTypeUnionAction() {
         clickDropDownList(getDropDownRealEstateType(), 8);
     }
 

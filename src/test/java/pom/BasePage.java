@@ -503,4 +503,13 @@ public class BasePage {
         }
     }
 
+    protected <T> void checkNumber(int number, String subPanel, List<T> listDetails) {
+        if (number<0 || number>=listDetails.size()) {
+            String IMPOSSIBLE_GET_DETAILS =
+                    String.format("Impossible to get details about a %s ", subPanel)
+                            + "#%d. The number need to be between 0 and %d not inclusive";
+            throw new WrongArgumentException(String.format(IMPOSSIBLE_GET_DETAILS, number, listDetails.size()));
+        }
+    }
+
 }
