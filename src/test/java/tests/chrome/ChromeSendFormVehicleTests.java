@@ -41,6 +41,10 @@ public class ChromeSendFormVehicleTests extends SendFormVehicleTests {
         checkEmptyVehicleFields();
     }
 
+    public void testEditVehicles() {
+        editVehicles();
+    }
+
     public void testMultiVehicles() {
         multiVehicles();
     }

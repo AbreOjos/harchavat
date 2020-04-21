@@ -7,6 +7,14 @@ public class EnglishHebrewConstants {
     private EnglishHebrewConstants() {
     }
 
+    // headers
+    public static final String PERSONAL_DETAILS = "פרטים אישיים";
+    public static final String VEHICLE_STATEMENT = "הצהרת רכב";
+    public static final String WAGE = "שכר";
+    public static final String REAL_ESTATE_REVENUE = "הכנסות מנדל\"ן";
+    public static final String VARIOUS = "שונות";
+    public static final String SEND_FORM = "שלח טופס";
+
     // months
     public static final String JANUARY = "ינואר";
     public static final String FEBRUARY = "פברואר";

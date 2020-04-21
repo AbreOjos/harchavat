@@ -151,6 +151,30 @@ public class VehicleDetails extends BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
+    // check chosen vehicle type
+    protected boolean chosenPrivateVehicle() {
+        return elementHasClass(getBtnPrivateVehicle(), "active");
+    }
+
+    protected boolean chosenCommercialVehicle() {
+        return elementHasClass(getBtnCommercialVehicle(), "active");
+    }
+
+    protected boolean chosenHeavyVehicle() {
+        return elementHasClass(getBtnHeavyVehicle(), "active");
+    }
+
+    protected boolean chosenAircraftVehicle() {
+        return elementHasClass(getBtnAircraftVehicle(), "active");
+    }
+
+    protected boolean chosenVesselVehicle() {
+        return elementHasClass(getBtnVesselVehicle(), "active");
+    }
+
+    protected boolean chosenAnotherVehicle() {
+        return elementHasClass(getBtnAnotherVehicle(), "active");
+    }
 
     // license details
     protected void enterCarLicense(String carLicense) {
@@ -162,6 +186,10 @@ public class VehicleDetails extends BasePage {
         cleanFormField(getTxtCarLicense());
     }
 
+    protected String getCarLicense() {
+        return getTxtCarLicense().getAttribute("value").trim();
+    }
+
     protected void enterAnotherCarTypeDetails(String anotherCarTypeDetails) {
         fillFormField(getTxtAnotherCarTypeDetails(), anotherCarTypeDetails);
     }
@@ -170,13 +198,20 @@ public class VehicleDetails extends BasePage {
         cleanFormField(getTxtAnotherCarTypeDetails());
     }
 
+    protected String getAnotherCarTypeDetails() {
+        return getTxtAnotherCarTypeDetails().getAttribute("value").trim();
+    }
+
     protected void enterAnotherUsageDetails(String anotherUsageDetails) {
         fillFormField(getTxtAnotherUsageDetails(), anotherUsageDetails);
-
     }
 
     protected void deleteAnotherUsageDetails() {
         cleanFormField(getTxtAnotherUsageDetails());
+    }
+
+    protected String getAnotherUsageDetails() {
+        return getTxtAnotherUsageDetails().getAttribute("value").trim();
     }
 
 
@@ -218,6 +253,19 @@ public class VehicleDetails extends BasePage {
         }
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+    }
+
+    // check chosen usage
+    protected boolean chosenUsagePrivate() {
+        return elementHasClass(getBtnUsagePrivate(), "active");
+    }
+
+    protected boolean chosenUsageCommercial() {
+        return elementHasClass(getBtnUsageCommercial(), "active");
+    }
+
+    protected boolean chosenUsageAnother() {
+        return elementHasClass(getBtnUsageAnother(), "active");
     }
 
     // error messages

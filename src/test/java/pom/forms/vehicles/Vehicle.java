@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,15 +76,16 @@ public class Vehicle extends BasePage {
         recreateMapPanelsOnPage();
     }
 
+    public List<VehicleDetails> getListVehicles() {
+        return new ArrayList<>(integerVehicleDetailsMap.values());
+    }
+
     // choose vehicle type
     public void choosePrivateVehicle(int vehicleNumber) {
-        
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
 
         recreateMapPanelsOnPage();
         integerVehicleDetailsMap.get(vehicleNumber).choosePrivateVehicle();
-
-//        recreateMapPanelsOnPage();
-//        PageFactory.initElements(driver, this);
     }
 
     public void chooseCommercialVehicle(int vehicleNumber) {
@@ -91,9 +93,6 @@ public class Vehicle extends BasePage {
 
         recreateMapPanelsOnPage();
         integerVehicleDetailsMap.get(vehicleNumber).chooseCommercialVehicle();
-
-//        recreateMapPanelsOnPage();
-//        PageFactory.initElements(driver, this);
     }
 
     public void chooseHeavyVehicle(int vehicleNumber) {
@@ -101,9 +100,6 @@ public class Vehicle extends BasePage {
 
         recreateMapPanelsOnPage();
         integerVehicleDetailsMap.get(vehicleNumber).chooseHeavyVehicle();
-
-//        recreateMapPanelsOnPage();
-//        PageFactory.initElements(driver, this);
     }
 
     public void chooseAircraftVehicle(int vehicleNumber) {
@@ -111,9 +107,6 @@ public class Vehicle extends BasePage {
 
         recreateMapPanelsOnPage();
         integerVehicleDetailsMap.get(vehicleNumber).chooseAircraftVehicle();
-
-//        recreateMapPanelsOnPage();
-//        PageFactory.initElements(driver, this);
     }
 
     public void chooseVesselVehicle(int vehicleNumber) {
@@ -121,8 +114,6 @@ public class Vehicle extends BasePage {
 
         recreateMapPanelsOnPage();
         integerVehicleDetailsMap.get(vehicleNumber).chooseVesselVehicle();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseAnotherVehicle(int vehicleNumber) {
@@ -130,9 +121,49 @@ public class Vehicle extends BasePage {
 
         recreateMapPanelsOnPage();
         integerVehicleDetailsMap.get(vehicleNumber).chooseAnotherVehicle();
+    }
 
-//        recreateMapPanelsOnPage();
-//        PageFactory.initElements(driver, this);
+    // check chosen vehicle type
+    public boolean chosenPrivateVehicle(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).chosenPrivateVehicle();
+    }
+
+    public boolean chosenCommercialVehicle(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).chosenCommercialVehicle();
+    }
+
+    public boolean chosenHeavyVehicle(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).chosenHeavyVehicle();
+    }
+
+    public boolean chosenAircraftVehicle(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).chosenAircraftVehicle();
+    }
+
+    public boolean chosenVesselVehicle(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).chosenVesselVehicle();
+    }
+
+    public boolean chosenAnotherVehicle(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).chosenAnotherVehicle();
     }
 
     // addPanel and delete car license
@@ -150,6 +181,13 @@ public class Vehicle extends BasePage {
         integerVehicleDetailsMap.get(vehicleNumber).deleteCarLicense();
     }
 
+    public String getCarLicense(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).getCarLicense();
+    }
+
 
     public void enterAnotherCarTypeDetails(int vehicleNumber, String anotherCarTypeDetails) {
         checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
@@ -163,6 +201,13 @@ public class Vehicle extends BasePage {
 
         recreateMapPanelsOnPage();
         integerVehicleDetailsMap.get(vehicleNumber).deleteAnotherCarTypeDetails();
+    }
+
+    public String getAnotherCarTypeDetails(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).getAnotherCarTypeDetails();
     }
 
     public void enterAnotherUsageDetails(int vehicleNumber, String anotherUsageDetails) {
@@ -179,15 +224,19 @@ public class Vehicle extends BasePage {
         integerVehicleDetailsMap.get(vehicleNumber).deleteAnotherUsageDetails();
     }
 
+    public String getAnotherUsageDetails(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).getAnotherUsageDetails();
+    }
+
     // choose vehicle usage
     public void choosePrivateUsage(int vehicleNumber) {
         checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
 
         recreateMapPanelsOnPage();
         integerVehicleDetailsMap.get(vehicleNumber).choosePrivateUsage();
-
-//        recreateMapPanelsOnPage();
-//        PageFactory.initElements(driver, this);
     }
 
     public void chooseCommercialUsage(int vehicleNumber) {
@@ -195,9 +244,6 @@ public class Vehicle extends BasePage {
 
         recreateMapPanelsOnPage();
         integerVehicleDetailsMap.get(vehicleNumber).chooseCommercialUsage();
-
-//        recreateMapPanelsOnPage();
-//        PageFactory.initElements(driver, this);
     }
 
     public void chooseAnotherUsage(int vehicleNumber) {
@@ -205,11 +251,31 @@ public class Vehicle extends BasePage {
 
         recreateMapPanelsOnPage();
         integerVehicleDetailsMap.get(vehicleNumber).chooseAnotherUsage();
-
-//        recreateMapPanelsOnPage();
-//        PageFactory.initElements(driver, this);
     }
 
+    // check chosen usage
+    public boolean chosenUsagePrivate(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).chosenUsagePrivate();
+    }
+
+    public boolean chosenUsageCommercial(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).chosenUsageCommercial();
+    }
+
+    public boolean chosenUsageAnother(int vehicleNumber) {
+        checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerVehicleDetailsMap.get(vehicleNumber).chosenUsageAnother();
+    }
+
+    // error messages
     public List<WebElement> getNeedFillLicenseErrorMessage(int vehicleNumber) {
         checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);
 

@@ -5,18 +5,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
+import pom.forms.PersonalDetails;
+import pom.forms.realestates.RealEstate;
 import pom.forms.sendform.various.VariousAbroadBankAccount;
 import pom.forms.sendform.various.VariousDigitalCoins;
 import pom.forms.sendform.various.VariousNonWorkIncomes;
 import pom.forms.sendform.various.VariousStocks;
+import pom.forms.various.Various;
+import pom.forms.vehicles.Vehicle;
+import pom.forms.wages.Wage;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
-import static constants.BaseConstants.checkCircleIconSubElementMenu;
-import static constants.BaseConstants.errorIconSubElementMenu;
+import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
+import static constants.BaseConstants.*;
 import static constants.EnglishHebrewConstants.*;
 
 public class SendForm extends BasePage {
@@ -89,19 +94,27 @@ public class SendForm extends BasePage {
     private List<WebElement> spouseCountry;
     @FindBy(xpath = "//span/strong[contains(text(),'מחוז בן/בת זוג')]/..")
     private List<WebElement> spouseState;
+    @FindBy(xpath = "(//*[@class='info-box'])[1]/button")
+    private WebElement btnEditPersonalDetails;
 
 
     // Vehicle elements
     @FindBy(xpath = "(//*[@class='info-box'])[2]//ul/li")
     private List<WebElement> vehicle;
+    @FindBy(xpath = "(//*[@class='info-box'])[2]/button")
+    private WebElement btnEditVehicle;
 
     // Wage elements
     @FindBy(xpath = "(//*[@class='info-box'])[3]//ul/li")
     private List<WebElement> wage;
+    @FindBy(xpath = "(//*[@class='info-box'])[3]/button")
+    private WebElement btnEditWage;
 
     // Real Estate elements
     @FindBy(xpath = "(//*[@class='info-box'])[4]//ul/li")
     private List<WebElement> realEstate;
+    @FindBy(xpath = "(//*[@class='info-box'])[4]/button")
+    private WebElement btnEditRealEstate;
 
     // Various elements
     @FindBy(xpath = "((//*[@class='info-box'])[5]/div)[1]//ul/li")
@@ -114,6 +127,8 @@ public class SendForm extends BasePage {
     private List<WebElement> variousStocks;
     @FindBy(xpath = "((//*[@class='info-box'])[5]/div)[5]//ul/li")
     private List<WebElement> variousPartnership;
+    @FindBy(xpath = "(//*[@class='info-box'])[5]/button")
+    private WebElement btnEditVarious;
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement btnSubmit;
@@ -212,6 +227,26 @@ public class SendForm extends BasePage {
         return variousPartnership;
     }
 
+    public WebElement getBtnEditPersonalDetails() {
+        return btnEditPersonalDetails;
+    }
+
+    public WebElement getBtnEditVehicle() {
+        return btnEditVehicle;
+    }
+
+    public WebElement getBtnEditWage() {
+        return btnEditWage;
+    }
+
+    public WebElement getBtnEditRealEstate() {
+        return btnEditRealEstate;
+    }
+
+    public WebElement getBtnEditVarious() {
+        return btnEditVarious;
+    }
+
 
     // == pubic methods ==
 
@@ -281,6 +316,17 @@ public class SendForm extends BasePage {
         return spouseState.get(0).getText().contains(text);
     }
 
+    public PersonalDetails clickBtnEditPersonalDetails() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnEditPersonalDetails());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        return new PersonalDetails(driver);
+    }
 
     // methods info-box Vehicles
     public boolean typeVehicleExists(int vehicleNumber) {
@@ -382,6 +428,17 @@ public class SendForm extends BasePage {
         return integerSendFormVehicleDetailsMap.size();
     }
 
+    public Vehicle clickBtnEditVehicles() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnEditVehicle());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        return new Vehicle(driver);
+    }
 
     // methods info-box Wages
     public boolean typeIncomeExists(int wageNumber) {
@@ -525,6 +582,17 @@ public class SendForm extends BasePage {
         return integerSendFormWageDetailsMap.size();
     }
 
+    public Wage clickBtnEditWage() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnEditWage());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        return new Wage(driver);
+    }
 
     // methods info-box Real Estate
     public List<WebElement> getTenantsList(int realEstateNumber) {
@@ -620,6 +688,32 @@ public class SendForm extends BasePage {
 
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).realEstateContainsText(usage);
     }
+
+    public RealEstate clickBtnEditRealEstate() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnEditRealEstate());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        return new RealEstate(driver);
+    }
+
+    // methods info-box Various
+    public Various clickBtnEditVarious() {
+        try {
+            scrollIntoViewMoveFocusAndClick(driver, getBtnEditVarious());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        return new Various(driver);
+    }
+
 
     // send form method
     public void clickBtnSubmit() {

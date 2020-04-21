@@ -37,6 +37,8 @@ public class BasePage {
     // == PRIVATE FIELDS (web-elements) ==
 
     // == header elements ==
+    @FindBy(xpath = "//h2[@class='heading']")
+    private WebElement header;
     @FindBy(xpath = "//*[@id='layersContainer']//a[@id='signOut']")
     private WebElement btnLogout;
 
@@ -86,6 +88,10 @@ public class BasePage {
 
 
     // == getters ==
+    public WebElement getHeader() {
+        return header;
+    }
+
     public WebElement getBtnLogout() {
         return btnLogout;
     }
@@ -152,6 +158,10 @@ public class BasePage {
 
 
     // == public methods ==
+    public String getHeaderText() {
+        return header.getText().trim();
+    }
+
     public void clickButtonLogOut() {
         btnLogout.click();
         try {

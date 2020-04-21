@@ -33,6 +33,8 @@ public class ChromeSendFormWageTests extends SendFormWageTests {
         createChromeDriver();
 
         super.setUpMethod();
+
+        prepareEmptyWageDetails();
     }
 
     public void testCheckEmptyIsraelIncomeFields() {
