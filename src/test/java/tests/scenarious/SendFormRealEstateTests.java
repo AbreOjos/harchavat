@@ -197,6 +197,108 @@ public class SendFormRealEstateTests extends TestBase {
                 "Real Estate jurisdiction incorrect, expected Oversea");
         Assert.assertTrue(sendForm.realEstateUsageContainsText(1, FAMILY_USAGE),
                 String.format("Real Estate usage incorrect, expected %s", FAMILY_USAGE));
+    }
 
+    protected void realEstateWithMultiTenants() throws Exception {
+        log.info("Add and delete tenants, check that data does not loss");
+
+        String dateStarting;
+        String propertyArea = "123";
+        String ownershipPercentage = "1";
+        String block = "9";
+        String plot = "8";
+        String subPlot = "7";
+        String firstTenantID = "123456789";
+        String secondTenantID = "987654321";
+        String thirdTenantPassport = "1233210123321";
+        String thirdTenantCountry;
+        String thirdTenantState = "State";
+
+        RealEstate realEstate = basePage.clickMenuRealEstate();
+        realEstate.chooseHaveRealEstate();
+
+        realEstate.chooseRealEstateTypeApartment(0);
+        dateStarting = realEstate.pickDayMonthYear(0, "19", JUNE, "2020");
+        realEstate.enterRealEstatePropertyArea(0, propertyArea);
+        realEstate.enterRealEstateOwnershipPercentage(0, ownershipPercentage);
+        realEstate.chooseRealEstateInIsrael(0);
+        realEstate.chooseRealEstateAssetGushHalka(0);
+        realEstate.enterRealEstateBlock(0, block);
+        realEstate.enterRealEstatePlot(0, plot);
+        realEstate.enterRealEstateSubPlot(0, subPlot);
+        realEstate.chooseRealEstateRentingUsage(0);
+        realEstate.chooseRealEstateNotSplit(0);
+
+        // add two more tenants
+        realEstate.addTenant(0);
+        realEstate.addTenant(0);
+
+        // choose tenants jurisdiction
+        realEstate.chooseTenantFromIsrael(0, 0);
+        realEstate.chooseTenantFromIsrael(0, 1);
+        realEstate.chooseTenantFromAbroad(0, 2);
+
+        // enter tenants IDs and passports
+        realEstate.enterTenantId(0, 0, firstTenantID);
+        realEstate.enterTenantId(0, 1, secondTenantID);
+        realEstate.enterTenantPassport(0, 2, thirdTenantPassport);
+
+        // enter tenants addresses
+        thirdTenantCountry = realEstate.selectCountryTenantFromDropDownListByIndex(0, 2, 0);
+        realEstate.enterTenantState(0, 2, thirdTenantState);
+
+        // go to Send Form, check data
+        SendForm sendForm = basePage.clickMenuSendForm();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(sendForm.getTenantsList(0), 3,
+                String.format("Expected %d tenants of first real estate on a Send Form page, but found %d", 3, sendForm.getTenantsList(0).size()));
+
+        // first tenant
+        Assert.assertTrue(sendForm.tenantIsraeli(0, 0),
+                "Tenant jurisdiction incorrect, expected Israeli");
+        Assert.assertTrue(sendForm.tenantIdContains(0, 0, firstTenantID),
+                String.format("Tenant ID incorrect, expected %s", firstTenantID));
+
+        // second tenant
+        Assert.assertTrue(sendForm.tenantIsraeli(0, 1),
+                "Tenant jurisdiction incorrect, expected Israeli");
+        Assert.assertTrue(sendForm.tenantIdContains(0, 1, secondTenantID),
+                String.format("Tenant ID incorrect, expected %s", secondTenantID));
+
+        // third tenant
+        Assert.assertTrue(sendForm.tenantAbroad(0, 2),
+                "Tenant jurisdiction incorrect, expected Abroad");
+        Assert.assertTrue(sendForm.tenantPassportContains(0, 2, thirdTenantPassport),
+                String.format("Tenant Passport incorrect, expected %s", thirdTenantPassport));
+        Assert.assertTrue(sendForm.tenantCountryContains(0, 2, thirdTenantCountry),
+                String.format("Tenant Country incorrect, expected %s", thirdTenantCountry));
+        Assert.assertTrue(sendForm.tenantStateContains(0, 2, thirdTenantState),
+                String.format("Tenant State incorrect, expected %s", thirdTenantState));
+
+        // return to Real Estate, delete one of the tenant
+        realEstate = basePage.clickMenuRealEstate();
+        realEstate.deleteTenant(0, 1);
+
+        // return to Send Form, recheck data
+        sendForm = basePage.clickMenuSendForm();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(sendForm.getTenantsList(0), 2,
+                String.format("Expected %d tenants of first real estate on a Send Form page, but found %d", 2, sendForm.getTenantsList(0).size()));
+
+        // first tenant
+        Assert.assertTrue(sendForm.tenantIsraeli(0, 0),
+                "Tenant jurisdiction incorrect, expected Israeli");
+        Assert.assertTrue(sendForm.tenantIdContains(0, 0, firstTenantID),
+                String.format("Tenant ID incorrect, expected %s", firstTenantID));
+
+        // second tenant (former third)
+        Assert.assertTrue(sendForm.tenantAbroad(0, 1),
+                "Tenant jurisdiction incorrect, expected Abroad");
+        Assert.assertTrue(sendForm.tenantPassportContains(0, 1, thirdTenantPassport),
+                String.format("Tenant Passport incorrect, expected %s", thirdTenantPassport));
+        Assert.assertTrue(sendForm.tenantCountryContains(0, 1, thirdTenantCountry),
+                String.format("Tenant Country incorrect, expected %s", thirdTenantCountry));
+        Assert.assertTrue(sendForm.tenantStateContains(0, 1, thirdTenantState),
+                String.format("Tenant State incorrect, expected %s", thirdTenantState));
     }
 }

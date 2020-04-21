@@ -41,4 +41,8 @@ public class ChromeSendFormRealEstateTests extends SendFormRealEstateTests {
         multiRealEstateWithoutTenants();
     }
 
+    public void testRealEstateWithMultiTenants() throws Exception {
+        realEstateWithMultiTenants();
+    }
+
 }

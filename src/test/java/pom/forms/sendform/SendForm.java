@@ -25,6 +25,7 @@ public class SendForm extends BasePage {
     private final String VEHICLE = "vehicle";
     private final String WAGE = "wage";
     private final String REAL_ESTATE = "real estate";
+    public static final String TENANT_INFO = "tenant info";
 
     private Map<Integer, SendFormVehicleDetails> integerSendFormVehicleDetailsMap;
     private Map<Integer, SendFormWageDetails> integerSendFormWageDetailsMap;
@@ -526,27 +527,45 @@ public class SendForm extends BasePage {
 
 
     // methods info-box Real Estate
+    public List<WebElement> getTenantsList(int realEstateNumber) {
+        checkNumber(realEstateNumber, TENANT_INFO, REAL_ESTATE, integerSendFormRealEstateDetailsMap);
+
+        return integerSendFormRealEstateDetailsMap.get(realEstateNumber).getTenantsList();
+    }
+
     public boolean tenantIsraeli(int realEstateNumber, int tenantNumber) {
+        checkNumber(realEstateNumber, TENANT_INFO, REAL_ESTATE, integerSendFormRealEstateDetailsMap);
+
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).tenantIsraeli(tenantNumber);
     }
 
     public boolean tenantAbroad(int realEstateNumber, int tenantNumber) {
+        checkNumber(realEstateNumber, TENANT_INFO, REAL_ESTATE, integerSendFormRealEstateDetailsMap);
+
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).tenantAbroad(tenantNumber);
     }
 
     public boolean tenantIdContains(int realEstateNumber, int tenantNumber, String id) {
+        checkNumber(realEstateNumber, TENANT_INFO, REAL_ESTATE, integerSendFormRealEstateDetailsMap);
+
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).tenantIdContains(tenantNumber, id);
     }
 
     public boolean tenantCountryContains(int realEstateNumber, int tenantNumber, String country) {
+        checkNumber(realEstateNumber, TENANT_INFO, REAL_ESTATE, integerSendFormRealEstateDetailsMap);
+
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).tenantCountryContains(tenantNumber, country);
     }
 
     public boolean tenantStateContains(int realEstateNumber, int tenantNumber, String state) {
+        checkNumber(realEstateNumber, TENANT_INFO, REAL_ESTATE, integerSendFormRealEstateDetailsMap);
+
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).tenantStateContains(tenantNumber, state);
     }
 
     public boolean tenantPassportContains(int realEstateNumber, int tenantNumber, String passport) {
+        checkNumber(realEstateNumber, TENANT_INFO, REAL_ESTATE, integerSendFormRealEstateDetailsMap);
+
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).tenantPassportContains(tenantNumber, passport);
     }
 

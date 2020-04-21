@@ -1046,6 +1046,13 @@ public class RealEstate extends BasePage {
         return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageTenantPassportFifteenDigitsMax(tenantNumber);
     }
 
+//    public int getTenantsAmount(int realEstateNumber) {
+//        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+//
+//        recreateMapPanelsOnPage();
+//        return integerRealEstateDetailsMap.get(realEstateNumber).getTenantsAmount();
+//    }
+
 
     // == private methods ==
     private void recreateMapPanelsOnPage() {

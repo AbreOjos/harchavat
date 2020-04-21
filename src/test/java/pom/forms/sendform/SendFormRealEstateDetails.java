@@ -74,8 +74,7 @@ public class SendFormRealEstateDetails extends BasePage {
         return realEstateContainsText(getTenantsList().get(tenantNumber), passport);
     }
 
-    // == private methods ==
-    private List<WebElement> getTenantsList() {
+    protected List<WebElement> getTenantsList() {
         return details.findElements(tenantSubElementRealEstateList);
     }
 }
