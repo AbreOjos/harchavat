@@ -11,8 +11,7 @@ import java.util.Map;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
-import static constants.BaseConstants.txtStateSubElementDetails;
-import static constants.BaseConstants.waitFewSecondsWarningDisabled;
+import static constants.BaseConstants.*;
 import static constants.RealEstateConstants.*;
 
 public class RealEstateDetails extends BasePage {

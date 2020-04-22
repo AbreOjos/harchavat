@@ -112,59 +112,87 @@ public class Various extends BasePage {
     // Have / Don't Have methods
     public void chooseHaveNonWorkIncomes() {
         chooseHave(btnHaveNonWorkIncomes);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseDontHaveNonWorkIncomes() {
         chooseDontHave(btnDontHaveNonWorkIncomes);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseHaveAbroadBankAccounts() {
         chooseHave(btnHaveAbroadBankAccounts);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseDontHaveAbroadBankAccounts() {
         chooseDontHave(btnDontHaveAbroadBankAccounts);
 
+        recreateMapPanelsOnPage();
+
     }
 
     public void chooseHaveDigitalCoins() {
         chooseHave(btnHaveDigitalCoins);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseDontHaveDigitalCoins() {
         chooseDontHave(btnDontHaveDigitalCoins);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseHaveStocks() {
         chooseHave(btnHaveStocks);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseDontHaveStocks() {
         chooseDontHave(btnDontHaveStocks);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseHavePartnerships() {
         chooseHave(btnHavePartnerships);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseDontHavePartnerships() {
         chooseDontHave(btnDontHavePartnerships);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseHaveJewelry() {
         chooseHave(btnHaveJewelry);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseDontHaveJewelry() {
         chooseDontHave(btnDontHaveJewelry);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseHaveArt() {
         chooseHave(btnHaveArt);
+
+        recreateMapPanelsOnPage();
     }
 
     public void chooseDontHaveArt() {
         chooseDontHave(btnDontHaveArt);
+
+        recreateMapPanelsOnPage();
     }
 
     // addPanel and deletePanel panels
@@ -223,6 +251,20 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).chooseIncomeOversea();
     }
 
+    public boolean nonWorkIncomeIsraeliChosen(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).incomeIsraeliChosen();
+    }
+
+    public boolean nonWorkIncomeOverseaChosen(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).incomeOverseaChosen();
+    }
+
     public void enterNonWorkIncomesIncomeSource(int nonWorkIncomeNumber, String incomeSource) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
@@ -237,18 +279,18 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deleteIncomeSource();
     }
 
-    public void enterNonWorkIncomesYearlyIncome(int nonWorkIncomeNumber, String yearlyIncome) {
+    public void enterNonWorkIncomesAnnualIncome(int nonWorkIncomeNumber, String annualIncome) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
-        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterYearlyIncome(yearlyIncome);
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterAnnualIncome(annualIncome);
     }
 
-    public void deleteNonWorkIncomesYearlyIncome(int nonWorkIncomeNumber) {
+    public void deleteNonWorkIncomesAnnualIncome(int nonWorkIncomeNumber) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
-        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deleteYearlyIncome();
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deleteAnnualIncome();
     }
 
     public void enterNonWorkIncomesPayerName(int nonWorkIncomeNumber, String payerName) {
@@ -347,6 +389,140 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deleteState();
+    }
+
+    // error messages NonWorkIncomes
+    public List<WebElement> getNeedFillIncomeTypeErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getNeedFillIncomeTypeErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillIncomeSourceErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getNeedFillIncomeSourceErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillAnnualIncomeErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getNeedFillAnnualIncomeErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillPayerNameErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getNeedFillPayerNameErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillITikNikuimErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getNeedFillITikNikuimErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillCityErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getNeedFillCityErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillStreetErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getNeedFillStreetErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillHouseNumErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getNeedFillHouseNumErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillCountryErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getNeedFillCountryErrorMessage();
+    }
+
+    public List<WebElement> getAnnualIncomeTwentyCharsMaxErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getAnnualIncomeTwentyCharsMaxErrorMessage();
+    }
+
+    public List<WebElement> getCityFifteenCharsMaxErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getCityFifteenCharsMaxErrorMessage();
+    }
+
+    public List<WebElement> getStreetFifteenCharsMaxErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getStreetFifteenCharsMaxErrorMessage();
+    }
+
+    public List<WebElement> getIncomeSourceContainsCharactersErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getIncomeSourceContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getPayerNameContainsCharactersErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getPayerNameContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getTikNikuimCanContainDigitsOnlyErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getTikNikuimCanContainDigitsOnlyErrorMessage();
+    }
+
+    public List<WebElement> getHouseNumContainsCharactersErrorMessage(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getHouseNumContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getErrorMessageStateContainsCharacters(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getErrorMessageStateContainsCharacters();
+    }
+
+    public List<WebElement> getErrorMessageCityContainsCharacters(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getErrorMessageCityContainsCharacters();
+    }
+
+    public List<WebElement> getErrorMessageStreetContainsCharacters(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getErrorMessageStreetContainsCharacters();
     }
 
 
@@ -815,35 +991,6 @@ public class Various extends BasePage {
 
 
     // == private methods ==
-//    private void chooseHave(WebElement button) {
-//        try {
-//            scrollIntoViewMoveFocusAndClick(driver, button);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-////        button.click();
-//
-//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-//
-//        recreateMapPanelsOnPage();
-//    }
-
-//    private void chooseDontHave(WebElement button) {
-//        try {
-//            scrollIntoViewMoveFocusAndClick(driver, button);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-////        button.click();
-//
-//
-//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-//
-//        recreateMapPanelsOnPage();
-//    }
-
     private void add(WebElement btnAdd) {
         btnAdd.click();
 

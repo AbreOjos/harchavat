@@ -41,5 +41,49 @@ public class ChromeVariousTests extends VariousTests {
         checkMenuIcons();
     }
 
+    // non work incomes tests
+    public void testNeedFillTypeIncomeErrorMessage() {
+        needFillTypeIncomeErrorMessage();
+    }
+
+    public void testNeedFillIncomeSourceErrorMessage() {
+        needFillIncomeSourceErrorMessage();
+    }
+
+    public void testNeedFillAnnualIncomeErrorMessage() {
+        needFillAnnualIncomeErrorMessage();
+    }
+
+    public void testNeedFillPayerNameErrorMessage() {
+        needFillPayerNameErrorMessage();
+    }
+
+    public void testNeedFillTikNikiumErrorMessage() {
+        needFillTikNikiumErrorMessage();
+    }
+
+    public void testNeedFillCityErrorMessage() {
+        needFillCityErrorMessage();
+    }
+
+    public void testNeedFillStreetErrorMessage() {
+        needFillStreetErrorMessage();
+    }
+
+    public void testNeedFillHouseNumErrorMessage() {
+        needFillHouseNumErrorMessage();
+    }
+
+    public void testNeedFillCountryErrorMessage() {
+        needFillCountryErrorMessage();
+    }
+
+    public void testAnnualIncomeTwentyCharsMaxErrorMessage() {
+        annualIncomeTwentyCharsMaxErrorMessage();
+    }
+
+//    public void testCityFifteenCharsMaxErrorMessage() {
+//        cityFifteenCharsMaxErrorMessage();
+//    }
 
 }

@@ -35,8 +35,8 @@ public class VariousTests extends TestBase {
         various.deleteNonWorkIncomesIncomeSource(0);
         various.enterNonWorkIncomesIncomeSource(0, incomeSource);
 
-        various.deleteNonWorkIncomesYearlyIncome(0);
-        various.enterNonWorkIncomesYearlyIncome(0, incomeAnnual);
+        various.deleteNonWorkIncomesAnnualIncome(0);
+        various.enterNonWorkIncomesAnnualIncome(0, incomeAnnual);
 
         various.deleteNonWorkIncomesPayerName(0);
         various.enterNonWorkIncomesPayerName(0, payerName);
@@ -71,4 +71,665 @@ public class VariousTests extends TestBase {
         AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCheckCircleIconMenu(), 0,
                 "A check-circle icon menu did not disappeared when there are no Various details");
     }
+
+
+    // non work incomes tests
+    protected void needFillTypeIncomeErrorMessage() {
+        log.info("Check the error message 'need to fill income type'");
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        if (!various.nonWorkIncomeIsraeliChosen(0) && !various.nonWorkIncomeOverseaChosen(0)) {
+            AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(0), 1,
+                    "Error message 'Need to Fill Type of Income' did not appear on a first panel");
+        }
+
+        various.addNonWorkIncomes();
+        various.addNonWorkIncomes();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        if (!various.nonWorkIncomeIsraeliChosen(1) && !various.nonWorkIncomeOverseaChosen(1)) {
+            AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(1), 1,
+                    "Error message 'Need to Fill Type of Income' did not appear on a second panel");
+        }
+
+        if (!various.nonWorkIncomeIsraeliChosen(2) && !various.nonWorkIncomeOverseaChosen(2)) {
+            AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(2), 1,
+                    "Error message 'Need to Fill Type of Income' did not appear on a third panel");
+        }
+
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(0), 0,
+                "Error message 'Need to Fill Type of Income' did not disappear on a first panel after income type was chosen");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(1), 1,
+                "Error message 'Need to Fill Type of Income' disappeared on a second panel after income type was chosen on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(2), 1,
+                "Error message 'Need to Fill Type of Income' disappeared on a third panel after income type was chosen on a first panel");
+
+        various.chooseNonWorkIncomesIncomeOversea(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(0), 0,
+                "Error message 'Need to Fill Type of Income' re-appeared on a first panel after income type was chosen on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(1), 1,
+                "Error message 'Need to Fill Type of Income' disappeared on a second panel after income type was chosen on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(2), 0,
+                "Error message 'Need to Fill Type of Income' did not disappear on a third panel after income type was chosen");
+
+        various.deleteNonWorkIncomes(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(0), 0,
+                "Error message 'Need to Fill Type of Income' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(1), 1,
+                "Error message 'Need to Fill Type of Income' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteNonWorkIncomes(1);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(0), 0,
+                "Error message 'Need to Fill Type of Income' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillIncomeSourceErrorMessage() {
+        log.info("Check the error message 'need to fill income source'");
+
+        String firstIncomeSource = "First Income Source";
+        String thirdIncomeSource = "Third Income Source";
+
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(0), 1,
+                "Error message 'Need to Fill Income Source' did not appear on a first panel");
+
+        various.addNonWorkIncomes();
+        various.addNonWorkIncomes();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(1), 1,
+                "Error message 'Need to Fill Income Source' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(2), 1,
+                "Error message 'Need to Fill Income Source' did not appear on a third panel");
+
+        various.enterNonWorkIncomesIncomeSource(0, firstIncomeSource);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(0), 0,
+                "Error message 'Need to Fill Income Source' did not disappear on a first panel after Income Source was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(1), 1,
+                "Error message 'Need to Fill Income Source' disappeared on a second panel after Income Source was entered on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(2), 1,
+                "Error message 'Need to Fill Income Source' disappeared on a third panel after Income Source was entered on a first panel");
+
+        various.enterNonWorkIncomesIncomeSource(2, thirdIncomeSource);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(0), 0,
+                "Error message 'Need to Fill Income Source' re-appeared on a first panel after Income Source was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(1), 1,
+                "Error message 'Need to Fill Income Source' disappeared on a second panel after Income Source was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(2), 0,
+                "Error message 'Need to Fill Income Source' dud not disappear on a third panel after Income Source was entered");
+
+        various.deleteNonWorkIncomes(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(0), 0,
+                "Error message 'Need to Fill Income Source' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(1), 1,
+                "Error message 'Need to Fill Income Source' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteNonWorkIncomes(1);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeSourceErrorMessage(0), 0,
+                "Error message 'Need to Fill Income Source' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillAnnualIncomeErrorMessage() {
+        log.info("Check the error message 'need to fill annual income'");
+
+        String firstAnnualIncome = "123";
+        String thirdAnnualIncome = "456";
+
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(0), 1,
+                "Error message 'Need to Fill Annual Income' did not appear on a first panel");
+
+        various.addNonWorkIncomes();
+        various.addNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+        various.chooseNonWorkIncomesIncomeIsraeli(1);
+        various.chooseNonWorkIncomesIncomeIsraeli(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(1), 1,
+                "Error message 'Need to Fill Annual Income' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(2), 1,
+                "Error message 'Need to Fill Annual Income' did not appear on a third panel");
+
+        various.enterNonWorkIncomesAnnualIncome(0, firstAnnualIncome);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(0), 0,
+                "Error message 'Need to Fill Annual Income' did not disappear on a first panel after Annual Income was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(1), 1,
+                "Error message 'Need to Fill Annual Income' disappeared on a second panel after Annual Income was entered on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(2), 1,
+                "Error message 'Need to Fill Annual Income' disappeared on a third panel after Annual Income was entered on a first panel");
+
+        various.enterNonWorkIncomesAnnualIncome(2, thirdAnnualIncome);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(0), 0,
+                "Error message 'Need to Fill Annual Income' re-appeared on a first panel after Annual Income was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(1), 1,
+                "Error message 'Need to Fill Annual Income' disappeared on a second panel after Annual Income was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(2), 0,
+                "Error message 'Need to Fill Annual Income' dud not disappear on a third panel after Annual Income was entered");
+
+        various.deleteNonWorkIncomes(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(0), 0,
+                "Error message 'Need to Fill Annual Income' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(1), 1,
+                "Error message 'Need to Fill Annual Income' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteNonWorkIncomes(1);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillAnnualIncomeErrorMessage(0), 0,
+                "Error message 'Need to Fill Annual Income' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillPayerNameErrorMessage() {
+        log.info("Check the error message 'need to fill payer name'");
+
+        String firstPayerName = "first payer name";
+        String thirdPayerName = "third payer name";
+
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(0), 1,
+                "Error message 'Need to Fill payer name' did not appear on a first panel");
+
+        various.addNonWorkIncomes();
+        various.addNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(1);
+        various.chooseNonWorkIncomesIncomeIsraeli(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(1), 1,
+                "Error message 'Need to Fill payer name' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(2), 1,
+                "Error message 'Need to Fill payer name' did not appear on a third panel");
+
+        various.enterNonWorkIncomesPayerName(0, firstPayerName);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(0), 0,
+                "Error message 'Need to Fill payer name' did not disappear on a first panel after payer name was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(1), 1,
+                "Error message 'Need to Fill payer name' disappeared on a second panel after payer name was entered on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(2), 1,
+                "Error message 'Need to Fill payer name' disappeared on a third panel after payer name was entered on a first panel");
+
+        various.enterNonWorkIncomesPayerName(2, thirdPayerName);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(0), 0,
+                "Error message 'Need to Fill payer name' re-appeared on a first panel after payer name was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(1), 1,
+                "Error message 'Need to Fill payer name' disappeared on a second panel after payer name was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(2), 0,
+                "Error message 'Need to Fill payer name' dud not disappear on a third panel after payer name was entered");
+
+        various.deleteNonWorkIncomes(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(0), 0,
+                "Error message 'Need to Fill payer name' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(1), 1,
+                "Error message 'Need to Fill payer name' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteNonWorkIncomes(1);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillPayerNameErrorMessage(0), 0,
+                "Error message 'Need to Fill payer name' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillTikNikiumErrorMessage() {
+        log.info("Check the error message 'need to fill tik nikuim'");
+
+        String firstTikNikium = "123";
+        String thirdTikNikium = "456";
+
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(0), 1,
+                "Error message 'Need to Fill tik nikuim' did not appear on a first panel");
+
+        various.addNonWorkIncomes();
+        various.addNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(1);
+        various.chooseNonWorkIncomesIncomeIsraeli(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(1), 1,
+                "Error message 'Need to Fill tik nikuim' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(2), 1,
+                "Error message 'Need to Fill tik nikuim' did not appear on a third panel");
+
+        various.enterNonWorkIncomesTikNikuim(0, firstTikNikium);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(0), 0,
+                "Error message 'Need to Fill tik nikuim' did not disappear on a first panel after tik nikuim was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(1), 1,
+                "Error message 'Need to Fill tik nikuim' disappeared on a second panel after tik nikuim was entered on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(2), 1,
+                "Error message 'Need to Fill tik nikuim' disappeared on a third panel after tik nikuim was entered on a first panel");
+
+        various.enterNonWorkIncomesTikNikuim(2, thirdTikNikium);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(0), 0,
+                "Error message 'Need to Fill tik nikuim' re-appeared on a first panel after tik nikuim was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(1), 1,
+                "Error message 'Need to Fill tik nikuim' disappeared on a second panel after tik nikuim was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(2), 0,
+                "Error message 'Need to Fill tik nikuim' dud not disappear on a third panel after tik nikuim was entered");
+
+        various.deleteNonWorkIncomes(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(0), 0,
+                "Error message 'Need to Fill tik nikuim' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(1), 1,
+                "Error message 'Need to Fill tik nikuim' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteNonWorkIncomes(1);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillITikNikuimErrorMessage(0), 0,
+                "Error message 'Need to Fill tik nikuim' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillCityErrorMessage() {
+        log.info("Check the error message 'need to fill city'");
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(0), 1,
+                "Error message 'Need to Fill City' did not appear on a first panel");
+
+        various.addNonWorkIncomes();
+        various.addNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(1);
+        various.chooseNonWorkIncomesIncomeIsraeli(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(1), 1,
+                "Error message 'Need to Fill City' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(2), 1,
+                "Error message 'Need to Fill City' did not appear on a third panel");
+
+        various.selectCityNonWorkIncomesFromDropDownListByIndex(0, 0);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(0), 0,
+                "Error message 'Need to Fill City' did not disappear on a first panel after City was chosen");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(1), 1,
+                "Error message 'Need to Fill City' disappeared on a second panel after City was chosen on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(2), 1,
+                "Error message 'Need to Fill City' disappeared on a third panel after City was chosen on a first panel");
+
+        various.selectCityNonWorkIncomesFromDropDownListByIndex(2, 0);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(0), 0,
+                "Error message 'Need to Fill City' re-appeared on a first panel after city was chosen on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(1), 1,
+                "Error message 'Need to Fill City' disappeared on a second panel after city was chosen on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(2), 0,
+                "Error message 'Need to Fill City' dud not disappear on a third panel after city was chosen");
+
+        various.deleteNonWorkIncomes(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(0), 0,
+                "Error message 'Need to Fill City' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(1), 1,
+                "Error message 'Need to Fill City' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteNonWorkIncomes(1);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(0), 0,
+                "Error message 'Need to Fill City' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillStreetErrorMessage() {
+        log.info("Check the error message 'need to fill street'");
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(0), 1,
+                "Error message 'Need to Fill street' did not appear on a first panel");
+
+        various.addNonWorkIncomes();
+        various.addNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(1);
+        various.chooseNonWorkIncomesIncomeIsraeli(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(1), 1,
+                "Error message 'Need to Fill street' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(2), 1,
+                "Error message 'Need to Fill street' did not appear on a third panel");
+
+        various.selectCityNonWorkIncomesFromDropDownListByIndex(0, 0);
+        various.selectStreetNonWorkIncomesFromDropDownListByIndex(0, 0);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(0), 0,
+                "Error message 'Need to Fill street' did not disappear on a first panel after street was chosen");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(1), 1,
+                "Error message 'Need to Fill street' disappeared on a second panel after street was chosen on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(2), 1,
+                "Error message 'Need to Fill street' disappeared on a third panel after street was chosen on a first panel");
+
+        various.selectCityNonWorkIncomesFromDropDownListByIndex(2, 0);
+        various.selectStreetNonWorkIncomesFromDropDownListByIndex(2, 0);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(0), 0,
+                "Error message 'Need to Fill street' re-appeared on a first panel after street was chosen on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(1), 1,
+                "Error message 'Need to Fill street' disappeared on a second panel after street was chosen on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(2), 0,
+                "Error message 'Need to Fill street' dud not disappear on a third panel after street was chosen");
+
+        various.deleteNonWorkIncomes(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(0), 0,
+                "Error message 'Need to Fill street' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(1), 1,
+                "Error message 'Need to Fill street' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteNonWorkIncomes(1);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillStreetErrorMessage(0), 0,
+                "Error message 'Need to Fill street' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillHouseNumErrorMessage() {
+        log.info("Check the error message 'need to fill house num'");
+
+        String firstHouseNum = "123";
+        String thirdHouseNum = "456";
+
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(0), 1,
+                "Error message 'Need to Fill house num' did not appear on a first panel");
+
+        various.addNonWorkIncomes();
+        various.addNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(1);
+        various.chooseNonWorkIncomesIncomeIsraeli(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(1), 1,
+                "Error message 'Need to Fill house num' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(2), 1,
+                "Error message 'Need to Fill house num' did not appear on a third panel");
+
+        various.enterNonWorkIncomesHouseNum(0, firstHouseNum);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(0), 0,
+                "Error message 'Need to Fill house num' did not disappear on a first panel after house num was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(1), 1,
+                "Error message 'Need to Fill house num' disappeared on a second panel after house num was entered on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(2), 1,
+                "Error message 'Need to Fill house num' disappeared on a third panel after house num was entered on a first panel");
+
+        various.enterNonWorkIncomesHouseNum(2, thirdHouseNum);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(0), 0,
+                "Error message 'Need to Fill house num' re-appeared on a first panel after house num was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(1), 1,
+                "Error message 'Need to Fill house num' disappeared on a second panel after house numm was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(2), 0,
+                "Error message 'Need to Fill house num' dud not disappear on a third panel after house num was entered");
+
+        various.deleteNonWorkIncomes(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(0), 0,
+                "Error message 'Need to Fill house num' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(1), 1,
+                "Error message 'Need to Fill house num' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteNonWorkIncomes(1);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillHouseNumErrorMessage(0), 0,
+                "Error message 'Need to Fill house num' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillCountryErrorMessage() {
+        log.info("Check the error message 'need to fill country'");
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeOversea(0);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(0), 1,
+                "Error message 'Need to Fill Country' did not appear on a first panel");
+
+        various.addNonWorkIncomes();
+        various.addNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeOversea(1);
+        various.chooseNonWorkIncomesIncomeOversea(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(1), 1,
+                "Error message 'Need to Fill Country' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(2), 1,
+                "Error message 'Need to Fill Country' did not appear on a third panel");
+
+        various.selectCountryNonWorkIncomesFromDropDownListByIndex(0, 0);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(0), 0,
+                "Error message 'Need to Fill Country' did not disappear on a first panel after Country was chosen");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(1), 1,
+                "Error message 'Need to Fill Country' disappeared on a second panel after Country was chosen on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(2), 1,
+                "Error message 'Need to Fill Country' disappeared on a third panel after Country was chosen on a first panel");
+
+        various.selectCountryNonWorkIncomesFromDropDownListByIndex(2, 0);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(0), 0,
+                "Error message 'Need to Fill Country' re-appeared on a first panel after Country was chosen on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(1), 1,
+                "Error message 'Need to Fill Country' disappeared on a second panel after Country was chosen on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(2), 0,
+                "Error message 'Need to Fill Country' dud not disappear on a third panel after Country was chosen");
+
+        various.deleteNonWorkIncomes(2);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(0), 0,
+                "Error message 'Need to Fill Country' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(1), 1,
+                "Error message 'Need to Fill Country' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteNonWorkIncomes(1);
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(0), 0,
+                "Error message 'Need to Fill Country' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void annualIncomeTwentyCharsMaxErrorMessage() {
+        log.info("Check the error message 'Annual Income Twenty Chars Max'");
+
+        String tooLongAnnualIncome = "1234567890123456";
+        String correctAnnualIncome = "123456789012345";
+
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+
+        various.enterNonWorkIncomesAnnualIncome(0, tooLongAnnualIncome);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getAnnualIncomeTwentyCharsMaxErrorMessage(0), 1,
+                String.format("Error message 'Annual Income Twenty Chars Max' did not appear when the incorrect value %s was entered", tooLongAnnualIncome));
+
+        various.deleteNonWorkIncomesAnnualIncome(0);
+        various.enterNonWorkIncomesAnnualIncome(0, correctAnnualIncome);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getAnnualIncomeTwentyCharsMaxErrorMessage(0), 0,
+                String.format("Error message 'Annual Income Twenty Chars Max' did not disappear when the correct value %s was entered", correctAnnualIncome));
+    }
+
+//    protected void cityFifteenCharsMaxErrorMessage() {
+//        log.info("Check the error message 'City Fifteen Chars Max'");
+//
+//        String tooLongCityName = "Very Looong Name";
+//        String correctCityName = "City";
+//
+//
+//        Various various = basePage.clickMenuVarious();
+//        various.chooseHaveNonWorkIncomes();
+//        various.chooseNonWorkIncomesIncomeOversea(0);
+//
+//        various.(0, tooLongCityName);
+//
+//        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCityFifteenCharsMaxErrorMessage(0), 1,
+//                String.format("Error message 'CityFifteenCharsMax' did not appear when the incorrect value %s was entered", tooLongCityName));
+//
+//        various.deleteNonWorkIncomesAnnualIncome(0);
+//        various.enterNonWorkIncomesAnnualIncome(0, correctCityName);
+//
+//        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCityFifteenCharsMaxErrorMessage(0), 0,
+//                String.format("Error message 'CityFifteenCharsMax' did not disappear when the correct value %s was entered", correctCityName));
+//    }
 }

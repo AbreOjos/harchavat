@@ -264,14 +264,14 @@ public class TemporalTests extends TestBase {
         various.chooseNonWorkIncomesIncomeOversea(2);
 
         various.enterNonWorkIncomesIncomeSource(0, "AAAAAAAAAAAA");
-        various.enterNonWorkIncomesYearlyIncome(0, "1000");
+        various.enterNonWorkIncomesAnnualIncome(0, "1000");
         various.enterNonWorkIncomesPayerName(0, "Igor");
         various.enterNonWorkIncomesTikNikuim(0, "tik AAA");
         various.selectCityNonWorkIncomesFromDropDownListByName(0, JERUSALEM);
         various.enterNonWorkIncomesHouseNum(0, "10");
 
         various.enterNonWorkIncomesIncomeSource(2, "BBBBBBBBBB");
-        various.enterNonWorkIncomesYearlyIncome(2, "123456");
+        various.enterNonWorkIncomesAnnualIncome(2, "123456");
         various.selectCountryNonWorkIncomesFromDropDownListByName(2, ISRAEL);
         various.enterNonWorkIncomesState(2, "Alabama");
 

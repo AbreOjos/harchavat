@@ -94,52 +94,38 @@ public class WageTests extends TestBase {
         basePage.clickMenuRealEstate();
         wage = basePage.clickMenuWage();
 
-        if (!wage.israelIncomeChosen(0) && !wage.abroadIncomeChosen(0)) {
-            AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(0), 0,
-                    "Error message 'Need to Fill Type of Income' did not disappear on a first panel after Israel Income chosen");
-        }
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(0), 0,
+                "Error message 'Need to Fill Type of Income' did not disappear on a first panel after Israel Income chosen");
 
-        if (!wage.israelIncomeChosen(1) && !wage.abroadIncomeChosen(1)) {
-            AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(1), 1,
-                    "Error message 'Need to Fill Type of Income' disappear on a second panel after income chosen on a first panel");
-        }
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(1), 1,
+                "Error message 'Need to Fill Type of Income' disappear on a second panel after income chosen on a first panel");
 
-        if (!wage.israelIncomeChosen(2) && !wage.abroadIncomeChosen(2)) {
-            AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(2), 1,
-                    "Error message 'Need to Fill Type of Income' disappear on a third panel after income chosen on a first panel");
-        }
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(2), 1,
+                "Error message 'Need to Fill Type of Income' disappear on a third panel after income chosen on a first panel");
 
         wage.chooseAbroadIncome(2);
         basePage.clickMenuRealEstate();
         wage = basePage.clickMenuWage();
 
-        if (!wage.israelIncomeChosen(2) && !wage.abroadIncomeChosen(2)) {
-            AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(2), 0,
-                    "Error message 'Need to Fill Type of Income' did not disappear on a third panel after Abroad Income chosen");
-        }
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(2), 0,
+                "Error message 'Need to Fill Type of Income' did not disappear on a third panel after Abroad Income chosen");
 
-        if (!wage.israelIncomeChosen(1) && !wage.abroadIncomeChosen(1)) {
-            AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(1), 1,
-                    "Error message 'Need to Fill Type of Income' disappear on a second panel after income chosen on a third panel");
-        }
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(1), 1,
+                "Error message 'Need to Fill Type of Income' disappear on a second panel after income chosen on a third panel");
 
         wage.deleteWage(2);
         basePage.clickMenuRealEstate();
         wage = basePage.clickMenuWage();
 
-        if (!wage.israelIncomeChosen(1) && !wage.abroadIncomeChosen(1)) {
-            AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(1), 1,
-                    "Error message 'Need to Fill Type of Income' disappear on a second panel after a third panel was deleted");
-        }
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(1), 1,
+                "Error message 'Need to Fill Type of Income' disappear on a second panel after a third panel was deleted");
 
         wage.deleteWage(1);
         basePage.clickMenuRealEstate();
         wage = basePage.clickMenuWage();
 
-        if (!wage.israelIncomeChosen(0) && !wage.abroadIncomeChosen(0)) {
-            AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(0), 0,
-                    "Error message 'Need to Fill Type of Income' re-appear on a first panel after second panel was deleted");
-        }
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(wage.getErrorMessageNeedFillTypeIncome(0), 0,
+                "Error message 'Need to Fill Type of Income' re-appear on a first panel after second panel was deleted");
 
     }
 

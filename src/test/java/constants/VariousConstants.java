@@ -26,7 +26,7 @@ public class VariousConstants {
     // non work incomes details sub-element
     public static final By btnsTypeOfIncomeSubElementNonWorkIncomesDetails = By.xpath(".//div[@name='typeOfIncome']//button");
     public static final By txtIncomeSourceSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='incomeSource']");
-    public static final By txtYearlyIncomeSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='yearlyIncome']");
+    public static final By txtAnnualIncomeSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='yearlyIncome']");
     public static final By txtPayerNameSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='payerName']");
     public static final By txtTikNikuimSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='tikNikuim']");
 //    public static final By dropDownCitySubElementNonWorkIncomesDetails = By.xpath(".//input[@name='city']");
@@ -34,6 +34,40 @@ public class VariousConstants {
     public static final By dropDownCountrySubElementNonWorkIncomesDetails = By.xpath(".//input[@name='countryOfIncome']");
     public static final By txtHouseNumSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='houseNum']");
     public static final By txtStateSubElementNonWorkIncomesDetails = By.xpath(".//input[@name='state']");
+
+    // non work incomes errors sub-elements
+//    public static final By errorMessageNeedFillIncomeTypeSubElementDetails =
+//            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה סוג ההכנסה')]");
+    public static final By errorMessageNeedFillIncomeSourceSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מקור הכנסה')]");
+    public static final By errorMessageNeedFillAnnualIncomeSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה גובה הכנסה שנתית')]");
+    public static final By errorMessageNeedFillPayerNameSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה שם המשלם')]");
+//    public static final By errorMessageNeedFillTikNikuimSubElementDetails =
+//            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה תיק ניכויים')]");
+//    public static final By errorMessageNeedFillCitySubElementDetails =
+//            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה עיר')]");
+//    public static final By errorMessageNeedFillStreetSubElementDetails =
+//            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה רחוב')]");
+//    public static final By errorMessageNeedFillHouseNumSubElementDetails =
+//            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מספר בית')]");
+//    public static final By errorMessageNeedFillCountrySubElementDetails =
+//            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מדינה')]");
+    public static final By errorMessageAnnualIncomeTwentyCharsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה גובה הכנסה שנתית לא יכול להכיל יותר מ- 20 תווים')]");
+    public static final By errorMessageCityFifteenCharsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה עיר לא יכול להכיל יותר מ- 15 תווים')]");
+    public static final By errorMessageStreetFifteenCharsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה רחוב לא יכול להכיל יותר מ- 15 תווים')]");
+    public static final By errorMessageIncomeSourceContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מקור הכנסה יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+    public static final By errorMessagePayerNameContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה שם המשלם יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+//    public static final By errorMessageTikNikuimCanContainDigitsOnlySubElementDetails =
+//            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה תיק ניכויים יכול להכיל ספרות שלמות בלבד')]");
+//    public static final By errorMessageHouseNumContainsCharactersSubElementDetails =
+//            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר בית יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
 
     // abroad bank accounts details sub-element
     public static final By dropDownCountrySubElementAbroadBankAccountsDetails = By.xpath(".//input[@name='country']");

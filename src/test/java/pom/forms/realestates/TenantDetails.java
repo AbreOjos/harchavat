@@ -8,6 +8,7 @@ import java.util.List;
 
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
+import static constants.BaseConstants.errorMessageStateContainsCharactersSubElementDetails;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static constants.RealEstateConstants.*;
 
@@ -100,7 +101,7 @@ public class TenantDetails extends BasePage {
     }
 
     protected List<WebElement> getErrorMessageTenantStateContainsCharacters() {
-        return details.findElements(errorMessageTenantStateContainsCharactersSubElementDetails);
+        return details.findElements(errorMessageStateContainsCharactersSubElementDetails);
     }
 
     protected List<WebElement> getErrorMessageNeedFillTenantPassport() {

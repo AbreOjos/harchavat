@@ -4,9 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
+import java.util.List;
+
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
-import static constants.BaseConstants.waitFewSecondsWarningDisabled;
+import static constants.BaseConstants.*;
 import static constants.VariousConstants.*;
 
 public class NonWorkIncomesDetails extends BasePage {
@@ -22,6 +24,9 @@ public class NonWorkIncomesDetails extends BasePage {
 
     // choose type of income
     protected void chooseIncomeIsraeli() {
+        if (incomeIsraeliChosen())
+            return;
+
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnIncomeIsraeli());
         } catch (InterruptedException e) {
@@ -32,6 +37,8 @@ public class NonWorkIncomesDetails extends BasePage {
     }
 
     protected void chooseIncomeOversea() {
+        if (incomeOverseaChosen())
+            return;
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnIncomeOversea());
         } catch (InterruptedException e) {
@@ -39,6 +46,14 @@ public class NonWorkIncomesDetails extends BasePage {
         }
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+    }
+
+    protected boolean incomeIsraeliChosen() {
+        return elementHasClass(getBtnIncomeIsraeli(), "active");
+    }
+
+    protected boolean incomeOverseaChosen() {
+        return elementHasClass(getBtnIncomeOversea(), "active");
     }
 
     protected void enterIncomeSource(String incomeSource) {
@@ -49,12 +64,12 @@ public class NonWorkIncomesDetails extends BasePage {
         cleanFormField(getTxtIncomeSource());
     }
 
-    protected void enterYearlyIncome(String yearlyIncome) {
-        fillFormField(getTxtYearlyIncome(), yearlyIncome);
+    protected void enterAnnualIncome(String annualIncome) {
+        fillFormField(getTxtAnnualIncome(), annualIncome);
     }
 
-    protected void deleteYearlyIncome() {
-        cleanFormField(getTxtYearlyIncome());
+    protected void deleteAnnualIncome() {
+        cleanFormField(getTxtAnnualIncome());
     }
 
     protected void enterPayerName(String payerName) {
@@ -113,6 +128,84 @@ public class NonWorkIncomesDetails extends BasePage {
         cleanFormField(getTxtState(details));
     }
 
+    // error messages
+    protected List<WebElement> getNeedFillIncomeTypeErrorMessage() {
+        return  details.findElements(errorMessageNeedFillTypeIncomeSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillIncomeSourceErrorMessage() {
+        return  details.findElements(errorMessageNeedFillIncomeSourceSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillAnnualIncomeErrorMessage() {
+        return  details.findElements(errorMessageNeedFillAnnualIncomeSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillPayerNameErrorMessage() {
+        return  details.findElements(errorMessageNeedFillPayerNameSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillITikNikuimErrorMessage() {
+        return  details.findElements(errorMessageNeedFillTikNikuimSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillCityErrorMessage() {
+        return  details.findElements(errorMessageNeedFillCitySubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillStreetErrorMessage() {
+        return  details.findElements(errorMessageNeedFillStreetSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillHouseNumErrorMessage() {
+        return  details.findElements(errorMessageNeedFillHouseNumberSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillCountryErrorMessage() {
+        return  details.findElements(errorMessageNeedFillCountrySubElementDetails);
+    }
+
+    protected List<WebElement> getAnnualIncomeTwentyCharsMaxErrorMessage() {
+        return  details.findElements(errorMessageAnnualIncomeTwentyCharsMaxSubElementDetails);
+    }
+
+    protected List<WebElement> getCityFifteenCharsMaxErrorMessage() {
+        return  details.findElements(errorMessageCityFifteenCharsMaxSubElementDetails);
+    }
+
+    protected List<WebElement> getStreetFifteenCharsMaxErrorMessage() {
+        return  details.findElements(errorMessageStreetFifteenCharsMaxSubElementDetails);
+    }
+
+    protected List<WebElement> getIncomeSourceContainsCharactersErrorMessage() {
+        return  details.findElements(errorMessageIncomeSourceContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getPayerNameContainsCharactersErrorMessage() {
+        return  details.findElements(errorMessagePayerNameContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getTikNikuimCanContainDigitsOnlyErrorMessage() {
+        return  details.findElements(errorMessageTikNikuimCanContainDigitsOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getHouseNumContainsCharactersErrorMessage() {
+        return  details.findElements(errorMessageHouseNumberContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageStateContainsCharacters() {
+        return details.findElements(errorMessageStateContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageCityContainsCharacters() {
+        return details.findElements(errorMessageCityContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageStreetContainsCharacters() {
+        return details.findElements(errorMessageStreetContainsCharactersSubElementDetails);
+    }
+
+
 
     // == private methods ==
     private WebElement getBtnIncomeIsraeli() {
@@ -127,8 +220,8 @@ public class NonWorkIncomesDetails extends BasePage {
         return details.findElement(txtIncomeSourceSubElementNonWorkIncomesDetails);
     }
 
-    private WebElement getTxtYearlyIncome() {
-        return details.findElement(txtYearlyIncomeSubElementNonWorkIncomesDetails);
+    private WebElement getTxtAnnualIncome() {
+        return details.findElement(txtAnnualIncomeSubElementNonWorkIncomesDetails);
     }
 
     private WebElement getTxtPayerName() {
@@ -139,10 +232,6 @@ public class NonWorkIncomesDetails extends BasePage {
         return details.findElement(txtTikNikuimSubElementNonWorkIncomesDetails);
     }
 
-//    private WebElement getDropDownCity() {
-//        return details.findElement(dropDownCitySubElementNonWorkIncomesDetails);
-//    }
-
     private WebElement getDropDownStreet() {
         return details.findElement(dropDownStreetSubElementNonWorkIncomesDetails);
     }
@@ -150,13 +239,5 @@ public class NonWorkIncomesDetails extends BasePage {
     private WebElement getDropDownCountry() {
         return details.findElement(dropDownCountrySubElementNonWorkIncomesDetails);
     }
-
-//    private WebElement getTxtHouseNum() {
-//        return details.findElement(txtHouseNumSubElementNonWorkIncomesDetails);
-//    }
-
-//    private WebElement getTxtState() {
-//        return details.findElement(txtStateSubElementNonWorkIncomesDetails);
-//    }
 
 }
