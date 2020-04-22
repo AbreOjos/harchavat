@@ -332,6 +332,21 @@ public class BasePage {
     }
 
     protected void chooseHave() {
+//        if (elementHasClass(btnHave, "active"))
+//            return;
+//
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, btnHave);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        chooseHave(btnHave);
+    }
+
+    protected void chooseHave(WebElement btnHave) {
         if (elementHasClass(btnHave, "active"))
             return;
 
@@ -345,6 +360,21 @@ public class BasePage {
     }
 
     protected void chooseDontHave() {
+//        if (elementHasClass(btnDontHave, "active"))
+//            return;
+//
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, btnDontHave);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+
+        chooseDontHave(btnDontHave);
+    }
+
+    protected void chooseDontHave(WebElement btnDontHave) {
         if (elementHasClass(btnDontHave, "active"))
             return;
 

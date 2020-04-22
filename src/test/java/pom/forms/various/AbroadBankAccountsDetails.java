@@ -20,36 +20,72 @@ public class AbroadBankAccountsDetails extends BasePage {
         selectItemFromDropDownListByName(getDropDownCountry(), country);
     }
 
+    protected String selectCountryFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownCountry(), index);
+    }
+
     protected void enterState(String state) {
         fillFormField(getTxtState(details), state);
+    }
+
+    protected void deleteState() {
+        cleanFormField(getTxtState(details));
     }
 
     protected void enterCity(String city) {
         fillFormField(getTxtCity(details), city);
     }
 
+    protected void deleteCity() {
+        cleanFormField(getTxtCity(details));
+    }
+
     protected void enterBankName(String city) {
         fillFormField(getTxtBankName(), city);
+    }
+
+    protected void deleteBankName() {
+        cleanFormField(getTxtBankName());
     }
 
     protected void enterBankNum(String bankNum) {
         fillFormField(getTxtBankNum(), bankNum);
     }
 
+    protected void deleteBankNum() {
+        cleanFormField(getTxtBankNum());
+    }
+
     protected void enterBranchName(String branchName) {
         fillFormField(getTxtBranchName(), branchName);
+    }
+
+    protected void deleteBranchName() {
+        cleanFormField(getTxtBranchName());
     }
 
     protected void enterBranchNum(String branchNum) {
         fillFormField(getTxtBranchNum(), branchNum);
     }
 
+    protected void deleteBranchNum() {
+        cleanFormField(getTxtBranchNum());
+    }
+
     protected void enterAccountNum(String accountNum) {
         fillFormField(getTxtAccountNum(), accountNum);
     }
 
+    protected void deleteAccountNum() {
+        cleanFormField(getTxtAccountNum());
+    }
+
     protected void enterPartnersNum(String partnersNum) {
         fillFormField(getTxtPartnersNum(), partnersNum);
+    }
+
+    protected void deletePartnersNum() {
+        cleanFormField(getTxtPartnersNum());
     }
 
 
@@ -57,14 +93,6 @@ public class AbroadBankAccountsDetails extends BasePage {
     private WebElement getDropDownCountry() {
         return details.findElement(dropDownCountrySubElementAbroadBankAccountsDetails);
     }
-
-//    private WebElement getTxtState() {
-//        return details.findElement(txtStateSubElementAbroadBankAccountsDetails);
-//    }
-
-//    private WebElement getTxtCity() {
-//        return details.findElement(txtCitySubElementDetail);
-//    }
 
     private WebElement getTxtBankName() {
         return details.findElement(txtBankNameSubElementAbroadBankAccountsDetails);

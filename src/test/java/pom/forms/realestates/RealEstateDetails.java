@@ -907,10 +907,6 @@ public class RealEstateDetails extends BasePage {
         return integerTenantDetailsMap.get(tenantNumber).getErrorMessageTenantPassportFifteenDigitsMax();
     }
 
-//    protected int getTenantsAmount() {
-//        recreateMapPanelsOnPage();
-//        return integerTenantDetailsMap.size();
-//    }
 
 
     // == private methods ==

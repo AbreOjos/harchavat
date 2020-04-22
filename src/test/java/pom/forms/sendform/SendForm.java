@@ -668,6 +668,20 @@ public class SendForm extends BasePage {
         return integerSendFormRealEstateDetailsMap.get(realEstateNumber).realEstateContainsText(ownershipPercentage);
     }
 
+    public boolean realEstateCountryContainsText(int realEstateNumber, String country) {
+
+        checkNumber(realEstateNumber, "ownership percentage real estate", REAL_ESTATE, integerSendFormRealEstateDetailsMap);
+
+        return integerSendFormRealEstateDetailsMap.get(realEstateNumber).realEstateContainsText(country);
+    }
+
+    public boolean realEstateStateContainsText(int realEstateNumber, String state) {
+
+        checkNumber(realEstateNumber, "ownership percentage real estate", REAL_ESTATE, integerSendFormRealEstateDetailsMap);
+
+        return integerSendFormRealEstateDetailsMap.get(realEstateNumber).realEstateContainsText(state);
+    }
+
     public boolean realEstateIsraeli(int realEstateNumber) {
 
         checkNumber(realEstateNumber, "type real estate", REAL_ESTATE, integerSendFormRealEstateDetailsMap);

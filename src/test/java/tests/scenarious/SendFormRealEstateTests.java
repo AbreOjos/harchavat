@@ -155,6 +155,10 @@ public class SendFormRealEstateTests extends TestBase {
                 String.format("Real Estate ownership percentage incorrect, expected %s", thirdOwnershipPercentage));
         Assert.assertTrue(sendForm.realEstateAbroad(2),
                 "Real Estate jurisdiction incorrect, expected Oversea");
+        Assert.assertTrue(sendForm.realEstateCountryContainsText(2, thirdCountry),
+                String.format("Real Estate country incorrect, expected %s", thirdCountry));
+        Assert.assertTrue(sendForm.realEstateStateContainsText(2, thirdState),
+                String.format("Real Estate state incorrect, expected %s", thirdState));
         Assert.assertTrue(sendForm.realEstateUsageContainsText(2, FAMILY_USAGE),
                 String.format("Real Estate usage incorrect, expected %s", FAMILY_USAGE));
 
@@ -195,6 +199,10 @@ public class SendFormRealEstateTests extends TestBase {
                 String.format("Real Estate ownership percentage incorrect, expected %s", thirdOwnershipPercentage));
         Assert.assertTrue(sendForm.realEstateAbroad(1),
                 "Real Estate jurisdiction incorrect, expected Oversea");
+        Assert.assertTrue(sendForm.realEstateCountryContainsText(1, thirdCountry),
+                String.format("Real Estate country incorrect, expected %s", thirdCountry));
+        Assert.assertTrue(sendForm.realEstateStateContainsText(1, thirdState),
+                String.format("Real Estate state incorrect, expected %s", thirdState));
         Assert.assertTrue(sendForm.realEstateUsageContainsText(1, FAMILY_USAGE),
                 String.format("Real Estate usage incorrect, expected %s", FAMILY_USAGE));
     }

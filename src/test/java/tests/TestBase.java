@@ -17,6 +17,7 @@ import org.testng.annotations.BeforeSuite;
 import pom.BasePage;
 import pom.forms.PersonalDetails;
 import pom.forms.realestates.RealEstate;
+import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
 import readresources.parameters.WebUiParameters;
@@ -190,5 +191,19 @@ public abstract class TestBase {
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseDontHaveRealEstate();
         realEstate.clickBtnSave();
+    }
+
+    protected void prepareEmptyVariousDetails() {
+        Various various = basePage.clickMenuVarious();
+
+        various.chooseDontHaveNonWorkIncomes();
+        various.chooseDontHaveAbroadBankAccounts();
+        various.chooseDontHaveDigitalCoins();
+        various.chooseDontHaveStocks();
+        various.chooseDontHavePartnerships();
+        various.chooseDontHaveJewelry();
+        various.chooseDontHaveArt();
+
+        various.clickBtnSave();
     }
 }

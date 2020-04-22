@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.*;
 import static constants.VariousConstants.*;
@@ -215,8 +214,6 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).chooseIncomeIsraeli();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseNonWorkIncomesIncomeOversea(int nonWorkIncomeNumber) {
@@ -224,8 +221,6 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).chooseIncomeOversea();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void enterNonWorkIncomesIncomeSource(int nonWorkIncomeNumber, String incomeSource) {
@@ -235,11 +230,25 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterIncomeSource(incomeSource);
     }
 
+    public void deleteNonWorkIncomesIncomeSource(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deleteIncomeSource();
+    }
+
     public void enterNonWorkIncomesYearlyIncome(int nonWorkIncomeNumber, String yearlyIncome) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterYearlyIncome(yearlyIncome);
+    }
+
+    public void deleteNonWorkIncomesYearlyIncome(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deleteYearlyIncome();
     }
 
     public void enterNonWorkIncomesPayerName(int nonWorkIncomeNumber, String payerName) {
@@ -249,6 +258,13 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterPayerName(payerName);
     }
 
+    public void deleteNonWorkIncomesPayerName(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deletePayerName();
+    }
+
     public void enterNonWorkIncomesTikNikuim(int nonWorkIncomeNumber, String tikNikuim) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
@@ -256,13 +272,25 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterTikNikuim(tikNikuim);
     }
 
+    public void deleteNonWorkIncomesTikNikuim(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deleteTikNikuim();
+    }
+
     public void selectCityNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String city) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectCityFromDropDownListByName(city);
+    }
 
-//        recreateMapPanelsOnPage();
+    public String selectCityNonWorkIncomesFromDropDownListByIndex(int nonWorkIncomeNumber, int index) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectCityFromDropDownListByIndex(index);
     }
 
     public void selectStreetNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String street) {
@@ -270,8 +298,13 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectStreetFromDropDownListByName(street);
+    }
 
-//        recreateMapPanelsOnPage();
+    public String selectStreetNonWorkIncomesFromDropDownListByIndex(int nonWorkIncomeNumber, int index) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectStreetFromDropDownListByIndex(index);
     }
 
     public void selectCountryNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String country) {
@@ -279,8 +312,13 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectCountryFromDropDownListByName(country);
+    }
 
-//        recreateMapPanelsOnPage();
+    public String selectCountryNonWorkIncomesFromDropDownListByIndex(int nonWorkIncomeNumber, int index) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectCountryFromDropDownListByIndex(index);
     }
 
     public void enterNonWorkIncomesHouseNum(int nonWorkIncomeNumber, String houseNum) {
@@ -290,11 +328,25 @@ public class Various extends BasePage {
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterHouseNum(houseNum);
     }
 
+    public void deleteNonWorkIncomesHouseNum(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deleteHouseNum();
+    }
+
     public void enterNonWorkIncomesState(int nonWorkIncomeNumber, String state) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterState(state);
+    }
+
+    public void deleteNonWorkIncomesState(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deleteState();
     }
 
 
@@ -304,8 +356,13 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).selectCountryFromDropDownListByName(country);
+    }
 
-//        recreateMapPanelsOnPage();
+    public String selectCountryAbroadBankAccountsFromDropDownListByIndex(int abroadBankAccountsNumber, int index) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).selectCountryFromDropDownListByIndex(index);
     }
 
     public void enterAbroadBankAccountsState(int abroadBankAccountsNumber, String state) {
@@ -315,11 +372,25 @@ public class Various extends BasePage {
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterState(state);
     }
 
+    public void deleteAbroadBankAccountsState(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).deleteState();
+    }
+
     public void enterAbroadBankAccountsCity(int abroadBankAccountsNumber, String city) {
         checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterCity(city);
+    }
+
+    public void deleteAbroadBankAccountsCity(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).deleteCity();
     }
 
     public void enterAbroadBankAccountsBankName(int abroadBankAccountsNumber, String bankName) {
@@ -329,11 +400,25 @@ public class Various extends BasePage {
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBankName(bankName);
     }
 
+    public void deleteAbroadBankAccountsBankName(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).deleteBankName();
+    }
+
     public void enterAbroadBankAccountsBankNum(int abroadBankAccountsNumber, String bankNum) {
         checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBankNum(bankNum);
+    }
+
+    public void deleteAbroadBankAccountsBankNum(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).deleteBankNum();
     }
 
     public void enterAbroadBankAccountsBranchName(int abroadBankAccountsNumber, String branchName) {
@@ -343,11 +428,25 @@ public class Various extends BasePage {
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBranchName(branchName);
     }
 
+    public void deleteAbroadBankAccountsBranchName(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).deleteBranchName();
+    }
+
     public void enterAbroadBankAccountsBranchNum(int abroadBankAccountsNumber, String branchNum) {
         checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterBranchNum(branchNum);
+    }
+
+    public void deleteAbroadBankAccountsBranchNum(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).deleteBranchNum();
     }
 
     public void enterAbroadBankAccountsAccountNum(int abroadBankAccountsNumber, String accountNum) {
@@ -357,11 +456,25 @@ public class Various extends BasePage {
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterAccountNum(accountNum);
     }
 
-    public void enterAbroadBankAccountsPartners(int abroadBankAccountsNumber, String partnersNum) {
+    public void deleteAbroadBankAccountsAccountNum(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).deleteAccountNum();
+    }
+
+    public void enterAbroadBankAccountsPartnersNum(int abroadBankAccountsNumber, String partnersNum) {
         checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).enterPartnersNum(partnersNum);
+    }
+
+    public void deleteAbroadBankAccountsPartnersNum(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).deletePartnersNum();
     }
 
 
@@ -371,8 +484,6 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseBitcoin();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsNano(int digitalCoinsNumber) {
@@ -380,8 +491,6 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseNano();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsSteem(int digitalCoinsNumber) {
@@ -389,8 +498,6 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseSteem();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsCardano(int digitalCoinsNumber) {
@@ -398,8 +505,6 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCardano();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsAnotherCoin(int digitalCoinsNumber) {
@@ -407,8 +512,6 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseAnotherCoin();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void enterDigitalCoinsAnotherCoin(int digitalCoinsNumber, String anotherCoinName) {
@@ -418,11 +521,25 @@ public class Various extends BasePage {
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAnotherCoin(anotherCoinName);
     }
 
+    public void deleteDigitalCoinsAnotherCoin(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deleteAnotherCoin();
+    }
+
     public void enterDigitalCoinsCoinAmount(int digitalCoinsNumber, String coinAmount) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterCoinAmount(coinAmount);
+    }
+
+    public void deleteDigitalCoinsCoinAmount(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deleteCoinAmount();
     }
 
     public void enterDigitalCoinsPublicKey(int digitalCoinsNumber, String publicKey) {
@@ -432,13 +549,18 @@ public class Various extends BasePage {
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterPublicKey(publicKey);
     }
 
+    public void deleteDigitalCoinsPublicKey(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deletePublicKey();
+    }
+
     public void chooseDigitalCoinsCoinsMaterialized(int digitalCoinsNumber) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCoinsMaterialized();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsCoinsDontMaterialized(int digitalCoinsNumber) {
@@ -446,8 +568,6 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseCoinsDontMaterialized();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void enterDigitalCoinsAmountMaterialized(int digitalCoinsNumber, String amountMaterialized) {
@@ -457,6 +577,13 @@ public class Various extends BasePage {
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAmountMaterialized(amountMaterialized);
     }
 
+    public void deleteDigitalCoinsAmountMaterialized(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deleteAmountMaterialized();
+    }
+
     public void enterDigitalCoinsMaterializationValue(int digitalCoinsNumber, String materializationValue) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
@@ -464,13 +591,18 @@ public class Various extends BasePage {
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterMaterializationValue(materializationValue);
     }
 
+    public void deleteDigitalCoinsMaterializationValue(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deleteMaterializationValue();
+    }
+
     public void chooseDigitalCoinsPurchasedWithCoins(int digitalCoinsNumber) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).choosePurchasedWithCoins();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseDigitalCoinsDontPurchasedWithCoins(int digitalCoinsNumber) {
@@ -478,8 +610,6 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseDontPurchasedWithCoins();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void enterDigitalCoinsAmountSold(int digitalCoinsNumber, String amountSold) {
@@ -489,11 +619,25 @@ public class Various extends BasePage {
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAmountSold(amountSold);
     }
 
+    public void deleteDigitalCoinsAmountSold(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deleteAmountSold();
+    }
+
     public void enterDigitalCoinsSoldValue(int digitalCoinsNumber, String soldValue) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterSoldValue(soldValue);
+    }
+
+    public void deleteDigitalCoinsSoldValue(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deleteSoldValue();
     }
 
 
@@ -505,13 +649,18 @@ public class Various extends BasePage {
         integerStocksDetailsMap.get(stocksNumber).enterCompanyName(companyName);
     }
 
+    public void deleteStocksCompanyName(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerStocksDetailsMap.get(stocksNumber).deleteCompanyName();
+    }
+
     public void chooseStocksCompanySourceOversea(int stocksNumber) {
         checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).chooseCompanySourceOversea();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseStocksCompanySourceIsrael(int stocksNumber) {
@@ -519,8 +668,6 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).chooseCompanySourceIsrael();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void selectCountryStocksFromDropDownListByName(int stocksNumber, String country) {
@@ -528,8 +675,13 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).selectCountryFromDropDownListByName(country);
+    }
 
-//        recreateMapPanelsOnPage();
+    public String selectCountryStocksFromDropDownListByIndex(int stocksNumber, int index) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).selectCountryFromDropDownListByIndex(index);
     }
 
     public void enterStocksState(int stocksNumber, String state) {
@@ -539,6 +691,13 @@ public class Various extends BasePage {
         integerStocksDetailsMap.get(stocksNumber).enterState(state);
     }
 
+    public void deleteStocksState(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerStocksDetailsMap.get(stocksNumber).deleteState();
+    }
+
     public void enterStocksCompanyNum(int stocksNumber, String companyNum) {
         checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
@@ -546,11 +705,25 @@ public class Various extends BasePage {
         integerStocksDetailsMap.get(stocksNumber).enterCompanyNum(companyNum);
     }
 
+    public void deleteStocksCompanyNum(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerStocksDetailsMap.get(stocksNumber).deleteCompanyNum();
+    }
+
     public void enterStocksCompanyPercentage(int stocksNumber, String companyPercentage) {
         checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
         integerStocksDetailsMap.get(stocksNumber).enterCompanyPercentage(companyPercentage);
+    }
+
+    public void deleteStocksCompanyPercentage(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerStocksDetailsMap.get(stocksNumber).deleteCompanyPercentage();
     }
 
     // partnerships methods
@@ -561,13 +734,18 @@ public class Various extends BasePage {
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterName(name);
     }
 
+    public void deletePartnershipName(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerPartnershipsDetailsMap.get(partnershipsNumber).deleteName();
+    }
+
     public void choosePartnershipLocationIsrael(int partnershipsNumber) {
         checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).choosePartnershipLocationIsrael();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void choosePartnershipLocationOversea(int partnershipsNumber) {
@@ -575,8 +753,6 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).choosePartnershipLocationOversea();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void enterPartnershipOsekNum(int partnershipsNumber, String osekNum) {
@@ -586,6 +762,13 @@ public class Various extends BasePage {
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterOsekNum(osekNum);
     }
 
+    public void deletePartnershipOsekNum(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerPartnershipsDetailsMap.get(partnershipsNumber).deleteOsekNum();
+    }
+
     public void enterPartnershipPercentage(int partnershipsNumber, String percentage) {
         checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
@@ -593,13 +776,25 @@ public class Various extends BasePage {
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterPercentage(percentage);
     }
 
+    public void deletePartnershipPercentage(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerPartnershipsDetailsMap.get(partnershipsNumber).deletePercentage();
+    }
+
     public void selectCountryPartnershipsFromDropDownListByName(int partnershipsNumber, String country) {
         checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
         recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).selectCountryFromDropDownListByName(country);
+    }
 
-//        recreateMapPanelsOnPage();
+    public String selectCountryPartnershipsFromDropDownListByIndex(int partnershipsNumber, int index) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).selectCountryFromDropDownListByIndex(index);
     }
 
     public void enterPartnershipsState(int partnershipsNumber, String state) {
@@ -609,38 +804,45 @@ public class Various extends BasePage {
         integerPartnershipsDetailsMap.get(partnershipsNumber).enterState(state);
     }
 
+    public void deletePartnershipState(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerPartnershipsDetailsMap.get(partnershipsNumber).deleteState();
+    }
+
 
 
 
     // == private methods ==
-    private void chooseHave(WebElement button) {
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, button);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//    private void chooseHave(WebElement button) {
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, button);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+////        button.click();
+//
+//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+//
+//        recreateMapPanelsOnPage();
+//    }
 
-//        button.click();
-
-        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-
-        recreateMapPanelsOnPage();
-    }
-
-    private void chooseDontHave(WebElement button) {
-        try {
-            scrollIntoViewMoveFocusAndClick(driver, button);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-//        button.click();
-
-
-        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-
-        recreateMapPanelsOnPage();
-    }
+//    private void chooseDontHave(WebElement button) {
+//        try {
+//            scrollIntoViewMoveFocusAndClick(driver, button);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+////        button.click();
+//
+//
+//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
+//
+//        recreateMapPanelsOnPage();
+//    }
 
     private void add(WebElement btnAdd) {
         btnAdd.click();

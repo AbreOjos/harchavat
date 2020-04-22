@@ -24,6 +24,10 @@ public class StocksDetails extends BasePage {
         fillFormField(getTxtCompanyName(), companyName);
     }
 
+    protected void deleteCompanyName() {
+        cleanFormField(getTxtCompanyName());
+    }
+
     protected void chooseCompanySourceIsrael() {
         if (elementHasClass(getBtnCompanySourceIsrael(), "active"))
             return;
@@ -54,16 +58,32 @@ public class StocksDetails extends BasePage {
         selectItemFromDropDownListByName(getDropDownCountry(), country);
     }
 
+    protected String selectCountryFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownCountry(), index);
+    }
+
     protected void enterState(String state) {
         fillFormField(getTxtState(details), state);
+    }
+
+    protected void deleteState() {
+        cleanFormField(getTxtState(details));
     }
 
     protected void enterCompanyNum(String companyNum) {
         fillFormField(getTxtCompanyNum(), companyNum);
     }
 
+    protected void deleteCompanyNum() {
+        cleanFormField(getTxtCompanyNum());
+    }
+
     protected void enterCompanyPercentage(String companyPercentage) {
         fillFormField(getTxtCompanyPercentage(), companyPercentage);
+    }
+
+    protected void deleteCompanyPercentage() {
+        cleanFormField(getTxtCompanyPercentage());
     }
 
 

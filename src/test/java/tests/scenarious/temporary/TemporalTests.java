@@ -293,7 +293,7 @@ public class TemporalTests extends TestBase {
         various.enterAbroadBankAccountsBranchName(2, "Noname");
         various.enterAbroadBankAccountsBranchNum(2, "12");
         various.enterAbroadBankAccountsAccountNum(2, "021548");
-        various.enterAbroadBankAccountsPartners(2, "3");
+        various.enterAbroadBankAccountsPartnersNum(2, "3");
 
         // DigitalCoinsDetails
         various.chooseHaveDigitalCoins();

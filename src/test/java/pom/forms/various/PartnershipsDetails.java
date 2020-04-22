@@ -23,6 +23,10 @@ public class PartnershipsDetails extends BasePage {
         fillFormField(getTxtName(), name);
     }
 
+    protected void deleteName() {
+        cleanFormField(getTxtName());
+    }
+
     protected void choosePartnershipLocationIsrael() {
         try {
             scrollIntoViewMoveFocusAndClick(driver, getBtnPartnershipLocationIsrael());
@@ -47,16 +51,32 @@ public class PartnershipsDetails extends BasePage {
         fillFormField(getTxtOsekNum(), osekNum);
     }
 
+    protected void deleteOsekNum() {
+        cleanFormField(getTxtOsekNum());
+    }
+
     protected void enterPercentage(String percentage) {
         fillFormField(getTxtPercentage(), percentage);
+    }
+
+    protected void deletePercentage() {
+        cleanFormField(getTxtPercentage());
     }
 
     protected void selectCountryFromDropDownListByName(String country) {
         selectItemFromDropDownListByName(getDropDownCountry(), country);
     }
 
+    protected String selectCountryFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownCountry(), index);
+    }
+
     protected void enterState(String state) {
         fillFormField(getTxtState(details), state);
+    }
+
+    protected void deleteState() {
+        cleanFormField(getTxtState(details));
     }
 
 

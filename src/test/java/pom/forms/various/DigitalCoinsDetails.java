@@ -74,12 +74,24 @@ public class DigitalCoinsDetails extends BasePage {
         fillFormField(getTxtAnotherCoin(), anotherCoinName);
     }
 
+    protected void deleteAnotherCoin() {
+        cleanFormField(getTxtAnotherCoin());
+    }
+
     protected void enterCoinAmount(String anotherCoinName) {
         fillFormField(getTxtCoinAmount(), anotherCoinName);
     }
 
+    protected void deleteCoinAmount() {
+        cleanFormField(getTxtCoinAmount());
+    }
+
     protected void enterPublicKey(String publicKey) {
         fillFormField(getTxtPublicKey(), publicKey);
+    }
+
+    protected void deletePublicKey() {
+        cleanFormField(getTxtPublicKey());
     }
 
     protected void chooseCoinsMaterialized() {
@@ -106,8 +118,16 @@ public class DigitalCoinsDetails extends BasePage {
         fillFormField(getTxtAmountMaterialized(), amountMaterialized);
     }
 
+    protected void deleteAmountMaterialized() {
+        cleanFormField(getTxtAmountMaterialized());
+    }
+
     protected void enterMaterializationValue(String materializationValue) {
         fillFormField(getTxtMaterializationValue(), materializationValue);
+    }
+
+    protected void deleteMaterializationValue() {
+        cleanFormField(getTxtMaterializationValue());
     }
 
     protected void choosePurchasedWithCoins() {
@@ -134,8 +154,16 @@ public class DigitalCoinsDetails extends BasePage {
         fillFormField(getTxtAmountSold(), amountSold);
     }
 
+    protected void deleteAmountSold() {
+        cleanFormField(getTxtAmountSold());
+    }
+
     protected void enterSoldValue(String soldValue) {
         fillFormField(getTxtSoldValue(), soldValue);
+    }
+
+    protected void deleteSoldValue() {
+        cleanFormField(getTxtSoldValue());
     }
 
 

@@ -45,36 +45,72 @@ public class NonWorkIncomesDetails extends BasePage {
         fillFormField(getTxtIncomeSource(), incomeSource);
     }
 
+    protected void deleteIncomeSource() {
+        cleanFormField(getTxtIncomeSource());
+    }
+
     protected void enterYearlyIncome(String yearlyIncome) {
         fillFormField(getTxtYearlyIncome(), yearlyIncome);
+    }
+
+    protected void deleteYearlyIncome() {
+        cleanFormField(getTxtYearlyIncome());
     }
 
     protected void enterPayerName(String payerName) {
         fillFormField(getTxtPayerName(), payerName);
     }
 
+    protected void deletePayerName() {
+        cleanFormField(getTxtPayerName());
+    }
+
     protected void enterTikNikuim(String tikNikuim) {
         fillFormField(getTxtTikNikuim(), tikNikuim);
+    }
+
+    protected void deleteTikNikuim() {
+        cleanFormField(getTxtTikNikuim());
     }
 
     protected void selectCityFromDropDownListByName(String city) {
         selectItemFromDropDownListByName(getDropDownCity(details), city);
     }
 
+    protected String selectCityFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownCity(details), index);
+    }
+
     protected void selectStreetFromDropDownListByName(String street) {
         selectItemFromDropDownListByName(getDropDownStreet(), street);
+    }
+
+    protected String selectStreetFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownStreet(), index);
     }
 
     protected void selectCountryFromDropDownListByName(String country) {
         selectItemFromDropDownListByName(getDropDownCountry(), country);
     }
 
+    protected String selectCountryFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownCountry(), index);
+    }
+
     protected void enterHouseNum(String houseNum) {
         fillFormField(getTxtHouseNum(details), houseNum);
     }
 
+    protected void deleteHouseNum() {
+        cleanFormField(getTxtHouseNum(details));
+    }
+
     protected void enterState(String state) {
         fillFormField(getTxtState(details), state);
+    }
+
+    protected void deleteState() {
+        cleanFormField(getTxtState(details));
     }
 
 
