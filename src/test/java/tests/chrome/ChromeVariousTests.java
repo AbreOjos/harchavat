@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import readresources.drivers.WebDrivers;
 import tests.RunMode;
 import tests.scenarious.VariousTests;
+import utils.dataprovider.NEDataProvider;
 import utils.utilitiesForInfra.MiscellaneousForInfra;
 
 import java.net.URISyntaxException;
@@ -82,8 +83,46 @@ public class ChromeVariousTests extends VariousTests {
         annualIncomeTwentyCharsMaxErrorMessage();
     }
 
-//    public void testCityFifteenCharsMaxErrorMessage() {
-//        cityFifteenCharsMaxErrorMessage();
-//    }
+    public void testCityFifteenCharsMaxErrorMessage() {
+        cityFifteenCharsMaxErrorMessage();
+    }
+
+    public void testStreetFifteenCharsMaxErrorMessage() {
+        streetFifteenCharsMaxErrorMessage();
+    }
+
+    public void testTikNikuimContainsDigitsOnlyErrorMessage() {
+        tikNikuimContainsDigitsOnlyErrorMessage();
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersIncomeSource(String forbiddenChars) {
+        forbiddenCharactersIncomeSource(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersPayerName(String forbiddenChars) {
+        forbiddenCharactersPayerName(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersHouseNum(String forbiddenChars) {
+        forbiddenCharactersHouseNum(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersState(String forbiddenChars) {
+        forbiddenCharactersState(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersCity(String forbiddenChars) {
+        forbiddenCharactersCity(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersStreet(String forbiddenChars) {
+        forbiddenCharactersStreet(forbiddenChars);
+    }
 
 }

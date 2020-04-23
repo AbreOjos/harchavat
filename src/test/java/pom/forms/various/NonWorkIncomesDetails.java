@@ -96,12 +96,28 @@ public class NonWorkIncomesDetails extends BasePage {
         return selectItemFromDropDownListByIndex(getDropDownCity(details), index);
     }
 
+    protected void enterCity(String city) {
+        fillFormField(getTxtCity(details), city);
+    }
+
+    protected void deleteCity() {
+        cleanFormField(getTxtCity(details));
+    }
+
     protected void selectStreetFromDropDownListByName(String street) {
         selectItemFromDropDownListByName(getDropDownStreet(), street);
     }
 
     protected String selectStreetFromDropDownListByIndex(int index) {
         return selectItemFromDropDownListByIndex(getDropDownStreet(), index);
+    }
+
+    protected void enterStreet(String street) {
+        fillFormField(getTxtStreet(details), street);
+    }
+
+    protected void deleteStreet() {
+        cleanFormField(getTxtStreet(details));
     }
 
     protected void selectCountryFromDropDownListByName(String country) {
@@ -193,15 +209,15 @@ public class NonWorkIncomesDetails extends BasePage {
         return  details.findElements(errorMessageHouseNumberContainsCharactersSubElementDetails);
     }
 
-    protected List<WebElement> getErrorMessageStateContainsCharacters() {
+    protected List<WebElement> getStateContainsCharactersErrorMessage() {
         return details.findElements(errorMessageStateContainsCharactersSubElementDetails);
     }
 
-    protected List<WebElement> getErrorMessageCityContainsCharacters() {
+    protected List<WebElement> getCityContainsCharactersErrorMessage() {
         return details.findElements(errorMessageCityContainsCharactersSubElementDetails);
     }
 
-    protected List<WebElement> getErrorMessageStreetContainsCharacters() {
+    protected List<WebElement> getStreetContainsCharactersErrorMessage() {
         return details.findElements(errorMessageStreetContainsCharactersSubElementDetails);
     }
 

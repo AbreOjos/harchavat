@@ -710,26 +710,150 @@ public class VariousTests extends TestBase {
                 String.format("Error message 'Annual Income Twenty Chars Max' did not disappear when the correct value %s was entered", correctAnnualIncome));
     }
 
-//    protected void cityFifteenCharsMaxErrorMessage() {
-//        log.info("Check the error message 'City Fifteen Chars Max'");
-//
-//        String tooLongCityName = "Very Looong Name";
-//        String correctCityName = "City";
-//
-//
-//        Various various = basePage.clickMenuVarious();
-//        various.chooseHaveNonWorkIncomes();
-//        various.chooseNonWorkIncomesIncomeOversea(0);
-//
-//        various.(0, tooLongCityName);
-//
-//        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCityFifteenCharsMaxErrorMessage(0), 1,
-//                String.format("Error message 'CityFifteenCharsMax' did not appear when the incorrect value %s was entered", tooLongCityName));
-//
-//        various.deleteNonWorkIncomesAnnualIncome(0);
-//        various.enterNonWorkIncomesAnnualIncome(0, correctCityName);
-//
-//        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCityFifteenCharsMaxErrorMessage(0), 0,
-//                String.format("Error message 'CityFifteenCharsMax' did not disappear when the correct value %s was entered", correctCityName));
-//    }
+    protected void cityFifteenCharsMaxErrorMessage() {
+        log.info("Check the error message 'City Fifteen Chars Max'");
+
+        String tooLongCityName = "Very Looong Name";
+        String correctCityName = "City";
+
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeOversea(0);
+
+        various.enterNonWorkIncomesCity(0, tooLongCityName);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCityFifteenCharsMaxErrorMessage(0), 1,
+                String.format("Error message 'CityFifteenCharsMax' did not appear when the incorrect value %s was entered", tooLongCityName));
+
+        various.deleteNonWorkIncomesCity(0);
+        various.enterNonWorkIncomesCity(0, correctCityName);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCityFifteenCharsMaxErrorMessage(0), 0,
+                String.format("Error message 'CityFifteenCharsMax' did not disappear when the correct value %s was entered", correctCityName));
+    }
+
+    protected void streetFifteenCharsMaxErrorMessage() {
+        log.info("Check the error message 'Street Fifteen Chars Max'");
+
+        String tooLongStreetName = "Too Loooong Name";
+        String correctStreetName = "Street";
+
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeOversea(0);
+
+        various.enterNonWorkIncomesStreet(0, tooLongStreetName);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getStreetFifteenCharsMaxErrorMessage(0), 1,
+                String.format("Error message 'StreetFifteenCharsMax' did not appear when the incorrect value %s was entered", tooLongStreetName));
+
+        various.deleteNonWorkIncomesStreet(0);
+        various.enterNonWorkIncomesStreet(0, correctStreetName);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getStreetFifteenCharsMaxErrorMessage(0), 0,
+                String.format("Error message 'StreetFifteenCharsMax' did not disappear when the correct value %s was entered", correctStreetName));
+    }
+
+    protected void tikNikuimContainsDigitsOnlyErrorMessage() {
+        log.info("Check the error message 'Tik Nikuim contains digits only'");
+
+        String incorrectTikNikuim = "abc";
+        String correctTikNikuim = "123";
+
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+
+        various.enterNonWorkIncomesTikNikuim(0, incorrectTikNikuim);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getTikNikuimCanContainDigitsOnlyErrorMessage(0), 1,
+                String.format("Error message 'Tik Nikuim contains digits only' did not appear when the incorrect value %s was entered", incorrectTikNikuim));
+
+        various.deleteNonWorkIncomesTikNikuim(0);
+        various.enterNonWorkIncomesTikNikuim(0, correctTikNikuim);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getTikNikuimCanContainDigitsOnlyErrorMessage(0), 0,
+                String.format("Error message 'Tik Nikuim contains digits only' did not disappear when the correct value %s was entered", correctTikNikuim));
+    }
+
+    protected void forbiddenCharactersIncomeSource(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Income Source field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+
+        various.enterNonWorkIncomesIncomeSource(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getIncomeSourceContainsCharactersErrorMessage(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Income Source", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersPayerName(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Payer Name field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+
+        various.enterNonWorkIncomesPayerName(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPayerNameContainsCharactersErrorMessage(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Payer Name", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersHouseNum(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a House Num field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeIsraeli(0);
+
+        various.enterNonWorkIncomesHouseNum(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getHouseNumContainsCharactersErrorMessage(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into House Num", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersState(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a State field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeOversea(0);
+
+        various.enterNonWorkIncomesState(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getStateContainsCharactersErrorMessage(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into State", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersCity(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a City field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeOversea(0);
+
+        various.enterNonWorkIncomesCity(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCityContainsCharactersErrorMessage(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into City", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersStreet(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Street field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveNonWorkIncomes();
+        various.chooseNonWorkIncomesIncomeOversea(0);
+
+        various.enterNonWorkIncomesStreet(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getStreetContainsCharactersErrorMessage(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Street", forbiddenChar));
+    }
 }

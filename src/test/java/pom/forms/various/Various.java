@@ -335,6 +335,20 @@ public class Various extends BasePage {
         return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectCityFromDropDownListByIndex(index);
     }
 
+    public void enterNonWorkIncomesCity(int nonWorkIncomeNumber, String city) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterCity(city);
+    }
+
+    public void deleteNonWorkIncomesCity(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deleteCity();
+    }
+
     public void selectStreetNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String street) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
@@ -347,6 +361,20 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).selectStreetFromDropDownListByIndex(index);
+    }
+
+    public void enterNonWorkIncomesStreet(int nonWorkIncomeNumber, String street) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).enterStreet(street);
+    }
+
+    public void deleteNonWorkIncomesStreet(int nonWorkIncomeNumber) {
+        checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
+
+        recreateMapPanelsOnPage();
+        integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).deleteStreet();
     }
 
     public void selectCountryNonWorkIncomesFromDropDownListByName(int nonWorkIncomeNumber, String country) {
@@ -504,25 +532,25 @@ public class Various extends BasePage {
         return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getHouseNumContainsCharactersErrorMessage();
     }
 
-    public List<WebElement> getErrorMessageStateContainsCharacters(int nonWorkIncomeNumber) {
+    public List<WebElement> getStateContainsCharactersErrorMessage(int nonWorkIncomeNumber) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
-        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getErrorMessageStateContainsCharacters();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getStateContainsCharactersErrorMessage();
     }
 
-    public List<WebElement> getErrorMessageCityContainsCharacters(int nonWorkIncomeNumber) {
+    public List<WebElement> getCityContainsCharactersErrorMessage(int nonWorkIncomeNumber) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
-        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getErrorMessageCityContainsCharacters();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getCityContainsCharactersErrorMessage();
     }
 
-    public List<WebElement> getErrorMessageStreetContainsCharacters(int nonWorkIncomeNumber) {
+    public List<WebElement> getStreetContainsCharactersErrorMessage(int nonWorkIncomeNumber) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
-        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getErrorMessageStreetContainsCharacters();
+        return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getStreetContainsCharactersErrorMessage();
     }
 
 
