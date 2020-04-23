@@ -16,8 +16,6 @@ public class SendFormWageTests extends TestBase {
         log.info("Check form when there are empty fields in Israel Income");
 
         Wage wage = basePage.clickMenuWage();
-        wage.chooseDontHaveWage();
-        wage.clickBtnSave();
         wage.chooseHaveWage();
         wage.chooseIsraelIncome(0);
 
@@ -37,8 +35,6 @@ public class SendFormWageTests extends TestBase {
         log.info("Check form when there are empty fields in Abroad Income");
 
         Wage wage = basePage.clickMenuWage();
-        wage.chooseDontHaveWage();
-        wage.clickBtnSave();
         wage.chooseHaveWage();
         wage.chooseAbroadIncome(0);
 
@@ -74,8 +70,6 @@ public class SendFormWageTests extends TestBase {
         String homeNum = "10 a";
 
         Wage wage = basePage.clickMenuWage();
-        wage.chooseDontHaveWage();
-        wage.clickBtnSave();
         wage.chooseHaveWage();
 
         // choose Abroad Income, fill all fields
@@ -120,8 +114,6 @@ public class SendFormWageTests extends TestBase {
         String tikNikuim = "123456789";
 
         Wage wage = basePage.clickMenuWage();
-        wage.chooseDontHaveWage();
-        wage.clickBtnSave();
         wage.chooseHaveWage();
 
         // choose Israel Income, fill all fields
@@ -144,7 +136,7 @@ public class SendFormWageTests extends TestBase {
         String incorrectValue = "incorrect after moving from Israel to Abroad income";
 
         Assert.assertTrue(sendForm.typeIncomeExists(0), "Type Income " + fieldLost);
-        Assert.assertTrue(sendForm.wageIncomeTypeAbroad(0), "Type Income " + incorrectValue);
+        Assert.assertTrue(sendForm.wageIncomeTypeAbroad(0), "Wage Income " + incorrectValue);
         Assert.assertTrue(sendForm.annualIncomeExists(0), "Annual Income " + fieldLost);
         Assert.assertTrue(sendForm.wageAnnualIncomeContainsText(0, annualIncome), "Annual Income " + incorrectValue);
         Assert.assertTrue(sendForm.employerNameExists(0), "Employer Name " + fieldLost);
@@ -176,8 +168,6 @@ public class SendFormWageTests extends TestBase {
         String thirdHouseNum = "30 a";
 
         Wage wage = basePage.clickMenuWage();
-        wage.chooseDontHaveWage();
-        wage.clickBtnSave();
         wage.chooseHaveWage();
 
         wage.addWage();

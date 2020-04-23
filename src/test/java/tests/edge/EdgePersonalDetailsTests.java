@@ -9,14 +9,12 @@ import tests.RunMode;
 import tests.scenarious.PersonalDetailsTests;
 import utils.dataprovider.NEDataProvider;
 
-import java.net.URISyntaxException;
-
 @Test(groups = {RunMode.EDGE})
 public class EdgePersonalDetailsTests extends PersonalDetailsTests {
     private static final Logger log = Logger.getLogger(EdgePersonalDetailsTests.class);
 
     @BeforeClass(groups = {RunMode.EDGE}, alwaysRun = true)
-    public void setUpClass() throws URISyntaxException {
+    public void setUpClass() {
 
 //        if (MiscellaneousForInfra.osName().equals("windows")) {
 //            System.setProperty("webdriver.edge.driver", WebDrivers.getEdgeDriverWindows().toString());

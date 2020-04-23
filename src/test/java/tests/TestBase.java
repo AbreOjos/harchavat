@@ -193,6 +193,8 @@ public abstract class TestBase {
         Wage wage = basePage.clickMenuWage();
         wage.chooseDontHaveWage();
         wage.clickBtnSave();
+
+        basePage.clickMenuSendForm();
     }
 
     protected void prepareEmptyRealEstateDetails() {
@@ -213,5 +215,6 @@ public abstract class TestBase {
         various.chooseDontHaveArt();
 
         various.clickBtnSave();
+
     }
 }
