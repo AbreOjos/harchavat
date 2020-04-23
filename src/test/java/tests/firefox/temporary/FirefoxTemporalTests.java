@@ -1,4 +1,4 @@
-package tests.firefox;
+package tests.firefox.temporary;
 
 import org.apache.log4j.Logger;
 import org.testng.annotations.BeforeClass;

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -87,6 +88,12 @@ public abstract class TestBase {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
+    protected void createEdgeDriver() {
+        log.info("Create Edge driver");
+
+        driver = new EdgeDriver();
+    }
+
     protected void createChromeDriver() {
 
         log.info("Create Chrome driver");
@@ -147,6 +154,7 @@ public abstract class TestBase {
 //        capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
         capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
         capabilities.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
+        capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 
         InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
         internetExplorerOptions.merge(capabilities);

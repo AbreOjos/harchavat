@@ -26,4 +26,20 @@ public class WebDrivers {
     public static Path getIEDriverWindows() throws URISyntaxException {
         return uriFromFilename("drivers/IEDriverServer.exe");
     }
+
+//    public static Path getEdgeDriverWindows64() throws URISyntaxException {
+//        return uriFromFilename("drivers/msedgedriver_win64.exe");
+//    }
+//
+//    public static Path getEdgeDriverWindows32() throws URISyntaxException {
+//        return uriFromFilename("drivers/msedgedriver_win32.exe");
+//    }
+//
+//    public static Path getEdgeDriverMac() throws URISyntaxException {
+//        return uriFromFilename("drivers/msedgedriver_mac64");
+//    }
+//
+//    public static Path getEdgeDriverWindows() throws URISyntaxException {
+//        return uriFromFilename("drivers/msedgedriver.exe");
+//    }
 }

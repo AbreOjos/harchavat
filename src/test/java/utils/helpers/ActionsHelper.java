@@ -25,17 +25,10 @@ public class ActionsHelper {
 
         org.openqa.selenium.interactions.Actions navigator = new org.openqa.selenium.interactions.Actions(driver);
 
+        int textLength = webElement.getAttribute("value").length();
         if (MiscellaneousForInfra.osName().equals("mac")) {
-//            navigator.click(webElement)
-//                    .clickAndHold().sendKeys(Keys.chord(Keys.COMMAND), "a")
-//                    .pause(500)
-//                    .release()
-//                    .sendKeys(Keys.BACK_SPACE)
-//                    .build().perform();
 
-//            webElement.clear();
-
-            int textLength = webElement.getAttribute("value").length();
+//            int textLength = webElement.getAttribute("value").length();
             while (textLength > 0) {
                 navigator.click(webElement)
                         .clickAndHold().sendKeys(Keys.chord(Keys.COMMAND, Keys.ARROW_LEFT))
@@ -52,73 +45,30 @@ public class ActionsHelper {
 //                textLength = webElement.getAttribute("value").length();
             }
         } else {
-            navigator.click(webElement)
-                    .keyDown(Keys.CONTROL).sendKeys(Keys.HOME)
-                    .keyDown(Keys.LEFT_SHIFT).sendKeys(Keys.END)
-                    .keyUp(Keys.CONTROL).keyUp(Keys.LEFT_SHIFT)
-                    .sendKeys(Keys.BACK_SPACE)
-                    .build().perform();
-        }
+            while (textLength > 0) {
+                navigator.click(webElement)
+                        .clickAndHold().sendKeys(Keys.chord(Keys.CONTROL, Keys.END))
+                        .release()
+                        .sendKeys(Keys.BACK_SPACE)
+                        .perform();
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-//        navigator.click(webElement)
-////                .keyDown(Keys.CONTROL).keyDown(Keys.LEFT_SHIFT)
-////                .keyUp(Keys.CONTROL).keyUp(Keys.LEFT_SHIFT)
-//                .keyDown(Keys.CONTROL).sendKeys(Keys.HOME)
-////                .keyUp(Keys.CONTROL)
-//                .keyDown(Keys.LEFT_SHIFT).sendKeys(Keys.END)
-//                .keyUp(Keys.CONTROL).keyUp(Keys.LEFT_SHIFT)
-////                .sendKeys(Keys.DELETE).sendKeys(Keys.BACK_SPACE)
-//                .sendKeys(Keys.BACK_SPACE)
-//                .perform();
+                textLength--;
+//                textLength = webElement.getAttribute("value").length();
+            }
 
-
-//        navigator.moveToElement(webElement)
-//                .clickAndHold().sendKeys(Keys.chord(Keys.LEFT_CONTROL, Keys.LEFT_SHIFT))
-//                .pause(500)
-//                .release()
-//                .clickAndHold().sendKeys(Keys.chord(Keys.CONTROL, "a"))
-//                .moveByOffset(1, 1)
-//                .pause(1000)
-//                .release()
-//                .sendKeys(Keys.BACK_SPACE)
-//                .build()
-//                .perform();
-
-//        int textLength = webElement.getAttribute("value").length();
-//        while (textLength > 0) {
 //            navigator.click(webElement)
-//                    .clickAndHold().sendKeys(Keys.chord(Keys.LEFT_CONTROL, Keys.HOME))
-//                    .release()
-//                    .sendKeys(Keys.DELETE)
-////                    .sendKeys("")
-//                    .perform();
-//
-//            try {
-//                Thread.sleep(100);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//
-//            textLength--;
+//                    .keyDown(Keys.CONTROL).sendKeys(Keys.HOME)
+//                    .keyDown(Keys.LEFT_SHIFT).sendKeys(Keys.END)
+//                    .keyUp(Keys.CONTROL).keyUp(Keys.LEFT_SHIFT)
+//                    .sendKeys(Keys.BACK_SPACE)
+//                    .build().perform();
 
-//            textLength = webElement.getAttribute("value").length();
-//        }
-
-//        webElement.sendKeys("");
-//
-//        navigator.click(webElement)
-//                .clickAndHold().sendKeys(Keys.chord(Keys.LEFT_CONTROL, Keys.END))
-//                .release()
-//                .sendKeys(Keys.BACK_SPACE)
-////                .sendKeys("")
-//                .perform();
-//
-//        textLength = webElement.getAttribute("value").length();
-//        try {
-//            Thread.sleep(100);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        }
 
     }
 
