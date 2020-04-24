@@ -455,7 +455,7 @@ public class Various extends BasePage {
         return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getNeedFillITikNikuimErrorMessage();
     }
 
-    public List<WebElement> getNeedFillCityErrorMessage(int nonWorkIncomeNumber) {
+    public List<WebElement> getNeedFillCityErrorMessageNonWorkIncome(int nonWorkIncomeNumber) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
@@ -476,7 +476,7 @@ public class Various extends BasePage {
         return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getNeedFillHouseNumErrorMessage();
     }
 
-    public List<WebElement> getNeedFillCountryErrorMessage(int nonWorkIncomeNumber) {
+    public List<WebElement> getNeedFillCountryErrorMessageNonWorkIncomes(int nonWorkIncomeNumber) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
@@ -532,14 +532,14 @@ public class Various extends BasePage {
         return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getHouseNumContainsCharactersErrorMessage();
     }
 
-    public List<WebElement> getStateContainsCharactersErrorMessage(int nonWorkIncomeNumber) {
+    public List<WebElement> getStateContainsCharactersErrorMessageNonWorkIncomes(int nonWorkIncomeNumber) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
         return integerNonWorkIncomesDetailsMap.get(nonWorkIncomeNumber).getStateContainsCharactersErrorMessage();
     }
 
-    public List<WebElement> getCityContainsCharactersErrorMessage(int nonWorkIncomeNumber) {
+    public List<WebElement> getCityContainsCharactersErrorMessagenonWorkIncomes(int nonWorkIncomeNumber) {
         checkNumber(nonWorkIncomeNumber, nonWorkIncomes, integerNonWorkIncomesDetailsMap);
 
         recreateMapPanelsOnPage();
@@ -679,6 +679,126 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).deletePartnersNum();
+    }
+
+    // error messages
+    public List<WebElement> getNeedFillCountryErrorMessageAbroadBankAccounts(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getNeedFillCountryErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillCityErrorMessageAbroadBankAccounts(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getNeedFillCityErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillBankNameErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getNeedFillBankNameErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillBankNumErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getNeedFillBankNumErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillBranchNameErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getNeedFillBranchNameErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillBranchNumErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getNeedFillBranchNumErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillAccountNumErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getNeedFillAccountNumErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillNumPartnersInAccountErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getNeedFillNumPartnersInAccountErrorMessage();
+    }
+
+    public List<WebElement> getStateContainsCharactersErrorMessageAbroadBankAccounts(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getStateContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getCityContainsCharactersErrorMessageAbroadBankAccounts(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getCityContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getankNameContainsCharactersErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getBankNameContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getBankNumContainsCharactersErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getBankNumContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getBranchNameContainsCharactersErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getBranchNameContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getBranchNumContainsCharactersErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getBranchNumContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getAccountNumContainsCharactersErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getAccountNumContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getNumPartnersInAccountContainsDigitsOnlyErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getNumPartnersInAccountContainsDigitsOnlyErrorMessage();
+    }
+
+    public List<WebElement> getBankNumTenCharsMaxErrorMessage(int abroadBankAccountsNumber) {
+        checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getBankNumTenCharsMaxErrorMessage();
     }
 
 

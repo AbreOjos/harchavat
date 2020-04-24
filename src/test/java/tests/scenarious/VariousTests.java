@@ -430,7 +430,7 @@ public class VariousTests extends TestBase {
         basePage.clickMenuRealEstate();
         various = basePage.clickMenuVarious();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(0), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(0), 1,
                 "Error message 'Need to Fill City' did not appear on a first panel");
 
         various.addNonWorkIncomes();
@@ -440,49 +440,49 @@ public class VariousTests extends TestBase {
         basePage.clickMenuRealEstate();
         various = basePage.clickMenuVarious();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(1), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(1), 1,
                 "Error message 'Need to Fill City' did not appear on a second panel");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(2), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(2), 1,
                 "Error message 'Need to Fill City' did not appear on a third panel");
 
         various.selectCityNonWorkIncomesFromDropDownListByIndex(0, 0);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(0), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(0), 0,
                 "Error message 'Need to Fill City' did not disappear on a first panel after City was chosen");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(1), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(1), 1,
                 "Error message 'Need to Fill City' disappeared on a second panel after City was chosen on a first panel");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(2), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(2), 1,
                 "Error message 'Need to Fill City' disappeared on a third panel after City was chosen on a first panel");
 
         various.selectCityNonWorkIncomesFromDropDownListByIndex(2, 0);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(0), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(0), 0,
                 "Error message 'Need to Fill City' re-appeared on a first panel after city was chosen on a third panel");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(1), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(1), 1,
                 "Error message 'Need to Fill City' disappeared on a second panel after city was chosen on a third panel");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(2), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(2), 0,
                 "Error message 'Need to Fill City' dud not disappear on a third panel after city was chosen");
 
         various.deleteNonWorkIncomes(2);
         basePage.clickMenuRealEstate();
         various = basePage.clickMenuVarious();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(0), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(0), 0,
                 "Error message 'Need to Fill City' re-appeared on a first panel after a third panel was deleted");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(1), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(1), 1,
                 "Error message 'Need to Fill City' disappeared on a second panel after a third panel was deleted");
 
         various.deleteNonWorkIncomes(1);
         basePage.clickMenuRealEstate();
         various = basePage.clickMenuVarious();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessage(0), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageNonWorkIncome(0), 0,
                 "Error message 'Need to Fill City' re-appeared on a first panel after a last panel was deleted");
     }
 
@@ -631,7 +631,7 @@ public class VariousTests extends TestBase {
         basePage.clickMenuRealEstate();
         various = basePage.clickMenuVarious();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(0), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(0), 1,
                 "Error message 'Need to Fill Country' did not appear on a first panel");
 
         various.addNonWorkIncomes();
@@ -641,49 +641,49 @@ public class VariousTests extends TestBase {
         basePage.clickMenuRealEstate();
         various = basePage.clickMenuVarious();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(1), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(1), 1,
                 "Error message 'Need to Fill Country' did not appear on a second panel");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(2), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(2), 1,
                 "Error message 'Need to Fill Country' did not appear on a third panel");
 
         various.selectCountryNonWorkIncomesFromDropDownListByIndex(0, 0);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(0), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(0), 0,
                 "Error message 'Need to Fill Country' did not disappear on a first panel after Country was chosen");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(1), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(1), 1,
                 "Error message 'Need to Fill Country' disappeared on a second panel after Country was chosen on a first panel");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(2), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(2), 1,
                 "Error message 'Need to Fill Country' disappeared on a third panel after Country was chosen on a first panel");
 
         various.selectCountryNonWorkIncomesFromDropDownListByIndex(2, 0);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(0), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(0), 0,
                 "Error message 'Need to Fill Country' re-appeared on a first panel after Country was chosen on a third panel");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(1), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(1), 1,
                 "Error message 'Need to Fill Country' disappeared on a second panel after Country was chosen on a third panel");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(2), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(2), 0,
                 "Error message 'Need to Fill Country' dud not disappear on a third panel after Country was chosen");
 
         various.deleteNonWorkIncomes(2);
         basePage.clickMenuRealEstate();
         various = basePage.clickMenuVarious();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(0), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(0), 0,
                 "Error message 'Need to Fill Country' re-appeared on a first panel after a third panel was deleted");
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(1), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(1), 1,
                 "Error message 'Need to Fill Country' disappeared on a second panel after a third panel was deleted");
 
         various.deleteNonWorkIncomes(1);
         basePage.clickMenuRealEstate();
         various = basePage.clickMenuVarious();
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessage(0), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageNonWorkIncomes(0), 0,
                 "Error message 'Need to Fill Country' re-appeared on a first panel after a last panel was deleted");
     }
 
@@ -827,7 +827,7 @@ public class VariousTests extends TestBase {
 
         various.enterNonWorkIncomesState(0, forbiddenChar);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getStateContainsCharactersErrorMessage(0), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getStateContainsCharactersErrorMessageNonWorkIncomes(0), 1,
                 String.format("Error message 'allowed characters' did not appeared when '%s' was entered into State", forbiddenChar));
     }
 
@@ -840,7 +840,7 @@ public class VariousTests extends TestBase {
 
         various.enterNonWorkIncomesCity(0, forbiddenChar);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCityContainsCharactersErrorMessage(0), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCityContainsCharactersErrorMessagenonWorkIncomes(0), 1,
                 String.format("Error message 'allowed characters' did not appeared when '%s' was entered into City", forbiddenChar));
     }
 

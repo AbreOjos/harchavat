@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
+import java.util.List;
+
+import static constants.BaseConstants.*;
 import static constants.VariousConstants.*;
 
 public class AbroadBankAccountsDetails extends BasePage {
@@ -88,6 +91,74 @@ public class AbroadBankAccountsDetails extends BasePage {
         cleanFormField(getTxtPartnersNum());
     }
 
+    // error messages
+    protected List<WebElement> getNeedFillCountryErrorMessage() {
+        return  details.findElements(errorMessageNeedFillCountrySubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillCityErrorMessage() {
+        return  details.findElements(errorMessageNeedFillCitySubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillBankNameErrorMessage() {
+        return  details.findElements(errorMessageNeedFillBankNameSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillBankNumErrorMessage() {
+        return  details.findElements(errorMessageNeedFillBankNumSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillBranchNameErrorMessage() {
+        return  details.findElements(errorMessageNeedFillBranchNameSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillBranchNumErrorMessage() {
+        return  details.findElements(errorMessageNeedFillBranchNumSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillAccountNumErrorMessage() {
+        return  details.findElements(errorMessageNeedFillAccountNumSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillNumPartnersInAccountErrorMessage() {
+        return  details.findElements(errorMessageNeedFillNumPartnersInAccountSubElementDetails);
+    }
+
+    protected List<WebElement> getStateContainsCharactersErrorMessage() {
+        return details.findElements(errorMessageStateContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getCityContainsCharactersErrorMessage() {
+        return details.findElements(errorMessageCityContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getBankNameContainsCharactersErrorMessage() {
+        return  details.findElements(errorMessageBankNameContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getBankNumContainsCharactersErrorMessage() {
+        return  details.findElements(errorMessageBankNumContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getBranchNameContainsCharactersErrorMessage() {
+        return  details.findElements(errorMessageBranchNameContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getBranchNumContainsCharactersErrorMessage() {
+        return  details.findElements(errorMessageBranchNumContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getAccountNumContainsCharactersErrorMessage() {
+        return  details.findElements(errorMessageAccountNumContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getNumPartnersInAccountContainsDigitsOnlyErrorMessage() {
+        return  details.findElements(errorMessageNumPartnersInAccountContainsDigitsOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getBankNumTenCharsMaxErrorMessage() {
+        return  details.findElements(errorMessageBankNumTenCharsMaxSubElementDetails);
+    }
 
     // == private methods ==
     private WebElement getDropDownCountry() {
