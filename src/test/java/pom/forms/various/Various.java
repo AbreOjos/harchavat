@@ -681,7 +681,7 @@ public class Various extends BasePage {
         integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).deletePartnersNum();
     }
 
-    // error messages
+    // error messages Abroad Bank Account
     public List<WebElement> getNeedFillCountryErrorMessageAbroadBankAccounts(int abroadBankAccountsNumber) {
         checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 

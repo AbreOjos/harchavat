@@ -36,86 +36,100 @@ public class EdgeVariousTests extends VariousTests {
     }
 
     // non work incomes tests
-    public void testNeedFillTypeIncomeErrorMessage() {
-        needFillTypeIncomeErrorMessage();
+    public void testNeedFillTypeIncomeErrorMessageNonWorkIncomes() {
+        needFillTypeIncomeErrorMessageNonWorkIncomes();
     }
 
-    public void testNeedFillIncomeSourceErrorMessage() {
-        needFillIncomeSourceErrorMessage();
+    public void testNeedFillIncomeSourceErrorMessageNonWorkIncomes() {
+        needFillIncomeSourceErrorMessageNonWorkIncomes();
     }
 
-    public void testNeedFillAnnualIncomeErrorMessage() {
-        needFillAnnualIncomeErrorMessage();
+    public void testNeedFillAnnualIncomeErrorMessageNonWorkIncomes() {
+        needFillAnnualIncomeErrorMessageNonWorkIncomes();
     }
 
-    public void testNeedFillPayerNameErrorMessage() {
-        needFillPayerNameErrorMessage();
+    public void testNeedFillPayerNameErrorMessageNonWorkIncomes() {
+        needFillPayerNameErrorMessageNonWorkIncomes();
     }
 
-    public void testNeedFillTikNikiumErrorMessage() {
-        needFillTikNikiumErrorMessage();
+    public void testNeedFillTikNikiumErrorMessageNonWorkIncomes() {
+        needFillTikNikiumErrorMessageNonWorkIncomes();
     }
 
-    public void testNeedFillCityErrorMessage() {
-        needFillCityErrorMessage();
+    public void testNeedFillCityErrorMessageNonWorkIncomes() {
+        needFillCityErrorMessageNonWorkIncomes();
     }
 
-    public void testNeedFillStreetErrorMessage() {
-        needFillStreetErrorMessage();
+    public void testNeedFillStreetErrorMessageNonWorkIncomes() {
+        needFillStreetErrorMessageNonWorkIncomes();
     }
 
-    public void testNeedFillHouseNumErrorMessage() {
-        needFillHouseNumErrorMessage();
+    public void testNeedFillHouseNumErrorMessageNonWorkIncomes() {
+        needFillHouseNumErrorMessageNonWorkIncomes();
     }
 
-    public void testNeedFillCountryErrorMessage() {
-        needFillCountryErrorMessage();
+    public void testNeedFillCountryErrorMessageNonWorkIncomes() {
+        needFillCountryErrorMessageNonWorkIncomes();
     }
 
-    public void testAnnualIncomeTwentyCharsMaxErrorMessage() {
-        annualIncomeTwentyCharsMaxErrorMessage();
+    public void testAnnualIncomeTwentyCharsMaxErrorMessageNonWorkIncomes() {
+        annualIncomeTwentyCharsMaxErrorMessageNonWorkIncomes();
     }
 
-    public void testCityFifteenCharsMaxErrorMessage() {
-        cityFifteenCharsMaxErrorMessage();
+    public void testCityFifteenCharsMaxErrorMessageNonWorkIncomes() {
+        cityFifteenCharsMaxErrorMessageNonWorkIncomes();
     }
 
-    public void testStreetFifteenCharsMaxErrorMessage() {
-        streetFifteenCharsMaxErrorMessage();
+    public void testStreetFifteenCharsMaxErrorMessageNonWorkIncomes() {
+        streetFifteenCharsMaxErrorMessageNonWorkIncomes();
     }
 
-    public void testTikNikuimContainsDigitsOnlyErrorMessage() {
-        tikNikuimContainsDigitsOnlyErrorMessage();
-    }
-
-    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersIncomeSource(String forbiddenChars) {
-        forbiddenCharactersIncomeSource(forbiddenChars);
+    public void testTikNikuimContainsDigitsOnlyErrorMessageNonWorkIncomes() {
+        tikNikuimContainsDigitsOnlyErrorMessageNonWorkIncomes();
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersPayerName(String forbiddenChars) {
-        forbiddenCharactersPayerName(forbiddenChars);
+    public void testForbiddenCharactersIncomeSourceNonWorkIncomes(String forbiddenChars) {
+        forbiddenCharactersIncomeSourceNonWorkIncomes(forbiddenChars);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersHouseNum(String forbiddenChars) {
-        forbiddenCharactersHouseNum(forbiddenChars);
+    public void testForbiddenCharactersPayerNameNonWorkIncomes(String forbiddenChars) {
+        forbiddenCharactersPayerNameNonWorkIncomes(forbiddenChars);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersState(String forbiddenChars) {
-        forbiddenCharactersState(forbiddenChars);
+    public void testForbiddenCharactersHouseNumNonWorkIncomes(String forbiddenChars) {
+        forbiddenCharactersHouseNumNonWorkIncomes(forbiddenChars);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersCity(String forbiddenChars) {
-        forbiddenCharactersCity(forbiddenChars);
+    public void testForbiddenCharactersStateNonWorkIncomes(String forbiddenChars) {
+        forbiddenCharactersStateNonWorkIncomes(forbiddenChars);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersStreet(String forbiddenChars) {
-        forbiddenCharactersStreet(forbiddenChars);
+    public void testForbiddenCharactersCityNonWorkIncomes(String forbiddenChars) {
+        forbiddenCharactersCityNonWorkIncomes(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersStreetNonWorkIncomes(String forbiddenChars) {
+        forbiddenCharactersStreetNonWorkIncomes(forbiddenChars);
+    }
+
+
+    // Abroad Bank Account tests
+    public void testNeedFillCountryErrorMessageAbroadBankAccount() {
+        needFillCountryErrorMessageAbroadBankAccount();
+    }
+
+    public void testNeedFillCityErrorMessageAbroadBankAccount() {
+        needFillCityErrorMessageAbroadBankAccount();
+    }
+
+    public void testNeedFillBankNameErrorMessageAbroadBankAccount() {
+        needFillBankNameErrorMessageAbroadBankAccount();
     }
 
 }

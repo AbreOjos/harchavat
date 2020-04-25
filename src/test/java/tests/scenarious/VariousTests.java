@@ -74,7 +74,7 @@ public class VariousTests extends TestBase {
 
 
     // non work incomes tests
-    protected void needFillTypeIncomeErrorMessage() {
+    protected void needFillTypeIncomeErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'need to fill income type'");
 
         Various various = basePage.clickMenuVarious();
@@ -146,7 +146,7 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill Type of Income' re-appeared on a first panel after a last panel was deleted");
     }
 
-    protected void needFillIncomeSourceErrorMessage() {
+    protected void needFillIncomeSourceErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'need to fill income source'");
 
         String firstIncomeSource = "First Income Source";
@@ -213,7 +213,7 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill Income Source' re-appeared on a first panel after a last panel was deleted");
     }
 
-    protected void needFillAnnualIncomeErrorMessage() {
+    protected void needFillAnnualIncomeErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'need to fill annual income'");
 
         String firstAnnualIncome = "123";
@@ -283,7 +283,7 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill Annual Income' re-appeared on a first panel after a last panel was deleted");
     }
 
-    protected void needFillPayerNameErrorMessage() {
+    protected void needFillPayerNameErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'need to fill payer name'");
 
         String firstPayerName = "first payer name";
@@ -352,7 +352,7 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill payer name' re-appeared on a first panel after a last panel was deleted");
     }
 
-    protected void needFillTikNikiumErrorMessage() {
+    protected void needFillTikNikiumErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'need to fill tik nikuim'");
 
         String firstTikNikium = "123";
@@ -421,7 +421,7 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill tik nikuim' re-appeared on a first panel after a last panel was deleted");
     }
 
-    protected void needFillCityErrorMessage() {
+    protected void needFillCityErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'need to fill city'");
 
         Various various = basePage.clickMenuVarious();
@@ -486,7 +486,7 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill City' re-appeared on a first panel after a last panel was deleted");
     }
 
-    protected void needFillStreetErrorMessage() {
+    protected void needFillStreetErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'need to fill street'");
 
         Various various = basePage.clickMenuVarious();
@@ -553,7 +553,7 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill street' re-appeared on a first panel after a last panel was deleted");
     }
 
-    protected void needFillHouseNumErrorMessage() {
+    protected void needFillHouseNumErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'need to fill house num'");
 
         String firstHouseNum = "123";
@@ -622,7 +622,7 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill house num' re-appeared on a first panel after a last panel was deleted");
     }
 
-    protected void needFillCountryErrorMessage() {
+    protected void needFillCountryErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'need to fill country'");
 
         Various various = basePage.clickMenuVarious();
@@ -687,7 +687,7 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill Country' re-appeared on a first panel after a last panel was deleted");
     }
 
-    protected void annualIncomeTwentyCharsMaxErrorMessage() {
+    protected void annualIncomeTwentyCharsMaxErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'Annual Income Twenty Chars Max'");
 
         String tooLongAnnualIncome = "1234567890123456";
@@ -710,7 +710,7 @@ public class VariousTests extends TestBase {
                 String.format("Error message 'Annual Income Twenty Chars Max' did not disappear when the correct value %s was entered", correctAnnualIncome));
     }
 
-    protected void cityFifteenCharsMaxErrorMessage() {
+    protected void cityFifteenCharsMaxErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'City Fifteen Chars Max'");
 
         String tooLongCityName = "Very Looong Name";
@@ -733,7 +733,7 @@ public class VariousTests extends TestBase {
                 String.format("Error message 'CityFifteenCharsMax' did not disappear when the correct value %s was entered", correctCityName));
     }
 
-    protected void streetFifteenCharsMaxErrorMessage() {
+    protected void streetFifteenCharsMaxErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'Street Fifteen Chars Max'");
 
         String tooLongStreetName = "Too Loooong Name";
@@ -756,7 +756,7 @@ public class VariousTests extends TestBase {
                 String.format("Error message 'StreetFifteenCharsMax' did not disappear when the correct value %s was entered", correctStreetName));
     }
 
-    protected void tikNikuimContainsDigitsOnlyErrorMessage() {
+    protected void tikNikuimContainsDigitsOnlyErrorMessageNonWorkIncomes() {
         log.info("Check the error message 'Tik Nikuim contains digits only'");
 
         String incorrectTikNikuim = "abc";
@@ -779,7 +779,7 @@ public class VariousTests extends TestBase {
                 String.format("Error message 'Tik Nikuim contains digits only' did not disappear when the correct value %s was entered", correctTikNikuim));
     }
 
-    protected void forbiddenCharactersIncomeSource(String forbiddenChar) {
+    protected void forbiddenCharactersIncomeSourceNonWorkIncomes(String forbiddenChar) {
         log.info(String.format("Enter the characters '%s' to a Income Source field, find the error message", forbiddenChar));
 
         Various various = basePage.clickMenuVarious();
@@ -792,7 +792,7 @@ public class VariousTests extends TestBase {
                 String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Income Source", forbiddenChar));
     }
 
-    protected void forbiddenCharactersPayerName(String forbiddenChar) {
+    protected void forbiddenCharactersPayerNameNonWorkIncomes(String forbiddenChar) {
         log.info(String.format("Enter the characters '%s' to a Payer Name field, find the error message", forbiddenChar));
 
         Various various = basePage.clickMenuVarious();
@@ -805,7 +805,7 @@ public class VariousTests extends TestBase {
                 String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Payer Name", forbiddenChar));
     }
 
-    protected void forbiddenCharactersHouseNum(String forbiddenChar) {
+    protected void forbiddenCharactersHouseNumNonWorkIncomes(String forbiddenChar) {
         log.info(String.format("Enter the characters '%s' to a House Num field, find the error message", forbiddenChar));
 
         Various various = basePage.clickMenuVarious();
@@ -818,7 +818,7 @@ public class VariousTests extends TestBase {
                 String.format("Error message 'allowed characters' did not appeared when '%s' was entered into House Num", forbiddenChar));
     }
 
-    protected void forbiddenCharactersState(String forbiddenChar) {
+    protected void forbiddenCharactersStateNonWorkIncomes(String forbiddenChar) {
         log.info(String.format("Enter the characters '%s' to a State field, find the error message", forbiddenChar));
 
         Various various = basePage.clickMenuVarious();
@@ -831,7 +831,7 @@ public class VariousTests extends TestBase {
                 String.format("Error message 'allowed characters' did not appeared when '%s' was entered into State", forbiddenChar));
     }
 
-    protected void forbiddenCharactersCity(String forbiddenChar) {
+    protected void forbiddenCharactersCityNonWorkIncomes(String forbiddenChar) {
         log.info(String.format("Enter the characters '%s' to a City field, find the error message", forbiddenChar));
 
         Various various = basePage.clickMenuVarious();
@@ -844,7 +844,7 @@ public class VariousTests extends TestBase {
                 String.format("Error message 'allowed characters' did not appeared when '%s' was entered into City", forbiddenChar));
     }
 
-    protected void forbiddenCharactersStreet(String forbiddenChar) {
+    protected void forbiddenCharactersStreetNonWorkIncomes(String forbiddenChar) {
         log.info(String.format("Enter the characters '%s' to a Street field, find the error message", forbiddenChar));
 
         Various various = basePage.clickMenuVarious();
@@ -855,5 +855,201 @@ public class VariousTests extends TestBase {
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getStreetContainsCharactersErrorMessage(0), 1,
                 String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Street", forbiddenChar));
+    }
+
+
+    // Abroad Bank Account tests
+    protected void needFillCountryErrorMessageAbroadBankAccount() {
+        log.info("Check the error message 'need to fill country'");
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(0), 1,
+                "Error message 'Need to Fill Country' did not appear on a first panel");
+
+        various.addAbroadBankAccounts();
+        various.addAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(1), 1,
+                "Error message 'Need to Fill Country' did not appear on a second panel");
+
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(2), 1,
+                "Error message 'Need to Fill Country' did not appear on a third panel");
+
+
+        various.selectCountryAbroadBankAccountsFromDropDownListByIndex(0, 0);
+//        basePage.clickMenuRealEstate();
+//        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(0), 0,
+                "Error message 'Need to Fill Country' did not disappear on a first panel after Country was chosen");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(1), 1,
+                "Error message 'Need to Fill Country' disappeared on a second panel after Country was chosen on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(2), 1,
+                "Error message 'Need to Fill Country' disappeared on a third panel after Country was chosen on a first panel");
+
+        various.selectCountryAbroadBankAccountsFromDropDownListByIndex(2, 0);
+//        basePage.clickMenuRealEstate();
+//        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(0), 0,
+                "Error message 'Need to Fill Country' re-appeared on a first panel after Country was chosen on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(1), 1,
+                "Error message 'Need to Fill Country' disappeared on a second panel after Country was chosen on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(2), 0,
+                "Error message 'Need to Fill Country' did not disappear on a third panel after Country was chosen");
+
+        various.deleteAbroadBankAccounts(2);
+//        basePage.clickMenuRealEstate();
+//        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(0), 0,
+                "Error message 'Need to Fill Country' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(1), 1,
+                "Error message 'Need to Fill Country' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteAbroadBankAccounts(1);
+//        basePage.clickMenuRealEstate();
+//        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCountryErrorMessageAbroadBankAccounts(0), 0,
+                "Error message 'Need to Fill Country' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillCityErrorMessageAbroadBankAccount() {
+        log.info("Check the error message 'need to fill city'");
+
+        String firstCity = "First City";
+        String thirdCity = "Third City";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(0), 1,
+                "Error message 'Need to Fill City' did not appear on a first panel");
+
+        various.addAbroadBankAccounts();
+        various.addAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(1), 1,
+                "Error message 'Need to Fill City' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(2), 1,
+                "Error message 'Need to Fill City' did not appear on a third panel");
+
+
+        various.enterAbroadBankAccountsCity(0, firstCity);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(0), 0,
+                "Error message 'Need to Fill City' did not disappear on a first panel after City was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(1), 1,
+                "Error message 'Need to Fill City' disappeared on a second panel after City was entered on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(2), 1,
+                "Error message 'Need to Fill City' disappeared on a third panel after City was entered on a first panel");
+
+
+        various.enterAbroadBankAccountsCity(2, thirdCity);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(0), 0,
+                "Error message 'Need to Fill City' re-appeared on a first panel after City was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(1), 1,
+                "Error message 'Need to Fill City' disappeared on a second panel after City was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(2), 0,
+                "Error message 'Need to Fill City' did not disappear on a third panel after City was entered");
+
+        various.deleteAbroadBankAccounts(2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(0), 0,
+                "Error message 'Need to Fill City' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(1), 1,
+                "Error message 'Need to Fill City' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteAbroadBankAccounts(1);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCityErrorMessageAbroadBankAccounts(0), 0,
+                "Error message 'Need to Fill City' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillBankNameErrorMessageAbroadBankAccount() {
+        log.info("Check the error message 'need to fill bank name'");
+
+        String firstBankName = "First Bank Name";
+        String thirdBankName = "Third Bank Name";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(0), 1,
+                "Error message 'Need to Fill Bank Name' did not appear on a first panel");
+
+        various.addAbroadBankAccounts();
+        various.addAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(1), 1,
+                "Error message 'Need to Fill Bank Name' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(2), 1,
+                "Error message 'Need to Fill Bank Name' did not appear on a third panel");
+
+
+        various.enterAbroadBankAccountsBankName(0, firstBankName);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(0), 0,
+                "Error message 'Need to Fill Bank Name' did not disappear on a first panel after Bank Name was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(1), 1,
+                "Error message 'Need to Fill Bank Name' disappeared on a second panel after Bank Name was entered on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(2), 1,
+                "Error message 'Need to Fill Bank Name' disappeared on a third panel after Bank Name was entered on a first panel");
+
+
+        various.enterAbroadBankAccountsBankName(2, thirdBankName);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(0), 0,
+                "Error message 'Need to Fill Bank Name' re-appeared on a first panel after Bank Name was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(1), 1,
+                "Error message 'Need to Fill Bank Name' disappeared on a second panel after Bank Name was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(2), 0,
+                "Error message 'Need to Fill Bank Name' did not disappear on a third panel after Bank Name was entered");
+
+        various.deleteAbroadBankAccounts(2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(0), 0,
+                "Error message 'Need to Fill Bank Name' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(1), 1,
+                "Error message 'Need to Fill Bank Name' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteAbroadBankAccounts(1);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(0), 0,
+                "Error message 'Need to Fill Bank Name' re-appeared on a first panel after a last panel was deleted");
     }
 }
