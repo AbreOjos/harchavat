@@ -752,7 +752,7 @@ public class Various extends BasePage {
         return integerAbroadBankAccountsDetailsMap.get(abroadBankAccountsNumber).getCityContainsCharactersErrorMessage();
     }
 
-    public List<WebElement> getankNameContainsCharactersErrorMessage(int abroadBankAccountsNumber) {
+    public List<WebElement> getBankNameContainsCharactersErrorMessage(int abroadBankAccountsNumber) {
         checkNumber(abroadBankAccountsNumber, abroadBankAccounts, integerAbroadBankAccountsDetailsMap);
 
         recreateMapPanelsOnPage();

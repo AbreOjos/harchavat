@@ -1052,4 +1052,193 @@ public class VariousTests extends TestBase {
         AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNameErrorMessage(0), 0,
                 "Error message 'Need to Fill Bank Name' re-appeared on a first panel after a last panel was deleted");
     }
+
+    protected void needFillBankNumErrorMessageAbroadBankAccount() {
+        log.info("Check the error message 'need to fill bank num'");
+
+        String firstBankNum = "123";
+        String thirdBankNum = "456";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(0), 1,
+                "Error message 'Need to Fill Bank Num' did not appear on a first panel");
+
+        various.addAbroadBankAccounts();
+        various.addAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(1), 1,
+                "Error message 'Need to Fill Bank Num' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(2), 1,
+                "Error message 'Need to Fill Bank Num' did not appear on a third panel");
+
+
+        various.enterAbroadBankAccountsBankNum(0, firstBankNum);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(0), 0,
+                "Error message 'Need to Fill Bank Num' did not disappear on a first panel after Bank Num was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(1), 1,
+                "Error message 'Need to Fill Bank Num' disappeared on a second panel after Bank Num was entered on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(2), 1,
+                "Error message 'Need to Fill Bank Num' disappeared on a third panel after Bank Num was entered on a first panel");
+
+
+        various.enterAbroadBankAccountsBankNum(2, thirdBankNum);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(0), 0,
+                "Error message 'Need to Fill Bank Num' re-appeared on a first panel after Bank Num was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(1), 1,
+                "Error message 'Need to Fill Bank Num' disappeared on a second panel after Bank Num was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(2), 0,
+                "Error message 'Need to Fill Bank Num' did not disappear on a third panel after Bank Num was entered");
+
+        various.deleteAbroadBankAccounts(2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(0), 0,
+                "Error message 'Need to Fill Bank Num' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(1), 1,
+                "Error message 'Need to Fill Bank Num' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteAbroadBankAccounts(1);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBankNumErrorMessage(0), 0,
+                "Error message 'Need to Fill Bank Num' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillBranchNameErrorMessageAbroadBankAccount() {
+        log.info("Check the error message 'need to fill branch name'");
+
+        String firstBranchName = "First Branch Name";
+        String thirdBranchName = "Third Branch Name";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(0), 1,
+                "Error message 'Need to Fill Branch Name' did not appear on a first panel");
+
+        various.addAbroadBankAccounts();
+        various.addAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(1), 1,
+                "Error message 'Need to Fill Branch Name' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(2), 1,
+                "Error message 'Need to Fill Branch Name' did not appear on a third panel");
+
+
+        various.enterAbroadBankAccountsBranchName(0, firstBranchName);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(0), 0,
+                "Error message 'Need to Fill Branch Name' did not disappear on a first panel after Branch Name was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(1), 1,
+                "Error message 'Need to Fill Branch Name' disappeared on a second panel after Branch Name was entered on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(2), 1,
+                "Error message 'Need to Fill Branch Name' disappeared on a third panel after Branch Name was entered on a first panel");
+
+
+        various.enterAbroadBankAccountsBranchName(2, thirdBranchName);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(0), 0,
+                "Error message 'Need to Fill Branch Name' re-appeared on a first panel after Branch Name was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(1), 1,
+                "Error message 'Need to Fill Branch Name' disappeared on a second panel after Branch Name was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(2), 0,
+                "Error message 'Need to Fill Branch Name' did not disappear on a third panel after Branch Name was entered");
+
+        various.deleteAbroadBankAccounts(2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(0), 0,
+                "Error message 'Need to Fill Branch Name' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(1), 1,
+                "Error message 'Need to Fill Branch Name' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteAbroadBankAccounts(1);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNameErrorMessage(0), 0,
+                "Error message 'Need to Fill Branch Name' re-appeared on a first panel after a last panel was deleted");
+    }
+
+    protected void needFillBranchNumErrorMessageAbroadBankAccount() {
+        log.info("Check the error message 'need to fill branch num'");
+
+        String firstBranchNum = "123";
+        String thirdBranchNum = "456";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(0), 1,
+                "Error message 'Need to Fill Branch Num' did not appear on a first panel");
+
+        various.addAbroadBankAccounts();
+        various.addAbroadBankAccounts();
+        basePage.clickMenuRealEstate();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(1), 1,
+                "Error message 'Need to Fill Branch Num' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(2), 1,
+                "Error message 'Need to Fill Branch Num' did not appear on a third panel");
+
+
+        various.enterAbroadBankAccountsBranchNum(0, firstBranchNum);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(0), 0,
+                "Error message 'Need to Fill Branch Num' did not disappear on a first panel after Branch Num was entered");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(1), 1,
+                "Error message 'Need to Fill Branch Num' disappeared on a second panel after Branch Num was entered on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(2), 1,
+                "Error message 'Need to Fill Branch Num' disappeared on a third panel after Branch Num was entered on a first panel");
+
+
+        various.enterAbroadBankAccountsBranchNum(2, thirdBranchNum);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(0), 0,
+                "Error message 'Need to Fill Branch Num' re-appeared on a first panel after Branch Num was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(1), 1,
+                "Error message 'Need to Fill Branch Num' disappeared on a second panel after Branch Num was entered on a third panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(2), 0,
+                "Error message 'Need to Fill Branch Num' did not disappear on a third panel after Branch Num was entered");
+
+        various.deleteAbroadBankAccounts(2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(0), 0,
+                "Error message 'Need to Fill Branch Num' re-appeared on a first panel after a third panel was deleted");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(1), 1,
+                "Error message 'Need to Fill Branch Num' disappeared on a second panel after a third panel was deleted");
+
+        various.deleteAbroadBankAccounts(1);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillBranchNumErrorMessage(0), 0,
+                "Error message 'Need to Fill Branch Num' re-appeared on a first panel after a last panel was deleted");
+    }
 }

@@ -138,4 +138,16 @@ public class FirefoxVariousTests extends VariousTests {
         needFillBankNameErrorMessageAbroadBankAccount();
     }
 
+    public void testNeedFillBankNumErrorMessageAbroadBankAccount() {
+        needFillBankNumErrorMessageAbroadBankAccount();
+    }
+
+    public void testNeedFillBranchNameErrorMessageAbroadBankAccount() {
+        needFillBranchNameErrorMessageAbroadBankAccount();
+    }
+
+    public void testNeedFillBranchNumErrorMessageAbroadBankAccount() {
+        needFillBranchNumErrorMessageAbroadBankAccount();
+    }
+
 }
