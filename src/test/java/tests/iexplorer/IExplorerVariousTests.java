@@ -151,4 +151,12 @@ public class IExplorerVariousTests extends VariousTests {
         needFillBranchNumErrorMessageAbroadBankAccount();
     }
 
+    public void testNeedFillAccountNumErrorMessageAbroadBankAccount() {
+        needFillAccountNumErrorMessageAbroadBankAccount();
+    }
+
+    public void testNeedFillNumOfPartnersErrorMessageAbroadBankAccount() {
+        needFillNumOfPartnersErrorMessageAbroadBankAccount();
+    }
+
 }

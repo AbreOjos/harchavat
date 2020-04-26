@@ -6,6 +6,8 @@ import org.testng.Assert;
 import pom.forms.realestates.RealEstate;
 import tests.TestBase;
 
+import java.util.stream.IntStream;
+
 import static constants.EnglishHebrewConstants.*;
 
 public class RealEstateTests extends TestBase {
@@ -202,775 +204,216 @@ public class RealEstateTests extends TestBase {
     }
 
     protected void needFillPropertyAreaErrorMessage() {
-        log.info("Check the error message 'need to fill property area'");
 
-        String firstCorrectPropertyArea =  "123";
-        String thirdCorrectPropertyArea =  "456";
+        String firstPropertyArea =  "123";
+        String thirdPropertyArea =  "456";
+        String error = "PropertyArea";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(0), 1,
-                "Error message 'Need to Fill property area' did not appear on a first panel");
-
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(1), 1,
-                "Error message 'Need to Fill property area' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(2), 1,
-                "Error message 'Need to Fill property area' did not appear on a third panel");
-
-        realEstate.enterRealEstatePropertyArea(0, firstCorrectPropertyArea);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(0), 0,
-                "Error message 'Need to Fill property area' did not disappear on a first panel after property area was entered");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(1), 1,
-                "Error message 'Need to Fill property area' disappear on a second panel after property area was entered on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(2), 1,
-                "Error message 'Need to Fill property area' disappear on a third panel after property area was entered on a first panel");
-
-
-        realEstate.enterRealEstatePropertyArea(2, thirdCorrectPropertyArea);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(0), 0,
-                "Error message 'Need to Fill property area' re-appear on a first panel after property area was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(1), 1,
-                "Error message 'Need to Fill property area' disappear on a second panel after property area was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(2), 0,
-                "Error message 'Need to Fill property area' did not disappear on a third panel after property area was entered");
-
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(0), 0,
-                "Error message 'Need to Fill property area' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(1), 0,
-                "Error message 'Need to Fill property area' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPropertyArea(0), 0,
-                "Error message 'Need to Fill property area' re-appear on a first panel after a last panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillPropertyArea,
+                basePage::clickMenuRealEstate,
+                realEstate::enterRealEstatePropertyArea,
+                realEstate::deleteRealEstate,
+                firstPropertyArea, thirdPropertyArea, error);
     }
 
     protected void needFillOwnershipPercentageErrorMessage() {
-        log.info("Check the error message 'need to fill ownership percentage'");
 
-        String firstCorrectOwnershipPercentage =  "123";
-        String thirdCorrectOwnershipPercentage = "456";
+        String firstOwnershipPercentage =  "123";
+        String thirdOwnershipPercentage = "456";
+        String error = "Ownership Percentage";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(0), 1,
-                "Error message 'Need to Fill Ownership Percentage' did not appear on a first panel");
-
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(1), 1,
-                "Error message 'Need to Fill Ownership Percentage' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(2), 1,
-                "Error message 'Need to Fill Ownership Percentage' did not appear on a third panel");
-
-        realEstate.deleteRealEstateOwnershipPercentage(0);
-        realEstate.enterRealEstateOwnershipPercentage(0, firstCorrectOwnershipPercentage);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(0), 0,
-                "Error message 'Need to Fill Ownership Percentage' did not disappear on a first panel after Ownership Percentage was entered");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(1), 1,
-                "Error message 'Need to Fill Ownership Percentage' disappear on a second panel after Ownership Percentage was entered on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(2), 1,
-                "Error message 'Need to Fill Ownership Percentage' disappear on a third panel after Ownership Percentage was entered on a first panel");
-
-        realEstate.deleteRealEstateOwnershipPercentage(2);
-        realEstate.enterRealEstateOwnershipPercentage(2, thirdCorrectOwnershipPercentage);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(0), 0,
-                "Error message 'Need to Fill Ownership Percentage' re-appear on a first panel after Ownership Percentage was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(1), 1,
-                "Error message 'Need to Fill Ownership Percentage' disappear on a second panel after Ownership Percentage was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(2), 0,
-                "Error message 'Need to Fill Ownership Percentage' did not disappear on a third panel after Ownership Percentage was entered");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(0), 0,
-                "Error message 'Need to Fill Ownership Percentage' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(1), 0,
-                "Error message 'Need to Fill Ownership Percentage' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillOwnershipPercentage(0), 0,
-                "Error message 'Need to Fill Ownership Percentage' re-appear on a first panel after a last panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillOwnershipPercentage,
+                basePage::clickMenuRealEstate,
+                realEstate::enterRealEstateOwnershipPercentage,
+                realEstate::deleteRealEstate,
+                firstOwnershipPercentage, thirdOwnershipPercentage, error);
     }
 
     protected void needFillGushErrorMessage() {
-        log.info("Check the error message 'need to fill Block (Gush)'");
 
-        String firstCorrectBlock =  "123";
-        String thirdCorrectBlock = "456";
+        String firstBlock =  "123";
+        String thirdBlock = "456";
+        String error = "Block (Gush)";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        realEstate.chooseRealEstateInIsrael(0);
-        realEstate.chooseRealEstateAssetGushHalka(0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateInIsrael);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateAssetGushHalka);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(0), 1,
-                "Error message 'Need to Fill Gush' did not appear on a first panel");
-
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        realEstate.chooseRealEstateInIsrael(1);
-        realEstate.chooseRealEstateAssetGushHalka(1);
-        realEstate.chooseRealEstateInIsrael(2);
-        realEstate.chooseRealEstateAssetGushHalka(2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(1), 1,
-                "Error message 'Need to Fill Gush' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(2), 1,
-                "Error message 'Need to Fill Gush' did not appear on a third panel");
-
-        realEstate.deleteRealEstateBlock(0);
-        realEstate.enterRealEstateBlock(0, firstCorrectBlock);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(0), 0,
-                "Error message 'Need to Fill Gush' did not disappear on a first panel after Gush was entered");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(1), 1,
-                "Error message 'Need to Fill Gush' disappear on a second panel after Gush was entered on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(2), 1,
-                "Error message 'Need to Fill Gush' disappear on a third panel after Gush was entered on a first panel");
-
-        realEstate.deleteRealEstateBlock(2);
-        realEstate.enterRealEstateBlock(2, thirdCorrectBlock);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(0), 0,
-                "Error message 'Need to Fill Gush' re-appear on a first panel after Gush was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(1), 1,
-                "Error message 'Need to Fill Gush' disappear on a second panel after Gush was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(2), 0,
-                "Error message 'Need to Fill Gush' did not disappear on a third panel after Gush was entered");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(0), 0,
-                "Error message 'Need to Fill Gush' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(1), 0,
-                "Error message 'Need to Fill Gush' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillBlock(0), 0,
-                "Error message 'Need to Fill Gush' re-appear on a first panel after a last panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillBlock,
+                basePage::clickMenuRealEstate,
+                realEstate::enterRealEstateBlock,
+                realEstate::deleteRealEstate,
+                firstBlock, thirdBlock, error);
     }
 
     protected void needFillHelkaErrorMessage() {
-        log.info("Check the error message 'need to fill Plot (Helka)'");
 
-        String firstCorrectPlot =  "123";
-        String thirdCorrectPlot = "456";
+        String firstPlot =  "123";
+        String thirdPlot = "456";
+        String error = "Plot (Helka)";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        realEstate.chooseRealEstateInIsrael(0);
-        realEstate.chooseRealEstateAssetGushHalka(0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateInIsrael);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateAssetGushHalka);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(0), 1,
-                "Error message 'Need to Fill Helka' did not appear on a first panel");
-
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        realEstate.chooseRealEstateInIsrael(1);
-        realEstate.chooseRealEstateAssetGushHalka(1);
-        realEstate.chooseRealEstateInIsrael(2);
-        realEstate.chooseRealEstateAssetGushHalka(2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(1), 1,
-                "Error message 'Need to Fill Helka' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(2), 1,
-                "Error message 'Need to Fill Helka' did not appear on a third panel");
-
-        realEstate.deleteRealEstatePlot(0);
-        realEstate.enterRealEstatePlot(0, firstCorrectPlot);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(0), 0,
-                "Error message 'Need to Fill Helka' did not disappear on a first panel after Helka was entered");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(1), 1,
-                "Error message 'Need to Fill Helka' disappear on a second panel after Helka was entered on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(2), 1,
-                "Error message 'Need to Fill Helka' disappear on a third panel after Helka was entered on a first panel");
-
-        realEstate.deleteRealEstatePlot(2);
-        realEstate.enterRealEstatePlot(2, thirdCorrectPlot);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(0), 0,
-                "Error message 'Need to Fill Helka' re-appear on a first panel after Helka was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(1), 1,
-                "Error message 'Need to Fill Helka' disappear on a second panel after Helka was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(2), 0,
-                "Error message 'Need to Fill Helka' did not disappear on a third panel Helka Gush was entered");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(0), 0,
-                "Error message 'Need to Fill Helka' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(1), 0,
-                "Error message 'Need to Fill Helka' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillPlot(0), 0,
-                "Error message 'Need to Fill Helka' re-appear on a first panel after a last panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillPlot,
+                basePage::clickMenuRealEstate,
+                realEstate::enterRealEstatePlot,
+                realEstate::deleteRealEstate,
+                firstPlot, thirdPlot, error);
     }
 
     protected void needFillCityIsraeliErrorMessage() {
-        log.info("Check the error message 'need to fill city' for Israel property");
+
+        Integer firstIndex = 0;
+        Integer thirdIndex = 0;
+        String error = "City";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        realEstate.chooseRealEstateInIsrael(0);
-        realEstate.chooseRealEstateAssetAddress(0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateInIsrael);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateAssetAddress);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(0), 1,
-                "Error message 'Need to Fill City' did not appear on a first panel");
-
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        realEstate.chooseRealEstateInIsrael(1);
-        realEstate.chooseRealEstateAssetAddress(1);
-        realEstate.chooseRealEstateInIsrael(2);
-        realEstate.chooseRealEstateAssetAddress(2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(1), 1,
-                "Error message 'Need to Fill City' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(2), 1,
-                "Error message 'Need to Fill City' did not appear on a third panel");
-
-        realEstate.selectCityFromDropDownListByIndex(0, 0);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(0), 0,
-                "Error message 'Need to Fill City' did not disappear on a first panel after City was chosen");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(1), 1,
-                "Error message 'Need to Fill City' disappear on a second panel after City was chosen on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(2), 1,
-                "Error message 'Need to Fill City' disappear on a third panel after City was chosen on a first panel");
-
-
-        realEstate.selectCityFromDropDownListByIndex(2, 0);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(0), 0,
-                "Error message 'Need to Fill City' re-appear on a first panel after City was chosen on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(1), 1,
-                "Error message 'Need to Fill City' disappear on a second panel after City was chosen on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(2), 0,
-                "Error message 'Need to Fill City' did not disappear on a third panel after City was chosen");
-
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(0), 0,
-                "Error message 'Need to Fill City' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(1), 0,
-                "Error message 'Need to Fill City' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(0), 0,
-                "Error message 'Need to Fill City' re-appear on a first panel after a last panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillCity,
+                basePage::clickMenuRealEstate,
+                realEstate::selectCityFromDropDownListByIndex,
+                realEstate::deleteRealEstate,
+                firstIndex, thirdIndex, error);
     }
 
     protected void needFillStreetIsraeliErrorMessage() {
-        log.info("Check the error message 'need to fill street' for Israel property");
+
+        Integer firstIndex = 0;
+        Integer thirdIndex = 0;
+        String error = "Street";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        realEstate.chooseRealEstateInIsrael(0);
-        realEstate.chooseRealEstateAssetAddress(0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateInIsrael);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateAssetAddress);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(0), 1,
-                "Error message 'Need to Fill Street' did not appear on a first panel");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillStreet,
+                basePage::clickMenuRealEstate,
+                this::selectCityAndStreet,
+                realEstate::deleteRealEstate,
+                firstIndex, thirdIndex, error);
 
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        realEstate.chooseRealEstateInIsrael(1);
-        realEstate.chooseRealEstateAssetAddress(1);
-        realEstate.chooseRealEstateInIsrael(2);
-        realEstate.chooseRealEstateAssetAddress(2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(1), 1,
-                "Error message 'Need to Fill Street' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(2), 1,
-                "Error message 'Need to Fill Street' did not appear on a third panel");
-
-        realEstate.selectCityFromDropDownListByIndex(0, 0);
-        realEstate.selectStreetFromDropDownListByIndex(0, 0);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(0), 0,
-                "Error message 'Need to Fill Street' did not disappear on a first panel after Street was chosen");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(1), 1,
-                "Error message 'Need to Fill Street' disappear on a second panel after Street was chosen on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(2), 1,
-                "Error message 'Need to Fill Street' disappear on a third panel after Street was chosen on a first panel");
-
-
-        realEstate.selectCityFromDropDownListByIndex(2, 0);
-        realEstate.selectStreetFromDropDownListByIndex(2, 0);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(0), 0,
-                "Error message 'Need to Fill Street' re-appear on a first panel after Street was chosen on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(1), 1,
-                "Error message 'Need to Fill Street' disappear on a second panel after Street was chosen on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(2), 0,
-                "Error message 'Need to Fill Street' did not disappear on a third panel after Street was chosen");
-
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(0), 0,
-                "Error message 'Need to Fill Street' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(1), 0,
-                "Error message 'Need to Fill Street' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(0), 0,
-                "Error message 'Need to Fill Street' re-appear on a first panel after a last panel was deleted");
     }
 
     protected void needFillHouseNumberIsraeliErrorMessage() {
-        log.info("Check the error message 'need to fill house number' for Israeli house");
 
-        String firstCorrectHouseNumber =  "123";
-        String thirdCorrectHouseNumber = "60a";
+        String firstHouseNumber =  "123";
+        String thirdHouseNumber = "60a";
+        String error = "House Number";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        realEstate.chooseRealEstateInIsrael(0);
-        realEstate.chooseRealEstateAssetAddress(0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateInIsrael);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateAssetAddress);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(0), 1,
-                "Error message 'Need to Fill House Number' did not appear on a first panel");
-
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        realEstate.chooseRealEstateInIsrael(1);
-        realEstate.chooseRealEstateAssetAddress(1);
-        realEstate.chooseRealEstateInIsrael(2);
-        realEstate.chooseRealEstateAssetAddress(2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(1), 1,
-                "Error message 'Need to Fill House Number' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(2), 1,
-                "Error message 'Need to Fill House Number' did not appear on a third panel");
-
-        realEstate.deleteHouseNum(0);
-        realEstate.enterHouseNum(0, firstCorrectHouseNumber);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(0), 0,
-                "Error message 'Need to Fill House Number' did not disappear on a first panel after House Number was entered");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(1), 1,
-                "Error message 'Need to Fill House Number' disappear on a second panel after House Number was entered on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(2), 1,
-                "Error message 'Need to Fill House Number' disappear on a third panel after House Number was entered on a first panel");
-
-        realEstate.deleteHouseNum(2);
-        realEstate.enterHouseNum(2, thirdCorrectHouseNumber);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(0), 0,
-                "Error message 'Need to Fill House Number' re-appear on a first panel after House Number was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(1), 1,
-                "Error message 'Need to Fill House Number' disappear on a second panel after House Number was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(2), 0,
-                "Error message 'Need to Fill House Number' did not disappear on a third panel after House Number was entered");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(0), 0,
-                "Error message 'Need to Fill House Number' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(1), 0,
-                "Error message 'Need to Fill House Number' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(0), 0,
-                "Error message 'Need to Fill House Number' re-appear on a first panel after a last panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillHouseNumber,
+                basePage::clickMenuRealEstate,
+                realEstate::enterHouseNum,
+                realEstate::deleteRealEstate,
+                firstHouseNumber, thirdHouseNumber, error);
     }
 
     protected void needFillCountryOverseaErrorMessage() {
-        log.info("Check the error message 'need to fill country' for Oversea property");
+
+        Integer firstIndex = 0;
+        Integer thirdIndex = 0;
+        String error = "Country";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        realEstate.chooseRealEstateOversea(0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateOversea);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(0), 1,
-                "Error message 'Need to Fill Country' did not appear on a first panel");
-
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        realEstate.chooseRealEstateOversea(1);
-        realEstate.chooseRealEstateOversea(2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(1), 1,
-                "Error message 'Need to Fill Country' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(2), 1,
-                "Error message 'Need to Fill Country' did not appear on a third panel");
-
-        realEstate.selectCountryFromDropDownListByIndex(0, 0);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(0), 0,
-                "Error message 'Need to Fill Country' did not disappear on a first panel after Country was chosen");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(1), 1,
-                "Error message 'Need to Fill Country' disappear on a second panel after Country was chosen on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(2), 1,
-                "Error message 'Need to Fill Country' disappear on a third panel after Country was chosen on a first panel");
-
-
-        realEstate.selectCountryFromDropDownListByIndex(2, 0);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(0), 0,
-                "Error message 'Need to Fill Country' re-appear on a first panel after Country was chosen on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(1), 1,
-                "Error message 'Need to Fill Country' disappear on a second panel after Country was chosen on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(2), 0,
-                "Error message 'Need to Fill Country' did not disappear on a third panel after Country was chosen");
-
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(0), 0,
-                "Error message 'Need to Fill Country' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(1), 0,
-                "Error message 'Need to Fill Country' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCountry(0), 0,
-                "Error message 'Need to Fill Country' re-appear on a first panel after a last panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillCountry,
+                basePage::clickMenuRealEstate,
+                realEstate::selectCountryFromDropDownListByIndex,
+                realEstate::deleteRealEstate,
+                firstIndex, thirdIndex, error);
     }
 
     protected void needFillCityOverseaErrorMessage() {
-        log.info("Check the error message 'need to fill city' for Oversea property");
 
         String firstCity = "First City";
         String thirdCity = "Third City";
+        String error = "City";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        realEstate.chooseRealEstateOversea(0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateOversea);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(0), 1,
-                "Error message 'Need to Fill City' did not appear on a first panel");
-
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        realEstate.chooseRealEstateOversea(1);
-        realEstate.chooseRealEstateOversea(2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(1), 1,
-                "Error message 'Need to Fill City' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(2), 1,
-                "Error message 'Need to Fill City' did not appear on a third panel");
-
-        realEstate.enterCity(0, firstCity);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(0), 0,
-                "Error message 'Need to Fill City' did not disappear on a first panel after City was entered");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(1), 1,
-                "Error message 'Need to Fill City' disappear on a second panel after City was entered on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(2), 1,
-                "Error message 'Need to Fill City' disappear on a third panel after City was entered on a first panel");
-
-
-        realEstate.enterCity(2, thirdCity);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(0), 0,
-                "Error message 'Need to Fill City' re-appear on a first panel after City was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(1), 1,
-                "Error message 'Need to Fill City' disappear on a second panel after City was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(2), 0,
-                "Error message 'Need to Fill City' did not disappear on a third panel after City was entered");
-
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(0), 0,
-                "Error message 'Need to Fill City' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(1), 0,
-                "Error message 'Need to Fill City' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillCity(0), 0,
-                "Error message 'Need to Fill City' re-appear on a first panel after a last panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillCity,
+                basePage::clickMenuRealEstate,
+                realEstate::enterCity,
+                realEstate::deleteRealEstate,
+                firstCity, thirdCity, error);
     }
 
     protected void needFillStreetOverseaErrorMessage() {
-        log.info("Check the error message 'need to fill street' for Oversea property");
 
         String firstStreet = "First Street";
         String thirdStreet = "Third Street";
+        String error = "Street";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        realEstate.chooseRealEstateOversea(0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateOversea);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(0), 1,
-                "Error message 'Need to Fill Street' did not appear on a first panel");
-
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        realEstate.chooseRealEstateOversea(1);
-        realEstate.chooseRealEstateOversea(2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(1), 1,
-                "Error message 'Need to Fill Street' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(2), 1,
-                "Error message 'Need to Fill Street' did not appear on a third panel");
-
-        realEstate.enterStreet(0, firstStreet);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(0), 0,
-                "Error message 'Need to Fill Street' did not disappear on a first panel after Street was entered");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(1), 1,
-                "Error message 'Need to Fill Street' disappear on a second panel after Street was entered on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(2), 1,
-                "Error message 'Need to Fill Street' disappear on a third panel after Street was entered on a first panel");
-
-
-        realEstate.enterStreet(2, thirdStreet);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(0), 0,
-                "Error message 'Need to Fill Street' re-appear on a first panel after Street was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(1), 1,
-                "Error message 'Need to Fill Street' disappear on a second panel after Street was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(2), 0,
-                "Error message 'Need to Fill Street' did not disappear on a third panel after Street was entered");
-
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(0), 0,
-                "Error message 'Need to Fill Street' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(1), 0,
-                "Error message 'Need to Fill Street' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillStreet(0), 0,
-                "Error message 'Need to Fill Street' re-appear on a first panel after a last panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillStreet,
+                basePage::clickMenuRealEstate,
+                realEstate::enterStreet,
+                realEstate::deleteRealEstate,
+                firstStreet, thirdStreet, error);
     }
 
     protected void needFillHouseNumberOverseaErrorMessage() {
-        log.info("Check the error message 'need to fill house number' for Oversea house");
 
-        String firstCorrectHouseNumber =  "123";
-        String thirdCorrectHouseNumber = "60a";
+        String firstHouseNumber =  "123";
+        String thirdHouseNumber = "60a";
+        String error = "House Number";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        realEstate.chooseRealEstateOversea(0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateOversea);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(0), 1,
-                "Error message 'Need to Fill House Number' did not appear on a first panel");
-
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        realEstate.chooseRealEstateOversea(1);
-        realEstate.chooseRealEstateOversea(2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(1), 1,
-                "Error message 'Need to Fill House Number' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(2), 1,
-                "Error message 'Need to Fill House Number' did not appear on a third panel");
-
-        realEstate.deleteHouseNum(0);
-        realEstate.enterHouseNum(0, firstCorrectHouseNumber);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(0), 0,
-                "Error message 'Need to Fill House Number' did not disappear on a first panel after House Number was entered");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(1), 1,
-                "Error message 'Need to Fill House Number' disappear on a second panel after House Number was entered on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(2), 1,
-                "Error message 'Need to Fill House Number' disappear on a third panel after House Number was entered on a first panel");
-
-        realEstate.deleteHouseNum(2);
-        realEstate.enterHouseNum(2, thirdCorrectHouseNumber);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(0), 0,
-                "Error message 'Need to Fill House Number' re-appear on a first panel after House Number was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(1), 1,
-                "Error message 'Need to Fill House Number' disappear on a second panel after House Number was entered on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(2), 0,
-                "Error message 'Need to Fill House Number' did not disappear on a third panel after House Number was entered");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(0), 0,
-                "Error message 'Need to Fill House Number' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(1), 0,
-                "Error message 'Need to Fill House Number' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillHouseNumber(0), 0,
-                "Error message 'Need to Fill House Number' re-appear on a first panel after a last panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillHouseNumber,
+                basePage::clickMenuRealEstate,
+                realEstate::enterHouseNum,
+                realEstate::deleteRealEstate,
+                firstHouseNumber, thirdHouseNumber, error);
     }
 
     protected void needFillUsageRealEstateErrorMessage() {
@@ -1056,73 +499,22 @@ public class RealEstateTests extends TestBase {
     }
 
     protected void needFillUsageDetailsErrorMessage() {
-        log.info("Check the error message 'need to fill usage details'");
 
         String firstUsage = "First Usage";
         String thirdUsage = "Third Usage";
+        String error = "Usage Details";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
-        realEstate.chooseRealEstateAnotherUsage(0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoRealEstates(realEstate);
+        IntStream.range(0, realEstate.getRealEstatesAmount()).forEach(realEstate::chooseRealEstateAnotherUsage);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(0), 1,
-                "Error message 'Need to Fill Usage Details' did not appear on a first panel");
-
-        realEstate.addRealEstate();
-        realEstate.addRealEstate();
-        realEstate.chooseRealEstateAnotherUsage(1);
-        realEstate.chooseRealEstateAnotherUsage(2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(1), 1,
-                "Error message 'Need to Fill Usage Details' did not appear on a second panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(2), 1,
-                "Error message 'Need to Fill Usage Details' did not appear on a third panel");
-
-        realEstate.deleteExplainUsage(0);
-        realEstate.enterExplainUsage(0, firstUsage);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(0), 0,
-                "Error message 'Need to Fill Usage Details' did not disappear on a first panel after Usage Details was entered");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(1), 1,
-                "Error message 'Need to Fill Usage Details' disappear on a second panel after Usage Details was entered on a first panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(2), 1,
-                "Error message 'Need to Fill Usage Details' disappear on a third panel after Usage Details was entered on a first panel");
-
-        realEstate.deleteExplainUsage(2);
-        realEstate.enterExplainUsage(2, thirdUsage);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(0), 0,
-                "Error message 'Need to Fill Usage Details' re-appear on a first panel after Usage Details was chosen on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(1), 1,
-                "Error message 'Need to Fill Usage Details' disappear on a second panel after Usage Details was chosen on a third panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(2), 0,
-                "Error message 'Need to Fill Usage Details' did not disappear on a third panel after Usage Details was chosen");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(0), 0,
-                "Error message 'Need to Fill Usage Details' re-appear on a first panel after second panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(1), 0,
-                "Error message 'Need to Fill Usage Details' re-appear on a third panel after second panel was deleted");
-
-        realEstate.deleteRealEstate(1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillUsageDetails(0), 0,
-                "Error message 'Need to Fill Usage Details' re-appear on a first panel after a last panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillUsageDetails,
+                basePage::clickMenuRealEstate,
+                realEstate::enterExplainUsage,
+                realEstate::deleteRealEstate,
+                firstUsage, thirdUsage, error);
     }
 
     protected void needFillPropertySplitErrorMessage() {
@@ -1807,6 +1199,19 @@ public class RealEstateTests extends TestBase {
         AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageTenantPassportFifteenDigitsMax(0, 0), 0,
                 String.format("Error message 'Tenant Passport 15 digits max' appeared on a tenant panel after an correct value %s was entered",
                         correctTenantPassport));
+    }
+
+
+    // == private methods ==
+    private void addTwoRealEstates(RealEstate realEstate) {
+        realEstate.addRealEstate();
+        realEstate.addRealEstate();
+    }
+
+    private void selectCityAndStreet(Integer panelIndex, Integer elementIndex) {
+        RealEstate realEstate = new RealEstate(driver);
+        realEstate.selectCityFromDropDownListByIndex(panelIndex, elementIndex);
+        realEstate.selectStreetFromDropDownListByIndex(panelIndex, elementIndex);
     }
 
 }

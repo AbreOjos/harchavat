@@ -150,4 +150,12 @@ public class FirefoxVariousTests extends VariousTests {
         needFillBranchNumErrorMessageAbroadBankAccount();
     }
 
+    public void testNeedFillAccountNumErrorMessageAbroadBankAccount() {
+        needFillAccountNumErrorMessageAbroadBankAccount();
+    }
+    public void testNeedFillNumOfPartnersErrorMessageAbroadBankAccount() {
+        needFillNumOfPartnersErrorMessageAbroadBankAccount();
+    }
+
+
 }

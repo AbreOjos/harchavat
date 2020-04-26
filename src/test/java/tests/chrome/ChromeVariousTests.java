@@ -151,4 +151,12 @@ public class ChromeVariousTests extends VariousTests {
         needFillBranchNumErrorMessageAbroadBankAccount();
     }
 
+    public void testNeedFillAccountNumErrorMessageAbroadBankAccount() {
+        needFillAccountNumErrorMessageAbroadBankAccount();
+    }
+
+    public void testNeedFillNumOfPartnersErrorMessageAbroadBankAccount() {
+        needFillNumOfPartnersErrorMessageAbroadBankAccount();
+    }
+
 }

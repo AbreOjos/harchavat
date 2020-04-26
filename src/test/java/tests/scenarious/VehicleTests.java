@@ -51,56 +51,25 @@ public class VehicleTests extends TestBase {
     }
 
     protected void needFillLicenseErrorMessage() {
-        log.info("Add a few vehicles, play with 'need to fill license' error messages");
 
-        String correctLicense = "12345678";
+        String firstLicense = "12345678";
+        String thirdLicense = "87654321";
+        String error = "License Number";
 
         Vehicle vehicle = basePage.clickMenuVehicle();
         vehicle.chooseHaveVehicle();
-        vehicle.addVehicle();
-        vehicle.addVehicle();
+        addTwoVehicles(vehicle);
 
         vehicle.choosePrivateVehicle(0);
         vehicle.chooseHeavyVehicle(1);
         vehicle.chooseAnotherVehicle(2);
 
-        basePage.clickMenuPersonalDetails();
-        vehicle = basePage.clickMenuVehicle();
-
-        // check error messages on every panel
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(0), 1,
-                "Error message 'Need to Fill License Number' did not appear on a first panel");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(1), 1,
-                "Error message 'Need to Fill License Number' did not appear on a second panel");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(2), 1,
-                "Error message 'Need to Fill License Number' did not appear on a third panel");
-
-        vehicle.enterCarLicense(1, correctLicense);
-
-        // recheck error messages
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(0), 1,
-                "Error message 'Need to Fill License Number' disappear from a first panel instead of a second panel");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(1), 0,
-                "Error message 'Need to Fill License Number' did not disappear from a second panel");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(2), 1,
-                "Error message 'Need to Fill License Number' disappear from a third panel instead of a second panel");
-
-        vehicle.deleteVehicle(1);
-
-        // recheck remains messages
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(0), 1,
-                "Error message 'Need to Fill License Number' disappear from a first panel after removing one of the vehicles");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(1), 1,
-                "Error message 'Need to Fill License Number' disappear from a second panel after removing one of the vehicles");
-
-        vehicle.enterCarLicense(0, correctLicense);
-        vehicle.enterCarLicense(1, correctLicense);
-
-        // recheck remains messages
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(0), 0,
-                "Error message 'Need to Fill License Number' did not disappear from a first panel");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillLicenseErrorMessage(1), 0,
-                "Error message 'Need to Fill License Number' did not disappear from a second panel");
+        needFillErrorMessage(
+                vehicle::getNeedFillLicenseErrorMessage,
+                basePage::clickMenuVehicle,
+                vehicle::enterCarLicense,
+                vehicle::deleteVehicle,
+                firstLicense, thirdLicense, error);
     }
 
     protected void incorrectLicenseErrorMessage() {
@@ -162,93 +131,51 @@ public class VehicleTests extends TestBase {
     }
 
     protected void needFillVehicleDetailsErrorMessage() {
-        log.info("Add a few vehicles, play with 'need to fill vehicle details' error messages");
 
-        String vehicleDetails = "abcde";
+        String firstAnotherVehicle = "First Another Vehicle";
+        String thirdAnotherVehicle = "Third Another Vehicle";
+        String error = "Vehicle Details";
 
         Vehicle vehicle = basePage.clickMenuVehicle();
         vehicle.chooseHaveVehicle();
-        vehicle.addVehicle();
-        vehicle.addVehicle();
+        addTwoVehicles(vehicle);
 
-        vehicle.chooseAircraftVehicle(0);
+        vehicle.chooseAnotherVehicle(0);
         vehicle.chooseAnotherVehicle(1);
-        vehicle.chooseCommercialVehicle(2);
+        vehicle.chooseAnotherVehicle(2);
 
-        basePage.clickMenuPersonalDetails();
-        vehicle = basePage.clickMenuVehicle();
-
-        // check error messages on every panel
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillVehicleDetailsErrorMessage(0), 0,
-                "Error message 'Need to Fill Vehicle Details' appear on a first panel - not Another vehicle");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillVehicleDetailsErrorMessage(1), 1,
-                "Error message 'Need to Fill Vehicle Details' did not appear on a second panel - Another vehicle");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillVehicleDetailsErrorMessage(2), 0,
-                "Error message 'Need to Fill Vehicle Details' appear on a third panel - not Another vehicle");
-
-        vehicle.deleteVehicle(2);
-
-        // recheck error messages on every panel
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillVehicleDetailsErrorMessage(0), 0,
-                "Error message 'Need to Fill Vehicle Details' appear on a first panel - not Another vehicle");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillVehicleDetailsErrorMessage(1), 1,
-                "Error message 'Need to Fill Vehicle Details' did not appear on a second panel - Another vehicle");
-
-        vehicle.deleteAnotherCarTypeDetails(1);
-        vehicle.enterAnotherCarTypeDetails(1, vehicleDetails);
-
-        // recheck error messages on every panel
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillVehicleDetailsErrorMessage(0), 0,
-                "Error message 'Need to Fill Vehicle Details' appear on a first panel - not Another vehicle");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillVehicleDetailsErrorMessage(1), 0,
-                "Error message 'Need to Fill Vehicle Details' did not disappear from a second panel after filling details");
+        needFillErrorMessage(
+                vehicle::getNeedFillVehicleDetailsErrorMessage,
+                basePage::clickMenuVehicle,
+                vehicle::enterAnotherCarTypeDetails,
+                vehicle::deleteVehicle,
+                firstAnotherVehicle, thirdAnotherVehicle, error);
     }
 
     protected void needFillUsageDetailsErrorMessage() {
-        log.info("Add a few vehicles, play with 'need to fill usage details' error messages");
 
-        String usageDetails = "abcde";
+        String firstAnotherUsage = "First Another Usage";
+        String thirdAnotherUsage = "Third Another Usage";
+        String error = "Usage Details";
 
         Vehicle vehicle = basePage.clickMenuVehicle();
         vehicle.chooseHaveVehicle();
-        vehicle.addVehicle();
-        vehicle.addVehicle();
+        addTwoVehicles(vehicle);
 
         vehicle.chooseAircraftVehicle(0);
         vehicle.chooseAnotherVehicle(1);
         vehicle.chooseCommercialVehicle(2);
 
-        vehicle.chooseCommercialUsage(0);
-        vehicle.choosePrivateUsage(1);
+        vehicle.chooseAnotherUsage(0);
+        vehicle.chooseAnotherUsage(1);
         vehicle.chooseAnotherUsage(2);
 
-        basePage.clickMenuPersonalDetails();
-        vehicle = basePage.clickMenuVehicle();
-
-        // check error messages on every panel
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillUsageDetailsErrorMessage(0), 0,
-                "Error message 'Need to Fill Usage Details' appear on a first panel - not Another usage");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillUsageDetailsErrorMessage(1), 0,
-                "Error message 'Need to Fill Usage Details' appear on a second panel - not Another usage");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillUsageDetailsErrorMessage(2), 1,
-                "Error message 'Need to Fill Usage Details' did not appear on a third panel - Another usage");
-
-        vehicle.deleteVehicle(1);
-
-        // recheck error messages on every panel
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillUsageDetailsErrorMessage(0), 0,
-                "Error message 'Need to Fill Usage Details' appear on a first panel - not Another usage");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillUsageDetailsErrorMessage(1), 1,
-                "Error message 'Need to Fill Usage Details' disappear from a second panel - Another usage");
-
-        vehicle.deleteAnotherUsageDetails(1);
-        vehicle.enterAnotherUsageDetails(1, usageDetails);
-
-        // recheck error messages on every panel
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillUsageDetailsErrorMessage(0), 0,
-                "Error message 'Need to Fill Usage Details' appear on a first panel - not Another usage");
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getNeedFillUsageDetailsErrorMessage(1), 0,
-                "Error message 'Need to Fill Usage Details' did not disappear from a second panel after usage details filling");
+        needFillErrorMessage(
+                vehicle::getNeedFillUsageDetailsErrorMessage,
+                basePage::clickMenuVehicle,
+                vehicle::enterAnotherUsageDetails,
+                vehicle::deleteVehicle,
+                firstAnotherUsage, thirdAnotherUsage, error);
     }
 
     protected void correctLicenseFormats() {
@@ -280,6 +207,12 @@ public class VehicleTests extends TestBase {
                 String.format("Error message 'Incorrect License Number' appear after correct license '%s' entered", secondCorrectLicense));
         AssertionsHarchavat.assertListContainsExactNumberOfElements(vehicle.getLicenseIncorrectErrorMessage(2), 0,
                 String.format("Error message 'Incorrect License Number' appear after correct license '%s' entered", thirdCorrectLicense));
+    }
+
+    // == private methods ==
+    private void addTwoVehicles(Vehicle vehicle) {
+        vehicle.addVehicle();
+        vehicle.addVehicle();
     }
 
 }

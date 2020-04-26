@@ -76,6 +76,10 @@ public class RealEstate extends BasePage {
         recreateMapPanelsOnPage();
     }
 
+    public int getRealEstatesAmount() {
+        return integerRealEstateDetailsMap.size();
+    }
+
     // choose real estate type
     public void chooseRealEstateTypeApartment(int realEstateNumber) {
         checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
