@@ -583,215 +583,70 @@ public class RealEstateTests extends TestBase {
     }
 
     protected void needFillTenantIDErrorMessage() {
-        log.info("Check the error message 'need to fill tenant ID' for tenant israeli");
 
         String firstTenantID = "123456789";
         String thirdTenantID = "987654321";
+        String error = "Tenant ID";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
         realEstate.chooseRealEstateRentingUsage(0);
-        realEstate.chooseTenantFromIsrael(0, 0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoTenants(realEstate, 0);
+        for (int i=0; i<realEstate.getTenantsAmount(0); ++i) {
+            realEstate.chooseTenantFromIsrael(0, i);
+        }
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0, 0), 1,
-                "Error message 'Need to Fill Tenant ID' did not appear on a first tenant panel");
-
-        realEstate.addTenant(0);
-        realEstate.addTenant(0);
-        realEstate.chooseTenantFromIsrael(0, 1);
-        realEstate.chooseTenantFromIsrael(0, 2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0, 1), 1,
-                "Error message 'Need to Fill Tenant ID' did not appear on a second tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0, 2), 1,
-                "Error message 'Need to Fill Tenant ID' did not appear on a third tenant panel");
-
-        realEstate.enterTenantId(0, 0, firstTenantID);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0, 0), 0,
-                "Error message 'Need to Fill Tenant ID' did not disappear on a first tenant panel after Tenant ID was entered");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0, 1), 1,
-                "Error message 'Need to Fill Tenant ID' disappear on a second tenant panel after Tenant ID was entered on a first tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0, 2), 1,
-                "Error message 'Need to Fill Tenant ID' disappear on a third tenant panel after Tenant ID was entered on a first tenant panel");
-
-        realEstate.enterTenantId(0, 2, thirdTenantID);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0, 0), 0,
-                "Error message 'Need to Fill Tenant ID' re-appear on a first tenant panel after Tenant ID was entered on a third tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0, 1), 1,
-                "Error message 'Need to Fill Tenant ID' disappear on a second tenant panel after Tenant ID was entered on a third tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0, 2), 0,
-                "Error message 'Need to Fill Tenant ID' did not disappear on a third tenant panel after Tenant ID was entered");
-
-        realEstate.deleteTenant(0, 1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0,0), 0,
-                "Error message 'Need to Fill Tenant ID' re-appear on a first tenant panel after second tenant panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0, 1), 0,
-                "Error message 'Need to Fill Tenant ID' re-appear on a third tenant panel after second tenant panel was deleted");
-
-        realEstate.deleteTenant(0, 1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantID(0, 0), 0,
-                "Error message 'Need to Fill Tenant ID' re-appear on a first tenant panel after a last tenant panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillTenantID,
+                basePage::clickMenuRealEstate,
+                realEstate::enterTenantId,
+                realEstate::deleteTenant,
+                firstTenantID, thirdTenantID, error);
     }
 
     protected void needFillTenantCountryErrorMessage() {
-        log.info("Check the error message 'need to fill tenant country' for tenant abroad");
+
+        Integer firstIndex = 0;
+        Integer thirdIndex = 0;
+        String error = "Tenant Country";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
         realEstate.chooseRealEstateRentingUsage(0);
-        realEstate.chooseTenantFromAbroad(0, 0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoTenants(realEstate, 0);
+        for (int i=0; i<realEstate.getTenantsAmount(0); ++i) {
+            realEstate.chooseTenantFromAbroad(0, i);
+        }
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0, 0), 1,
-                "Error message 'Need to Fill Tenant Country' did not appear on a first tenant panel");
-
-        realEstate.addTenant(0);
-        realEstate.addTenant(0);
-        realEstate.chooseTenantFromAbroad(0, 1);
-        realEstate.chooseTenantFromAbroad(0, 2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0, 1), 1,
-                "Error message 'Need to Fill Tenant Country' did not appear on a second tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0, 2), 1,
-                "Error message 'Need to Fill Tenant Country' did not appear on a third tenant panel");
-
-        realEstate.selectCountryTenantFromDropDownListByIndex(0, 0, 0);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0, 0), 0,
-                "Error message 'Need to Fill Tenant Country' did not disappear on a first tenant panel after Tenant Country was selected");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0, 1), 1,
-                "Error message 'Need to Fill Tenant Country' disappear on a second tenant panel after Tenant Country was selected on a first tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0, 2), 1,
-                "Error message 'Need to Fill Tenant Country' disappear on a third tenant panel after Tenant Country was selected on a first tenant panel");
-
-        realEstate.selectCountryTenantFromDropDownListByIndex(0, 2, 0);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0, 0), 0,
-                "Error message 'Need to Fill Tenant Country' re-appear on a first tenant panel after Tenant Country was selected on a third tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0, 1), 1,
-                "Error message 'Need to Fill Tenant Country' disappear on a second tenant panel after Tenant Country was selected on a third tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0, 2), 0,
-                "Error message 'Need to Fill Tenant Country' did not disappear on a third tenant panel after Tenant Country was selected");
-
-        realEstate.deleteTenant(0, 1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0,0), 0,
-                "Error message 'Need to Fill Tenant Country' re-appear on a first tenant panel after second tenant panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0, 1), 0,
-                "Error message 'Need to Fill Tenant Country' re-appear on a third tenant panel after second tenant panel was deleted");
-
-        realEstate.deleteTenant(0, 1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantCountry(0, 0), 0,
-                "Error message 'Need to Fill Tenant Country' re-appear on a first tenant panel after a last tenant panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillTenantCountry,
+                basePage::clickMenuRealEstate,
+                realEstate::selectCountryTenantFromDropDownListByIndex,
+                realEstate::deleteTenant,
+                firstIndex, thirdIndex, error);
     }
 
     protected void needFillTenantPassportErrorMessage() {
-        log.info("Check the error message 'need to fill tenant passport' for tenant abroad");
 
         String firstTenantPassport = "123456789";
         String thirdTenantPassport = "987654321";
+        String error = "Tenant Passport";
 
         RealEstate realEstate = basePage.clickMenuRealEstate();
         realEstate.chooseHaveRealEstate();
         realEstate.chooseRealEstateRentingUsage(0);
-        realEstate.chooseTenantFromAbroad(0, 0);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
+        addTwoTenants(realEstate, 0);
+        for (int i=0; i<realEstate.getTenantsAmount(0); ++i) {
+            realEstate.chooseTenantFromAbroad(0, i);
+        }
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0, 0), 1,
-                "Error message 'Need to Fill Tenant Passport' did not appear on a first tenant panel");
-
-        realEstate.addTenant(0);
-        realEstate.addTenant(0);
-        realEstate.chooseTenantFromAbroad(0, 1);
-        realEstate.chooseTenantFromAbroad(0, 2);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0, 1), 1,
-                "Error message 'Need to Fill Tenant Passport' did not appear on a second tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0, 2), 1,
-                "Error message 'Need to Fill Tenant Passport' did not appear on a third tenant panel");
-
-        realEstate.deleteTenantPassport(0, 0);
-        realEstate.enterTenantPassport(0, 0, firstTenantPassport);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0, 0), 0,
-                "Error message 'Need to Fill Tenant Passport' did not disappear on a first tenant panel after Tenant Passport was entered");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0, 1), 1,
-                "Error message 'Need to Fill Tenant Passport' disappear on a second tenant panel after Tenant Passport was entered on a first tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0, 2), 1,
-                "Error message 'Need to Fill Tenant Passport' disappear on a third tenant panel after Tenant Passport was entered on a first tenant panel");
-
-        realEstate.deleteTenantPassport(0, 2);
-        realEstate.enterTenantPassport(0, 2, thirdTenantPassport);
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0, 0), 0,
-                "Error message 'Need to Fill Tenant Passport' re-appear on a first tenant panel after Tenant Passport was entered on a third tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0, 1), 1,
-                "Error message 'Need to Fill Tenant Passport' disappear on a second tenant panel after Tenant Passport was entered on a third tenant panel");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0, 2), 0,
-                "Error message 'Need to Fill Tenant Passport' did not disappear on a third tenant panel after Tenant Passport was entered");
-
-        realEstate.deleteTenant(0, 1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0,0), 0,
-                "Error message 'Need to Fill Tenant Passport' re-appear on a first tenant panel after second tenant panel was deleted");
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0, 1), 0,
-                "Error message 'Need to Fill Tenant Passport' re-appear on a third tenant panel after second tenant panel was deleted");
-
-        realEstate.deleteTenant(0, 1);
-        basePage.clickMenuWage();
-        realEstate = basePage.clickMenuRealEstate();
-
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(realEstate.getErrorMessageNeedFillTenantPassport(0, 0), 0,
-                "Error message 'Need to Fill Tenant Passport' re-appear on a first tenant panel after a last tenant panel was deleted");
+        needFillErrorMessage(
+                realEstate::getErrorMessageNeedFillTenantPassport,
+                basePage::clickMenuRealEstate,
+                realEstate::enterTenantPassport,
+                realEstate::deleteTenant,
+                firstTenantPassport, thirdTenantPassport, error);
     }
-
-
-
-
-
 
 
     protected void propertyAreaContainsDigitsOnlyErrorMessage() {
@@ -1206,6 +1061,11 @@ public class RealEstateTests extends TestBase {
     private void addTwoRealEstates(RealEstate realEstate) {
         realEstate.addRealEstate();
         realEstate.addRealEstate();
+    }
+
+    private void addTwoTenants(RealEstate realEstate, int realEstateNumber) {
+        realEstate.addTenant(realEstateNumber);
+        realEstate.addTenant(realEstateNumber);
     }
 
     private void selectCityAndStreet(Integer panelIndex, Integer elementIndex) {

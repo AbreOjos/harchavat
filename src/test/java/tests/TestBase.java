@@ -24,16 +24,14 @@ import pom.forms.various.Various;
 import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
 import readresources.parameters.WebUiParameters;
+import utils.functionalinterfaces.TriConsumer;
 
 import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
@@ -280,5 +278,63 @@ public abstract class TestBase {
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0), 0,
                 String.format("Error message 'Need to Fill %s' re-appeared on a first panel after a last panel was deleted", error));
+    }
+
+
+    protected <T> void needFillErrorMessage(BiFunction<Integer, Integer, List<WebElement>> getErrorMessage,
+                                            Supplier<BasePage> clickMenu,
+                                            TriConsumer<Integer, Integer, T> enterData,
+                                            BiConsumer<Integer, Integer> deleteSubPanel,
+                                            T firstParam, T thirdParam, String error) {
+        log.info(String.format("Check the error message 'need to fill %s'", error));
+
+        basePage.clickMenuSendForm();
+        clickMenu.get();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 0), 1,
+                String.format("Error message 'Need to Fill %s' did not appear on a first subpanel", error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 1), 1,
+                String.format("Error message 'Need to Fill %s' did not appear on a subpanel panel", error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0,2), 1,
+                String.format("Error message 'Need to Fill %s' did not appear on a third subpanel", error));
+
+
+        enterData.accept(0, 0, firstParam);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 0), 0,
+                String.format("Error message 'Need to Fill %s' did not disappear on a first subpanel after %s was entered", error, error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 1), 1,
+                String.format("Error message 'Need to Fill %s' disappeared on a second subpanel after %s was entered on a first subpanel", error, error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 2), 1,
+                String.format("Error message 'Need to %s' disappeared on a third subpanel after %s was entered on a first subpanel", error, error));
+
+
+        enterData.accept(0, 2, thirdParam);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 0), 0,
+                String.format("Error message 'Need to Fill %s' re-appeared on a first subpanel after %s was entered on a third subpanel", error, error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 1), 1,
+                String.format("Error message 'Need to Fill %s' disappeared on a second subpanel after %s was entered on a third subpanel", error, error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 2), 0,
+                String.format("Error message 'Need to Fill %s' did not disappear on a third subpanel after %s was entered", error, error));
+
+        deleteSubPanel.accept(0, 2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 0), 0,
+                String.format("Error message 'Need to Fill %s' re-appeared on a first subpanel after a third subpanel was deleted", error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 1), 1,
+                String.format("Error message 'Need to Fill %s' disappeared on a second subpanel after a third subpanel was deleted", error));
+
+        deleteSubPanel.accept(0, 1);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 0), 0,
+                String.format("Error message 'Need to Fill %s' re-appeared on a first subpanel after a last subpanel was deleted", error));
     }
 }
