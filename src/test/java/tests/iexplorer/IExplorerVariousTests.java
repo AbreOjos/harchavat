@@ -202,4 +202,11 @@ public class IExplorerVariousTests extends VariousTests {
         bankNumTenCharsMaxErrorMessageNonWorkIncomes();
     }
 
+
+    // Digital Coin test
+    public void testNeedFillCoinTypeErrorMessageDigitalCoins() {
+        needFillCoinTypeErrorMessageDigitalCoins();
+    }
+
+
 }

@@ -964,6 +964,119 @@ public class Various extends BasePage {
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deleteSoldValue();
     }
 
+    // digital coins errors
+    public List<WebElement> getNeedFillCoinTypeErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillCoinTypeErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillAnotherCoinErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillAnotherCoinErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillAmountOfCoinsErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillNumberOfCoinsErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillPublicKeyDigitalWalletErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillPublicKeyDigitalWalletErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillDidYouSellCoinsErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillDidYouSellCoinsErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillHowManyCoinsSoldErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillHowManyCoinsSoldErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillTotalSalesErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillTotalSalesErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillDidYouBuyWithCoinsErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillDidYouBuyWithCoinsErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillHowMuchCoinsUsedErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillHowMuchCoinsUsedErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillTotalUsedErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillTotalUsedErrorMessage();
+    }
+
+    public List<WebElement> getNumberOfCoinsDigitsOnlyErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNumberOfCoinsDigitsOnlyErrorMessage();
+    }
+
+    public List<WebElement> getPublicKeyDigitsAndLettersOnlyErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getPublicKeyDigitsAndLettersOnlyErrorMessage();
+    }
+
+    public List<WebElement> getCoinsSellDigitsOnlyErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getCoinsSellDigitsOnlyErrorMessage();
+    }
+
+    public List<WebElement> getTotalSalesTwentyCharsMaxErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getTotalSalesTwentyCharsMaxErrorMessage();
+    }
+
+    public List<WebElement> getHowMuchCoinsUsedDigitsOnlyErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getHowMuchCoinsUsedDigitsOnlyErrorMessage();
+    }
+
+    public List<WebElement> getTotalUsedTwentyCharsMaxErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getTotalUsedTwentyCharsMaxErrorMessage();
+    }
+
 
     // Stocks methods
     public void enterStocksCompanyName(int stocksNumber, String companyName) {

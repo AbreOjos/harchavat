@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
+import java.util.List;
+
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
@@ -167,6 +169,7 @@ public class DigitalCoinsDetails extends BasePage {
     }
 
 
+
     // == private methods ==
     // coins types
     private WebElement getBtnBitcoin() {
@@ -186,7 +189,7 @@ public class DigitalCoinsDetails extends BasePage {
     }
 
     private WebElement getBtnAnotherCoin() {
-        return details.findElements(btnsTypeOfIncomeSubElementDigitalCoinsDetails).get(0);
+        return details.findElements(btnsTypeOfIncomeSubElementDigitalCoinsDetails).get(4);
     }
 
     private WebElement getTxtAnotherCoin() {
@@ -231,6 +234,71 @@ public class DigitalCoinsDetails extends BasePage {
 
     private WebElement getTxtSoldValue() {
         return details.findElement(txtSoldValueSubElementDigitalCoinsDetails);
+    }
+
+    // digital coins errors
+    protected List<WebElement> getNeedFillCoinTypeErrorMessage() {
+        return details.findElements(errorMessageNeedFillCoinTypeSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillAnotherCoinErrorMessage() {
+        return details.findElements(errorMessageNeedFillAnotherCoinSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillNumberOfCoinsErrorMessage() {
+        return details.findElements(errorMessageNeedFillNumberOfCoinsSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillPublicKeyDigitalWalletErrorMessage() {
+        return details.findElements(errorMessageNeedFillPublicKeyDigitalWalletSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillDidYouSellCoinsErrorMessage() {
+        return details.findElements(errorMessageNeedDidYouSellCoinsSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillHowManyCoinsSoldErrorMessage() {
+        return details.findElements(errorMessageNeedFillHowManyCoinsSoldSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillTotalSalesErrorMessage() {
+        return details.findElements(errorMessageNeedFillTotalSalesSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillDidYouBuyWithCoinsErrorMessage() {
+        return details.findElements(errorMessageNeedFillDidYouBuyWithCoinsSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillHowMuchCoinsUsedErrorMessage() {
+        return details.findElements(errorMessageNeedFillHowMuchCoinsUsedSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillTotalUsedErrorMessage() {
+        return details.findElements(errorMessageNeedFillTotalUsedSubElementDetails);
+    }
+
+    protected List<WebElement> getNumberOfCoinsDigitsOnlyErrorMessage() {
+        return details.findElements(errorMessageNumberOfCoinsDigitsOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getPublicKeyDigitsAndLettersOnlyErrorMessage() {
+        return details.findElements(errorMessagePublicKeyDigitsAndLettersOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getCoinsSellDigitsOnlyErrorMessage() {
+        return details.findElements(errorMessageCoinsSellDigitsOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getTotalSalesTwentyCharsMaxErrorMessage() {
+        return details.findElements(errorMessageTotalSalesTwentyCharsMaxSubElementDetails);
+    }
+
+    protected List<WebElement> getHowMuchCoinsUsedDigitsOnlyErrorMessage() {
+        return details.findElements(errorMessageHowMuchCoinsUsedDigitsOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getTotalUsedTwentyCharsMaxErrorMessage() {
+        return details.findElements(errorMessageTotalUsedTwentyCharsMaxSubElementDetails);
     }
 
 }

@@ -104,6 +104,42 @@ public class VariousConstants {
     public static final By txtAmountSoldSubElementDigitalCoinsDetails = By.xpath(".//input[@name='amountSold']");
     public static final By txtSoldValueSubElementDigitalCoinsDetails = By.xpath(".//input[@name='soldValue']");
 
+    // digital coins errors sub-elements
+    public static final By errorMessageNeedFillCoinTypeSubElementDetails =
+            By.xpath(".//p[@class='errors-msg'][contains(text(),'חובה למלא את השדה בחר סוג מטבע')]");
+    public static final By errorMessageNeedFillAnotherCoinSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה הקלד מטבע')]");
+    public static final By errorMessageNeedFillNumberOfCoinsSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה כמות מטבעות שברשותך')]");
+    public static final By errorMessageNeedFillPublicKeyDigitalWalletSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מפתח ציבורי של הארנק הדיגיטלי')]");
+    public static final By errorMessageNeedDidYouSellCoinsSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה האם מכרת מטבעות בשנת')]");
+    public static final By errorMessageNeedFillHowManyCoinsSoldSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה כמות מטבעות שמכרת')]");
+    public static final By errorMessageNeedFillTotalSalesSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה סהכ ערך המכירה')]");
+    public static final By errorMessageNeedFillDidYouBuyWithCoinsSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה האם רכשת מוצרים באמצעות המטבעות בשנת')]");
+    public static final By errorMessageNeedFillHowMuchCoinsUsedSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה כמות מטבעות שמומשה')]");
+    public static final By errorMessageNeedFillTotalUsedSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה סהכ ערך המכירה')]");
+    public static final By errorMessageNumberOfCoinsDigitsOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה כמות מטבעות שברשותך חייב להיות מספרי ולהכיל 3 נקודות עשרוניות')]");
+    public static final By errorMessagePublicKeyDigitsAndLettersOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מפתח ציבורי של הארנק הדיגיטלי יכול להכיל רק אותיות ומספרים')]");
+    public static final By errorMessageCoinsSellDigitsOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה כמות מטבעות שמכרת חייב להיות מספרי ולהכיל 3 נקודות עשרוניות')]");
+    public static final By errorMessageTotalSalesTwentyCharsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה סהכ ערך המכירה לא יכול להכיל יותר מ- 20 תווים')]");
+    public static final By errorMessageHowMuchCoinsUsedDigitsOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה כמות מטבעות שמומשה חייב להיות מספרי ולהכיל 3 נקודות עשרוניות')]");
+    public static final By errorMessageTotalUsedTwentyCharsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה סהכ ערך המכירה לא יכול להכיל יותר מ- 20 תווים')]");
+
+
+
     // stocks details
     public static final By txtCompanyNameSubElementStocksDetails = By.xpath(".//input[@name='companyName']");
     public static final By btnsCompanySourceSubElementStocksDetails = By.xpath(".//div[@name='companySource']/button");
@@ -119,8 +155,6 @@ public class VariousConstants {
     public static final By txtPercentageSubElementPartnershipsDetails = By.xpath(".//input[@name='percentage']");
     public static final By dropDownCountrySubElementPartnershipsDetails = By.xpath(".//input[@name='country']");
     public static final By txtStateSubElementPartnershipsDetails = By.xpath(".//input[@name='state']");
-
-
 
 
 }

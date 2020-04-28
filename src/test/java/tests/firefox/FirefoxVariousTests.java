@@ -201,4 +201,11 @@ public class FirefoxVariousTests extends VariousTests {
     }
 
 
+    // Digital Coin test
+    public void testNeedFillCoinTypeErrorMessageDigitalCoins() {
+        needFillCoinTypeErrorMessageDigitalCoins();
+    }
+
+
+
 }

@@ -79,18 +79,15 @@ public class VariousTests extends TestBase {
 
         Various various = basePage.clickMenuVarious();
         various.chooseHaveNonWorkIncomes();
-        basePage.clickMenuRealEstate();
+        various.addNonWorkIncomes();
+        various.addNonWorkIncomes();
+        basePage.clickMenuSendForm();
         various = basePage.clickMenuVarious();
 
         if (!various.nonWorkIncomeIsraeliChosen(0) && !various.nonWorkIncomeOverseaChosen(0)) {
             AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(0), 1,
                     "Error message 'Need to Fill Type of Income' did not appear on a first panel");
         }
-
-        various.addNonWorkIncomes();
-        various.addNonWorkIncomes();
-        basePage.clickMenuRealEstate();
-        various = basePage.clickMenuVarious();
 
         if (!various.nonWorkIncomeIsraeliChosen(1) && !various.nonWorkIncomeOverseaChosen(1)) {
             AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(1), 1,
@@ -103,8 +100,6 @@ public class VariousTests extends TestBase {
         }
 
         various.chooseNonWorkIncomesIncomeIsraeli(0);
-        basePage.clickMenuRealEstate();
-        various = basePage.clickMenuVarious();
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(0), 0,
                 "Error message 'Need to Fill Type of Income' did not disappear on a first panel after income type was chosen");
@@ -116,8 +111,6 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill Type of Income' disappeared on a third panel after income type was chosen on a first panel");
 
         various.chooseNonWorkIncomesIncomeOversea(2);
-        basePage.clickMenuRealEstate();
-        various = basePage.clickMenuVarious();
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(0), 0,
                 "Error message 'Need to Fill Type of Income' re-appeared on a first panel after income type was chosen on a third panel");
@@ -129,8 +122,6 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill Type of Income' did not disappear on a third panel after income type was chosen");
 
         various.deleteNonWorkIncomes(2);
-        basePage.clickMenuRealEstate();
-        various = basePage.clickMenuVarious();
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(0), 0,
                 "Error message 'Need to Fill Type of Income' re-appeared on a first panel after a third panel was deleted");
@@ -139,8 +130,6 @@ public class VariousTests extends TestBase {
                 "Error message 'Need to Fill Type of Income' disappeared on a second panel after a third panel was deleted");
 
         various.deleteNonWorkIncomes(1);
-        basePage.clickMenuRealEstate();
-        various = basePage.clickMenuVarious();
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillIncomeTypeErrorMessage(0), 0,
                 "Error message 'Need to Fill Type of Income' re-appeared on a first panel after a last panel was deleted");
@@ -720,8 +709,204 @@ public class VariousTests extends TestBase {
     }
 
 
+    // Digital Coins tests
+    protected void needFillCoinTypeErrorMessageDigitalCoins() {
+        log.info("Check the error message 'need to fill coin type'");
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveDigitalCoins();
+        various.addDigitalCoins();
+        various.addDigitalCoins();
+        basePage.clickMenuSendForm();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(0), 1,
+                "Error message 'Need to Fill Coin Type' did not appear on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(1), 1,
+                "Error message 'Need to Fill Coin Type' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(2), 1,
+                "Error message 'Need to Fill Coin Type' did not appear on a third panel");
+
+        various.chooseDigitalCoinsBitcoin(0);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(0), 0,
+                "Error message 'Need to Fill Coin Type' did not disappear on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(1), 1,
+                "Error message 'Need to Fill Coin Type' disappear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(2), 1,
+                "Error message 'Need to Fill Coin Type' disappear on a third panel");
+
+        various.chooseDigitalCoinsNano(2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(0), 0,
+                "Error message 'Need to Fill Coin Type' re-appeared on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(1), 1,
+                "Error message 'Need to Fill Coin Type' disappeared on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(2), 0,
+                "Error message 'Need to Fill Coin Type' did not disappear on a third panel");
+
+        various.deleteDigitalCoins(2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(0), 0,
+                "Error message 'Need to Fill Coin Type' re-appeared on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(1), 1,
+                "Error message 'Need to Fill Coin Type' disappeared on a second panel");
+
+        various.deleteDigitalCoins(1);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillCoinTypeErrorMessage(0), 0,
+                "Error message 'Need to Fill Coin Type' re-appeared on a first panel");
+    }
+
+    protected void needFillAnotherCoinErrorMessageDigitalCoins() {
+
+        String firstAnotherCoin = "First Another Coin";
+        String thirdAnotherCoin = "Third Another Coin";
+        String error = "Another Coin";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveDigitalCoins();
+        addTwoDigitalCoins(various);
+        various.chooseDigitalCoinsAnotherCoin(0);
+        various.chooseDigitalCoinsAnotherCoin(1);
+        various.chooseDigitalCoinsAnotherCoin(2);
+
+        needFillErrorMessage(
+                various::getNeedFillAnotherCoinErrorMessage,
+                basePage::clickMenuVarious,
+                various::enterDigitalCoinsAnotherCoin,
+                various::deleteDigitalCoins,
+                firstAnotherCoin, thirdAnotherCoin, error);
+    }
+
+    protected void needFillAmountOfCoinsErrorMessageDigitalCoins() {
+
+        String firstNumberOfCoins = "123";
+        String thirdNumberOfCoins = "456";
+        String error = "Amount of Coins";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveDigitalCoins();
+        addTwoDigitalCoins(various);
+
+        needFillErrorMessage(
+                various::getNeedFillAmountOfCoinsErrorMessage,
+                basePage::clickMenuVarious,
+                various::enterDigitalCoinsCoinAmount,
+                various::deleteDigitalCoins,
+                firstNumberOfCoins, thirdNumberOfCoins, error);
+    }
+
+    protected void needFillPublicKeyErrorMessageDigitalCoins() {
+
+        String firstPublicKey = "FirstPublicKey";
+        String thirdPublickKey = "ThirdPublicKey";
+        String error = "Public Key of Digital Wallet";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveDigitalCoins();
+        addTwoDigitalCoins(various);
+
+        needFillErrorMessage(
+                various::getNeedFillPublicKeyDigitalWalletErrorMessage,
+                basePage::clickMenuVarious,
+                various::enterDigitalCoinsPublicKey,
+                various::deleteDigitalCoins,
+                firstPublicKey, thirdPublickKey, error);
+    }
+
+    protected void needFillDidYouSellCoinsErrorMessageDigitalCoins() {
+        log.info("Check the error message 'need to fill did you sell coins field'");
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveDigitalCoins();
+        various.addDigitalCoins();
+        various.addDigitalCoins();
+        basePage.clickMenuSendForm();
+        various = basePage.clickMenuVarious();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(0), 1,
+                "Error message 'Need to Fill Did You Sell Coin' did not appear on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(1), 1,
+                "Error message 'Need to Fill Did You Sell Coin' did not appear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(2), 1,
+                "Error message 'Need to Fill Did You Sell Coin' did not appear on a third panel");
+
+        various.chooseDigitalCoinsCoinsMaterialized(0);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(0), 0,
+                "Error message 'Need to Fill Did You Sell Coin' did not disappear on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(1), 1,
+                "Error message 'Need to Fill Did You Sell Coin' disappear on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(2), 1,
+                "Error message 'Need to Fill Did You Sell Coin' disappear on a third panel");
+
+        various.chooseDigitalCoinsCoinsDontMaterialized(2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(0), 0,
+                "Error message 'Need to Fill Did You Sell Coin' re-appeared on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(1), 1,
+                "Error message 'Need to Fill Did You Sell Coin' disappeared on a second panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(2), 0,
+                "Error message 'Need to Fill Did You Sell Coin' did not disappear on a third panel");
+
+        various.deleteDigitalCoins(2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(0), 0,
+                "Error message 'Need to Fill Did You Sell Coin' re-appeared on a first panel");
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(1), 1,
+                "Error message 'Need to Fill Did You Sell Coin' disappeared on a second panel");
+
+        various.deleteDigitalCoins(1);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNeedFillDidYouSellCoinsErrorMessage(0), 0,
+                "Error message 'Need to Fill Did You Sell Coin' re-appeared on a first panel");
+    }
+
+    protected void needFillAmountCoinsSoldErrorMessageDigitalCoins() {
+
+        String firstAmountCoinsSell = "123";
+        String thirdAmountCoinsSell = "456";
+        String error = "How Many Coins Sold";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveDigitalCoins();
+        addTwoDigitalCoins(various);
+        various.chooseDigitalCoinsCoinsMaterialized(0);
+        various.chooseDigitalCoinsCoinsMaterialized(1);
+        various.chooseDigitalCoinsCoinsMaterialized(2);
+
+        needFillErrorMessage(
+                various::getNeedFillHowManyCoinsSoldErrorMessage,
+                basePage::clickMenuVarious,
+                various::enterDigitalCoinsAmountMaterialized,
+                various::deleteDigitalCoins,
+                firstAmountCoinsSell, thirdAmountCoinsSell, error);
+    }
+
+
+
 
     // == private methods ==
+    private void addTwoDigitalCoins(Various various) {
+        various.addDigitalCoins();
+        various.addDigitalCoins();
+    }
+
     private void addTwoAbroadBankAccounts(Various various) {
         various.addAbroadBankAccounts();
         various.addAbroadBankAccounts();

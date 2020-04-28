@@ -202,4 +202,30 @@ public class ChromeVariousTests extends VariousTests {
         bankNumTenCharsMaxErrorMessageNonWorkIncomes();
     }
 
+
+    // Digital Coin test
+    public void testNeedFillCoinTypeErrorMessageDigitalCoins() {
+        needFillCoinTypeErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillAnotherCoinErrorMessageDigitalCoins() {
+        needFillAnotherCoinErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillAmountOfCoinsErrorMessageDigitalCoins() {
+        needFillAmountOfCoinsErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillPublicKeyErrorMessageDigitalCoins() {
+        needFillPublicKeyErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillDidYouSellCoinsErrorMessageDigitalCoins() {
+        needFillDidYouSellCoinsErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillAmountCoinsSoldErrorMessageDigitalCoins() {
+        needFillAmountCoinsSoldErrorMessageDigitalCoins();
+    }
+
 }
