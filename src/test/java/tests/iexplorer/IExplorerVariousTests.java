@@ -159,4 +159,47 @@ public class IExplorerVariousTests extends VariousTests {
         needFillNumOfPartnersErrorMessageAbroadBankAccount();
     }
 
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersStateAbroadBankAccounts(String forbiddenChars) {
+        forbiddenCharactersStateAbroadBankAccounts(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersCityAbroadBankAccounts(String forbiddenChars) {
+        forbiddenCharactersCityAbroadBankAccounts(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersBankNameAbroadBankAccounts(String forbiddenChars) {
+        forbiddenCharactersBankNameAbroadBankAccounts(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersBankNumAbroadBankAccounts(String forbiddenChars) {
+        forbiddenCharactersBankNumAbroadBankAccounts(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersBranchNameAbroadBankAccounts(String forbiddenChars) {
+        forbiddenCharactersBranchNameAbroadBankAccounts(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersBranchNumAbroadBankAccounts(String forbiddenChars) {
+        forbiddenCharactersBranchNumAbroadBankAccounts(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersAccountNumAbroadBankAccounts(String forbiddenChars) {
+        forbiddenCharactersAccountNumAbroadBankAccounts(forbiddenChars);
+    }
+
+    public void testPartnersNumContainsDigitsOnlyErrorMessageAbroadBankAccounts() {
+        partnersNumContainsDigitsOnlyErrorMessageAbroadBankAccounts();
+    }
+
+    public void testBankNumTenCharsMaxErrorMessageNonWorkIncomes() {
+        bankNumTenCharsMaxErrorMessageNonWorkIncomes();
+    }
+
 }

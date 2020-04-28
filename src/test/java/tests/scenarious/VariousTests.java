@@ -591,6 +591,134 @@ public class VariousTests extends TestBase {
                 firstNumOfPartners, thirdNumOfPartners, error);
     }
 
+    protected void forbiddenCharactersStateAbroadBankAccounts(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a State field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+
+        various.enterAbroadBankAccountsState(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getStateContainsCharactersErrorMessageAbroadBankAccounts(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into State", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersCityAbroadBankAccounts(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a City field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+
+        various.enterAbroadBankAccountsCity(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCityContainsCharactersErrorMessageAbroadBankAccounts(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into City", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersBankNameAbroadBankAccounts(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Bank Name field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+
+        various.enterAbroadBankAccountsBankName(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBankNameContainsCharactersErrorMessage(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Bank Name", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersBankNumAbroadBankAccounts(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Bank Num field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+
+        various.enterAbroadBankAccountsBankNum(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBankNumContainsCharactersErrorMessage(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Bank Num", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersBranchNameAbroadBankAccounts(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Branch Name field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+
+        various.enterAbroadBankAccountsBranchName(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBranchNameContainsCharactersErrorMessage(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Branch Name", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersBranchNumAbroadBankAccounts(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Branch Num field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+
+        various.enterAbroadBankAccountsBranchNum(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBranchNumContainsCharactersErrorMessage(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Branch Num", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersAccountNumAbroadBankAccounts(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Account Num field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+
+        various.enterAbroadBankAccountsAccountNum(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getAccountNumContainsCharactersErrorMessage(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Account Num", forbiddenChar));
+    }
+
+    protected void partnersNumContainsDigitsOnlyErrorMessageAbroadBankAccounts() {
+        log.info("Check the error message 'Number of Partners in Account contains digits only'");
+
+        String incorrectNumPartnersInAccount = "abc";
+        String correctNumPartnersInAccount = "123";
+
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+
+        various.enterAbroadBankAccountsPartnersNum(0, incorrectNumPartnersInAccount);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNumPartnersInAccountContainsDigitsOnlyErrorMessage(0), 1,
+                String.format("Error message 'Number of Partners in Account contains digits only' did not appear when the incorrect value %s was entered", incorrectNumPartnersInAccount));
+
+        various.deleteAbroadBankAccountsPartnersNum(0);
+        various.enterAbroadBankAccountsPartnersNum(0, correctNumPartnersInAccount);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNumPartnersInAccountContainsDigitsOnlyErrorMessage(0), 0,
+                String.format("Error message 'Number of Partners in Account contains digits only' did not disappear when the correct value %s was entered", correctNumPartnersInAccount));
+    }
+
+    protected void bankNumTenCharsMaxErrorMessageNonWorkIncomes() {
+        log.info("Check the error message 'Bank Num Ten Chars Max'");
+
+        String tooLongBankNum = "12345678901";
+        String correctBankNum = "1234567890";
+
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveAbroadBankAccounts();
+
+        various.enterAbroadBankAccountsBankNum(0, tooLongBankNum);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBankNumTenCharsMaxErrorMessage(0), 1,
+                String.format("Error message 'Bank Num Ten Chars Max' did not appear when the incorrect value %s was entered", tooLongBankNum));
+
+        various.deleteAbroadBankAccountsBankNum(0);
+        various.enterAbroadBankAccountsBankNum(0, correctBankNum);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBankNumTenCharsMaxErrorMessage(0), 0,
+                String.format("Error message 'Bank Num Ten Chars Max' did not disappear when the correct value %s was entered", correctBankNum));
+    }
+
 
 
     // == private methods ==

@@ -78,13 +78,13 @@ public class VariousConstants {
     public static final By errorMessageBankNameContainsCharactersSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה שם בנק להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
     public static final By errorMessageBankNumContainsCharactersSubElementDetails =
-            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר בנק להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר בנק יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
     public static final By errorMessageBranchNameContainsCharactersSubElementDetails =
-            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה שם סניף להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה שם סניף יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
     public static final By errorMessageBranchNumContainsCharactersSubElementDetails =
-            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר סניף להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר סניף יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
     public static final By errorMessageAccountNumContainsCharactersSubElementDetails =
-            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר חשבון להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר חשבון יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
     public static final By errorMessageNumPartnersInAccountContainsDigitsOnlySubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר שותפים בחשבון יכול להכיל ספרות שלמות בלבד')]");
     public static final By errorMessageBankNumTenCharsMaxSubElementDetails =
