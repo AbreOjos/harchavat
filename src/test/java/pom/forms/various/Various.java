@@ -936,32 +936,32 @@ public class Various extends BasePage {
         integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).chooseDontPurchasedWithCoins();
     }
 
-    public void enterDigitalCoinsAmountSold(int digitalCoinsNumber, String amountSold) {
+    public void enterDigitalCoinsAmountUsed(int digitalCoinsNumber, String amountUsed) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
-        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAmountSold(amountSold);
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterAmountUsed(amountUsed);
     }
 
-    public void deleteDigitalCoinsAmountSold(int digitalCoinsNumber) {
+    public void deleteDigitalCoinsAmountUsed(int digitalCoinsNumber) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
-        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deleteAmountSold();
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deleteAmountUsed();
     }
 
-    public void enterDigitalCoinsSoldValue(int digitalCoinsNumber, String soldValue) {
+    public void enterDigitalCoinsUsedValue(int digitalCoinsNumber, String usedValue) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
-        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterSoldValue(soldValue);
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).enterUsedValue(usedValue);
     }
 
-    public void deleteDigitalCoinsSoldValue(int digitalCoinsNumber) {
+    public void deleteDigitalCoinsUsedValue(int digitalCoinsNumber) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
-        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deleteSoldValue();
+        integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).deleteUsedValue();
     }
 
     // digital coins errors
@@ -1021,18 +1021,18 @@ public class Various extends BasePage {
         return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillDidYouBuyWithCoinsErrorMessage();
     }
 
-    public List<WebElement> getNeedFillHowMuchCoinsUsedErrorMessage(int digitalCoinsNumber) {
+    public List<WebElement> getNeedFillHowManyCoinsUsedErrorMessage(int digitalCoinsNumber) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
-        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillHowMuchCoinsUsedErrorMessage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillHowManyCoinsUsedErrorMessage();
     }
 
-    public List<WebElement> getNeedFillTotalUsedErrorMessage(int digitalCoinsNumber) {
+    public List<WebElement> getNeedFillTotalUsedValueErrorMessage(int digitalCoinsNumber) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
-        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillTotalUsedErrorMessage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNeedFillTotalUsedValueErrorMessage();
     }
 
     public List<WebElement> getNumberOfCoinsDigitsOnlyErrorMessage(int digitalCoinsNumber) {
@@ -1040,6 +1040,13 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNumberOfCoinsDigitsOnlyErrorMessage();
+    }
+
+    public List<WebElement> getNumberOfCoinsThirtyCharsMaxErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getNumberOfCoinsThirtyCharsMaxErrorMessage();
     }
 
     public List<WebElement> getPublicKeyDigitsAndLettersOnlyErrorMessage(int digitalCoinsNumber) {
@@ -1063,11 +1070,18 @@ public class Various extends BasePage {
         return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getTotalSalesTwentyCharsMaxErrorMessage();
     }
 
-    public List<WebElement> getHowMuchCoinsUsedDigitsOnlyErrorMessage(int digitalCoinsNumber) {
+    public List<WebElement> getHowManyCoinsUsedDigitsOnlyErrorMessage(int digitalCoinsNumber) {
         checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
 
         recreateMapPanelsOnPage();
-        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getHowMuchCoinsUsedDigitsOnlyErrorMessage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getHowManyCoinsUsedDigitsOnlyErrorMessage();
+    }
+
+    public List<WebElement> getHowManyCoinsUsedThirtyCharsMaxErrorMessage(int digitalCoinsNumber) {
+        checkNumber(digitalCoinsNumber, digitalCoins, integerDigitalCoinsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerDigitalCoinsDetailsMap.get(digitalCoinsNumber).getHowManyCoinsUsedThirtyCharsMaxErrorMessage();
     }
 
     public List<WebElement> getTotalUsedTwentyCharsMaxErrorMessage(int digitalCoinsNumber) {

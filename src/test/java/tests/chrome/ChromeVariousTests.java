@@ -228,4 +228,44 @@ public class ChromeVariousTests extends VariousTests {
         needFillAmountCoinsSoldErrorMessageDigitalCoins();
     }
 
+    public void testNeedFillTotalSalesErrorMessageDigitalCoins() {
+        needFillTotalSalesErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillDidYouBuyWithCoinsErrorMessageDigitalCoins() {
+        needFillDidYouBuyWithCoinsErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillHowManyCoinsUsedErrorMessageDigitalCoins() {
+        needFillHowManyCoinsUsedErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillTotalUsedValueErrorMessageDigitalCoins() {
+        needFillTotalUsedValueErrorMessageDigitalCoins();
+    }
+
+    public void testNumberOfCoinsFieldFormat() {
+        numberOfCoinsFieldFormat();
+    }
+
+    public void testPublicKeyFormat() {
+        publicKeyFormat();
+    }
+
+    public void testCoinsSellFormat() {
+        coinsSellFormat();
+    }
+
+    public void testTotalSellFormat() {
+        totalSellFormat();
+    }
+
+    public void testHowManyCoinsUsedFieldFormat() {
+        howManyCoinsUsedFieldFormat();
+    }
+
+    public void testTotalUsedFormat() {
+        totalUsedFormat();
+    }
+
 }

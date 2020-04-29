@@ -166,6 +166,10 @@ public class RealEstateDetails extends BasePage {
     }
 
     // choose real estate type
+    protected String selectRealEstateFromDropDownListByIndex(int index) {
+        return selectItemFromDropDownListByIndex(getDropDownRealEstateType(), index);
+    }
+
     protected void chooseRealEstateTypeApartment() {
         clickDropDownList(getDropDownRealEstateType(), 0);
     }

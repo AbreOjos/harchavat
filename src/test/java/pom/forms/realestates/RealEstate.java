@@ -81,13 +81,18 @@ public class RealEstate extends BasePage {
     }
 
     // choose real estate type
+    public String selectRealEstateFromDropDownListByIndex(int realEstateNumber, int index) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).selectRealEstateFromDropDownListByIndex(index);
+    }
+
     public void chooseRealEstateTypeApartment(int realEstateNumber) {
         checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeApartment();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseRealEstateTypeHousingUnit(int realEstateNumber) {
@@ -95,8 +100,6 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeHousingUnit();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseRealEstateTypeStorage(int realEstateNumber) {
@@ -104,8 +107,6 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeStorage();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseRealEstateTypeParking(int realEstateNumber) {
@@ -121,8 +122,6 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypePrivateLand();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseRealEstateTypeAgriculturalLand(int realEstateNumber) {
@@ -138,8 +137,6 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeFarm();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseRealEstateTypeUnionAction(int realEstateNumber) {
@@ -147,8 +144,6 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeUnionAction();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseRealEstateTypeOption(int realEstateNumber) {
@@ -156,8 +151,6 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeOption();
-
-//        recreateMapPanelsOnPage();
     }
 
     public void chooseRealEstateTypeAnother(int realEstateNumber) {
@@ -165,8 +158,6 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTypeAnother();
-
-//        recreateMapPanelsOnPage();
     }
 
     public String getChosenRealEstateType(int realEstateNumber) {
@@ -190,27 +181,7 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).openDatePicker();
-
-//        recreateMapPanelsOnPage();
     }
-
-//    public void pickCancel(int realEstateNumber) {
-//        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
-//
-//        recreateMapPanelsOnPage();
-//        integerRealEstateDetailsMap.get(realEstateNumber).pickCancel();
-//
-////        recreateMapPanelsOnPage();
-//    }
-//
-//    public void pickOk(int realEstateNumber) {
-//        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
-//
-//        recreateMapPanelsOnPage();
-//        integerRealEstateDetailsMap.get(realEstateNumber).pickOk();
-//
-////        recreateMapPanelsOnPage();
-//    }
 
     protected String clickRightOnce() throws Exception {
         List<WebElement> btnsRight = getBtnRight();
@@ -238,8 +209,6 @@ public class RealEstate extends BasePage {
         }
 
         throw new Exception("Left button of a calendar not interactable");
-//        getBtnLeft().click();
-//        return fetchCurrentMonthYear();
     }
 
     protected String pickMonthYear(String month, String year) throws Exception {

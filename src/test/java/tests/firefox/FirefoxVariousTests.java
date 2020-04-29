@@ -206,6 +206,63 @@ public class FirefoxVariousTests extends VariousTests {
         needFillCoinTypeErrorMessageDigitalCoins();
     }
 
+    public void testNeedFillAnotherCoinErrorMessageDigitalCoins() {
+        needFillAnotherCoinErrorMessageDigitalCoins();
+    }
 
+    public void testNeedFillAmountOfCoinsErrorMessageDigitalCoins() {
+        needFillAmountOfCoinsErrorMessageDigitalCoins();
+    }
 
+    public void testNeedFillPublicKeyErrorMessageDigitalCoins() {
+        needFillPublicKeyErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillDidYouSellCoinsErrorMessageDigitalCoins() {
+        needFillDidYouSellCoinsErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillAmountCoinsSoldErrorMessageDigitalCoins() {
+        needFillAmountCoinsSoldErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillTotalSalesErrorMessageDigitalCoins() {
+        needFillTotalSalesErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillDidYouBuyWithCoinsErrorMessageDigitalCoins() {
+        needFillDidYouBuyWithCoinsErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillHowManyCoinsUsedErrorMessageDigitalCoins() {
+        needFillHowManyCoinsUsedErrorMessageDigitalCoins();
+    }
+
+    public void testNeedFillTotalUsedValueErrorMessageDigitalCoins() {
+        needFillTotalUsedValueErrorMessageDigitalCoins();
+    }
+
+    public void testNumberOfCoinsFieldFormat() {
+        numberOfCoinsFieldFormat();
+    }
+
+    public void testPublicKeyFormat() {
+        publicKeyFormat();
+    }
+
+    public void testCoinsSellFormat() {
+        coinsSellFormat();
+    }
+
+    public void testTotalSellFormat() {
+        totalSellFormat();
+    }
+
+    public void testHowManyCoinsUsedFieldFormat() {
+        howManyCoinsUsedFieldFormat();
+    }
+
+    public void testTotalUsedFormat() {
+        totalUsedFormat();
+    }
 }

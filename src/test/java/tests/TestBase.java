@@ -337,4 +337,61 @@ public abstract class TestBase {
         AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0, 0), 0,
                 String.format("Error message 'Need to Fill %s' re-appeared on a first subpanel after a last subpanel was deleted", error));
     }
+
+    protected void needChooseErrorMessage(Function<Integer, List<WebElement>> getErrorMessage,
+                                            Supplier<BasePage> clickMenu,
+                                            Consumer<Integer> enterData,
+                                            Consumer<Integer> deletePanel,
+                                            String error) {
+        log.info(String.format("Check the error message 'need to choose %s'", error));
+
+        basePage.clickMenuSendForm();
+        clickMenu.get();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0), 1,
+                String.format("Error message 'Need to Choose %s' did not appear on a first panel", error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(1), 1,
+                String.format("Error message 'Need to Choose %s' did not appear on a second panel", error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(2), 1,
+                String.format("Error message 'Need to Choose %s' did not appear on a third panel", error));
+
+
+        enterData.accept(0);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0), 0,
+                String.format("Error message 'Need to Choose %s' did not disappear on a first panel after %s was entered", error, error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(1), 1,
+                String.format("Error message 'Need to Choose %s' disappeared on a second panel after %s was entered on a first panel", error, error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(2), 1,
+                String.format("Error message 'Need to Choose %s' disappeared on a third panel after %s was entered on a first panel", error, error));
+
+
+        enterData.accept(2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0), 0,
+                String.format("Error message 'Need to Choose %s' re-appeared on a first panel after %s was entered on a third panel", error, error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(1), 1,
+                String.format("Error message 'Need to Choose %s' disappeared on a second panel after %s was entered on a third panel", error, error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(2), 0,
+                String.format("Error message 'Need to Choose %s' did not disappear on a third panel after %s was entered", error, error));
+
+        deletePanel.accept(2);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0), 0,
+                String.format("Error message 'Need to Choose %s' re-appeared on a first panel after a third panel was deleted", error));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(1), 1,
+                String.format("Error message 'Need to Choose %s' disappeared on a second panel after a third panel was deleted", error));
+
+        deletePanel.accept(1);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(getErrorMessage.apply(0), 0,
+                String.format("Error message 'Need to Choose %s' re-appeared on a first panel after a last panel was deleted", error));
+    }
 }

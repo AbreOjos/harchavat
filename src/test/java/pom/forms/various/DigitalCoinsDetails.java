@@ -152,20 +152,20 @@ public class DigitalCoinsDetails extends BasePage {
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
-    protected void enterAmountSold(String amountSold) {
-        fillFormField(getTxtAmountSold(), amountSold);
+    protected void enterAmountUsed(String amountUsed) {
+        fillFormField(getTxtAmountUsed(), amountUsed);
     }
 
-    protected void deleteAmountSold() {
-        cleanFormField(getTxtAmountSold());
+    protected void deleteAmountUsed() {
+        cleanFormField(getTxtAmountUsed());
     }
 
-    protected void enterSoldValue(String soldValue) {
-        fillFormField(getTxtSoldValue(), soldValue);
+    protected void enterUsedValue(String usedValue) {
+        fillFormField(getTxtUsedValue(), usedValue);
     }
 
-    protected void deleteSoldValue() {
-        cleanFormField(getTxtSoldValue());
+    protected void deleteUsedValue() {
+        cleanFormField(getTxtUsedValue());
     }
 
 
@@ -228,12 +228,12 @@ public class DigitalCoinsDetails extends BasePage {
         return details.findElement(btnDontPurchasedWithCoinsSubElementDigitalCoinsDetails);
     }
 
-    private WebElement getTxtAmountSold() {
-        return details.findElement(txtAmountSoldSubElementDigitalCoinsDetails);
+    private WebElement getTxtAmountUsed() {
+        return details.findElement(txtAmountUsedSubElementDigitalCoinsDetails);
     }
 
-    private WebElement getTxtSoldValue() {
-        return details.findElement(txtSoldValueSubElementDigitalCoinsDetails);
+    private WebElement getTxtUsedValue() {
+        return details.findElement(txtUsedValueSubElementDigitalCoinsDetails);
     }
 
     // digital coins errors
@@ -269,16 +269,20 @@ public class DigitalCoinsDetails extends BasePage {
         return details.findElements(errorMessageNeedFillDidYouBuyWithCoinsSubElementDetails);
     }
 
-    protected List<WebElement> getNeedFillHowMuchCoinsUsedErrorMessage() {
-        return details.findElements(errorMessageNeedFillHowMuchCoinsUsedSubElementDetails);
+    protected List<WebElement> getNeedFillHowManyCoinsUsedErrorMessage() {
+        return details.findElements(errorMessageNeedFillHowManyCoinsUsedSubElementDetails);
     }
 
-    protected List<WebElement> getNeedFillTotalUsedErrorMessage() {
-        return details.findElements(errorMessageNeedFillTotalUsedSubElementDetails);
+    protected List<WebElement> getNeedFillTotalUsedValueErrorMessage() {
+        return details.findElements(errorMessageNeedFillTotalUsedValueSubElementDetails);
     }
 
     protected List<WebElement> getNumberOfCoinsDigitsOnlyErrorMessage() {
         return details.findElements(errorMessageNumberOfCoinsDigitsOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getNumberOfCoinsThirtyCharsMaxErrorMessage() {
+        return details.findElements(errorMessageNumberOfCoinsThirtyCharsMaxSubElementDetails);
     }
 
     protected List<WebElement> getPublicKeyDigitsAndLettersOnlyErrorMessage() {
@@ -293,8 +297,12 @@ public class DigitalCoinsDetails extends BasePage {
         return details.findElements(errorMessageTotalSalesTwentyCharsMaxSubElementDetails);
     }
 
-    protected List<WebElement> getHowMuchCoinsUsedDigitsOnlyErrorMessage() {
-        return details.findElements(errorMessageHowMuchCoinsUsedDigitsOnlySubElementDetails);
+    protected List<WebElement> getHowManyCoinsUsedDigitsOnlyErrorMessage() {
+        return details.findElements(errorMessageHowManyCoinsUsedDigitsOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getHowManyCoinsUsedThirtyCharsMaxErrorMessage() {
+        return details.findElements(errorMessageHowManyCoinsUsedThirtyCharsMaxSubElementDetails);
     }
 
     protected List<WebElement> getTotalUsedTwentyCharsMaxErrorMessage() {

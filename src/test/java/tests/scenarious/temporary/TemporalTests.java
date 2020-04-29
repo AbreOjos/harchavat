@@ -316,8 +316,8 @@ public class TemporalTests extends TestBase {
         various.enterDigitalCoinsMaterializationValue(2, "1234554321");
         various.chooseDigitalCoinsDontPurchasedWithCoins(2);
         various.chooseDigitalCoinsPurchasedWithCoins(1);
-        various.enterDigitalCoinsAmountSold(1, "5");
-        various.enterDigitalCoinsSoldValue(1, "333");
+        various.enterDigitalCoinsAmountUsed(1, "5");
+        various.enterDigitalCoinsUsedValue(1, "333");
 
         // StocksDetails
         various.chooseHaveStocks();

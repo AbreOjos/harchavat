@@ -101,8 +101,8 @@ public class VariousConstants {
     public static final By txtMaterializationValueSubElementDigitalCoinsDetails = By.xpath(".//input[@name='materializationValue']");
     public static final By btnPurchasedWithCoinsSubElementDigitalCoinsDetails = By.xpath(".//div[@id='isCoinSellId']//button[@value='true']");
     public static final By btnDontPurchasedWithCoinsSubElementDigitalCoinsDetails = By.xpath(".//div[@id='isCoinSellId']//button[@value='false']");
-    public static final By txtAmountSoldSubElementDigitalCoinsDetails = By.xpath(".//input[@name='amountSold']");
-    public static final By txtSoldValueSubElementDigitalCoinsDetails = By.xpath(".//input[@name='soldValue']");
+    public static final By txtAmountUsedSubElementDigitalCoinsDetails = By.xpath(".//input[@name='amountSold']");
+    public static final By txtUsedValueSubElementDigitalCoinsDetails = By.xpath(".//input[@name='soldValue']");
 
     // digital coins errors sub-elements
     public static final By errorMessageNeedFillCoinTypeSubElementDetails =
@@ -121,20 +121,24 @@ public class VariousConstants {
             By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה סהכ ערך המכירה')]");
     public static final By errorMessageNeedFillDidYouBuyWithCoinsSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה האם רכשת מוצרים באמצעות המטבעות בשנת')]");
-    public static final By errorMessageNeedFillHowMuchCoinsUsedSubElementDetails =
+    public static final By errorMessageNeedFillHowManyCoinsUsedSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה כמות מטבעות שמומשה')]");
-    public static final By errorMessageNeedFillTotalUsedSubElementDetails =
+    public static final By errorMessageNeedFillTotalUsedValueSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה סהכ ערך המכירה')]");
     public static final By errorMessageNumberOfCoinsDigitsOnlySubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה כמות מטבעות שברשותך חייב להיות מספרי ולהכיל 3 נקודות עשרוניות')]");
+    public static final By errorMessageNumberOfCoinsThirtyCharsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה כמות מטבעות שברשותך לא יכול להכיל יותר מ- 30 תווים')]");
     public static final By errorMessagePublicKeyDigitsAndLettersOnlySubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מפתח ציבורי של הארנק הדיגיטלי יכול להכיל רק אותיות ומספרים')]");
     public static final By errorMessageCoinsSellDigitsOnlySubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה כמות מטבעות שמכרת חייב להיות מספרי ולהכיל 3 נקודות עשרוניות')]");
     public static final By errorMessageTotalSalesTwentyCharsMaxSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה סהכ ערך המכירה לא יכול להכיל יותר מ- 20 תווים')]");
-    public static final By errorMessageHowMuchCoinsUsedDigitsOnlySubElementDetails =
+    public static final By errorMessageHowManyCoinsUsedDigitsOnlySubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה כמות מטבעות שמומשה חייב להיות מספרי ולהכיל 3 נקודות עשרוניות')]");
+    public static final By errorMessageHowManyCoinsUsedThirtyCharsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה כמות מטבעות שמומשה לא יכול להכיל יותר מ- 30 תווים')]");
     public static final By errorMessageTotalUsedTwentyCharsMaxSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה סהכ ערך המכירה לא יכול להכיל יותר מ- 20 תווים')]");
 
