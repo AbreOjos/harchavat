@@ -4,8 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
+import java.util.List;
+
 import static automation.tests.infra.helpers.javascripthelpers.JavascriptExecutors.scrollIntoViewMoveFocusAndClick;
 import static automation.tests.infra.helpers.waits.Waits.fluentWaitElementExists;
+import static constants.BaseConstants.errorMessageNeedFillCountrySubElementDetails;
 import static constants.BaseConstants.waitFewSecondsWarningDisabled;
 import static constants.VariousConstants.*;
 
@@ -86,6 +89,54 @@ public class StocksDetails extends BasePage {
         cleanFormField(getTxtCompanyPercentage());
     }
 
+    // error messages
+    protected List<WebElement> getNeedFillCompanyNameErrorMessage() {
+        return details.findElements(errorMessageNeedFillCompanyNameSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillCompanySourceErrorMessage() {
+        return details.findElements(errorMessageNeedFillCompanySourceSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillCompanyNumErrorMessage() {
+        return details.findElements(errorMessageNeedFillCompanyNumSubElementDetails);
+    }
+
+    protected List<WebElement> getNeedFillCompanyPercentageErrorMessage() {
+        return details.findElements(errorMessageNeedFillCompanyPercentageSubElementDetails);
+    }
+
+    protected List<WebElement> getErrorMessageNeedFillCountry() {
+        return details.findElements(errorMessageNeedFillCountrySubElementDetails);
+    }
+
+    protected List<WebElement> getCompanyNameContainsCharactersErrorMessage() {
+        return details.findElements(errorMessageCompanyNameContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getCompanyNumContainsCharactersErrorMessage() {
+        return details.findElements(errorMessageCompanyNumContainsCharactersSubElementDetails);
+    }
+
+    protected List<WebElement> getPercentageOneHundredMaxErrorMessage() {
+        return details.findElements(errorMessagePercentageOneHundredMaxSubElementDetails);
+    }
+
+    protected List<WebElement> getPercentageOneMinErrorMessage() {
+        return details.findElements(errorMessagePercentageOneMinSubElementDetails);
+    }
+
+    protected List<WebElement> getCompanyNumDigitsOnlyErrorMessage() {
+        return details.findElements(errorMessageCompanyNumDigitsOnlySubElementDetails);
+    }
+
+    protected List<WebElement> getCompanyNumNineDigitsMinErrorMessage() {
+        return details.findElements(errorMessageCompanyNumNineDigitsMinSubElementDetails);
+    }
+
+    protected List<WebElement> getCompanyNumNineDigitsMaxErrorMessage() {
+        return details.findElements(errorMessageCompanyNumNineDigitsMaxSubElementDetails);
+    }
 
 
     // == private methods ==

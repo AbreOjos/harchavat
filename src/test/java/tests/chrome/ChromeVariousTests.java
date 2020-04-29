@@ -268,4 +268,40 @@ public class ChromeVariousTests extends VariousTests {
         totalUsedFormat();
     }
 
+
+    // Stocks tests
+    public void testNeedFillCompanyNameErrorMessageStocks() {
+        needFillCompanyNameErrorMessageStocks();
+    }
+
+    public void testNeedFillCompanySourceErrorMessageStocks() {
+        needFillCompanySourceErrorMessageStocks();
+    }
+
+    public void testNeedFillCompanyNumErrorMessageStocks() {
+        needFillCompanyNumErrorMessageStocks();
+    }
+
+    public void testNeedFillCompanyPercentageErrorMessageStocks() {
+        needFillCompanyPercentageErrorMessageStocks();
+    }
+
+    public void testNeedFillCountryErrorMessageStocks() {
+        needFillCountryErrorMessageStocks();
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersCompanyNameStocks(String forbiddenChars) {
+        forbiddenCharactersCompanyNameStocks(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersCompanyNumStocks(String forbiddenChars) {
+        forbiddenCharactersCompanyNumStocks(forbiddenChars);
+    }
+
+    public void testPercentageFieldFormat() {
+        percentageFieldFormat();
+    }
+
 }

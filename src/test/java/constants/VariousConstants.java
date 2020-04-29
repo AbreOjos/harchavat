@@ -143,7 +143,6 @@ public class VariousConstants {
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה סהכ ערך המכירה לא יכול להכיל יותר מ- 20 תווים')]");
 
 
-
     // stocks details
     public static final By txtCompanyNameSubElementStocksDetails = By.xpath(".//input[@name='companyName']");
     public static final By btnsCompanySourceSubElementStocksDetails = By.xpath(".//div[@name='companySource']/button");
@@ -151,6 +150,30 @@ public class VariousConstants {
     public static final By txtStateSubElementStocksDetails = By.xpath(".//input[@name='state']");
     public static final By txtCompanyNumSubElementStocksDetails = By.xpath(".//input[@name='companyNum']");
     public static final By txtCompanyPercentageSubElementStocksDetails = By.xpath(".//input[@name='companyPercentage']");
+
+    // stock errors sub-elements
+    public static final By errorMessageNeedFillCompanyNameSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה שם חברה')]");
+    public static final By errorMessageNeedFillCompanySourceSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה החברה רשומה בארץ או')]");
+    public static final By errorMessageNeedFillCompanyNumSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מספר חברה')]");
+    public static final By errorMessageNeedFillCompanyPercentageSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה אחוז אחזקה בחברה')]");
+    public static final By errorMessageCompanyNameContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה שם חברה יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+    public static final By errorMessageCompanyNumContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר חברה יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+    public static final By errorMessagePercentageOneHundredMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה אחוז אחזקה בחברה יכול להיות 100 לכל היותר')]");
+    public static final By errorMessagePercentageOneMinSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'הערך של אחוז אחזקה בחברה חייב להיות לפחות 1')]");
+    public static final By errorMessageCompanyNumDigitsOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר חברה יכול להכיל ספרות שלמות בלבד')]");
+    public static final By errorMessageCompanyNumNineDigitsMinSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר חברה חייב להכיל 9 תווים לפחות')]");
+    public static final By errorMessageCompanyNumNineDigitsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר חברה לא יכול להכיל יותר מ- 9 תווים')]");
 
     // partnerships details
     public static final By txtNameSubElementPartnershipsDetails = By.xpath(".//input[@name='name']");

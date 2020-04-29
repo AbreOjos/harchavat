@@ -1177,6 +1177,92 @@ public class Various extends BasePage {
         integerStocksDetailsMap.get(stocksNumber).deleteCompanyPercentage();
     }
 
+    // error messages Stocks
+    public List<WebElement> getNeedFillCompanyNameErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getNeedFillCompanyNameErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillCompanySourceErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getNeedFillCompanySourceErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillCompanyNumErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getNeedFillCompanyNumErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillCompanyPercentageErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getNeedFillCompanyPercentageErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillCountryErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getErrorMessageNeedFillCountry();
+    }
+
+    public List<WebElement> getCompanyNameContainsCharactersErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getCompanyNameContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getCompanyNumContainsCharactersErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getCompanyNumContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getPercentageOneHundredMaxErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getPercentageOneHundredMaxErrorMessage();
+    }
+
+    public List<WebElement> getPercentageOneMinErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getPercentageOneMinErrorMessage();
+    }
+
+    public List<WebElement> getCompanyNumDigitsOnlyErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getErrorMessageNeedFillCountry();
+    }
+
+    public List<WebElement> getCompanyNumNineDigitsMinErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getCompanyNumNineDigitsMinErrorMessage();
+    }
+
+    public List<WebElement> getCompanyNumNineDigitsMaxErrorMessageStocks(int stocksNumber) {
+        checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerStocksDetailsMap.get(stocksNumber).getCompanyNumNineDigitsMaxErrorMessage();
+    }
+
+
     // partnerships methods
     public void enterPartnershipName(int partnershipsNumber, String name) {
         checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);

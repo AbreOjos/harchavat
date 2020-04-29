@@ -187,7 +187,7 @@ public class VariousTests extends TestBase {
 
         needFillErrorMessage(various::getNeedFillStreetErrorMessage,
                 basePage::clickMenuVarious,
-                this::selectCityAndStreet,
+                this::selectCityAndStreetNonWorkIncomes,
                 various::deleteNonWorkIncomes,
                 firstIndex, thirdIndex, error);
     }
@@ -1024,8 +1024,178 @@ public class VariousTests extends TestBase {
     }
 
 
+    // Stocks tests
+    protected void needFillCompanyNameErrorMessageStocks() {
+
+        String firstCompanyName = "First Company Name";
+        String thirdCompanyName = "Third Company Name";
+        String error = "Company Name";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveStocks();
+        addTwoStocks(various);
+
+        needFillErrorMessage(
+                various::getNeedFillCompanyNameErrorMessageStocks,
+                basePage::clickMenuVarious,
+                various::enterStocksCompanyName,
+                various::deleteStocks,
+                firstCompanyName, thirdCompanyName, error);
+    }
+
+    protected void needFillCompanySourceErrorMessageStocks() {
+
+        String error = "Company Source";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveStocks();
+        addTwoStocks(various);
+
+        needChooseErrorMessage(
+                various::getNeedFillCompanySourceErrorMessageStocks,
+                basePage::clickMenuVarious,
+                various::chooseStocksCompanySourceIsrael,
+                various::deleteStocks,
+                error);
+    }
+
+    protected void needFillCompanyNumErrorMessageStocks() {
+
+        String firstCompanyNum = "123456789";
+        String thirdCompanyNum = "987654321";
+        String error = "Company Number";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveStocks();
+        addTwoStocksIsraeli(various);
+
+        needFillErrorMessage(
+                various::getNeedFillCompanyNumErrorMessageStocks,
+                basePage::clickMenuVarious,
+                various::enterStocksCompanyNum,
+                various::deleteStocks,
+                firstCompanyNum, thirdCompanyNum, error);
+    }
+
+    protected void needFillCompanyPercentageErrorMessageStocks() {
+
+        String firstCompanyPercentage = "12";
+        String thirdCompanyPercentage = "98";
+        String error = "Company Percentage";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveStocks();
+        addTwoStocksIsraeli(various);
+
+        needFillErrorMessage(
+                various::getNeedFillCompanyPercentageErrorMessageStocks,
+                basePage::clickMenuVarious,
+                various::enterStocksCompanyPercentage,
+                various::deleteStocks,
+                firstCompanyPercentage, thirdCompanyPercentage, error);
+    }
+
+    protected void needFillCountryErrorMessageStocks() {
+
+        Integer firstIndex = 0;
+        Integer thirdIndex = 0;
+        String error = "Country";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveStocks();
+        addTwoStocksOversea(various);
+
+        needFillErrorMessage(
+                various::getNeedFillCountryErrorMessageStocks,
+                basePage::clickMenuVarious,
+                various::selectCountryStocksFromDropDownListByIndex,
+                various::deleteStocks,
+                firstIndex, thirdIndex, error);
+    }
+
+    protected void forbiddenCharactersCompanyNameStocks(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Company Name field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveStocks();
+
+        various.enterStocksCompanyName(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyNameContainsCharactersErrorMessageStocks(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Company Name", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersCompanyNumStocks(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Company Name field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveStocks();
+        various.chooseStocksCompanySourceOversea(0);
+
+        various.enterStocksCompanyNum(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyNumContainsCharactersErrorMessageStocks(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Company Num", forbiddenChar));
+    }
+
+    protected void percentageFieldFormat() {
+        log.info("Check allowed format of the field Percentage");
+
+        String tooBigPercentage = "101";
+        String tooSmalPercentage = "0";
+        String correctPercentage = "100";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveStocks();
+        various.chooseStocksCompanySourceIsrael(0);
+
+        various.enterStocksCompanyPercentage(0, tooBigPercentage);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneHundredMaxErrorMessageStocks(0), 1,
+                String.format("Error message '100 percents max' did not appear when the incorrect value %s were entered", tooBigPercentage));
+
+        various.deleteStocksCompanyPercentage(0);
+        various.enterStocksCompanyPercentage(0, tooSmalPercentage);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneMinErrorMessageStocks(0), 1,
+                String.format("Error message '1 percents min' did not appear when the incorrect value %s were entered", tooSmalPercentage));
+
+        various.deleteStocksCompanyPercentage(0);
+        various.enterStocksCompanyPercentage(0, correctPercentage);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneHundredMaxErrorMessageStocks(0), 0,
+                String.format("Error message '100 percents max' appeared when the incorrect value %s were entered", correctPercentage));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneMinErrorMessageStocks(0), 0,
+                String.format("Error message '1 percents min' appeared when the incorrect value %s were entered", correctPercentage));
+
+
+    }
+
+
 
     // == private methods ==
+    private void addTwoStocks(Various various) {
+        various.addStocks();
+        various.addStocks();
+    }
+
+    private void addTwoStocksIsraeli(Various various) {
+        various.addStocks();
+        various.addStocks();
+        various.chooseStocksCompanySourceIsrael(0);
+        various.chooseStocksCompanySourceIsrael(1);
+        various.chooseStocksCompanySourceIsrael(2);
+    }
+
+    private void addTwoStocksOversea(Various various) {
+        various.addStocks();
+        various.addStocks();
+        various.chooseStocksCompanySourceOversea(0);
+        various.chooseStocksCompanySourceOversea(1);
+        various.chooseStocksCompanySourceOversea(2);
+    }
+
     private void addTwoDigitalCoins(Various various) {
         various.addDigitalCoins();
         various.addDigitalCoins();
@@ -1081,7 +1251,7 @@ public class VariousTests extends TestBase {
         various.chooseNonWorkIncomesIncomeIsraeli(2);
     }
 
-    private void selectCityAndStreet(Integer panelIndex, Integer elementIndex) {
+    private void selectCityAndStreetNonWorkIncomes(Integer panelIndex, Integer elementIndex) {
         Various various = new Various(driver);
         various.selectCityNonWorkIncomesFromDropDownListByIndex(panelIndex, elementIndex);
         various.selectStreetNonWorkIncomesFromDropDownListByIndex(panelIndex, elementIndex);
