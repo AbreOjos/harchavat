@@ -1245,7 +1245,7 @@ public class Various extends BasePage {
         checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
-        return integerStocksDetailsMap.get(stocksNumber).getErrorMessageNeedFillCountry();
+        return integerStocksDetailsMap.get(stocksNumber).getCompanyNumDigitsOnlyErrorMessage();
     }
 
     public List<WebElement> getCompanyNumNineDigitsMinErrorMessageStocks(int stocksNumber) {

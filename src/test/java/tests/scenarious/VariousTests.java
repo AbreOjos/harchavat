@@ -1168,7 +1168,48 @@ public class VariousTests extends TestBase {
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneMinErrorMessageStocks(0), 0,
                 String.format("Error message '1 percents min' appeared when the incorrect value %s were entered", correctPercentage));
+    }
 
+    protected void companyNumberFormat() {
+        log.info("Check allowed format of the field Company Number");
+
+        String nonDigitValue = "asdfghjkl";
+        String tooShortNumber = "12345678";
+        String tooLongNumber = "1234567890";
+        String correctNumber = "123456789";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHaveStocks();
+        various.chooseStocksCompanySourceIsrael(0);
+
+        various.enterStocksCompanyNum(0, nonDigitValue);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyNumDigitsOnlyErrorMessageStocks(0), 1,
+                String.format("Error message 'Company Number digits only' did not appear when the incorrect value %s were entered", nonDigitValue));
+
+        various.deleteStocksCompanyNum(0);
+        various.enterStocksCompanyNum(0, tooShortNumber);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyNumNineDigitsMinErrorMessageStocks(0), 1,
+                String.format("Error message 'Company Number 9 digits min' did not appear when the incorrect value %s were entered", tooShortNumber));
+
+        various.deleteStocksCompanyNum(0);
+        various.enterStocksCompanyNum(0, tooLongNumber);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyNumNineDigitsMaxErrorMessageStocks(0), 1,
+                String.format("Error message 'Company Number 9 digits max' did not appear when the incorrect value %s were entered", tooLongNumber));
+
+        various.deleteStocksCompanyNum(0);
+        various.enterStocksCompanyNum(0, correctNumber);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyNumDigitsOnlyErrorMessageStocks(0), 0,
+                String.format("Error message 'Company Number digits only' appeared when the correct value %s were entered", correctNumber));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyNumNineDigitsMinErrorMessageStocks(0), 0,
+                String.format("Error message 'Company Number 9 digits min' appeared when the correct value %s were entered", correctNumber));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyNumNineDigitsMaxErrorMessageStocks(0), 0,
+                String.format("Error message 'Company Number 9 digits max' appeared when the correct value %s were entered", correctNumber));
 
     }
 

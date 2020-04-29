@@ -304,4 +304,8 @@ public class ChromeVariousTests extends VariousTests {
         percentageFieldFormat();
     }
 
+    public void testCompanyNumberFormat() {
+        companyNumberFormat();
+    }
+
 }
