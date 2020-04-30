@@ -265,4 +265,88 @@ public class FirefoxVariousTests extends VariousTests {
     public void testTotalUsedFormat() {
         totalUsedFormat();
     }
+
+
+    // Stocks tests
+    public void testNeedFillCompanyNameErrorMessageStocks() {
+        needFillCompanyNameErrorMessageStocks();
+    }
+
+    public void testNeedFillCompanySourceErrorMessageStocks() {
+        needFillCompanySourceErrorMessageStocks();
+    }
+
+    public void testNeedFillCompanyNumErrorMessageStocks() {
+        needFillCompanyNumErrorMessageStocks();
+    }
+
+    public void testNeedFillCompanyPercentageErrorMessageStocks() {
+        needFillCompanyPercentageErrorMessageStocks();
+    }
+
+    public void testNeedFillCountryErrorMessageStocks() {
+        needFillCountryErrorMessageStocks();
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersCompanyNameStocks(String forbiddenChars) {
+        forbiddenCharactersCompanyNameStocks(forbiddenChars);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersCompanyNumStocks(String forbiddenChars) {
+        forbiddenCharactersCompanyNumStocks(forbiddenChars);
+    }
+
+    public void testPercentageFieldFormat() {
+        percentageFieldFormat();
+    }
+
+    public void testCompanyNumberFormat() {
+        companyNumberFormat();
+    }
+
+    // Partnership tests
+    public void testNeedFillNameErrorMessagePartnership() {
+        needFillNameErrorMessagePartnership();
+    }
+
+    public void testNeedFillPartnershipLocationErrorMessagePartnership() {
+        needFillPartnershipLocationErrorMessagePartnership();
+    }
+
+    public void testNeedFillBusinessNumErrorMessagePartnership() {
+        needFillBusinessNumErrorMessagePartnership();
+    }
+
+    public void testNeedFillPercentageErrorMessagePartnership() {
+        needFillPercentageErrorMessagePartnership();
+    }
+
+    public void testNeedFillCountryErrorMessagePartnership() {
+        needFillCountryErrorMessagePartnership();
+    }
+
+    public void testBusinessNumberFormatPartnership() {
+        businessNumberFormatPartnership();
+    }
+
+    public  void testPercentageFormatPartnership() {
+        percentageFormatPartnership();
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersNamePartnership(String forbiddenChar) {
+        forbiddenCharactersNamePartnership(forbiddenChar);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersStatePartnership(String forbiddenChar) {
+        forbiddenCharactersStatePartnership(forbiddenChar);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersBusinessNumberPartnership(String forbiddenChar) {
+        forbiddenCharactersBusinessNumberPartnership(forbiddenChar);
+    }
 }

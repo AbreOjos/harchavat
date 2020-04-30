@@ -96,33 +96,33 @@ public class ChromeVariousTests extends VariousTests {
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersIncomeSourceNonWorkIncomes(String forbiddenChars) {
-        forbiddenCharactersIncomeSourceNonWorkIncomes(forbiddenChars);
+    public void testForbiddenCharactersIncomeSourceNonWorkIncomes(String forbiddenChar) {
+        forbiddenCharactersIncomeSourceNonWorkIncomes(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersPayerNameNonWorkIncomes(String forbiddenChars) {
-        forbiddenCharactersPayerNameNonWorkIncomes(forbiddenChars);
+    public void testForbiddenCharactersPayerNameNonWorkIncomes(String forbiddenChar) {
+        forbiddenCharactersPayerNameNonWorkIncomes(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersHouseNumNonWorkIncomes(String forbiddenChars) {
-        forbiddenCharactersHouseNumNonWorkIncomes(forbiddenChars);
+    public void testForbiddenCharactersHouseNumNonWorkIncomes(String forbiddenChar) {
+        forbiddenCharactersHouseNumNonWorkIncomes(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersStateNonWorkIncomes(String forbiddenChars) {
-        forbiddenCharactersStateNonWorkIncomes(forbiddenChars);
+    public void testForbiddenCharactersStateNonWorkIncomes(String forbiddenChar) {
+        forbiddenCharactersStateNonWorkIncomes(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersCityNonWorkIncomes(String forbiddenChars) {
-        forbiddenCharactersCityNonWorkIncomes(forbiddenChars);
+    public void testForbiddenCharactersCityNonWorkIncomes(String forbiddenChar) {
+        forbiddenCharactersCityNonWorkIncomes(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersStreetNonWorkIncomes(String forbiddenChars) {
-        forbiddenCharactersStreetNonWorkIncomes(forbiddenChars);
+    public void testForbiddenCharactersStreetNonWorkIncomes(String forbiddenChar) {
+        forbiddenCharactersStreetNonWorkIncomes(forbiddenChar);
     }
 
 
@@ -160,38 +160,38 @@ public class ChromeVariousTests extends VariousTests {
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersStateAbroadBankAccounts(String forbiddenChars) {
-        forbiddenCharactersStateAbroadBankAccounts(forbiddenChars);
+    public void testForbiddenCharactersStateAbroadBankAccounts(String forbiddenChar) {
+        forbiddenCharactersStateAbroadBankAccounts(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersCityAbroadBankAccounts(String forbiddenChars) {
-        forbiddenCharactersCityAbroadBankAccounts(forbiddenChars);
+    public void testForbiddenCharactersCityAbroadBankAccounts(String forbiddenChar) {
+        forbiddenCharactersCityAbroadBankAccounts(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersBankNameAbroadBankAccounts(String forbiddenChars) {
-        forbiddenCharactersBankNameAbroadBankAccounts(forbiddenChars);
+    public void testForbiddenCharactersBankNameAbroadBankAccounts(String forbiddenChar) {
+        forbiddenCharactersBankNameAbroadBankAccounts(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersBankNumAbroadBankAccounts(String forbiddenChars) {
-        forbiddenCharactersBankNumAbroadBankAccounts(forbiddenChars);
+    public void testForbiddenCharactersBankNumAbroadBankAccounts(String forbiddenChar) {
+        forbiddenCharactersBankNumAbroadBankAccounts(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersBranchNameAbroadBankAccounts(String forbiddenChars) {
-        forbiddenCharactersBranchNameAbroadBankAccounts(forbiddenChars);
+    public void testForbiddenCharactersBranchNameAbroadBankAccounts(String forbiddenChar) {
+        forbiddenCharactersBranchNameAbroadBankAccounts(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersBranchNumAbroadBankAccounts(String forbiddenChars) {
-        forbiddenCharactersBranchNumAbroadBankAccounts(forbiddenChars);
+    public void testForbiddenCharactersBranchNumAbroadBankAccounts(String forbiddenChar) {
+        forbiddenCharactersBranchNumAbroadBankAccounts(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersAccountNumAbroadBankAccounts(String forbiddenChars) {
-        forbiddenCharactersAccountNumAbroadBankAccounts(forbiddenChars);
+    public void testForbiddenCharactersAccountNumAbroadBankAccounts(String forbiddenChar) {
+        forbiddenCharactersAccountNumAbroadBankAccounts(forbiddenChar);
     }
 
     public void testPartnersNumContainsDigitsOnlyErrorMessageAbroadBankAccounts() {
@@ -291,13 +291,13 @@ public class ChromeVariousTests extends VariousTests {
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersCompanyNameStocks(String forbiddenChars) {
-        forbiddenCharactersCompanyNameStocks(forbiddenChars);
+    public void testForbiddenCharactersCompanyNameStocks(String forbiddenChar) {
+        forbiddenCharactersCompanyNameStocks(forbiddenChar);
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
-    public void testForbiddenCharactersCompanyNumStocks(String forbiddenChars) {
-        forbiddenCharactersCompanyNumStocks(forbiddenChars);
+    public void testForbiddenCharactersCompanyNumStocks(String forbiddenChar) {
+        forbiddenCharactersCompanyNumStocks(forbiddenChar);
     }
 
     public void testPercentageFieldFormat() {
@@ -306,6 +306,51 @@ public class ChromeVariousTests extends VariousTests {
 
     public void testCompanyNumberFormat() {
         companyNumberFormat();
+    }
+
+
+    // Partnership tests
+    public void testNeedFillNameErrorMessagePartnership() {
+        needFillNameErrorMessagePartnership();
+    }
+
+    public void testNeedFillPartnershipLocationErrorMessagePartnership() {
+        needFillPartnershipLocationErrorMessagePartnership();
+    }
+
+    public void testNeedFillBusinessNumErrorMessagePartnership() {
+        needFillBusinessNumErrorMessagePartnership();
+    }
+
+    public void testNeedFillPercentageErrorMessagePartnership() {
+        needFillPercentageErrorMessagePartnership();
+    }
+
+    public void testNeedFillCountryErrorMessagePartnership() {
+        needFillCountryErrorMessagePartnership();
+    }
+
+    public void testBusinessNumberFormatPartnership() {
+        businessNumberFormatPartnership();
+    }
+
+    public  void testPercentageFormatPartnership() {
+        percentageFormatPartnership();
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersNamePartnership(String forbiddenChar) {
+        forbiddenCharactersNamePartnership(forbiddenChar);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersStatePartnership(String forbiddenChar) {
+        forbiddenCharactersStatePartnership(forbiddenChar);
+    }
+
+    @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenChars")
+    public void testForbiddenCharactersBusinessNumberPartnership(String forbiddenChar) {
+        forbiddenCharactersBusinessNumberPartnership(forbiddenChar);
     }
 
 }

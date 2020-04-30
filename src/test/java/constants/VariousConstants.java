@@ -164,9 +164,9 @@ public class VariousConstants {
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה שם חברה יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
     public static final By errorMessageCompanyNumContainsCharactersSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר חברה יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
-    public static final By errorMessagePercentageOneHundredMaxSubElementDetails =
+    public static final By errorMessageCompanyPercentageOneHundredMaxSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה אחוז אחזקה בחברה יכול להיות 100 לכל היותר')]");
-    public static final By errorMessagePercentageOneMinSubElementDetails =
+    public static final By errorMessageCompanyPercentageOneMinSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'הערך של אחוז אחזקה בחברה חייב להיות לפחות 1')]");
     public static final By errorMessageCompanyNumDigitsOnlySubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר חברה יכול להכיל ספרות שלמות בלבד')]");
@@ -178,10 +178,37 @@ public class VariousConstants {
     // partnerships details
     public static final By txtNameSubElementPartnershipsDetails = By.xpath(".//input[@name='name']");
     public static final By btnsPartnershipLocationSubElementPartnershipsDetails = By.xpath(".//div[@name='partnershipLocation']/button");
-    public static final By txtOsekNumSubElementPartnershipsDetails = By.xpath(".//input[@name='osekNum']");
+    public static final By txtBusinessNumSubElementPartnershipsDetails = By.xpath(".//input[@name='osekNum']");
     public static final By txtPercentageSubElementPartnershipsDetails = By.xpath(".//input[@name='percentage']");
     public static final By dropDownCountrySubElementPartnershipsDetails = By.xpath(".//input[@name='country']");
     public static final By txtStateSubElementPartnershipsDetails = By.xpath(".//input[@name='state']");
+
+    // partnership errors sub-elements
+    public static final By errorMessageNeedFillNameSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה שם')]");
+    public static final By errorMessageNeedFillPartnershipLocationSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מיקום השותפות')]");
+    public static final By errorMessageNeedFillBusinessNumSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מספר עוסק')]");
+    public static final By errorMessageNeedFillPercentageSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה אחוז')]");
+    public static final By errorMessageBusinessNumDigitsOnlySubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר עוסק יכול להכיל ספרות שלמות בלבד')]");
+    public static final By errorMessageBusinessNumNineDigitsMinSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר עוסק חייב להכיל 9 תווים לפחות')]");
+    public static final By errorMessageBusinessNumNineDigitsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר עוסק לא יכול להכיל יותר מ- 9 תווים')]");
+    public static final By errorMessagePercentageOneHundredMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה אחוז יכול להיות 100 לכל היותר')]");
+    public static final By errorMessagePercentageOneMinSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'הערך של אחוז חייב להיות לפחות 1')]");
+    public static final By errorMessagePercentageThreeCharsMaxSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה אחוז לא יכול להכיל יותר מ- 3 תווים')]");
+    public static final By errorMessageNameContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה שם יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+    public static final By errorMessageBusinessNumContainsCharactersSubElementDetails =
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר עוסק יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+
 
 
 }

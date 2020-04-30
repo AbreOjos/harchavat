@@ -118,12 +118,12 @@ public class StocksDetails extends BasePage {
         return details.findElements(errorMessageCompanyNumContainsCharactersSubElementDetails);
     }
 
-    protected List<WebElement> getPercentageOneHundredMaxErrorMessage() {
-        return details.findElements(errorMessagePercentageOneHundredMaxSubElementDetails);
+    protected List<WebElement> getCompanyPercentageOneHundredMaxErrorMessage() {
+        return details.findElements(errorMessageCompanyPercentageOneHundredMaxSubElementDetails);
     }
 
-    protected List<WebElement> getPercentageOneMinErrorMessage() {
-        return details.findElements(errorMessagePercentageOneMinSubElementDetails);
+    protected List<WebElement> getCompanyPercentageOneMinErrorMessage() {
+        return details.findElements(errorMessageCompanyPercentageOneMinSubElementDetails);
     }
 
     protected List<WebElement> getCompanyNumDigitsOnlyErrorMessage() {

@@ -1227,18 +1227,18 @@ public class Various extends BasePage {
         return integerStocksDetailsMap.get(stocksNumber).getCompanyNumContainsCharactersErrorMessage();
     }
 
-    public List<WebElement> getPercentageOneHundredMaxErrorMessageStocks(int stocksNumber) {
+    public List<WebElement> getCompanyPercentageOneHundredMaxErrorMessageStocks(int stocksNumber) {
         checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
-        return integerStocksDetailsMap.get(stocksNumber).getPercentageOneHundredMaxErrorMessage();
+        return integerStocksDetailsMap.get(stocksNumber).getCompanyPercentageOneHundredMaxErrorMessage();
     }
 
-    public List<WebElement> getPercentageOneMinErrorMessageStocks(int stocksNumber) {
+    public List<WebElement> getCompanyPercentageOneMinErrorMessageStocks(int stocksNumber) {
         checkNumber(stocksNumber, stocks, integerStocksDetailsMap);
 
         recreateMapPanelsOnPage();
-        return integerStocksDetailsMap.get(stocksNumber).getPercentageOneMinErrorMessage();
+        return integerStocksDetailsMap.get(stocksNumber).getCompanyPercentageOneMinErrorMessage();
     }
 
     public List<WebElement> getCompanyNumDigitsOnlyErrorMessageStocks(int stocksNumber) {
@@ -1292,18 +1292,18 @@ public class Various extends BasePage {
         integerPartnershipsDetailsMap.get(partnershipsNumber).choosePartnershipLocationOversea();
     }
 
-    public void enterPartnershipOsekNum(int partnershipsNumber, String osekNum) {
+    public void enterPartnershipBusinessNum(int partnershipsNumber, String osekNum) {
         checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
         recreateMapPanelsOnPage();
-        integerPartnershipsDetailsMap.get(partnershipsNumber).enterOsekNum(osekNum);
+        integerPartnershipsDetailsMap.get(partnershipsNumber).enterBusinessNum(osekNum);
     }
 
-    public void deletePartnershipOsekNum(int partnershipsNumber) {
+    public void deletePartnershipBusinessNum(int partnershipsNumber) {
         checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
 
         recreateMapPanelsOnPage();
-        integerPartnershipsDetailsMap.get(partnershipsNumber).deleteOsekNum();
+        integerPartnershipsDetailsMap.get(partnershipsNumber).deleteBusinessNum();
     }
 
     public void enterPartnershipPercentage(int partnershipsNumber, String percentage) {
@@ -1346,6 +1346,105 @@ public class Various extends BasePage {
 
         recreateMapPanelsOnPage();
         integerPartnershipsDetailsMap.get(partnershipsNumber).deleteState();
+    }
+
+    // error messages Partnership
+    public List<WebElement> getNeedFillNameErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getNeedFillNameErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillPartnershipLocationErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getNeedFillPartnershipLocationErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillBusinessNumErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getNeedFillBusinessNumErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillPercentageErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getNeedFillPercentageErrorMessage();
+    }
+
+    public List<WebElement> getNeedFillCountryErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getNeedFillCountryErrorMessage();
+    }
+
+    public List<WebElement> getBusinessNumDigitsOnlyErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getBusinessNumDigitsOnlyErrorMessage();
+    }
+
+    public List<WebElement> getBusinessNumNineDigitsMinErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getBusinessNumNineDigitsMinErrorMessage();
+    }
+
+    public List<WebElement> getBusinessNumNineDigitsMaxErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getBusinessNumNineDigitsMaxErrorMessage();
+    }
+
+    public List<WebElement> getPercentageOneHundredMaxErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getPercentageOneHundredMaxErrorMessage();
+    }
+
+    public List<WebElement> getPercentageOneMinErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getPercentageOneMinErrorMessage();
+    }
+
+    public List<WebElement> getPercentageThreeCharsMaxErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getPercentageThreeCharsMaxErrorMessage();
+    }
+
+    public List<WebElement> getNameContainsCharactersErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getNameContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getStateContainsCharactersErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getStateContainsCharactersErrorMessage();
+    }
+
+    public List<WebElement> getBusinessNumContainsCharactersErrorMessagePartnership(int partnershipsNumber) {
+        checkNumber(partnershipsNumber, partnerships, integerPartnershipsDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerPartnershipsDetailsMap.get(partnershipsNumber).getBusinessNumContainsCharactersErrorMessage();
     }
 
 

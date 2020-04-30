@@ -1151,22 +1151,22 @@ public class VariousTests extends TestBase {
 
         various.enterStocksCompanyPercentage(0, tooBigPercentage);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneHundredMaxErrorMessageStocks(0), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyPercentageOneHundredMaxErrorMessageStocks(0), 1,
                 String.format("Error message '100 percents max' did not appear when the incorrect value %s were entered", tooBigPercentage));
 
         various.deleteStocksCompanyPercentage(0);
         various.enterStocksCompanyPercentage(0, tooSmalPercentage);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneMinErrorMessageStocks(0), 1,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyPercentageOneMinErrorMessageStocks(0), 1,
                 String.format("Error message '1 percents min' did not appear when the incorrect value %s were entered", tooSmalPercentage));
 
         various.deleteStocksCompanyPercentage(0);
         various.enterStocksCompanyPercentage(0, correctPercentage);
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneHundredMaxErrorMessageStocks(0), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyPercentageOneHundredMaxErrorMessageStocks(0), 0,
                 String.format("Error message '100 percents max' appeared when the incorrect value %s were entered", correctPercentage));
 
-        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneMinErrorMessageStocks(0), 0,
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getCompanyPercentageOneMinErrorMessageStocks(0), 0,
                 String.format("Error message '1 percents min' appeared when the incorrect value %s were entered", correctPercentage));
     }
 
@@ -1214,8 +1214,250 @@ public class VariousTests extends TestBase {
     }
 
 
+    // Partnership tests
+    protected void needFillNameErrorMessagePartnership() {
+
+        String firstName = "First Name";
+        String thirdName = "Third Name";
+        String error = "Name";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHavePartnerships();
+        addTwoPartnership(various);
+
+        needFillErrorMessage(
+                various::getNeedFillNameErrorMessagePartnership,
+                basePage::clickMenuVarious,
+                various::enterPartnershipName,
+                various::deletePartnerships,
+                firstName, thirdName, error);
+    }
+
+    protected void needFillPartnershipLocationErrorMessagePartnership() {
+
+        String error = "Partnership Location";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHavePartnerships();
+        addTwoPartnershipIsraeli(various);
+
+        needChooseErrorMessage(
+                various::getNeedFillPartnershipLocationErrorMessagePartnership,
+                basePage::clickMenuVarious,
+                various::choosePartnershipLocationIsrael,
+                various::deletePartnerships,
+                error);
+    }
+
+    protected void needFillBusinessNumErrorMessagePartnership() {
+
+        String firstBusinessNum = "123456789";
+        String thirdBusinessNum = "987654321";
+        String error = "Business Number";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHavePartnerships();
+        addTwoPartnershipIsraeli(various);
+
+        needFillErrorMessage(
+                various::getNeedFillBusinessNumErrorMessagePartnership,
+                basePage::clickMenuVarious,
+                various::enterPartnershipBusinessNum,
+                various::deletePartnerships,
+                firstBusinessNum, thirdBusinessNum, error);
+    }
+
+    protected void needFillPercentageErrorMessagePartnership() {
+
+        String firstPercentage = "100";
+        String thirdPercentage = "50";
+        String error = "Percentage";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHavePartnerships();
+        addTwoPartnershipIsraeli(various);
+
+        needFillErrorMessage(
+                various::getNeedFillPercentageErrorMessagePartnership,
+                basePage::clickMenuVarious,
+                various::enterPartnershipPercentage,
+                various::deletePartnerships,
+                firstPercentage, thirdPercentage, error);
+    }
+
+    protected void needFillCountryErrorMessagePartnership() {
+
+        Integer firstIndex = 0;
+        Integer thirdIndex = 0;
+        String error = "Country";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHavePartnerships();
+        addTwoPartnershipOversea(various);
+
+        needFillErrorMessage(
+                various::getNeedFillCountryErrorMessagePartnership,
+                basePage::clickMenuVarious,
+                various::selectCountryPartnershipsFromDropDownListByIndex,
+                various::deletePartnerships,
+                firstIndex, thirdIndex, error);
+    }
+
+    protected void businessNumberFormatPartnership() {
+        log.info("Check allowed format of the field Business Number");
+
+        String nonDigitValue = "asdfghjkl";
+        String tooShortNumber = "12345678";
+        String tooLongNumber = "1234567890";
+        String correctNumber = "123456789";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHavePartnerships();
+        addTwoPartnershipIsraeli(various);
+
+        various.enterPartnershipBusinessNum(0, nonDigitValue);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBusinessNumDigitsOnlyErrorMessagePartnership(0), 1,
+                String.format("Error message 'Business Number digits only' did not appear when the incorrect value %s were entered", nonDigitValue));
+
+
+        various.deletePartnershipBusinessNum(0);
+        various.enterPartnershipBusinessNum(0, tooShortNumber);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBusinessNumNineDigitsMinErrorMessagePartnership(0), 1,
+                String.format("Error message 'Business Number Nine digits min' did not appear when the incorrect value %s were entered", nonDigitValue));
+
+        various.deletePartnershipBusinessNum(0);
+        various.enterPartnershipBusinessNum(0, tooLongNumber);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBusinessNumNineDigitsMaxErrorMessagePartnership(0), 1,
+                String.format("Error message 'Business Number Nine digits max' did not appear when the incorrect value %s were entered", nonDigitValue));
+
+        various.deletePartnershipBusinessNum(0);
+        various.enterPartnershipBusinessNum(0, correctNumber);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBusinessNumDigitsOnlyErrorMessagePartnership(0), 0,
+                String.format("Error message 'Business Number digits only' did not disappear when the correct value %s were entered", correctNumber));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBusinessNumNineDigitsMinErrorMessagePartnership(0), 0,
+                String.format("Error message 'Business Number Nine digits min' did not disappear when the correct value %s were entered", correctNumber));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBusinessNumNineDigitsMaxErrorMessagePartnership(0), 0,
+                String.format("Error message 'Business Number digits only' did not disappear when the correct value %s were entered", correctNumber));
+
+    }
+
+    protected void percentageFormatPartnership() {
+        log.info("Check allowed format of the field Percentage");
+
+        String nonDigitPercent = "abc";
+        String tooSmallPercent = "0";
+        String tooBigPercent = "101";
+        String tooLongPercent = "1234";
+        String correctPercent = "100";
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHavePartnerships();
+        addTwoPartnershipIsraeli(various);
+
+        various.enterPartnershipPercentage(0, nonDigitPercent);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneHundredMaxErrorMessagePartnership(0), 1,
+                String.format("Error message 'Percentage One Hundred max' did not appear when the incorrect value %s were entered", nonDigitPercent));
+
+        various.deletePartnershipPercentage(0);
+        various.enterPartnershipPercentage(0, tooSmallPercent);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneMinErrorMessagePartnership(0), 1,
+                String.format("Error message 'Percentage One min' did not appear when the incorrect value %s were entered", tooSmallPercent));
+
+        various.deletePartnershipPercentage(0);
+        various.enterPartnershipPercentage(0, tooBigPercent);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneHundredMaxErrorMessagePartnership(0), 1,
+                String.format("Error message 'Percentage Hundred max' did not appear when the incorrect value %s were entered", tooBigPercent));
+
+        various.deletePartnershipPercentage(0);
+        various.enterPartnershipPercentage(0, tooLongPercent);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageThreeCharsMaxErrorMessagePartnership(0), 1,
+                String.format("Error message 'Percentage Three Chars max' did not appear when the incorrect value %s were entered", tooLongPercent));
+
+        various.deletePartnershipPercentage(0);
+        various.enterPartnershipPercentage(0, correctPercent);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneHundredMaxErrorMessagePartnership(0), 0,
+                String.format("Error message 'Percentage One Hundred max' did not disappear when the correct value %s were entered", correctPercent));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageOneMinErrorMessagePartnership(0), 0,
+                String.format("Error message 'Percentage One min' did not disappear when the correct value %s were entered", correctPercent));
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getPercentageThreeCharsMaxErrorMessagePartnership(0), 0,
+                String.format("Error message 'Percentage Three Chars max' did not disappear when the correct value %s were entered", correctPercent));
+    }
+
+    protected void forbiddenCharactersNamePartnership(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Name field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHavePartnerships();
+        various.choosePartnershipLocationIsrael(0);
+
+        various.enterPartnershipName(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getNameContainsCharactersErrorMessagePartnership(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Name", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersStatePartnership(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a State field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHavePartnerships();
+        various.choosePartnershipLocationOversea(0);
+
+        various.enterPartnershipsState(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getStateContainsCharactersErrorMessagePartnership(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into State", forbiddenChar));
+    }
+
+    protected void forbiddenCharactersBusinessNumberPartnership(String forbiddenChar) {
+        log.info(String.format("Enter the characters '%s' to a Business Number field, find the error message", forbiddenChar));
+
+        Various various = basePage.clickMenuVarious();
+        various.chooseHavePartnerships();
+        various.choosePartnershipLocationOversea(0);
+
+        various.enterPartnershipBusinessNum(0, forbiddenChar);
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(various.getBusinessNumContainsCharactersErrorMessagePartnership(0), 1,
+                String.format("Error message 'allowed characters' did not appeared when '%s' was entered into Business Number", forbiddenChar));
+    }
+
 
     // == private methods ==
+    private void addTwoPartnership(Various various) {
+        various.addPartnerships();
+        various.addPartnerships();
+    }
+
+    private void addTwoPartnershipIsraeli(Various various) {
+        various.addPartnerships();
+        various.addPartnerships();
+        various.choosePartnershipLocationIsrael(0);
+        various.choosePartnershipLocationIsrael(1);
+        various.choosePartnershipLocationIsrael(2);
+    }
+
+    private void addTwoPartnershipOversea(Various various) {
+        various.addPartnerships();
+        various.addPartnerships();
+        various.choosePartnershipLocationOversea(0);
+        various.choosePartnershipLocationOversea(1);
+        various.choosePartnershipLocationOversea(2);
+    }
+
     private void addTwoStocks(Various various) {
         various.addStocks();
         various.addStocks();

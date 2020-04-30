@@ -359,7 +359,7 @@ public class TemporalTests extends TestBase {
         various.choosePartnershipLocationIsrael(0);
         various.choosePartnershipLocationOversea(2);
 
-        various.enterPartnershipOsekNum(0, "123");
+        various.enterPartnershipBusinessNum(0, "123");
         various.enterPartnershipPercentage(0, "14");
 
         various.selectCountryPartnershipsFromDropDownListByName(2, ISRAEL);
