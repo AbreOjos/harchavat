@@ -10,10 +10,14 @@ import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
 import readresources.documents.FileAttachments;
 import tests.TestBase;
+import utils.utilitiesForInfra.PDFUtilsForInfra;
 
+import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
 
 import static constants.EnglishHebrewConstants.*;
+import static utils.helpers.Waits.fluentWaitFileDownload;
+import static utils.utilitiesForInfra.DirectoryManipulationForInfra.getFirstAbsoluteFileName;
 
 public class TemporalTests extends TestBase {
     private static final Logger log = Logger.getLogger(TemporalTests.class);
@@ -69,19 +73,13 @@ public class TemporalTests extends TestBase {
         vehicle.clickBtnReturn();
     }
 
-    protected void fillPersonalDetails() throws InterruptedException, URISyntaxException {
+    protected void fillPersonalDetails() throws InterruptedException, URISyntaxException, FileNotFoundException {
         log.info("open page, click Fill Form upper link, click Personal Details side menus, fill fields");
 
         PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
 
         personalDetails.checkAgreement();
 
-        personalDetails.enterIdentity("123456789");
-        personalDetails.enterFirstName("Igor");
-
-        personalDetails.deleteFirstName();
-
-        personalDetails.enterLastName("Gindin");
         personalDetails.enterCellular("0523798168");
         personalDetails.enterPhone("0506585162");
         personalDetails.enterEmail("jgjhg@jhgjhg.gov");
@@ -118,6 +116,15 @@ public class TemporalTests extends TestBase {
 
         basePage.clickBtnSave();
         basePage.clickBtnPrint();
+//        System.out.println("Download Percentage: " + JavaScriptHelpersHarchavat.getDownloadPercentageChrome(driver));
+        String downloadFilename = getFirstAbsoluteFileName(downloadDir);
+        fluentWaitFileDownload(driver, downloadFilename, 10);
+        String pdfContent = PDFUtilsForInfra.getTextFromPdfFile(downloadFilename);
+        System.out.println("//////////////");
+        System.out.println("PDF CONTENT:");
+        System.out.println("//////////////");
+        System.out.println(pdfContent);
+        System.out.println("//////////////");
         basePage.clickButtonLogOut();
     }
 

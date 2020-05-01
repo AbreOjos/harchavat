@@ -8,6 +8,7 @@ import readresources.drivers.WebDrivers;
 import tests.scenarious.temporary.TemporalTests;
 import utils.utilitiesForInfra.MiscellaneousForInfra;
 
+import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
 
 @Test
@@ -38,6 +39,8 @@ public class ChromeTemporalTests extends TemporalTests {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        prepareEmptyFieldsPersonalDetails();
     }
 
 
@@ -49,7 +52,7 @@ public class ChromeTemporalTests extends TemporalTests {
         clickNextPreviousButtons();
     }
 
-    public void testFillPersonalDetails() throws InterruptedException, URISyntaxException {
+    public void testFillPersonalDetails() throws InterruptedException, URISyntaxException, FileNotFoundException {
         fillPersonalDetails();
     }
 

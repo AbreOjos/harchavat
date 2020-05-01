@@ -57,7 +57,7 @@ public class BasePage {
     private WebElement menuSendForm;
 
     // buttons
-    @FindBy(xpath = "//i[contains(text(),'print')]/ancestor::button")
+    @FindBy(xpath = "//i[contains(text(),'picture_as_pdf')]/ancestor::button")
     private WebElement btnPrint;
     @FindBy(xpath = "//i[contains(text(),'save')]/ancestor::button")
     private WebElement btnSave;
@@ -177,6 +177,8 @@ public class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
 
     public void clickBtnSave() {

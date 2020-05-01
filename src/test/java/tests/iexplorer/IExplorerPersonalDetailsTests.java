@@ -35,7 +35,7 @@ public class IExplorerPersonalDetailsTests extends PersonalDetailsTests {
 
         super.setUpMethod();
 
-        prepareEmptyPhoneAndEmailFieldsPersonalDetails();
+        prepareEmptyFieldsPersonalDetails();
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenCharsPhoneNumber")

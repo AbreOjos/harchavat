@@ -33,7 +33,7 @@ public class FirefoxSendFormPersonalDetailsTests extends SendFormPersonalDetails
 
         super.setUpMethod();
 
-        prepareEmptyPhoneAndEmailFieldsPersonalDetails();
+        prepareEmptyFieldsPersonalDetails();
     }
 
     public void testPersonalDetailsNotFilledFields() {

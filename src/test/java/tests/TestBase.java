@@ -25,8 +25,10 @@ import pom.forms.vehicles.Vehicle;
 import pom.forms.wages.Wage;
 import readresources.parameters.WebUiParameters;
 import utils.functionalinterfaces.TriConsumer;
+import utils.utilitiesForInfra.DirectoryManipulationForInfra;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
@@ -171,6 +173,13 @@ public abstract class TestBase {
 
     @AfterMethod(alwaysRun = true)
     public void tearDownMethod() {
+
+        try {
+            DirectoryManipulationForInfra.deleteDirectoryWithFiles(downloadDir);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         if (driver != null) driver.quit();
     }
 
@@ -180,11 +189,23 @@ public abstract class TestBase {
     }
 
     // == help methods ==
-    protected void prepareEmptyPhoneAndEmailFieldsPersonalDetails() {
+    protected void prepareEmptyFieldsPersonalDetails() {
         PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
+        try {
+            personalDetails.uncheckAgreement();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         personalDetails.deleteCellular();
         personalDetails.deletePhone();
         personalDetails.deleteEmail();
+        personalDetails.chooseMaritalStatusMarried();
+        personalDetails.chooseSpouseIsraeli();
+        personalDetails.deleteSpouseIdentity();
+        personalDetails.chooseSpouseExpatriate();
+        personalDetails.deleteSpousePassport();
+        personalDetails.deleteSpouseState();
+        personalDetails.chooseMaritalStatusBachelor();
         personalDetails.clickBtnSave();
     }
 

@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
+import java.io.File;
 import java.time.Duration;
 
 public class Waits {
@@ -93,6 +94,24 @@ public class Waits {
                 .ignoring(NoSuchElementException.class);
 
         wait.until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    public static void fluentWaitFileDownload(WebDriver driver, File file, long maxTimeOutSeconds) {
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(maxTimeOutSeconds))
+                .pollingEvery(Duration.ofMillis(200));
+
+        wait.until((drvr) -> file.exists());
+    }
+
+    public static void fluentWaitFileDownload(WebDriver driver, String filename, long maxTimeOutSeconds) {
+        File file = new File(filename);
+
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(maxTimeOutSeconds))
+                .pollingEvery(Duration.ofMillis(200));
+
+        wait.until((drvr) -> file.exists());
     }
 
 }

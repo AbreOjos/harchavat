@@ -34,7 +34,7 @@ public class ChromeSendFormPersonalDetailsTests extends SendFormPersonalDetailsT
 
         super.setUpMethod();
 
-        prepareEmptyPhoneAndEmailFieldsPersonalDetails();
+        prepareEmptyFieldsPersonalDetails();
     }
 
     public void testPersonalDetailsNotFilledFields() {

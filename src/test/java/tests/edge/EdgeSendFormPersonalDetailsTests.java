@@ -27,7 +27,7 @@ public class EdgeSendFormPersonalDetailsTests extends SendFormPersonalDetailsTes
 
         super.setUpMethod();
 
-        prepareEmptyPhoneAndEmailFieldsPersonalDetails();
+        prepareEmptyFieldsPersonalDetails();
     }
 
     public void testPersonalDetailsNotFilledFields() {

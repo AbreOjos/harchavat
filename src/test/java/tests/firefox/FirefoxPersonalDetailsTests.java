@@ -34,7 +34,7 @@ public class FirefoxPersonalDetailsTests extends PersonalDetailsTests {
 
         super.setUpMethod();
 
-        prepareEmptyPhoneAndEmailFieldsPersonalDetails();
+        prepareEmptyFieldsPersonalDetails();
     }
 
     @Test(dataProviderClass = NEDataProvider.class, dataProvider = "forbiddenCharsPhoneNumber")
