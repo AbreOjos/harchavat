@@ -25,6 +25,9 @@ public class PersonalDetails extends BasePage {
     }
 
     // == web elements ==
+    @FindBy(xpath = "//*[contains(text(),'אנא אשר על מנת לשלוח את הטופס')]")
+    private List<WebElement> lblPleaseConfirm;
+
     @FindBy(xpath = "//input[@role='checkbox']")
     private List<WebElement> checkBoxes;
 
@@ -95,6 +98,10 @@ public class PersonalDetails extends BasePage {
     private List<WebElement> spousePassportTooLongErrorMessage;
 
     // == getters ==
+    public List<WebElement> getLblPleaseConfirm() {
+        return lblPleaseConfirm;
+    }
+
     public List<WebElement> getPhoneFormatErrorMessage() {
         return phoneFormatErrorMessage;
     }
@@ -169,6 +176,10 @@ public class PersonalDetails extends BasePage {
     public void checkAgreement() throws InterruptedException {
         if (!isAgreementChecked())
             scrollIntoViewMoveFocusAndClickWithJavaScript(driver, checkBoxes.get(0));
+    }
+
+    public boolean lblPleaseConfirmExists() {
+        return lblPleaseConfirm.size() > 0;
     }
 
     public void uncheckAgreement() throws InterruptedException {

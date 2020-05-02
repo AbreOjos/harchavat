@@ -118,4 +118,8 @@ public class FirefoxPersonalDetailsTests extends PersonalDetailsTests {
     public void testCheckDownloadedFormForSeparates() {
         checkDownloadedFormForSeparates();
     }
+
+    public void testLabelPleaseConfirmAppearsAndDisappears() throws InterruptedException {
+        labelPleaseConfirmAppearsAndDisappears();
+    }
 }

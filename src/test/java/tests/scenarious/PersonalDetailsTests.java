@@ -312,6 +312,26 @@ public class PersonalDetailsTests extends TestBase {
         personalDetails.clickDownloadLinkCheckSuffixAndReturn("pdf");
     }
 
+    protected void labelPleaseConfirmAppearsAndDisappears() throws InterruptedException {
+        log.info("Check that the lable 'please confirm before form sending' diasappear after checkbox checking and appears after unchecking");
+
+        PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getLblPleaseConfirm(), 1,
+                "A warning 'please confirm' did not appear when the checkbox was not checked");
+
+        personalDetails.checkAgreement();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getLblPleaseConfirm(), 0,
+                "A warning 'please confirm' did not disappear when the checkbox was not checked");
+
+        personalDetails.uncheckAgreement();
+
+        AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getLblPleaseConfirm(), 1,
+                "A warning 'please confirm' did not re-appear when the checkbox was unchecked");
+
+    }
+
 
     // == private methods ==
     private void spouseIdMissingErrorMessage(PersonalDetails personalDetails) {
@@ -321,7 +341,7 @@ public class PersonalDetailsTests extends TestBase {
         personalDetails.deleteSpouseIdentity();
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getSpouseIdNeedToFillErrorMessage(), 1,
-                "An error messages 'need to fill spouse ID' did not appeared after deleting a spouse ID");
+                "An error messages 'need to fill spouse ID' did not appear after deleting a spouse ID");
     }
 
     private void spouseIdFormat(PersonalDetails personalDetails) {
@@ -368,7 +388,7 @@ public class PersonalDetailsTests extends TestBase {
         personalDetails.deleteSpousePassport();
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getSpousePassportNeedToFillErrorMessage(), 1,
-                "An error messages 'need to fill spouse ID' did not appeared after deleting a spouse ID");
+                "An error messages 'need to fill spouse ID' did not appear after deleting a spouse ID");
     }
 
     private void spousePassportFormat(PersonalDetails personalDetails) {
@@ -407,6 +427,4 @@ public class PersonalDetailsTests extends TestBase {
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getSpousePassportNeedToFillErrorMessage(), 0,
                 String.format("An error messages 'need to fill spouse passport' appeared when the correct spouse passport '%s' entered", correctSpousePassport));
     }
-
-
 }
