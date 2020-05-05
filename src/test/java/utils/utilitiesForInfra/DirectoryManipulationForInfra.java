@@ -1,7 +1,5 @@
 package utils.utilitiesForInfra;
 
-import org.testng.Assert;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -22,12 +20,18 @@ public class DirectoryManipulationForInfra {
             throws IOException {
         Path pathToDelete = Paths.get(dir);
 
+        if (Files.notExists(pathToDelete))
+            return;
+
         Files.walk(pathToDelete)
                 .sorted(Comparator.reverseOrder())
                 .map(Path::toFile)
                 .forEach(File::delete);
 
-        Assert.assertFalse(Files.exists(pathToDelete), String.format("Directory '%s' still exists", dir));
+//        Assert.assertFalse(Files.exists(pathToDelete), String.format("Directory '%s' still exists", dir));
+
+        if (Files.exists(pathToDelete))
+            throw new IOException(String.format("Directory '%s' still exists", dir));
     }
 
     /**

@@ -313,9 +313,12 @@ public class PersonalDetailsTests extends TestBase {
     }
 
     protected void labelPleaseConfirmAppearsAndDisappears() throws InterruptedException {
-        log.info("Check that the lable 'please confirm before form sending' diasappear after checkbox checking and appears after unchecking");
+        log.info("Check that the label 'please confirm before form sending' disappear after checkbox checking and appears after unchecking");
 
-        PersonalDetails personalDetails = basePage.clickMenuPersonalDetails();
+        basePage.clickMenuPersonalDetails();
+        basePage.clickBtnContinue();
+        basePage.clickBtnReturn();
+        PersonalDetails personalDetails = new PersonalDetails(driver);
 
         AssertionsHarchavat.assertListContainsExactNumberOfElements(personalDetails.getLblPleaseConfirm(), 1,
                 "A warning 'please confirm' did not appear when the checkbox was not checked");
