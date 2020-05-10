@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -193,6 +194,46 @@ public class Various extends BasePage {
         chooseDontHave(btnDontHaveArt);
 
         recreateMapPanelsOnPage();
+    }
+
+    public List<NonWorkIncomesDetails> getListNonWorkIncomes() {
+        return new ArrayList<>(integerNonWorkIncomesDetailsMap.values());
+    }
+
+    public int getListNonWorkIncomesAmount() {
+        return integerNonWorkIncomesDetailsMap.size();
+    }
+
+    public List<AbroadBankAccountsDetails> getListAbroadBankAccounts() {
+        return new ArrayList<>(integerAbroadBankAccountsDetailsMap.values());
+    }
+
+    public int getAbroadBankAccountsAmount() {
+        return integerAbroadBankAccountsDetailsMap.size();
+    }
+
+    public List<DigitalCoinsDetails> getListDigitalCoins() {
+        return new ArrayList<>(integerDigitalCoinsDetailsMap.values());
+    }
+
+    public int getDigitalCoinsAmount() {
+        return integerDigitalCoinsDetailsMap.size();
+    }
+
+    public List<StocksDetails> getListStocks() {
+        return new ArrayList<>(integerStocksDetailsMap.values());
+    }
+
+    public int getStocksAmount() {
+        return integerStocksDetailsMap.size();
+    }
+
+    public List<PartnershipsDetails> getListPartnerships() {
+        return new ArrayList<>(integerPartnershipsDetailsMap.values());
+    }
+
+    public int getPartnershipsAmount() {
+        return integerPartnershipsDetailsMap.size();
     }
 
     // addPanel and deletePanel panels

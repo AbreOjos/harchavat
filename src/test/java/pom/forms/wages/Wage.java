@@ -2,9 +2,11 @@ package pom.forms.wages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,13 +14,36 @@ import java.util.Map;
 import static constants.BaseConstants.checkCircleIconSubElementMenu;
 import static constants.BaseConstants.errorIconSubElementMenu;
 import static constants.WagesConstants.wagesDetailsPanel;
+import static constants.WagesConstants.wagesSpouseDetailsPanel;
 
 public class Wage extends BasePage {
     
     // == private fields =
     private Map<Integer, WageDetails> integerWageDetailsMap;
+    private Map<Integer, WageSpouseDetails> integerWageSpouseDetailsMap;
     
     private String wage = "wage";
+
+    // == web-elements ==
+    @FindBy(xpath = "//*[@id='sachirInYearId']//button[@value='true']")
+    private WebElement btnHaveWage;
+    @FindBy(xpath = "//*[@id='sachirInYearId']//button[@value='false']")
+    private WebElement btnDontHaveWage;
+    @FindBy(xpath = "//*[@id='spouseSachirInYearId']//button[@value='true']")
+    private WebElement btnHaveWageSpouse;
+    @FindBy(xpath = "//*[@id='spouseSachirInYearId']//button[@value='false']")
+    private WebElement btnDontHaveWageSpouse;
+    @FindBy(xpath = "//*[@id='spouseSachirInYearId']")
+    private List<WebElement> btnsWageSpouse;
+    @FindBy(xpath = "//*[@id='sachirInYearId']/..//div[@class='add-item w-inline-block']//img")
+    private List<WebElement> btnAddWage;
+    @FindBy(xpath = "//*[@id='spouseSachirInYearId']/..//div[@class='add-item w-inline-block']//img")
+    private List<WebElement> btnAddWageSpouse;
+    @FindBy(xpath = "//*[@id='sachirInYearId']/..//span[contains(., 'delete')]")
+    private List<WebElement> btnsDeleteWage;
+    @FindBy(xpath = "//*[@id='spouseSachirInYearId']/..//span[contains(., 'delete')]")
+    private List<WebElement> btnsDeleteWageSpouse;
+
 
     // == constructors==
     public Wage(WebDriver driver) {
@@ -43,15 +68,44 @@ public class Wage extends BasePage {
 
     public void chooseHaveWage() {
 
-        chooseHave();
+        chooseHave(btnHaveWage);
 
         recreateMapPanelsOnPage();
     }
 
     public void chooseDontHaveWage() {
-        chooseDontHave();
+        chooseDontHave(btnDontHaveWage);
 
         recreateMapPanelsOnPage();
+    }
+
+    public void chooseHaveWageSpouse() {
+
+        chooseHave(btnHaveWageSpouse);
+
+        recreateMapPanelsOnPage();
+    }
+
+    public void chooseDontHaveWageSpouse() {
+        chooseDontHave(btnDontHaveWageSpouse);
+
+        recreateMapPanelsOnPage();
+    }
+
+    public WebElement getBtnAddWage() {
+        return btnAddWage.get(btnAddWage.size()-1);
+    }
+
+    public WebElement getBtnAddWageSpouse() {
+        return btnAddWageSpouse.get(btnAddWageSpouse.size()-1);
+    }
+
+    public List<WebElement> getBtnsDeleteWage() {
+        return btnsDeleteWage;
+    }
+
+    public List<WebElement> getBtnsDeleteWageSpouse() {
+        return btnsDeleteWageSpouse;
     }
 
     public void deleteWage(int indexWage) {
@@ -63,11 +117,39 @@ public class Wage extends BasePage {
 
     public void addWage() {
 
-        addPanel();
+        addPanel(getBtnAddWage());
 
         recreateMapPanelsOnPage();
     }
 
+    public void addWageSpouse() {
+
+        addPanel(getBtnAddWageSpouse());
+
+        recreateMapPanelsOnPage();
+    }
+
+    public void deletePanelWage(int index) {
+
+        deletePanel(index, getBtnsDeleteWage());
+    }
+
+    public void deletePanelWageSpouse(int index) {
+
+        deletePanel(index, getBtnsDeleteWageSpouse());
+    }
+
+    public boolean btnsWageSpouseExist() {
+        return btnsWageSpouse.size() > 0;
+    }
+
+    public List<WageDetails> getListWages() {
+        return new ArrayList<>(integerWageDetailsMap.values());
+    }
+
+    public int getWagesAmount() {
+        return integerWageDetailsMap.size();
+    }
 
     public void chooseIsraelIncome(int wageNumber) {
         checkNumber(wageNumber, wage, integerWageDetailsMap);
@@ -374,10 +456,16 @@ public class Wage extends BasePage {
         PageFactory.initElements(driver, this);
 
         List<WebElement> wageDetailsRows = driver.findElements(wagesDetailsPanel);
+        List<WebElement> wageSpouseDetailsRows = driver.findElements(wagesSpouseDetailsPanel);
 
         for (int i = 0; i < wageDetailsRows.size(); ++i) {
             WebElement webElement = wageDetailsRows.get(i);
             integerWageDetailsMap.put(i, new WageDetails(driver, webElement));
+        }
+
+        for (int i = 0; i < wageSpouseDetailsRows.size(); ++i) {
+            WebElement webElement = wageSpouseDetailsRows.get(i);
+            integerWageSpouseDetailsMap.put(i, new WageSpouseDetails(driver, webElement));
         }
     }
 

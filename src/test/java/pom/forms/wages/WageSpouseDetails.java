@@ -3,11 +3,11 @@ package pom.forms.wages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class WageDetails extends BaseWageDetails {
+public class WageSpouseDetails extends BaseWageDetails {
 
 //    private final WebElement details;
 
-    public WageDetails(WebDriver driver, WebElement details) {
+    public WageSpouseDetails(WebDriver driver, WebElement details) {
         super(driver, details);
 //        this.details = details;
     }

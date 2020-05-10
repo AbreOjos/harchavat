@@ -477,7 +477,7 @@ public class SendForm extends BasePage {
 
         checkNumber(wageNumber, "street", WAGE, integerSendFormWageDetailsMap);
 
-        return integerSendFormWageDetailsMap.get(wageNumber).streetIExists();
+        return integerSendFormWageDetailsMap.get(wageNumber).streetExists();
     }
 
     public boolean houseNumberExists(int wageNumber) {

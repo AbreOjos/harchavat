@@ -80,6 +80,10 @@ public class Vehicle extends BasePage {
         return new ArrayList<>(integerVehicleDetailsMap.values());
     }
 
+    public int getVehiclesAmount() {
+        return integerVehicleDetailsMap.size();
+    }
+
     // choose vehicle type
     public void choosePrivateVehicle(int vehicleNumber) {
         checkNumber(vehicleNumber, vehicle, integerVehicleDetailsMap);

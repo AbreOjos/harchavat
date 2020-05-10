@@ -11,7 +11,10 @@ public class WagesConstants {
     // constants
 
     // elements
-    public static final By wagesDetailsPanel = By.xpath("//div[@class='other-box']/div[2]/div/div/div/div");
+//    public static final By wagesDetailsPanel = By.xpath("//div[@class='other-box']/div[2]/div/div/div/div");
+    public static final By wagesDetailsPanel = By.xpath("//div[@class='other-box']/div[2]/div/div/div/div/*[@id='workTypeOfIncomeId']/..");
+    public static final By wagesSpouseDetailsPanel = By.xpath("//div[@class='other-box']/div[2]/div/div/div/*[@id='workTypeOfIncomeId']/..");
+
 
     // sub-elements
     public static final By txtEmployerNameSubElementDetails = By.xpath(".//*[@name='employerName']");

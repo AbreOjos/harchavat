@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pom.BasePage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -225,58 +226,6 @@ public class RealEstateDetails extends BasePage {
         }
     }
 
-//    protected String fetchCurrentMonthYear() {
-////        PageFactory.initElements(driver, this);
-//        return getBtnHeaderPicker().getText().trim();
-//    }
-
-//    protected String clickRightOnce() {
-//        getBtnRight().click();
-//        return fetchCurrentMonthYear();
-//    }
-//
-//    protected String clickLeftOnce() {
-//        getBtnLeft().click();
-//        return fetchCurrentMonthYear();
-//    }
-
-//    protected String pickMonthYear(String month, String year) {
-//        String currentMonthYear = fetchCurrentMonthYear();
-//        String currentYear = StringUtils.getDigits(currentMonthYear);
-//
-//        if (Integer.parseInt(year) > Integer.parseInt(currentYear)) {
-//            clickLeft(JANUARY, year);
-//        } else {
-//            clickRight(JANUARY, year);
-//        }
-//
-//        while (!currentMonthYear.contains(month) || !currentMonthYear.contains(year)) {
-//            currentMonthYear = clickLeft(month, year);
-//        }
-//
-//        return currentMonthYear;
-//    }
-
-//    protected String pickDay(String day) {
-//        for (WebElement singleDay : getLblsDay()) {
-//            if (singleDay.getText().trim().equals(day)) {
-//                singleDay.click();
-//                return singleDay.getText().trim();
-//            }
-//        }
-//
-//        throw new WrongArgumentException(String.format("Day %s not found in the picker", day));
-//    }
-
-//    protected void pickCancel() {
-//        getBtnCancelPick().click();
-//    }
-//
-//    protected void pickOk() {
-//        getBtnOkPick().click();
-//    }
-
-
 
     // choose real estate ownership and size
     protected void enterRealEstatePropertyArea(String size) {
@@ -437,60 +386,6 @@ public class RealEstateDetails extends BasePage {
 
         fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
     }
-
-
-
-//    protected void chooseRealEstateDivided() {
-//        if (elementHasClass(getBtnRealEstateDivided(), "active"))
-//            return;
-//
-//        try {
-//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateDivided());
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-//    }
-
-//    protected void chooseRealEstateNotDivided() {
-//        if (elementHasClass(getBtnRealEstateNotDivided(), "active"))
-//            return;
-//
-//        try {
-//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateNotDivided());
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-//    }
-
-//    protected void chooseRealEstateTenantIsraeli() {
-//        if (elementHasClass(getBtnRealEstateTenantIsraeli(), "active"))
-//            return;
-//
-//        try {
-//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantIsraeli());
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-//    }
-
-//    protected void chooseRealEstateTenantNotIsraeli() {
-//        if (elementHasClass(getBtnRealEstateTenantNotIsraeli(), "active"))
-//            return;
-//
-//        try {
-//            scrollIntoViewMoveFocusAndClick(driver, getBtnRealEstateTenantNotIsraeli());
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        fluentWaitElementExists(driver, waitFewSecondsWarningDisabled);
-//    }
 
     protected void addTenant() {
         try {
@@ -908,6 +803,10 @@ public class RealEstateDetails extends BasePage {
 
         recreateMapPanelsOnPage();
         return integerTenantDetailsMap.get(tenantNumber).getErrorMessageTenantPassportFifteenDigitsMax();
+    }
+
+    public List<TenantDetails> getListTenants() {
+        return new ArrayList<>(integerTenantDetailsMap.values());
     }
 
     protected int getTenantsAmount() {

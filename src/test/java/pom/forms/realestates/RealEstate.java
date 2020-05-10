@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import pom.BasePage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,6 +75,10 @@ public class RealEstate extends BasePage {
         addPanel();
 
         recreateMapPanelsOnPage();
+    }
+
+    public List<RealEstateDetails> getListRealEstates() {
+        return new ArrayList<>(integerRealEstateDetailsMap.values());
     }
 
     public int getRealEstatesAmount() {
@@ -600,23 +605,6 @@ public class RealEstate extends BasePage {
     }
 
     // who is a tenant
-//    public void chooseRealEstateTenantIsraeli(int realEstateNumber) {
-//        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
-//
-//        recreateMapPanelsOnPage();
-//        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTenantIsraeli();
-//
-////        recreateMapPanelsOnPage();
-//    }
-
-//    public void chooseRealEstateTenantNotIsraeli(int realEstateNumber) {
-//        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
-//
-//        recreateMapPanelsOnPage();
-//        integerRealEstateDetailsMap.get(realEstateNumber).chooseRealEstateTenantNotIsraeli();
-//
-////        recreateMapPanelsOnPage();
-//    }
 
     public void addTenant(int realEstateNumber) {
         checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
@@ -632,15 +620,6 @@ public class RealEstate extends BasePage {
         integerRealEstateDetailsMap.get(realEstateNumber).deleteTenant(tenantNumber);
     }
 
-//    public void enterRenterId(int realEstateNumber, String renterId) {
-//        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
-//
-//        recreateMapPanelsOnPage();
-//        integerRealEstateDetailsMap.get(realEstateNumber).enterRenterId(renterId);
-//
-////        recreateMapPanelsOnPage();
-//    }
-
     public void enterMonthlyRent(int realEstateNumber, String monthlyRent) {
         checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
 
@@ -654,24 +633,6 @@ public class RealEstate extends BasePage {
         recreateMapPanelsOnPage();
         integerRealEstateDetailsMap.get(realEstateNumber).deleteMonthlyRent();
     }
-
-
-//    public void selectCountryRenterFromDropDownListByName(int realEstateNumber, String countryRenter) {
-//        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
-//
-//        recreateMapPanelsOnPage();
-//        integerRealEstateDetailsMap.get(realEstateNumber).selectCountryRenterFromDropDownListByName(countryRenter);
-//    }
-
-
-//    public void enterRenterPassport(int realEstateNumber, String renterPassport) {
-//        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
-//
-//        recreateMapPanelsOnPage();
-//        integerRealEstateDetailsMap.get(realEstateNumber).enterRenterPassport(renterPassport);
-//
-////        recreateMapPanelsOnPage();
-//    }
 
     public void chooseTenantFromIsrael(int realEstateNumber, int tenantNumber) {
         checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
@@ -1017,6 +978,13 @@ public class RealEstate extends BasePage {
 
         recreateMapPanelsOnPage();
         return integerRealEstateDetailsMap.get(realEstateNumber).getErrorMessageTenantPassportFifteenDigitsMax(tenantNumber);
+    }
+
+    public List<TenantDetails> getListTenants(int realEstateNumber) {
+        checkNumber(realEstateNumber, realEstate, integerRealEstateDetailsMap);
+
+        recreateMapPanelsOnPage();
+        return integerRealEstateDetailsMap.get(realEstateNumber).getListTenants();
     }
 
     public int getTenantsAmount(int realEstateNumber) {
