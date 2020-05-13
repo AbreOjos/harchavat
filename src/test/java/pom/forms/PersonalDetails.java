@@ -473,9 +473,25 @@ public class PersonalDetails extends BasePage {
         List<String> handles = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(handles.get(1));
 
-        String url = driver.getCurrentUrl();
-        AssertionsHarchavat.assertTextEndWithSubstring(url, suffix,
-                String.format("URL '%s' does not end with a suffix '%s'", url, suffix));
+        int count = 0;
+        while (true) {
+            String url = driver.getCurrentUrl();
+            try {
+                AssertionsHarchavat.assertTextEndWithSubstring(url, suffix,
+                        String.format("URL '%s' does not end with a suffix '%s'", url, suffix));
+                break;
+            } catch (AssertionError e) {
+                count++;
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                if (count == 6) {
+                    throw new AssertionError(e);
+                }
+            }
+        }
 
 
         driver.switchTo().window(handles.get(0));

@@ -76,7 +76,7 @@ public class VariousConstants {
     public static final By errorMessageNeedFillNumPartnersInAccountSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'חובה למלא את השדה מספר שותפים בחשבון')]");
     public static final By errorMessageBankNameContainsCharactersSubElementDetails =
-            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה שם בנק להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
+            By.xpath(".//p[@class='error-msg'][contains(text(),'השדה שם בנק יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
     public static final By errorMessageBankNumContainsCharactersSubElementDetails =
             By.xpath(".//p[@class='error-msg'][contains(text(),'השדה מספר בנק יכול להכיל את התווים הבאים: אותיות, מספרים . , - ( ) ! : / ? + @ ₪')]");
     public static final By errorMessageBranchNameContainsCharactersSubElementDetails =

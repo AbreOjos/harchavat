@@ -15,7 +15,7 @@ public class NEDataProvider {
 
     @DataProvider
     public static Object[][] forbiddenChars() {
-        return CSVUtils.getCsvTwoDArray("csv/ForbiddenChars.csv", 1, null);
+        return CSVUtils.getCsvTwoDArray("csv/ForbiddenChars.csv", 1, 1);
     }
 
 }
